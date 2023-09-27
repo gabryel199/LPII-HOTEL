@@ -8,7 +8,7 @@ function Navbar(props) {
     <div className='navbar navbar-expand-lg fixed-top navbar-dark bg-primary'>
       <div className='container'>
         <a href='/' className='navbar-brand'>
-          SAA
+          REDE DE HOTEIS X
         </a>
         <button
           className='navbar-toggler'
@@ -24,29 +24,20 @@ function Navbar(props) {
         <div className='collapse navbar-collapse' id='navbarResponsive'>
           <ul className='navbar-nav'>
             <NavbarItem
-              render='true'
-              href='/listagem-usuarios'
-              label='Usuários'
-            />
+              render='true' href='/listagem-usuarios' label='Hotéis'/>
           </ul>
           <ul className='navbar-nav'>
-            <NavbarItem render='true' href='/listagem-cursos' label='Cursos' />
+            <NavbarItem render='true' href='/listagem-cursos' label='Reserva'/>
           </ul>
           <ul className='navbar-nav'>
             <NavbarItem
-              render='true'
-              href='/listagem-professores'
-              label='Professores'
-            />
+              render='true' href='/listagem-professores' label='Registros'/>
           </ul>
           <ul className='navbar-nav'>
-            <NavbarItem render='true' href='/listagem-alunos' label='Alunos' />
+            <NavbarItem render='true' href='/login' label='Login'/>
           </ul>
           <ul className='navbar-nav'>
-            <NavbarItem render='true' href='/login' label='Entrar' />
-          </ul>
-          <ul className='navbar-nav'>
-            <NavbarItem render='true' href='/' label='Sair' />
+            <NavbarItem render='true' href='/' label='Sair'/>
           </ul>
         </div>
       </div>
