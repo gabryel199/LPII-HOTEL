@@ -2,8 +2,8 @@
   "posts": [
     {
       "id": 1,
-      "title": "Hotel01",
-      "descricao": "Hotelabeiramar!"
+      "title": "Hotel01"
+      
     }
   ],
   "profile": {
