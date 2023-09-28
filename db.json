@@ -1,12 +1,11 @@
 {
   "hotel": [
-    { "id": 1, "titulo": "hotel01", "descricao": "1"},
-    { "id": 2, "titulo": "hotel02", "descricao": "1"},
-    { "id": 3, "titulo": "hotel03", "descricao": "1"},
-    { "id": 4, "titulo": "hotel04", "descricao": "1"},
-    { "id": 5, "titulo": "hotel05", "descricao": "1"},
-    { "id": 6, "titulo": "hotel06", "descricao": "1"}
-   
+    { "id": 1, "titulo": "hotel 01", "descricao": "1"},
+    { "id": 2, "titulo": "hotel 02", "descricao": "1"},
+    { "id": 3, "titulo": "hotel 03", "descricao": "1"},
+    { "id": 4, "titulo": "hotel 04", "descricao": "1"},
+    { "id": 5, "titulo": "hotel 05", "descricao": "1"},
+    { "id": 6, "titulo": "hotel 06", "descricao": "1"}   
   ],
   "cursos": [
     { "id": 1, "nome": "Curso 1", "idCoordenador": 1 },
