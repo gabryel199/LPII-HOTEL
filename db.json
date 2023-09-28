@@ -1,10 +1,12 @@
 {
-  "usuarios": [
-    { "id": 1, "login": "usuario01", "senha": "1", "senhaRepeticao": "1", "cpf": "111111111", "admin": true },
-    { "id": 2, "login": "usuario02", "senha": "1", "senhaRepeticao": "1", "cpf": "111111111", "admin": true },
-    { "id": 3, "login": "usuario03", "senha": "1", "senhaRepeticao": "1", "cpf": "111111111", "admin": true },
-    { "id": 4, "login": "usuario04", "senha": "1", "senhaRepeticao": "1", "cpf": "111111111", "admin": false },
-    { "id": 5, "login": "usuario05", "senha": "1", "senhaRepeticao": "1", "cpf": "111111111", "admin": false }
+  "hotel": [
+    { "id": 1, "titulo": "hotel01", "descricao": "1"},
+    { "id": 2, "titulo": "hotel02", "descricao": "1"},
+    { "id": 3, "titulo": "hotel03", "descricao": "1"},
+    { "id": 4, "titulo": "hotel04", "descricao": "1"},
+    { "id": 5, "titulo": "hotel05", "descricao": "1"},
+    { "id": 6, "titulo": "hotel06", "descricao": "1"}
+   
   ],
   "cursos": [
     { "id": 1, "nome": "Curso 1", "idCoordenador": 1 },
