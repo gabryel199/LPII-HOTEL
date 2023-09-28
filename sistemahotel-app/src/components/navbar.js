@@ -34,9 +34,6 @@ function Navbar(props) {
               render='true' href='#' label='Registros'/>
           </ul>
           <ul className='navbar-nav'>
-            <NavbarItem render='true' href='/#' label='Login'/>
-          </ul>
-          <ul className='navbar-nav'>
             <NavbarItem render='true' href='#' label='Sair'/>
           </ul>
         </div>
