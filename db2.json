@@ -1,0 +1,31 @@
+"numero": "1005", "complemento": "204", "logradouro": "Rua fulano de tal", "bairro": "aeaet", "cep": "00000-000", "cidade": "Juiz de Fora", "UF": MG, "pais": "Brasil"
+
+{
+  "hotel": [
+    { "id": 1, "titulo": "hotel 01", "descricao": "zdhzfdhryryry", "avaliacaoMedia": 4.5},
+    { "id": 2, "titulo": "hotel 02", "descricao": "zdhzfdhryryry", "avaliacaoMedia": 4.5},
+    { "id": 3, "titulo": "hotel 03", "descricao": "zdhzfdhryryry", "avaliacaoMedia": 4.5},
+    { "id": 4, "titulo": "hotel 04", "descricao": "zdhzfdhryryry", "avaliacaoMedia": 4.5},
+    { "id": 5, "titulo": "hotel 05", "descricao": "zdhzfdhryryry", "avaliacaoMedia": 4.5},
+    { "id": 6, "titulo": "hotel 06", "descricao": "zdhzfdhryryry", "avaliacaoMedia": 4.5}   
+  ],
+  "cliente": [
+    { "id": 1, "nome": "cliente 01-01", "cpf": "12345678987", "dataNacimento": "08/04/1987", "telefone": "(32)99999-9999" },
+    { "id": 2, "nome": "cliente 01-02", "cpf": "14578956832", "dataNacimento": "11/08/1999", "telefone": "(32)99999-9999" },
+    { "id": 3, "nome": "cliente 01-03", "cpf": "44785223982", "dataNacimento": "10/09/2000", "telefone": "(32)99999-9999" },
+    { "id": 4, "nome": "cliente 01-04", "cpf": "55877422598", "dataNacimento": "15/07/2002", "telefone": "(32)99999-9999" }
+  ],
+  "funcionario": [
+    { "id": 1, "nome": "funcionario 01-01", "cpf": "12345778987", "dataNacimento": "08/04/1988", "telefone": "(32)99999-9999", "cargo": "" , "salario": "", "horaInicio": "", "horaFim": "", "folga": "seg, ter"},
+    { "id": 2, "nome": "funcionario 01-02", "cpf": "14578556832", "dataNacimento": "11/08/1991", "telefone": "(32)99999-9999", "cargo": "", "salario": "", "horaInicio": "", "horaFim": "", "folga": "seg, ter"},
+    { "id": 3, "nome": "funcionario 01-03", "cpf": "44784523982", "dataNacimento": "10/09/2010", "telefone": "(32)99999-9999", "cargo": "", "salario": "", "horaInicio": "", "horaFim": "", "folga": "seg, ter"},
+    { "id": 4, "nome": "funcionario 01-04", "cpf": "55877922598", "dataNacimento": "15/07/2007", "telefone": "(32)99999-9999", "cargo": "", "salario": "", "horaInicio": "", "horaFim": "", "folga": "seg, ter"}
+  ],
+  "produto": [
+    { "id": 1, "titulo": 1, "descricao": "Aluno 1", "preco": "111111111", "email": "aluno1@email.com", "celular": "1111-1111", "idCurso": 1 },
+    { "id": 2, "matricula": 2, "nome": "Aluno 2", "cpf": "111111111", "email": "aluno2@email.com", "celular": "2222-2222", "idCurso": 1 },
+    { "id": 3, "matricula": 3, "nome": "Aluno 3", "cpf": "111111111", "email": "aluno3@email.com", "celular": "3333-3333", "idCurso": 2 },
+    { "id": 4, "matricula": 4, "nome": "Aluno 4", "cpf": "111111111", "email": "aluno4@email.com", "celular": "4444-4444", "idCurso": 2 },
+    { "id": 5, "matricula": 5, "nome": "Aluno 5", "cpf": "111111111", "email": "aluno5@email.com", "celular": "5555-5555", "idCurso": 3 }
+  ]
+}
