@@ -72,7 +72,7 @@ function ListagemFuncionario() {
                     className='btn btn-warning'
                     onClick={() => cadastrar()}
                   >
-                    Novo funcionario
+                    Novo Funcionario
                   </button>
                   <table className='table table-hover'>
                     <thead>
