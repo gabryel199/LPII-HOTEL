@@ -41,7 +41,7 @@ function ListagemHoteis() {
             headers: { 'Content-Type': 'application/json' },
           })
           .then(function (response) {
-            mensagemSucesso(`Usuário excluído com sucesso!`);
+            mensagemSucesso(`Hotel excluído com sucesso!`);
             setDados(
               dados.filter((dado) => {
                 return dado.id !== id;
@@ -49,7 +49,7 @@ function ListagemHoteis() {
             );
           })
           .catch(function (error) {
-            mensagemErro(`Erro ao excluir o usuário`);
+            mensagemErro(`Erro ao excluir o Hotel`);
           });
       }
     
@@ -72,7 +72,7 @@ function ListagemHoteis() {
                     className='btn btn-warning'
                     onClick={() => cadastrar()}
                   >
-                    Novo Usuário
+                    Novo Hotel
                   </button>
                   <table className='table table-hover'>
                     <thead>

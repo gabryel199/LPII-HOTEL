@@ -27,7 +27,7 @@ function Navbar(props) {
               render='true' href='/listagem-hoteis' label='Hotéis'/>
           </ul>
           <ul className='navbar-nav'>
-            <NavbarItem render='true' href='#' label='Reserva'/>
+            <NavbarItem render='true' href='/listagem-cliente' label='Clientes'/>
           </ul>
           <ul className='navbar-nav'>
             <NavbarItem

@@ -7,12 +7,12 @@
       { "id": 5, "titulo": "hotel 05", "descricao": "zdhzfdhryryry", "avaliacaoMedia": 4.5, "endereco_id": 5},
       { "id": 6, "titulo": "hotel 06", "descricao": "zdhzfdhryryry", "avaliacaoMedia": 4.1, "endereco_id": 6}   
     ],
-    
+
   "cliente": [
-    { "id": 1, "nome": "cliente 01-01", "cpf": "12345678987", "dataNacimento": "08/04/1987", "senha": "xxxxxxxxxx", "telefone": "" },
-    { "id": 2, "nome": "cliente 01-02", "cpf": "14578956832", "dataNacimento": "11/08/1999", "senha": "yyyyyyyyyyy", "telefone": "" },
-    { "id": 3, "nome": "cliente 01-03", "cpf": "44785223982", "dataNacimento": "10/09/2000", "senha": "uuuuuuuuuuuuuu", "telefone": "" },
-    { "id": 4, "nome": "cliente 01-04", "cpf": "55877422598", "dataNacimento": "15/07/2002", "senha": "ppppppppppppp", "telefone": "" }
+    { "id": 1, "nome": "cliente 01-01", "cpf": "12345678987", "dataNacimento": "08/04/1987", "email": "cliente01-01@gmail.com", "senha": "xxxxxxxx", "endereco_id": 11},
+    { "id": 2, "nome": "cliente 01-02", "cpf": "14578956832", "dataNacimento": "11/08/1999", "email": "cliente01-02@gmail.com", "senha": "xxxxxxxx", "endereco_id": 12},
+    { "id": 3, "nome": "cliente 01-03", "cpf": "44785223982", "dataNacimento": "10/09/2000", "email": "cliente01-03@gmail.com", "senha": "xxxxxxxx", "endereco_id": 13},
+    { "id": 4, "nome": "cliente 01-04", "cpf": "55877422598", "dataNacimento": "15/07/2002", "email": "cliente01-04@gmail.com", "senha": "xxxxxxxx", "endereco_id": 14}
   ],
   "funcionario": [
     { "id": 1, "nome": "funcionario 01-01", "cpf": "12345778987", "dataNacimento": "08/04/1988", "senha": "rrgfgfdgd", "telefone": "" , "salario": "", "horaInicio": "", "horaFim": "", "cargo": ""},
