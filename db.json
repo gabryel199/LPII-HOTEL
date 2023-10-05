@@ -15,10 +15,10 @@
     { "id": 4, "nome": "cliente 01-04", "cpf": "55877422598", "dataNacimento": "15/07/2002", "email": "cliente01-04@gmail.com", "senha": "xxxxxxxx", "endereco_id": 14}
   ],
   "funcionario": [
-    { "id": 1, "nome": "funcionario 01-01", "cpf": "12345778987", "dataNacimento": "08/04/1988", "senha": "rrgfgfdgd", "telefone": "" , "salario": "", "horaInicio": "", "horaFim": "", "cargo": ""},
-    { "id": 2, "nome": "funcionario 01-02", "cpf": "14578556832", "dataNacimento": "11/08/1991", "senha": "yyyyycdddcdyyyyyy", "telefone": "", "salario": "", "horaInicio": "", "horaFim": "",  "cargo": ""},
-    { "id": 3, "nome": "funcionario 01-03", "cpf": "44784523982", "dataNacimento": "10/09/2010", "senha": "uuuugdsedfuuuuuuu", "telefone": "" , "salario": "", "horaInicio": "", "horaFim": "", "cargo": ""},
-    { "id": 4, "nome": "funcionario 01-04", "cpf": "55877922598", "dataNacimento": "15/07/2007", "senha": "hggffdger", "telefone": "" , "salario": "", "horaInicio": "", "horaFim": "", "cargo": ""}
+    { "id": 1, "nome": "funcionario 01-01", "cpf": "12345778987", "dataNacimento": "08/04/1988", "senha": "rrgfgfdgd", "telefone": "" , "salario": "", "horaInicio": "", "horaFim": "", "cargo": "", "email": "funcionario01-01@gmail.com"},
+    { "id": 2, "nome": "funcionario 01-02", "cpf": "14578556832", "dataNacimento": "11/08/1991", "senha": "yyyyycdddcdyyyyyy", "telefone": "", "salario": "", "horaInicio": "", "horaFim": "",  "cargo": "" , "email": "funcionario01-02@gmail.com"},
+    { "id": 3, "nome": "funcionario 01-03", "cpf": "44784523982", "dataNacimento": "10/09/2010", "senha": "uuuugdsedfuuuuuuu", "telefone": "" , "salario": "", "horaInicio": "", "horaFim": "", "cargo": "", "email": "funcionario01-03@gmail.com"},
+    { "id": 4, "nome": "funcionario 01-04", "cpf": "55877922598", "dataNacimento": "15/07/2007", "senha": "hggffdger", "telefone": "" , "salario": "", "horaInicio": "", "horaFim": "", "cargo": "", "email": "funcionario01-04@gmail.com"}
   ],
   "produto": [
     { "id": 1, "matricula": 1, "nome": "Aluno 1", "cpf": "111111111", "email": "aluno1@email.com", "celular": "1111-1111", "idCurso": 1 },
