@@ -21,10 +21,9 @@
     { "id": 4, "nome": "funcionario 01-04", "cpf": "55877922598", "dataNacimento": "15/07/2007", "senha": "hggffdger", "telefone": "" , "salario": "", "horaInicio": "", "horaFim": "", "cargo": "", "email": "funcionario01-04@gmail.com"}
   ],
   "produto": [
-    { "id": 1, "matricula": 1, "nome": "Aluno 1", "cpf": "111111111", "email": "aluno1@email.com", "celular": "1111-1111", "idCurso": 1 },
-    { "id": 2, "matricula": 2, "nome": "Aluno 2", "cpf": "111111111", "email": "aluno2@email.com", "celular": "2222-2222", "idCurso": 1 },
-    { "id": 3, "matricula": 3, "nome": "Aluno 3", "cpf": "111111111", "email": "aluno3@email.com", "celular": "3333-3333", "idCurso": 2 },
-    { "id": 4, "matricula": 4, "nome": "Aluno 4", "cpf": "111111111", "email": "aluno4@email.com", "celular": "4444-4444", "idCurso": 2 },
-    { "id": 5, "matricula": 5, "nome": "Aluno 5", "cpf": "111111111", "email": "aluno5@email.com", "celular": "5555-5555", "idCurso": 3 }
+    { "id": 1, "titulo": "misto quente", "descricao": "pao, presunto, queijo", "preco": 5.50, "quantidadeestoque": 100, "hotel_id": 1, "categoria_produto_id": 1 },
+    { "id": 2, "titulo": "cerveja skol", "descricao": "350ml",                 "preco": 9.99, "quantidadeestoque": 100, "hotel_id": 1, "categoria_produto_id": 2 },
+    { "id": 3, "titulo": "barra de chocolate nestle", "descricao": "amargo, 75g", "preco": 6.99, "quantidadeestoque": 100, "hotel_id": 1, "categoria_produto_id": 3 },
+    { "id": 4, "titulo": "salada de frutas", "descricao": "maça, abacaxi, laranja", "preco": 5.50, "quantidadeestoque": 100, "hotel_id": 1, "categoria_produto_id": 4 }
   ]
 }
