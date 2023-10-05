@@ -16,10 +16,21 @@ import axios from 'axios';
 
 import { BASE_URL } from '../config/axios';
 
-const baseURL = `${BASE_URL}/usuarios`;
+const baseURL = `${BASE_URL}/hotel`;
 
 
 function ListagemHoteis() {
+    const navigate = useNavigate();
+
+    const cadastrar = () => {
+        navigate(`/cadastro-hotel`);
+      };
+    
+      const editar = (id) => {
+        navigate(`/cadastro-hotel/${id}`);
+      };
+    
+      const [dados, setDados] = React.useState(null);
 
 
 }
