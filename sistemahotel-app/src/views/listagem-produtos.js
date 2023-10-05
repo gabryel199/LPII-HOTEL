@@ -83,31 +83,7 @@ function ListagemProdutos() {
                         <th scope='col'>Ações</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      {dados.map((dado) => (
-                        <tr key={dado.id}>
-                          <td>{dado.titulo}</td>
-                          <td>{dado.descricao}</td>
-                          <td>{dado.preco}</td>
-                          <td>
-                            <Stack spacing={1} padding={0} direction='row'>
-                              <IconButton
-                                aria-label='edit'
-                                onClick={() => editar(dado.id)}
-                              >
-                                <EditIcon />
-                              </IconButton>
-                              <IconButton
-                                aria-label='delete'
-                                onClick={() => excluir(dado.id)}
-                              >
-                                <DeleteIcon />
-                              </IconButton>
-                            </Stack>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
+                    
                   </table>{' '}
                 </div>
               </div>
