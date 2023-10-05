@@ -18,14 +18,10 @@ function Rotas(props) {
     <BrowserRouter>
       <Routes>
         <Route path='/login' element={<Login />} />
-        <Route path='/cadastro-usuarios/:idParam?' element={<CadastroUsuario />} />
-        <Route path='/cadastro-cursos/:idParam?' element={<CadastroCurso />} />
-        <Route path='/cadastro-professores/:idParam?'element={<CadastroProfessor />} />
-        <Route path='/cadastro-alunos/:idParam?' element={<CadastroAluno />} />
-        <Route path='/listagem-usuarios' element={<ListagemUsuarios />} />
-        <Route path='/listagem-cursos' element={<ListagemCursos />} />
-        <Route path='/listagem-professores' element={<ListagemProfessores />} />
-        <Route path='/listagem-alunos' element={<ListagemAlunos />} />
+        <Route path='/listagem-cliente' element={<ListagemCliente />} />
+        <Route path='/listagem-funcionario' element={<ListagemFuncionario />} />
+        <Route path='/listagem-hoteis' element={<ListagemHoteis />} />
+        <Route path='/listagem-quartos' element={<ListagemQuartos />} />
       </Routes>
     </BrowserRouter>
   );
