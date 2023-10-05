@@ -34,10 +34,10 @@ function Navbar(props) {
               render='true' href='/listagem-funcionario' label='Funcionarios'/>
           </ul>
           <ul className='navbar-nav'>
-            <NavbarItem render='true' href='/listagem-quartos' label='Produtos'/>
+            <NavbarItem render='true' href='/listagem-quartos' label='Quartos'/>
           </ul>
           <ul className='navbar-nav'>
-            <NavbarItem render='true' href='/listagem-quartos' label='Quartos'/>
+            <NavbarItem render='true' href='/listagem-produtos' label='Produtos'/>
           </ul>
         </div>
       </div>
