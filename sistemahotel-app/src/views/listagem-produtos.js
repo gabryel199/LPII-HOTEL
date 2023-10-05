@@ -41,7 +41,7 @@ function ListagemProdutos() {
             headers: { 'Content-Type': 'application/json' },
           })
           .then(function (response) {
-            mensagemSucesso(`produto excluído com sucesso!`);
+            mensagemSucesso(`Produto excluído com sucesso!`);
             setDados(
               dados.filter((dado) => {
                 return dado.id !== id;
@@ -72,7 +72,7 @@ function ListagemProdutos() {
                     className='btn btn-warning'
                     onClick={() => cadastrar()}
                   >
-                    Novo Quarto
+                    Novo Produto
                   </button>
                   <table className='table table-hover'>
                     <thead>
