@@ -19,7 +19,7 @@ import { BASE_URL } from '../config/axios';
 const baseURL = `${BASE_URL}/funcionario`;
 
 
-function ListagemCliente() {
+function ListagemFuncionario() {
     const navigate = useNavigate();
 
     const cadastrar = () => {
@@ -119,4 +119,4 @@ function ListagemCliente() {
 
 
 
-export default ListagemCliente;
+export default ListagemFuncionario;
