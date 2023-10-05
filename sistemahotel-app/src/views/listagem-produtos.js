@@ -19,15 +19,15 @@ import { BASE_URL } from '../config/axios';
 const baseURL = `${BASE_URL}/produto`;
 
 
-function ListagemProduto() {
+function ListagemProdutos() {
     const navigate = useNavigate();
 
     const cadastrar = () => {
-        navigate(`/cadastro-produtos`);
+        navigate(`/cadastro-produto`);
       };
     
       const editar = (id) => {
-        navigate(`/cadastro-produtos/${id}`);
+        navigate(`/cadastro-produto/${id}`);
       };
     
       const [dados, setDados] = React.useState(null);
@@ -63,7 +63,7 @@ function ListagemProduto() {
     
       return (
         <div className='container'>
-          <Card title='Listagem de produto'>
+          <Card title='Listagem de Produtos'>
             <div className='row'>
               <div className='col-lg-12'>
                 <div className='bs-component'>
@@ -72,7 +72,7 @@ function ListagemProduto() {
                     className='btn btn-warning'
                     onClick={() => cadastrar()}
                   >
-                    Novo produto
+                    Novo Quarto
                   </button>
                   <table className='table table-hover'>
                     <thead>
@@ -119,4 +119,4 @@ function ListagemProduto() {
 
 
 
-export default ListagemProduto;
+export default ListagemProdutos;
