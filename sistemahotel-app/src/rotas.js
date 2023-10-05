@@ -1,15 +1,15 @@
 import React from 'react';
 
-import ListagemUsuarios from './views/listagem-usuarios';
-import ListagemCursos from './views/listagem-cursos';
-import ListagemProfessores from './views/listagem-professores';
-import ListagemAlunos from './views/listagem-alunos';
+import ListagemCliente from './views/listagem-cliente';
+import ListagemFuncionario from './views/listagem-funcionario';
+import ListagemHoteis from './views/listagem-hoteis';
+import ListagemQuartos from './views/listagem-quartos';
 
 import Login from './views/login';
-import CadastroUsuario from './views/cadastro-usuario';
-import CadastroCurso from './views/cadastro-curso';
-import CadastroProfessor from './views/cadastro-professor';
-import CadastroAluno from './views/cadastro-aluno';
+//import CadastroUsuario from './views/cadastro-usuario';
+//import CadastroCurso from './views/cadastro-curso';
+//import CadastroProfessor from './views/cadastro-professor';
+//import CadastroAluno from './views/cadastro-aluno';
 
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
