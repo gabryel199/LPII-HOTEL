@@ -1,12 +1,13 @@
 {
-  "hotel": [
-    { "id": 1, "titulo": "hotel 01", "descricao": "1"},
-    { "id": 2, "titulo": "hotel 02", "descricao": "1"},
-    { "id": 3, "titulo": "hotel 03", "descricao": "1"},
-    { "id": 4, "titulo": "hotel 04", "descricao": "1"},
-    { "id": 5, "titulo": "hotel 05", "descricao": "1"},
-    { "id": 6, "titulo": "hotel 06", "descricao": "1"}   
-  ],
+  "hotel": [    
+      { "id": 1, "titulo": "hotel 01", "descricao": "zdhzfdhryryry", "avaliacaoMedia": 4.5, "endereco_id": 1},
+      { "id": 2, "titulo": "hotel 02", "descricao": "zdhzfdhryryry", "avaliacaoMedia": 4.5, "endereco_id": 2},
+      { "id": 3, "titulo": "hotel 03", "descricao": "zdhzfdhryryry", "avaliacaoMedia": 4.7, "endereco_id": 3},
+      { "id": 4, "titulo": "hotel 04", "descricao": "zdhzfdhryryry", "avaliacaoMedia": 3, "endereco_id": 4},
+      { "id": 5, "titulo": "hotel 05", "descricao": "zdhzfdhryryry", "avaliacaoMedia": 4.5, "endereco_id": 5},
+      { "id": 6, "titulo": "hotel 06", "descricao": "zdhzfdhryryry", "avaliacaoMedia": 4.1, "endereco_id": 6}   
+    ],
+    
   "cliente": [
     { "id": 1, "nome": "cliente 01-01", "cpf": "12345678987", "dataNacimento": "08/04/1987", "senha": "xxxxxxxxxx", "telefone": "" },
     { "id": 2, "nome": "cliente 01-02", "cpf": "14578956832", "dataNacimento": "11/08/1999", "senha": "yyyyyyyyyyy", "telefone": "" },

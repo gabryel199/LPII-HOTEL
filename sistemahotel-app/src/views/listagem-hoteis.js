@@ -35,7 +35,7 @@ function ListagemHoteis() {
       async function excluir(id) {
         let data = JSON.stringify({ id });
         let url = `${baseURL}/${id}`;
-        console.log(url);
+        
         await axios
           .delete(url, data, {
             headers: { 'Content-Type': 'application/json' },
@@ -63,7 +63,7 @@ function ListagemHoteis() {
     
       return (
         <div className='container'>
-          <Card title='Listagem de Usuários'>
+          <Card title='Listagem de Hoteis'>
             <div className='row'>
               <div className='col-lg-12'>
                 <div className='bs-component'>
@@ -77,18 +77,18 @@ function ListagemHoteis() {
                   <table className='table table-hover'>
                     <thead>
                       <tr>
-                        <th scope='col'>Login</th>
-                        <th scope='col'>CPF</th>
-                        <th scope='col'>Administrador</th>
+                        <th scope='col'>Nome</th>
+                        <th scope='col'>Descrição</th>
+                        <th scope='col'>Avaliação</th>
                         <th scope='col'>Ações</th>
                       </tr>
                     </thead>
                     <tbody>
                       {dados.map((dado) => (
                         <tr key={dado.id}>
-                          <td>{dado.login}</td>
-                          <td>{dado.cpf}</td>
-                          <td>{dado.admin ? 'Sim' : 'Não'}</td>
+                          <td>{dado.titulo}</td>
+                          <td>{dado.descricao}</td>
+                          <td>{dado.avaliacaoMedia}</td>
                           <td>
                             <Stack spacing={1} padding={0} direction='row'>
                               <IconButton
