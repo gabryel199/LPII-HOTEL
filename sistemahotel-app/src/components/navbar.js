@@ -22,6 +22,9 @@ function Navbar(props) {
           <span className='navbar-toggler-icon'></span>
         </button>
         <div className='collapse navbar-collapse' id='navbarResponsive'>
+        <ul className='navbar-nav'>
+            <NavbarItem render='true' href='/login' label='Entrar' />
+          </ul>
           <ul className='navbar-nav'>
             <NavbarItem
               render='true' href='/listagem-hoteis' label='Hotéis'/>
