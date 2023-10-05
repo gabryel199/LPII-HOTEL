@@ -47,13 +47,13 @@
     { "id": 1, "titulo": "ar condicionado", "descricao": "xxxxxxxxxxx", "categoria_comodidade_id": 1},
     { "id": 2, "titulo": "elevador", "descricao": "xxxxxxxxxxx", "categoria_comodidade_id": 2},
     { "id": 3, "titulo": "banheira hidro", "descricao": "xxxxxxxxxxx", "categoria_comodidade_id": 3},
-    { "id": 4, "titulo": "frigobar", "descricao": "xxxxxxxxxxx", "categoria_comodidade_id": 1}
+    { "id": 4, "titulo": "frigobar", "descricao": "xxxxxxxxxxx", "categoria_comodidade_id": 1},
     { "id": 4, "titulo": "vista para o mar", "descricao": "xxxxxxxxxxx", "categoria_comodidade_id": 2}
   ],
   "categoria_comodidades": [
     { "id": 1, "titulo": "quarto", "descricao": "comodidades ou caracteristicas do quarto"},
     { "id": 2, "titulo": "geral", "descricao": "comodidades ou caracteristicas gerais que cercam o quarto ou hotel"},
-    { "id": 3, "titulo": "higiene", "descricao": "caracteristicas relacionada a higiene e banho"},
+    { "id": 3, "titulo": "higiene", "descricao": "caracteristicas relacionada a higiene e banho"}
   ],
   "quarto": [
     { "id": 1, "numero": "1101", "andar": "1", "bloco": 1, "status": "ocupado", "hotel_id": 1, "tipo_quarto_id": 4},
@@ -62,17 +62,17 @@
     { "id": 1, "numero": "1507", "andar": "5", "bloco": 1, "status": "disponivel", "hotel_id": 1, "tipo_quarto_id": 4}
   ],
   "hospedagem": [
-    { "id": 1, "status": "ativo", "datainicio" "10/10/2020":, "datafim1": "20/10/2020", "datafim2": "10/10/2020", "valorEstadia": 2000, "statusValorEstadia": "pago", "valorConsumo": 200, "valorServicos": 200, "valorEstadiaAdicional": 0, "valorTotal": 2400, "cliente_id": 1, "funcionario_id": 1, "hotel_id": 1, "avaliacoes_hospedagem_id": 1, "quarto_hospedagem_id": 1},
-    { "id": 2, "status": "concluido", "datainicio" "10/10/2020":, "datafim1": "20/10/2020", "datafim2": "10/10/2020", "valorEstadia": 2000, "statusValorEstadia": "pago", "valorConsumo": 200, "valorServicos": 200, "valorEstadiaAdicional": 0, "valorTotal": 2400, "cliente_id": 2, "funcionario_id": 1, "hotel_id": 1, "avaliacoes_hospedagem_id": 2, "quarto_hospedagem_id": 2},
-    { "id": 3, "status": "concluido", "datainicio" "10/10/2020":, "datafim1": "20/10/2020", "datafim2": "10/10/2020", "valorEstadia": 2000, "statusValorEstadia": "pago", "valorConsumo": 200, "valorServicos": 200, "valorEstadiaAdicional": 0, "valorTotal": 2400, "cliente_id": 3, "funcionario_id": 1, "hotel_id": 1, "avaliacoes_hospedagem_id": 3, "quarto_hospedagem_id": 3},
-    { "id": 4, "status": "ativo", "datainicio" "10/10/2020":, "datafim1": "20/10/2020", "datafim2": "10/10/2020", "valorEstadia": 2000, "statusValorEstadia": "pago", "valorConsumo": 200, "valorServicos": 200, "valorEstadiaAdicional": 0, "valorTotal": 2400, "cliente_id": 4, "funcionario_id": 1, "hotel_id": 1, "avaliacoes_hospedagem_id": 4, "quarto_hospedagem_id": 4}
+    { "id": 1, "status": "ativo", "datainicio": "10/10/2020", "datafim1": "20/10/2020", "datafim2": "10/10/2020", "valorEstadia": 2000, "statusValorEstadia": "pago", "valorConsumo": 200, "valorServicos": 200, "valorEstadiaAdicional": 0, "valorTotal": 2400, "cliente_id": 1, "funcionario_id": 1, "hotel_id": 1, "avaliacoes_hospedagem_id": 1, "quarto_hospedagem_id": 1},
+    { "id": 2, "status": "concluido", "datainicio" :"10/10/2020", "datafim1": "20/10/2020", "datafim2": "10/10/2020", "valorEstadia": 2000, "statusValorEstadia": "pago", "valorConsumo": 200, "valorServicos": 200, "valorEstadiaAdicional": 0, "valorTotal": 2400, "cliente_id": 2, "funcionario_id": 1, "hotel_id": 1, "avaliacoes_hospedagem_id": 2, "quarto_hospedagem_id": 2},
+    { "id": 3, "status": "concluido", "datainicio" :"10/10/2020", "datafim1": "20/10/2020", "datafim2": "10/10/2020", "valorEstadia": 2000, "statusValorEstadia": "pago", "valorConsumo": 200, "valorServicos": 200, "valorEstadiaAdicional": 0, "valorTotal": 2400, "cliente_id": 3, "funcionario_id": 1, "hotel_id": 1, "avaliacoes_hospedagem_id": 3, "quarto_hospedagem_id": 3},
+    { "id": 4, "status": "ativo", "datainicio": "10/10/2020", "datafim1": "20/10/2020", "datafim2": "10/10/2020", "valorEstadia": 2000, "statusValorEstadia": "pago", "valorConsumo": 200, "valorServicos": 200, "valorEstadiaAdicional": 0, "valorTotal": 2400, "cliente_id": 4, "funcionario_id": 1, "hotel_id": 1, "avaliacoes_hospedagem_id": 4, "quarto_hospedagem_id": 4}
   ],
   "reserva": [
-    { "id": 1, "status": "ativo pago", "datainicio" "10/10/2020":, "datafim": "20/10/2020", "valorResrva": 2000, "cliente_id": 1, "funcionario_id": 1, "hotel_id": 1, "hospedagem_id": "NULL"},
-    { "id": 2, "status": "ativo nao pago", "datainicio" "10/10/2020":, "datafim": "20/10/2020", "valorResrva": 2000, "cliente_id": 5, "funcionario_id": 2, "hotel_id": 1, "hospedagem_id": "NULL"},
-    { "id": 3, "status": "hospedagem", "datainicio" "10/10/2020":, "datafim": "20/10/2020", "valorResrva": 2000, "cliente_id": 2, "funcionario_id": "NULL", "hotel_id": 1, "hospedagem_id": 1},
-    { "id": 4, "status": "cancelada", "datainicio" "10/10/2020":, "datafim": "20/10/2020", "valorResrva": 2000, "cliente_id": 3, "funcionario_id": "NULL", "hotel_id": 1, "hospedagem_id": "NULL"},
-    { "id": 5, "status": "concluida", "datainicio" "10/10/2020":, "datafim": "20/10/2020", "valorResrva": 2000, "cliente_id": 4, "funcionario_id": "NULL", "hotel_id": 1, "hospedagem_id": 3}
+    { "id": 1, "status": "ativo pago", "datainicio": "10/10/2020", "datafim": "20/10/2020", "valorResrva": 2000, "cliente_id": 1, "funcionario_id": 1, "hotel_id": 1, "hospedagem_id": "NULL"},
+    { "id": 2, "status": "ativo nao pago", "datainicio": "10/10/2020", "datafim": "20/10/2020", "valorResrva": 2000, "cliente_id": 5, "funcionario_id": 2, "hotel_id": 1, "hospedagem_id": "NULL"},
+    { "id": 3, "status": "hospedagem", "datainicio": "10/10/2020", "datafim": "20/10/2020", "valorResrva": 2000, "cliente_id": 2, "funcionario_id": "NULL", "hotel_id": 1, "hospedagem_id": 1},
+    { "id": 4, "status": "cancelada", "datainicio":"10/10/2020", "datafim": "20/10/2020", "valorResrva": 2000, "cliente_id": 3, "funcionario_id": "NULL", "hotel_id": 1, "hospedagem_id": "NULL"},
+    { "id": 5, "status": "concluida", "datainicio":"10/10/2020", "datafim": "20/10/2020", "valorResrva": 2000, "cliente_id": 4, "funcionario_id": "NULL", "hotel_id": 1, "hospedagem_id": 3}
   ],
   "funcionario": [
     { "id": 1, "nome": "funcionario 01-01", "cpf": "12345778987", "dataNacimento": "08/04/1988", "email": "funcionario01-01@gmail.com", "senha": "xxxxxxxx", "salario": 3000, "horaInicio": "07:00", "horaFim": "15:00", "endereco_id": 7, "hotel_id": 1, "cargo_id": 1},
@@ -96,6 +96,6 @@
     { "id": 1, "numero": "1005", "complemento": "204", "logradouro": "Rua fulano de tal", "bairro": "aeaet", "cep": "00000-000", "cidade_id": 1, "UF_id": 1, "pais_id": 1},
     { "id": 2, "numero": "2222", "complemento": "204", "logradouro": "Rua fulano de tal", "bairro": "aeaet", "cep": "00000-000", "cidade_id": 1, "UF_id": 1, "pais_id": 1},
     { "id": 3, "numero": "333", "complemento": "204", "logradouro": "Rua fulano de tal", "bairro": "aeaet", "cep": "00000-000", "cidade_id": 1, "UF_id": 1, "pais_id": 1},
-    { "id": 4, "numero": "111", "complemento": "204", "logradouro": "Rua fulano de tal", "bairro": "aeaet", "cep": "00000-000", "cidade_id": 1, "UF_id": 1, "pais_id": 1},
+    { "id": 4, "numero": "111", "complemento": "204", "logradouro": "Rua fulano de tal", "bairro": "aeaet", "cep": "00000-000", "cidade_id": 1, "UF_id": 1, "pais_id": 1}
   ]
 }
