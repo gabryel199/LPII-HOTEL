@@ -24,6 +24,6 @@
     { "id": 1, "titulo": "misto quente", "descricao": "pao, presunto, queijo", "preco": 5.50, "quantidadeestoque": 100, "hotel_id": 1, "categoria_produto_id": 1 },
     { "id": 2, "titulo": "cerveja skol", "descricao": "350ml", "preco": 9.99, "quantidadeestoque": 100, "hotel_id": 1, "categoria_produto_id": 2 },
     { "id": 3, "titulo": "barra de chocolate nestle", "descricao": "amargo, 75g", "preco": 6.99, "quantidadeestoque": 100, "hotel_id": 1, "categoria_produto_id": 3 },
-    { "id": 4, "titulo": "salada de frutas", "descricao": "maça, abacaxi, laranja", "preco": 5.50, "quantidadeestoque": 100, "hotel_id": 1, "categoria_produto_id": 4 }
+    { "id": 4, "titulo": "salada de frutas", "descricao": "maca, abacaxi, laranja", "preco": 5.50, "quantidadeestoque": 100, "hotel_id": 1, "categoria_produto_id": 4 }
   ]
 }
