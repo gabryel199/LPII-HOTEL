@@ -21,9 +21,9 @@
     { "id": 4, "nome": "funcionario 01-04", "cpf": "55877922598", "dataNacimento": "15/07/2007", "senha": "hggffdger", "telefone": "" , "salario": "", "horaInicio": "", "horaFim": "", "cargo": "", "email": "funcionario01-04@gmail.com"}
   ],
   "produto": [
-    { "id": 1, "titulo": "misto quente", "descricao": "pao, presunto, queijo", "preco": 5.50, "quantidadeestoque": 100, "hotel_id": 1, "categoria_produto_id": 1 },
-    { "id": 2, "titulo": "cerveja skol", "descricao": "350ml", "preco": 9.99, "quantidadeestoque": 100, "hotel_id": 1, "categoria_produto_id": 2 },
-    { "id": 3, "titulo": "barra de chocolate nestle", "descricao": "amargo, 75g", "preco": 6.99, "quantidadeestoque": 100, "hotel_id": 1, "categoria_produto_id": 3 },
-    { "id": 4, "titulo": "salada de frutas", "descricao": "maca, abacaxi, laranja", "preco": 5.50, "quantidadeestoque": 100, "hotel_id": 1, "categoria_produto_id": 4 }
+    { "id": 1, "titulo": "misto quente", "descricao": "x", "preco": 5.50, "quantidadeestoque": 100, "hotel_id": 1, "categoria_produto_id": 1 },
+    { "id": 2, "titulo": "cerveja skol", "descricao": "x", "preco": 9.99, "quantidadeestoque": 100, "hotel_id": 1, "categoria_produto_id": 2 },
+    { "id": 3, "titulo": "barra de chocolate nestle", "descricao": "x", "preco": 6.99, "quantidadeestoque": 100, "hotel_id": 1, "categoria_produto_id": 3 },
+    { "id": 4, "titulo": "salada de frutas", "descricao": "x", "preco": 5.50, "quantidadeestoque": 100, "hotel_id": 1, "categoria_produto_id": 4 }
   ]
 }
