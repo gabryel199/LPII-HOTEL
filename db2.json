@@ -1,5 +1,3 @@
-"numero": "1005", "complemento": "204", "logradouro": "Rua fulano de tal", "bairro": "aeaet", "cep": "00000-000", "cidade": "Juiz de Fora", "UF": MG, "pais": "Brasil"
-
 {
   "hotel": [
     { "id": 1, "titulo": "hotel 01", "descricao": "zdhzfdhryryry", "avaliacaoMedia": 4.5, "endereco_id": 1},
@@ -71,7 +69,7 @@
   ],
   "reserva": [
     { "id": 1, "status": "ativo pago", "datainicio" "10/10/2020":, "datafim": "20/10/2020", "valorResrva": 2000, "cliente_id": 1, "funcionario_id": 1, "hotel_id": 1, "hospedagem_id": "NULL"},
-    { "id": 2, "status": "ativo nao pago", "datainicio" "10/10/2020":, "datafim": "20/10/2020", "valorResrva": 2000, "cliente_id": 5, "funcionario_id": 2, "hotel_id": 1, "hospedagem_id": NULL"},
+    { "id": 2, "status": "ativo nao pago", "datainicio" "10/10/2020":, "datafim": "20/10/2020", "valorResrva": 2000, "cliente_id": 5, "funcionario_id": 2, "hotel_id": 1, "hospedagem_id": "NULL"},
     { "id": 3, "status": "hospedagem", "datainicio" "10/10/2020":, "datafim": "20/10/2020", "valorResrva": 2000, "cliente_id": 2, "funcionario_id": "NULL", "hotel_id": 1, "hospedagem_id": 1},
     { "id": 4, "status": "cancelada", "datainicio" "10/10/2020":, "datafim": "20/10/2020", "valorResrva": 2000, "cliente_id": 3, "funcionario_id": "NULL", "hotel_id": 1, "hospedagem_id": "NULL"},
     { "id": 5, "status": "concluida", "datainicio" "10/10/2020":, "datafim": "20/10/2020", "valorResrva": 2000, "cliente_id": 4, "funcionario_id": "NULL", "hotel_id": 1, "hospedagem_id": 3}
