@@ -1,32 +1,184 @@
 {
-  "hotel": [    
-      { "id": 1, "titulo": "hotel 01", "descricao": "zdhzfdhryryry", "avaliacaoMedia": 4.5, "endereco_id": 1},
-      { "id": 2, "titulo": "hotel 02", "descricao": "zdhzfdhryryry", "avaliacaoMedia": 4.5, "endereco_id": 2},
-      { "id": 3, "titulo": "hotel 03", "descricao": "zdhzfdhryryry", "avaliacaoMedia": 4.7, "endereco_id": 3},
-      { "id": 4, "titulo": "hotel 04", "descricao": "zdhzfdhryryry", "avaliacaoMedia": 3, "endereco_id": 4},
-      { "id": 5, "titulo": "hotel 05", "descricao": "zdhzfdhryryry", "avaliacaoMedia": 4.5, "endereco_id": 5},
-      { "id": 6, "titulo": "hotel 06", "descricao": "zdhzfdhryryry", "avaliacaoMedia": 4.1, "endereco_id": 6}   
-    ],
-
+  "hotel": [
+    {
+      "id": 1,
+      "titulo": "hotel 01",
+      "descricao": "zdhzfdhryryry",
+      "avaliacaoMedia": 4.5,
+      "endereco_id": 1
+    },
+    {
+      "id": 2,
+      "titulo": "hotel 02",
+      "descricao": "zdhzfdhryryry",
+      "avaliacaoMedia": 4.5,
+      "endereco_id": 2
+    },
+    {
+      "id": 3,
+      "titulo": "hotel 03",
+      "descricao": "zdhzfdhryryry",
+      "avaliacaoMedia": 4.7,
+      "endereco_id": 3
+    },
+    {
+      "id": 4,
+      "titulo": "hotel 04",
+      "descricao": "zdhzfdhryryry",
+      "avaliacaoMedia": 3,
+      "endereco_id": 4
+    },
+    {
+      "id": 5,
+      "titulo": "hotel 05",
+      "descricao": "zdhzfdhryryry",
+      "avaliacaoMedia": 4.5,
+      "endereco_id": 5
+    },
+    {
+      "id": 6,
+      "titulo": "hotel 06",
+      "descricao": "zdhzfdhryryry",
+      "avaliacaoMedia": 4.1,
+      "endereco_id": 6
+    }
+  ],
   "cliente": [
-    { "id": 1, "nome": "cliente 01-01", "cpf": "12345678987", "dataNacimento": "08/04/1987", "email": "cliente01-01@gmail.com", "senha": "xxxxxxxx", "endereco_id": 11},
-    { "id": 2, "nome": "cliente 01-02", "cpf": "14578956832", "dataNacimento": "11/08/1999", "email": "cliente01-02@gmail.com", "senha": "xxxxxxxx", "endereco_id": 12},
-    { "id": 3, "nome": "cliente 01-03", "cpf": "44785223982", "dataNacimento": "10/09/2000", "email": "cliente01-03@gmail.com", "senha": "xxxxxxxx", "endereco_id": 13},
-    { "id": 4, "nome": "cliente 01-04", "cpf": "55877422598", "dataNacimento": "15/07/2002", "email": "cliente01-04@gmail.com", "senha": "xxxxxxxx", "endereco_id": 14}
+    {
+      "id": 1,
+      "nome": "cliente 01-01",
+      "cpf": "12345678987",
+      "dataNacimento": "08/04/1987",
+      "email": "cliente01-01@gmail.com",
+      "senha": "xxxxxxxx",
+      "endereco_id": 11
+    },
+    {
+      "id": 2,
+      "nome": "cliente 01-02",
+      "cpf": "14578956832",
+      "dataNacimento": "11/08/1999",
+      "email": "cliente01-02@gmail.com",
+      "senha": "xxxxxxxx",
+      "endereco_id": 12
+    },
+    {
+      "id": 3,
+      "nome": "cliente 01-03",
+      "cpf": "44785223982",
+      "dataNacimento": "10/09/2000",
+      "email": "cliente01-03@gmail.com",
+      "senha": "xxxxxxxx",
+      "endereco_id": 13
+    },
+    {
+      "id": 4,
+      "nome": "cliente 01-04",
+      "cpf": "55877422598",
+      "dataNacimento": "15/07/2002",
+      "email": "cliente01-04@gmail.com",
+      "senha": "xxxxxxxx",
+      "endereco_id": 14
+    }
   ],
-
   "funcionario": [
-    { "id": 1, "nome": "funcionario 01-01", "cpf": "12345778987", "dataNacimento": "08/04/1988", "senha": "rrgfgfdgd", "telefone": "" , "salario": "", "horaInicio": "", "horaFim": "", "cargo": "", "email": "funcionario01-01@gmail.com"},
-    { "id": 2, "nome": "funcionario 01-02", "cpf": "14578556832", "dataNacimento": "11/08/1991", "senha": "yyyyycdddcdyyyyyy", "telefone": "", "salario": "", "horaInicio": "", "horaFim": "",  "cargo": "" , "email": "funcionario01-02@gmail.com"},
-    { "id": 3, "nome": "funcionario 01-03", "cpf": "44784523982", "dataNacimento": "10/09/2010", "senha": "uuuugdsedfuuuuuuu", "telefone": "" , "salario": "", "horaInicio": "", "horaFim": "", "cargo": "", "email": "funcionario01-03@gmail.com"},
-    { "id": 4, "nome": "funcionario 01-04", "cpf": "55877922598", "dataNacimento": "15/07/2007", "senha": "hggffdger", "telefone": "" , "salario": "", "horaInicio": "", "horaFim": "", "cargo": "", "email": "funcionario01-04@gmail.com"}
+    {
+      "id": 1,
+      "nome": "funcionario 01-01",
+      "cpf": "12345778987",
+      "dataNacimento": "08/04/1988",
+      "senha": "rrgfgfdgd",
+      "telefone": "",
+      "salario": "",
+      "horaInicio": "",
+      "horaFim": "",
+      "cargo": "",
+      "email": "funcionario01-01@gmail.com"
+    },
+    {
+      "id": 2,
+      "nome": "funcionario 01-02",
+      "cpf": "14578556832",
+      "dataNacimento": "11/08/1991",
+      "senha": "yyyyycdddcdyyyyyy",
+      "telefone": "",
+      "salario": "",
+      "horaInicio": "",
+      "horaFim": "",
+      "cargo": "",
+      "email": "funcionario01-02@gmail.com"
+    },
+    {
+      "id": 3,
+      "nome": "funcionario 01-03",
+      "cpf": "44784523982",
+      "dataNacimento": "10/09/2010",
+      "senha": "uuuugdsedfuuuuuuu",
+      "telefone": "",
+      "salario": "",
+      "horaInicio": "",
+      "horaFim": "",
+      "cargo": "",
+      "email": "funcionario01-03@gmail.com"
+    },
+    {
+      "id": 4,
+      "nome": "funcionario 01-04",
+      "cpf": "55877922598",
+      "dataNacimento": "15/07/2007",
+      "senha": "hggffdger",
+      "telefone": "",
+      "salario": "",
+      "horaInicio": "",
+      "horaFim": "",
+      "cargo": "",
+      "email": "funcionario01-04@gmail.com"
+    }
   ],
-
-  "servico": [
-    { "id": 1, "titulo": "academia", "descricao": "xxxxxxxxxxxx", "valorhorario": 5.50, "status": "ativo", "tipo_servico_id": 1 },
-    { "id": 2, "titulo": "spa", "descricao": "xxxxxxxxxxxx", "valorhorario": 5.50, "status": "ativo",  "tipo_servico_id": 2 },
-    { "id": 3, "titulo": "quadra de tenis", "descricao": "xxxxxxxxxxxx", "valorhorario": 5.50, "status": "ativo",  "tipo_servico_id": 3 },
-    { "id": 4, "titulo": "cafe da manha", "descricao": "xxxxxxxxxxxx", "valorhorario": 5.50, "status": "ativo", "tipo_servico_id": 4 }
+  "tipoquarto": [
+    {
+      "id": 1,
+      "titulo": "suite master",
+      "descricao": "xxxxxxxxxxxx",
+      "limiteadulto": 4,
+      "limitecrianca": 2,
+      "precobase": 500,
+      "avaliacaomedia": 5,
+      "diascancelarreserva": 1,
+      "area": 70
+    },
+    {
+      "id": 2,
+      "titulo": "standart deluxe 1",
+      "descricao": "xxxxxxxxxxxx",
+      "limiteadulto": 4,
+      "limitecrianca": 2,
+      "precobase": 500,
+      "avaliacaomedia": 5,
+      "diascancelarreserva": 1,
+      "area": 70
+    },
+    {
+      "id": 3,
+      "titulo": "standart deluxe 2",
+      "descricao": "xxxxxxxxxxxx",
+      "limiteadulto": 4,
+      "limitecrianca": 2,
+      "precobase": 500,
+      "avaliacaomedia": 5,
+      "diascancelarreserva": 1,
+      "area": 70
+    },
+    {
+      "id": 4,
+      "titulo": "quaro king - frente mar",
+      "descricao": "xxxxxxxxxxxx",
+      "limiteadulto": 4,
+      "limitecrianca": 2,
+      "precobase": 500,
+      "avaliacaomedia": 5,
+      "diascancelarreserva": 1,
+      "area": 70
+    }
   ]
-  
 }
