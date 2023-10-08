@@ -22,28 +22,28 @@ function Navbar(props) {
           <span className='navbar-toggler-icon'></span>
         </button>
         <div className='collapse navbar-collapse' id='navbarResponsive'>
-        <ul className='navbar-nav'>
+          <ul className='navbar-nav'>
             <NavbarItem render='true' href='/login' label='Entrar' />
           </ul>
           <ul className='navbar-nav'>
             <NavbarItem
-              render='true' href='/listagem-hoteis' label='Hotéis'/>
+              render='true' href='/listagem-hoteis' label='Hotéis' />
           </ul>
           <ul className='navbar-nav'>
-            <NavbarItem render='true' href='/listagem-cliente' label='Clientes'/>
+            <NavbarItem render='true' href='/listagem-cliente' label='Clientes' />
           </ul>
           <ul className='navbar-nav'>
             <NavbarItem
-              render='true' href='/listagem-funcionario' label='Funcionarios'/>
+              render='true' href='/listagem-funcionario' label='Funcionarios' />
           </ul>
           <ul className='navbar-nav'>
-            <NavbarItem render='true' href='/listagem-quartos' label='Quartos'/>
+            <NavbarItem render='true' href='/listagem-quartos' label='Quartos' />
           </ul>
           <ul className='navbar-nav'>
-            <NavbarItem render='true' href='/listagem-produtos' label='Produtos'/>
+            <NavbarItem render='true' href='/listagem-produtos' label='Produtos' />
           </ul>
           <ul className='navbar-nav'>
-            <NavbarItem render='true' href='/listagem-servicos' label='Serviços'/>
+            <NavbarItem render='true' href='/listagem-servicos' label='Serviços' />
           </ul>
         </div>
       </div>
