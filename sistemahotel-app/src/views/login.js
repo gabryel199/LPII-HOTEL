@@ -1,12 +1,8 @@
 import React from 'react';
-
 import Stack from '@mui/material/Stack';
-
 import Card from '../components/card';
 import FormGroup from '../components/form-group';
-
 import { mensagemSucesso } from '../components/toastr';
-
 import '../custom.css';
 
 class Login extends React.Component {
