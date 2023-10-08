@@ -42,6 +42,9 @@ function Navbar(props) {
           <ul className='navbar-nav'>
             <NavbarItem render='true' href='/listagem-produtos' label='Produtos'/>
           </ul>
+          <ul className='navbar-nav'>
+            <NavbarItem render='true' href='/listagem-servicos' label='Serviços'/>
+          </ul>
         </div>
       </div>
     </div>
