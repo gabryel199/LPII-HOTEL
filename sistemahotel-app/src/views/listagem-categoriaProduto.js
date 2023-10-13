@@ -19,7 +19,7 @@ import { BASE_URL } from '../config/axios';
 const baseURL = `${BASE_URL}/categoria_produto`;
 
 
-function ListagemCategoriaProdutos() {
+function ListagemCategoriaProduto() {
   const navigate = useNavigate();
 
   const cadastrar = () => {
@@ -119,4 +119,4 @@ function ListagemCategoriaProdutos() {
 
 
 
-export default ListagemCategoriaProdutos;
+export default ListagemCategoriaProduto;
