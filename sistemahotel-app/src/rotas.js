@@ -19,10 +19,10 @@ function Rotas(props) {
         <Route path='/login' element={<Login />} />
         <Route path='/listagem-cliente' element={<ListagemCliente />} />
         <Route path='/listagem-funcionario' element={<ListagemFuncionario />} />
-        <Route path='/listagem-hoteis' element={<ListagemHoteis />} />
+        <Route path='/listagem-hoteis' element={<ListagemHoteis />} />        
         <Route path='/listagem-quartos' element={<ListagemQuartos />} />
-        <Route path='/listagem-quartos' element={<ListagemProdutos />} />
-        <Route path='/listagem-quartos' element={<ListagemServicos />} />
+        <Route path='/listagem-produtos' element={<ListagemProdutos />} />
+        <Route path='/listagem-servicos' element={<ListagemServicos />} />
       </Routes>
     </BrowserRouter>
   );
