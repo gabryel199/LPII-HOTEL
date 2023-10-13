@@ -135,50 +135,10 @@
       "email": "funcionario01-04@gmail.com"
     }
   ],
-  "tipoquarto": [
-    {
-      "id": 1,
-      "titulo": "suite master",
-      "descricao": "xxxxxxxxxxxx",
-      "limiteadulto": 4,
-      "limitecrianca": 2,
-      "precobase": 500,
-      "avaliacaomedia": 5,
-      "diascancelarreserva": 1,
-      "area": 70
-    },
-    {
-      "id": 2,
-      "titulo": "standart deluxe 1",
-      "descricao": "xxxxxxxxxxxx",
-      "limiteadulto": 4,
-      "limitecrianca": 2,
-      "precobase": 500,
-      "avaliacaomedia": 5,
-      "diascancelarreserva": 1,
-      "area": 70
-    },
-    {
-      "id": 3,
-      "titulo": "standart deluxe 2",
-      "descricao": "xxxxxxxxxxxx",
-      "limiteadulto": 4,
-      "limitecrianca": 2,
-      "precobase": 500,
-      "avaliacaomedia": 5,
-      "diascancelarreserva": 1,
-      "area": 70
-    },
-    {
-      "id": 4,
-      "titulo": "quaro king - frente mar",
-      "descricao": "xxxxxxxxxxxx",
-      "limiteadulto": 4,
-      "limitecrianca": 2,
-      "precobase": 500,
-      "avaliacaomedia": 5,
-      "diascancelarreserva": 1,
-      "area": 70
-    }
+  "produto": [
+    { "id": 1, "titulo": "misto quente", "descricao": "pao, presunto, queijo", "preco": 5.50, "quantidadeestoque": 100, "hotel_id": 1, "categoria_produto_id": 1 },
+    { "id": 2, "titulo": "cerveja skol", "descricao": "350ml",                 "preco": 9.99, "quantidadeestoque": 100, "hotel_id": 1, "categoria_produto_id": 2 },
+    { "id": 3, "titulo": "barra de chocolate nestle", "descricao": "amargo, 75g", "preco": 6.99, "quantidadeestoque": 100, "hotel_id": 1, "categoria_produto_id": 3 },
+    { "id": 4, "titulo": "salada de frutas", "descricao": "maça, abacaxi, laranja", "preco": 5.50, "quantidadeestoque": 100, "hotel_id": 1, "categoria_produto_id": 4 }
   ]
 }
