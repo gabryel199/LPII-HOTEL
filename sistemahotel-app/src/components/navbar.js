@@ -26,15 +26,13 @@ function Navbar(props) {
             <NavbarItem render='true' href='/login' label='Entrar' />
           </ul>
           <ul className='navbar-nav'>
-            <NavbarItem
-              render='true' href='/listagem-hoteis' label='Hotéis' />
+            <NavbarItem render='true' href='/listagem-hoteis' label='Hotéis' />
           </ul>
           <ul className='navbar-nav'>
             <NavbarItem render='true' href='/listagem-cliente' label='Clientes' />
           </ul>
           <ul className='navbar-nav'>
-            <NavbarItem
-              render='true' href='/listagem-funcionario' label='Funcionarios' />
+            <NavbarItem render='true' href='/listagem-funcionario' label='Funcionarios' />
           </ul>
           <ul className='navbar-nav'>
             <NavbarItem render='true' href='/listagem-quartos' label='Quartos' />
