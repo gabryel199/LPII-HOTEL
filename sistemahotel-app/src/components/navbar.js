@@ -34,30 +34,20 @@ function Navbar(props) {
           <ul className='navbar-nav'>
             <NavbarItem render='true' href='/listagem-funcionario' label='Funcionarios' />
           </ul>
-          <ul className='navbar-nav'>
-            <NavbarItem render='true' href='/listagem-tipoQuartos' label='Tipo de Quartos' />
-          </ul>
+         
           <ul className='navbar-nav'>
             <NavbarItem render='true' href='/listagem-produtos' label='Produtos' />
           </ul>
           <ul className='navbar-nav'>
             <NavbarItem render='true' href='/listagem-servicos' label='Serviços' />
           </ul>
-          <ul className='navbar-nav'>
-            <NavbarItem render='true' href='/listagem-categoriaProduto' label='Categoria de Produtos' />
-          </ul>
-          <ul className='navbar-nav'>
-            <NavbarItem render='true' href='/listagem-tipoServico' label='Tipo de Serviços' />
-          </ul>
+         
+          
           <ul className='navbar-nav'>
             <NavbarItem render='true' href='/listagem-comodidades' label='Comodidades' />
           </ul>
-          <ul className='navbar-nav'>
-            <NavbarItem render='true' href='/listagem-cargo' label='Cargos' />
-          </ul>
-          <ul className='navbar-nav'>
-            <NavbarItem render='true' href='/listagem-tipoCama' label='Tipo de Camas' />
-          </ul>
+          
+          
         </div>
       </div>
     </div>
