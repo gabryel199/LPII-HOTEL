@@ -135,50 +135,42 @@
       "email": "funcionario01-04@gmail.com"
     }
   ],
-  "tipoquarto": [
+  "quarto": [
     {
       "id": 1,
-      "titulo": "suite master",
-      "descricao": "xxxxxxxxxxxx",
-      "limiteadulto": 4,
-      "limitecrianca": 2,
-      "precobase": 500,
-      "avaliacaomedia": 5,
-      "diascancelarreserva": 1,
-      "area": 70
+      "numero": "1101",
+      "andar": "1",
+      "bloco": 1,
+      "status": "ocupado",
+      "hotel_id": 1,
+      "tipo_quarto_id": 4
     },
     {
-      "id": 2,
-      "titulo": "standart deluxe 1",
-      "descricao": "xxxxxxxxxxxx",
-      "limiteadulto": 4,
-      "limitecrianca": 2,
-      "precobase": 500,
-      "avaliacaomedia": 5,
-      "diascancelarreserva": 1,
-      "area": 70
+      "id": 1,
+      "numero": "2601",
+      "andar": "1",
+      "bloco": 2,
+      "status": "ocupado",
+      "hotel_id": 1,
+      "tipo_quarto_id": 1
     },
     {
-      "id": 3,
-      "titulo": "standart deluxe 2",
-      "descricao": "xxxxxxxxxxxx",
-      "limiteadulto": 4,
-      "limitecrianca": 2,
-      "precobase": 500,
-      "avaliacaomedia": 5,
-      "diascancelarreserva": 1,
-      "area": 70
+      "id": 1,
+      "numero": "2102",
+      "andar": "1",
+      "bloco": 2,
+      "status": "manutencao",
+      "hotel_id": 1,
+      "tipo_quarto_id": 2
     },
     {
-      "id": 4,
-      "titulo": "quaro king - frente mar",
-      "descricao": "xxxxxxxxxxxx",
-      "limiteadulto": 4,
-      "limitecrianca": 2,
-      "precobase": 500,
-      "avaliacaomedia": 5,
-      "diascancelarreserva": 1,
-      "area": 70
+      "id": 1,
+      "numero": "1507",
+      "andar": "5",
+      "bloco": 1,
+      "status": "disponivel",
+      "hotel_id": 1,
+      "tipo_quarto_id": 4
     }
   ]
 }
