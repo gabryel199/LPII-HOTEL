@@ -135,26 +135,50 @@
       "email": "funcionario01-04@gmail.com"
     }
   ],
-  "categoria_produto": [
+  "tipoquarto": [
     {
       "id": 1,
-      "titulo": "lanche",
-      "descricao": "xxxxxxxxxxxxxxxx"
+      "titulo": "suite master",
+      "descricao": "xxxxxxxxxxxx",
+      "limiteadulto": 4,
+      "limitecrianca": 2,
+      "precobase": 500,
+      "avaliacaomedia": 5,
+      "diascancelarreserva": 1,
+      "area": 70
     },
     {
       "id": 2,
-      "titulo": "bebida",
-      "descricao": "xxxxxxxxxxxx"
+      "titulo": "standart deluxe 1",
+      "descricao": "xxxxxxxxxxxx",
+      "limiteadulto": 4,
+      "limitecrianca": 2,
+      "precobase": 500,
+      "avaliacaomedia": 5,
+      "diascancelarreserva": 1,
+      "area": 70
     },
     {
       "id": 3,
-      "titulo": "doce",
-      "descricao": "xxxxxxxx"
+      "titulo": "standart deluxe 2",
+      "descricao": "xxxxxxxxxxxx",
+      "limiteadulto": 4,
+      "limitecrianca": 2,
+      "precobase": 500,
+      "avaliacaomedia": 5,
+      "diascancelarreserva": 1,
+      "area": 70
     },
     {
       "id": 4,
-      "titulo": "sobremesa",
-      "descricao": "xxxxxxxxx"
+      "titulo": "quaro king - frente mar",
+      "descricao": "xxxxxxxxxxxx",
+      "limiteadulto": 4,
+      "limitecrianca": 2,
+      "precobase": 500,
+      "avaliacaomedia": 5,
+      "diascancelarreserva": 1,
+      "area": 70
     }
   ]
 }
