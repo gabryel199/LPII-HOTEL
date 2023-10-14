@@ -7,6 +7,8 @@ import ListagemQuartos from './views/listagem-quartos';
 import ListagemProdutos from './views/listagem-produtos';
 import ListagemServicos from './views/listagem-servicos';
 import ListagemCategoriaProduto from './views/listagem-categoriaProduto';
+import ListagemTipoServico from './views/listagem-tipoServico';
+import ListagemComodidades from './views/listagem-comodidades';
 
 import Login from './views/login';
 
@@ -25,6 +27,8 @@ function Rotas(props) {
         <Route path='/listagem-produtos' element={<ListagemProdutos />} />
         <Route path='/listagem-servicos' element={<ListagemServicos />} />
         <Route path='/listagem-categoriaProduto' element={<ListagemCategoriaProduto />} />
+        <Route path='/listagem-tipoServico' element={<ListagemTipoServico />} />
+        <Route path='/listagem-comodidades' element={<ListagemComodidades />} />
       </Routes>
     </BrowserRouter>
   );
