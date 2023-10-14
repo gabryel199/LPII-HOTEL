@@ -3,11 +3,10 @@ import React from 'react';
 import ListagemCliente from './views/listagem-cliente';
 import ListagemFuncionario from './views/listagem-funcionario';
 import ListagemHoteis from './views/listagem-hoteis';
-
 import ListagemProdutos from './views/listagem-produtos';
 import ListagemServicos from './views/listagem-servicos';
-
 import ListagemComodidades from './views/listagem-comodidades';
+import ListagemQuarto from './views/listagem-quarto';
 
 import Login from './views/login';
 
@@ -25,7 +24,7 @@ function Rotas(props) {
         <Route path='/listagem-produtos' element={<ListagemProdutos />} />
         <Route path='/listagem-servicos' element={<ListagemServicos />} />
         <Route path='/listagem-comodidades' element={<ListagemComodidades />} />
-        
+        <Route path='/listagem-quarto' element={<ListagemQuarto />} />        
       </Routes>
     </BrowserRouter>
   );

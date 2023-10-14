@@ -33,21 +33,25 @@ function Navbar(props) {
           </ul>
           <ul className='navbar-nav'>
             <NavbarItem render='true' href='/listagem-funcionario' label='Funcionarios' />
-          </ul>
-         
+          </ul>         
           <ul className='navbar-nav'>
             <NavbarItem render='true' href='/listagem-produtos' label='Produtos' />
           </ul>
           <ul className='navbar-nav'>
             <NavbarItem render='true' href='/listagem-servicos' label='Serviços' />
           </ul>
-         
-          
           <ul className='navbar-nav'>
             <NavbarItem render='true' href='/listagem-comodidades' label='Comodidades' />
           </ul>
-          
-          
+          <ul className='navbar-nav'>
+            <NavbarItem render='true' href='/listagem-quarto' label='Quartos' />
+          </ul>
+          <ul className='navbar-nav'>
+            <NavbarItem render='true' href='/listagem-reserva' label='Reservas' />
+          </ul>
+          <ul className='navbar-nav'>
+            <NavbarItem render='true' href='/listagem-hospedagem' label='Hospedagens' />
+          </ul>
         </div>
       </div>
     </div>
