@@ -72,7 +72,7 @@ function ListagemQuarto() {
                 className='btn btn-warning'
                 onClick={() => cadastrar()}
               >
-                Novo Hotel
+                Novo Quarto
               </button>
               <table className='table table-hover'>
                 <thead>
