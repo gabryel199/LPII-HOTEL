@@ -135,42 +135,42 @@
       "email": "funcionario01-04@gmail.com"
     }
   ],
-  "quarto": [
+    "produto": [
     {
       "id": 1,
-      "numero": "1101",
-      "andar": "1",
-      "bloco": 1,
-      "status": "ocupado",
+      "titulo": "misto quente",
+      "descricao": "pao, presunto, queijo",
+      "preco": 5.50,
+      "quantidadeestoque": 100,
       "hotel_id": 1,
-      "tipo_quarto_id": 4
+      "categoria_produto_id": 1
     },
     {
-      "id": 1,
-      "numero": "2601",
-      "andar": "1",
-      "bloco": 2,
-      "status": "ocupado",
+      "id": 2,
+      "titulo": "cerveja skol",
+      "descricao": "350ml",
+      "preco": 9.99,
+      "quantidadeestoque": 100,
       "hotel_id": 1,
-      "tipo_quarto_id": 1
+      "categoria_produto_id": 2
     },
     {
-      "id": 1,
-      "numero": "2102",
-      "andar": "1",
-      "bloco": 2,
-      "status": "manutencao",
+      "id": 3,
+      "titulo": "barra de chocolate nestle",
+      "descricao": "amargo, 75g",
+      "preco": 6.99,
+      "quantidadeestoque": 100,
       "hotel_id": 1,
-      "tipo_quarto_id": 2
+      "categoria_produto_id": 3
     },
     {
-      "id": 1,
-      "numero": "1507",
-      "andar": "5",
-      "bloco": 1,
-      "status": "disponivel",
+      "id": 4,
+      "titulo": "salada de frutas",
+      "descricao": "maça, abacaxi, laranja",
+      "preco": 5.50,
+      "quantidadeestoque": 100,
       "hotel_id": 1,
-      "tipo_quarto_id": 4
+      "categoria_produto_id": 4
     }
   ]
 }
