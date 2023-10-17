@@ -63,7 +63,7 @@ function ListagemServicos() {
 
     return (
         <div className='container'>
-            <Card title='Listagem de Servicos'>
+            <Card title='Listagem de Serviços'>
                 <div className='row'>
                     <div className='col-lg-12'>
                         <div className='bs-component'>
@@ -72,7 +72,7 @@ function ListagemServicos() {
                                 className='btn btn-warning'
                                 onClick={() => cadastrar()}
                             >
-                                Novo Hotel
+                                Novo Serviço
                             </button>
                             <table className='table table-hover'>
                                 <thead>
