@@ -14,7 +14,7 @@ import '../custom.css';
 import axios from 'axios';
 import { BASE_URL } from '../config/axios';
 
-function CadastroProduto() {
+function CadastroTipoProduto() {
 
   const [id, setId] = useState('');
   const [nome, setNome] = useState('');
@@ -94,4 +94,4 @@ function CadastroProduto() {
   );
 }
 
-export default CadastroProduto;
+export default CadastroTipoProduto;
