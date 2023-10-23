@@ -16,6 +16,12 @@ import { BASE_URL } from '../config/axios';
 
 function CadastroHotel() {
 
+  const { idParam } = useParams();
+
+  const navigate = useNavigate();
+
+  const baseURL = `${BASE_URL}/hotel`;
+
   const [var0, setVar0] = useState('');
   const [var1, setVar1] = useState('');
   const [var2, setVar2] = useState('');

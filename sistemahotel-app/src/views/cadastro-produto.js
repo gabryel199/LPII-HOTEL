@@ -15,16 +15,40 @@ import axios from 'axios';
 import { BASE_URL } from '../config/axios';
 
 function CadastroProduto() {
+  
+  const { idParam } = useParams();
+
+  const navigate = useNavigate();
+
+  const baseURL = `${BASE_URL}/produto`;
 
   const [id, setId] = useState('');
-  const [nome, setNome] = useState('');
-  const [nome1, setNome1] = useState('');
-  const [nome2, setNome2] = useState('');
-  const [nome3, setNome3] = useState('');
-  const [idCoordenador, setIdCoordenador] = useState(0);
+  const [var0, setVar0] = useState('');//nome
+  const [var1, setVar1] = useState('');//descricao
+  const [var2, setVar2] = useState('');//preco 
+  const [var3, setVar3] = useState('');//qat
 
+  //ESSA é A PARTE DO BOTAO EDITAR
   const [dados, setDados] = React.useState([]);
+  
+  async function buscar() {
+    await axios.get(`${baseURL}/${idParam}`).then((response) => {
+      setDados(response.data);
+    });
+    setId(dados.id);
+    setVar0(dados.titulo);
+    setVar1(dados.descricao);
+    setVar2(dados.preco);
+    setVar3(dados.quantidadeestoque);
+  }
 
+  useEffect(() => {
+      buscar(); // eslint-disable-next-line
+  }, [id]);
+
+  if (!dados) return null;
+  
+  // ESSA é A PARTE DO HTML
   return (
     <div className='container'>
       <Card title='Cadastro de Produto'>
@@ -35,42 +59,52 @@ function CadastroProduto() {
                 <input
                   type='text'
                   id='inputNome'
-                  value={nome}
+                  value={var0}
                   className='form-control'
                   name='nome'
-                  onChange={(e) => setNome(e.target.value)}
+                  onChange={(e) => setVar0(e.target.value)}
                 />
               </FormGroup>
               <FormGroup label='Descrição: *' htmlFor='inputDescricao'>
                 <input
                   type='text'
                   id='inputDescricao'
-                  value={nome1}
+                  value={var1}
                   className='form-control'
                   name='descricao'
-                  onChange={(e) => setNome1(e.target.value)}
+                  onChange={(e) => setVar1(e.target.value)}
                 />
               </FormGroup>
               <FormGroup label='Preço: *' htmlFor='inputPreco'>
                 <input
                   type='text'
                   id='inputPreco'
-                  value={nome2}
+                  value={var2}
                   className='form-control'
                   name='preco'
-                  onChange={(e) => setNome2(e.target.value)}
+                  onChange={(e) => setVar2(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Categoria: *' htmlFor='inputCategoria'>
+              <FormGroup label='Quantidade: *' htmlFor='inputQuantidade'>
+                <input
+                  type='text'
+                  id='inputQuantidade'
+                  value={var3}
+                  className='form-control'
+                  name='quantidade'
+                  onChange={(e) => setVar3(e.target.value)}
+                />
+              </FormGroup>
+              {/*<FormGroup label='Categoria: *' htmlFor='inputCategoria'>
                 <input
                   type='text'
                   id='inputCategoria'
-                  value={nome3}
+                  value={var4}
                   className='form-control'
                   name='categoria'
-                  onChange={(e) => setNome3(e.target.value)}
+                  onChange={(e) => setVar4(e.target.value)}
                 />
-              </FormGroup>
+              </FormGroup>*/}
               <br></br>
               <Stack spacing={1} padding={1} direction='row'>
                 <button
