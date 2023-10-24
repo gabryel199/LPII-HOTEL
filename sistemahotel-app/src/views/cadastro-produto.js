@@ -27,6 +27,7 @@ function CadastroProduto() {
   const [var1, setVar1] = useState('');//descricao
   const [var2, setVar2] = useState('');//preco 
   const [var3, setVar3] = useState('');//qat
+  const [var4, setVar4] = useState('');//id tipo
 
   //ESSA é A PARTE DO BOTAO EDITAR
   const [dados, setDados] = React.useState([]);
@@ -40,9 +41,10 @@ function CadastroProduto() {
     setVar1(dados.descricao);
     setVar2(dados.preco);
     setVar3(dados.quantidadeestoque);
+    setVar4(dados.tipoProduto_id);
   }
 
-  const [dados2, setDados2] = React.useState(null);
+  const [dados2, setDados2] = React.useState(null); //tipo Produto
 
   useEffect(() => {
     axios.get(`${BASE_URL}/tipoProduto`).then((response) => {
@@ -55,6 +57,7 @@ function CadastroProduto() {
   }, [id]);
 
   if (!dados) return null;
+  if (!dados2) return null;
   
   // ESSA é A PARTE DO HTML
   return (
@@ -103,16 +106,24 @@ function CadastroProduto() {
                   onChange={(e) => setVar3(e.target.value)}
                 />
               </FormGroup>
-              {/*<FormGroup label='Categoria: *' htmlFor='inputCategoria'>
-                <input
-                  type='text'
-                  id='inputCategoria'
-                  value={var4}
-                  className='form-control'
+              <FormGroup label='Categoria: *' htmlFor='selectCategoria'>
+                <select
+                  className='form-select'
+                  id='selectCategoria'
                   name='categoria'
+                  value={var4}
                   onChange={(e) => setVar4(e.target.value)}
-                />
-              </FormGroup>*/}
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados2.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
+              </FormGroup>
               <br></br>
               <Stack spacing={1} padding={1} direction='row'>
                 <button
