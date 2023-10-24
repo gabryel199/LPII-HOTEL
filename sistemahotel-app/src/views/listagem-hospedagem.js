@@ -77,6 +77,7 @@ function ListagemHospedagem() {
               <table className='table table-hover'>
                 <thead>
                   <tr>
+                    <th scope='col'>ID</th>
                     <th scope='col'>Status</th>
                     <th scope='col'>Data de Inicio</th>
                     <th scope='col'>Data Final</th>
@@ -89,6 +90,7 @@ function ListagemHospedagem() {
                 <tbody>
                   {dados.map((dado) => (
                     <tr key={dado.id}>
+                      <td>{dado.id}</td>
                       <td>{dado.status}</td>
                       <td>{dado.dataInicio}</td>
                       <td>{dado.dataFim1}</td>
