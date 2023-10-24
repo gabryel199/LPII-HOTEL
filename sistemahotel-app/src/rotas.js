@@ -10,7 +10,7 @@ import ListagemProdutos from './views/listagem-produtos';
 import ListagemServicos from './views/listagem-servicos';
 import ListagemComodidades from './views/listagem-comodidades';
 import ListagemQuarto from './views/listagem-quarto';
-import ListagemHospedagem from './views/listagem-hospedagen';
+import ListagemHospedagem from './views/listagem-hospedagem';
 import ListagemReserva from './views/listagem-reserva';
 
 import CadastroProduto from './views/cadastro-produto';
@@ -38,7 +38,7 @@ function Rotas(props) {
         <Route path='/listagem-comodidades' element={<ListagemComodidades />} />
         <Route path='/listagem-quarto' element={<ListagemQuarto />} />      
         <Route path='/listagem-reserva' element={<ListagemReserva />} />
-        <Route path='/listagem-hospedagen' element={<ListagemHospedagem />} />    
+        <Route path='/listagem-hospedagem' element={<ListagemHospedagem />} />    
 
         <Route path='/cadastro-produto/:idParam?' element={<CadastroProduto />} /> 
         <Route path='/cadastro-hotel/:idParam?' element={<CadastroHotel />} />   

@@ -46,7 +46,7 @@ function CadastroProduto() {
 
   useEffect(() => {
     axios.get(`${BASE_URL}/tipoProduto`).then((response) => {
-      setDadosProfessores(response.data);
+      setDados2(response.data);
     });
   }, []);
 
