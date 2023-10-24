@@ -15,6 +15,12 @@ import axios from 'axios';
 import { BASE_URL } from '../config/axios';
 
 function CadastroTipoComodidade() {
+  
+  const { idParam } = useParams();
+
+  const navigate = useNavigate();
+
+  const baseURL = `${BASE_URL}/tipoComodidade`;
 
   const [id, setId] = useState('');
   const [nome, setNome] = useState('');

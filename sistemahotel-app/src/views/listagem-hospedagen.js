@@ -90,9 +90,9 @@ function ListagemHospedagem() {
                   {dados.map((dado) => (
                     <tr key={dado.id}>
                       <td>{dado.status}</td>
-                      <td>{dado.datainicio}</td>
-                      <td>{dado.datafim1}</td>
-                      <td>{dado.datafim2}</td>
+                      <td>{dado.dataInicio}</td>
+                      <td>{dado.dataFim1}</td>
+                      <td>{dado.dataFim2}</td>
                       <td>{dado.valorEstadia}</td>
                       <td>{dado.statusValorEstadia}</td>
                       <td>

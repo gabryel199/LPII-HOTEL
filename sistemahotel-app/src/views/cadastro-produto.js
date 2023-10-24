@@ -42,6 +42,14 @@ function CadastroProduto() {
     setVar3(dados.quantidadeestoque);
   }
 
+  const [dados2, setDados2] = React.useState(null);
+
+  useEffect(() => {
+    axios.get(`${BASE_URL}/tipoProduto`).then((response) => {
+      setDadosProfessores(response.data);
+    });
+  }, []);
+
   useEffect(() => {
       buscar(); // eslint-disable-next-line
   }, [id]);

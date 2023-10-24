@@ -15,6 +15,12 @@ import axios from 'axios';
 import { BASE_URL } from '../config/axios';
 
 function CadastroCliente() {
+  
+  const { idParam } = useParams();
+
+  const navigate = useNavigate();
+
+  const baseURL = `${BASE_URL}/cliente`;
 
   const [var0, setVar0] = useState('');//cpf
   const [var1, setVar1] = useState('');//nome

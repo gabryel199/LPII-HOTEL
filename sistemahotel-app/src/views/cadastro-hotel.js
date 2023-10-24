@@ -22,6 +22,7 @@ function CadastroHotel() {
 
   const baseURL = `${BASE_URL}/hotel`;
 
+  const [id, setId] = useState('');
   const [var0, setVar0] = useState('');
   const [var1, setVar1] = useState('');
   const [var2, setVar2] = useState('');

@@ -15,6 +15,12 @@ import axios from 'axios';
 import { BASE_URL } from '../config/axios';
 
 function CadastroReserva() {
+  
+  const { idParam } = useParams();
+
+  const navigate = useNavigate();
+
+  const baseURL = `${BASE_URL}/reserva`;
 
   const [id, setId] = useState('');
   const [nome, setNome] = useState('');

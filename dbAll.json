@@ -51,7 +51,7 @@
       "preco": 5.50,
       "quantidadeestoque": 100,
       "hotel_id": 1,
-      "categoria_produto_id": 1
+      "tipoProduto_id": 1
     },
     {
       "id": 2,
@@ -60,7 +60,7 @@
       "preco": 9.99,
       "quantidadeestoque": 100,
       "hotel_id": 1,
-      "categoria_produto_id": 2
+      "tipoProduto_id": 2
     },
     {
       "id": 3,
@@ -69,7 +69,7 @@
       "preco": 6.99,
       "quantidadeestoque": 100,
       "hotel_id": 1,
-      "categoria_produto_id": 3
+      "tipoProduto_id": 3
     },
     {
       "id": 4,
@@ -78,10 +78,10 @@
       "preco": 5.50,
       "quantidadeestoque": 100,
       "hotel_id": 1,
-      "categoria_produto_id": 4
+      "tipoProduto_id": 4
     }
   ],
-  "categoria_produto": [
+  "tipoProduto": [
     {
       "id": 1,
       "titulo": "lanche",
@@ -103,6 +103,50 @@
       "descricao": "xxxxxxxxx"
     }
   ],
+  "produtoHospedagem": [
+    {
+      "id": 1,
+      "quant": 1,
+      "valorTotal": 30,
+      "hospedagem_id": 4,
+      "produto_id": 1
+    },
+    {
+      "id": 2,
+      "quant": 1,
+      "valorTotal": 30,
+      "hospedagem_id": 1,
+      "produto_id": 1
+    },
+    {
+      "id": 3,
+      "quant": 1,
+      "valorTotal": 30,
+      "hospedagem_id": 3,
+      "produto_id": 1
+    },
+    {
+      "id": 4,
+      "quant": 1,
+      "valorTotal": 30,
+      "hospedagem_id": 2,
+      "produto_id": 2
+    },
+    {
+      "id": 5,
+      "quant": 1,
+      "valorTotal": 30,
+      "hospedagem_id": 2,
+      "produto_id": 3
+    },
+    {
+      "id": 6,
+      "quant": 1,
+      "valorTotal": 30,
+      "hospedagem_id": 4,
+      "produto_id": 4
+    }
+  ],
   "servico": [
     {
       "id": 1,
@@ -110,8 +154,9 @@
       "descricao": "xxxxxxxxxxxx",
       "valorhorario": 5.50,
       "status": "ativo",
+      "tipoReserva": true,
       "hotel_id": 1,
-      "tipo_servico_id": 1
+      "tipoServico_id": 1
     },
     {
       "id": 2,
@@ -119,8 +164,9 @@
       "descricao": "xxxxxxxxxxxx",
       "valorhorario": 5.50,
       "status": "ativo",
+      "tipoReserva": true,
       "hotel_id": 1,
-      "tipo_servico_id": 2
+      "tipoServico_id": 2
     },
     {
       "id": 3,
@@ -128,8 +174,9 @@
       "descricao": "xxxxxxxxxxxx",
       "valorhorario": 5.50,
       "status": "ativo",
+      "tipoReserva": true,
       "hotel_id": 1,
-      "tipo_servico_id": 3
+      "tipoServico_id": 3
     },
     {
       "id": 4,
@@ -137,75 +184,200 @@
       "descricao": "xxxxxxxxxxxx",
       "valorhorario": 5.50,
       "status": "ativo",
+      "tipoReserva": false,
       "hotel_id": 1,
-      "tipo_servico_id": 4
+      "tipoServico_id": 4
     }
   ],
-  "tipo_servico": [
+  "tipoServico": [
     {
       "id": 1,
-      "titulo": "ativvidade"
+      "titulo": "ativvidade",
+      "descricao": "zzzzz"
     },
     {
       "id": 2,
-      "titulo": "lazer"
+      "titulo": "lazer",
+      "descricao": "zzzzz"
     },
     {
       "id": 3,
-      "titulo": "atividade ar livre"
+      "titulo": "atividade ar livre",
+      "descricao": "zzzzz"
     },
     {
       "id": 4,
-      "titulo": "refeicao"
+      "titulo": "refeicao",
+      "descricao": "zzzzz"
     }
   ],
-  "tipoquarto": [
+  "horarioServico": [
+    {
+      "id": 1,
+      "status": "ativo",
+      "vagaTotal": 10,
+      "vagasocupadas": 3,
+      "horaInicio": "14:00",
+      "horaFim": "16:00",
+      "data": "06/06/2012",
+      "servico_id": 1
+    },
+    {
+      "id": 2,
+      "status": "ativo",
+      "vagaTotal": 10,
+      "vagasocupadas": 3,
+      "horaInicio": "06:00",
+      "horaFim": "08:00",
+      "data": "06/06/2012",
+      "servico_id": 1
+    },
+    {
+      "id": 3,
+      "status": "ativo",
+      "vagaTotal": 10,
+      "vagasocupadas": 3,
+      "horaInicio": "14:00",
+      "horaFim": "16:00",
+      "data": "12/06/2012",
+      "servico_id": 1
+    },
+    {
+      "id": 4,
+      "status": "ativo",
+      "vagaTotal": 10,
+      "vagasocupadas": 3,
+      "horaInicio": "06:00",
+      "horaFim": "08:00",
+      "data": "12/06/2012",
+      "servico_id": 1
+    }
+  ],
+  "listaHorario": [
+    {
+      "id": 1,
+      "servicoHospedagem_id": 1,
+      "horarioServico_id": 1
+    },
+    {
+      "id": 2,
+      "servicoHospedagem_id": 2,
+      "horarioServico_id": 2
+    },
+    {
+      "id": 2,
+      "servicoHospedagem_id": 2,
+      "horarioServico_id": 2
+    },
+    {
+      "id": 2,
+      "servicoHospedagem_id": 2,
+      "horarioServico_id": 2
+    }
+  ],
+  "servicoHospedagem": [
+    {
+      "id": 1,
+      "qtdVagas": 1,
+      "valorTotal": 100,
+      "servico_id": 1,
+      "Hospegaem_id": 1
+    },
+    {
+      "id": 2,
+      "qtdVagas": 2,
+      "valorTotal": 100,
+      "servico_id": 2,
+      "Hospegaem_id": 2
+    },
+    {
+      "id": 3,
+      "qtdVagas": 1,
+      "valorTotal": 100,
+      "servico_id": 3,
+      "Hospegaem_id": 3
+    },
+    {
+      "id": 4,
+      "qtdVagas": 1,
+      "valorTotal": 100,
+      "servico_id": 4,
+      "Hospegaem_id": 4
+    }
+  ],
+  "tipoQuarto": [
     {
       "id": 1,
       "titulo": "suite master",
       "descricao": "xxxxxxxxxxxx",
-      "limiteadulto": 4,
-      "limitecrianca": 2,
-      "precobase": 500,
-      "avaliacaomedia": 5,
-      "diascancelarreserva": 1,
+      "limiteAdulto": 4,
+      "limiteCrianca": 2,
+      "precoBase": 500,
+      "avaliacaoMedia": 5,
+      "diasCancelarReserva": 1,
       "area": 70
     },
     {
       "id": 2,
       "titulo": "standart deluxe 1",
       "descricao": "xxxxxxxxxxxx",
-      "limiteadulto": 4,
-      "limitecrianca": 2,
-      "precobase": 500,
-      "avaliacaomedia": 5,
-      "diascancelarreserva": 1,
+      "limiteAdulto": 4,
+      "limiteCrianca": 2,
+      "precoBase": 500,
+      "avaliacaoMedia": 5,
+      "diasCancelarReserva": 1,
       "area": 70
     },
     {
       "id": 3,
       "titulo": "standart deluxe 2",
       "descricao": "xxxxxxxxxxxx",
-      "limiteadulto": 4,
-      "limitecrianca": 2,
-      "precobase": 500,
-      "avaliacaomedia": 5,
-      "diascancelarreserva": 1,
+      "limiteAdulto": 4,
+      "limiteCrianca": 2,
+      "precoBase": 500,
+      "avaliacaoMedia": 5,
+      "diasCancelarReserva": 1,
       "area": 70
     },
     {
       "id": 4,
       "titulo": "quaro king - frente mar",
       "descricao": "xxxxxxxxxxxx",
-      "limiteadulto": 4,
-      "limitecrianca": 2,
-      "precobase": 500,
-      "avaliacaomedia": 5,
-      "diascancelarreserva": 1,
+      "limiteAdulto": 4,
+      "limiteCrianca": 2,
+      "precoBase": 500,
+      "avaliacaoMedia": 5,
+      "diasCancelarReserva": 1,
       "area": 70
     }
   ],
-  "tiposcama": [
+  "camaTipoQuarto": [
+    {
+      "id": 1,
+      "quantidade": 1,
+      "tipoQuarto_id": 1,
+      "tipoCama_id": 1
+    },
+    {
+      "id": 2,
+      "quantidade": 1,
+      "tipoQuarto_id": 4,
+      "tipoCama_id": 4
+    },
+    {
+      "id": 3,
+      "quantidade": 2,
+      "tipoQuarto_id": 2,
+      "tipoCama_id": 1
+    },
+    {
+      "id": 4,
+      "quantidade": 2,
+      "tipoQuarto_id": 3,
+      "tipoCama_id": 1
+    }
+  ],
+  "tipoCama": [
     {
       "id": 1,
       "titulo": "casal",
@@ -231,39 +403,39 @@
       "ocupantes": 2
     }
   ],
-  "comodidades": [
+  "comodidade": [
     {
       "id": 1,
       "titulo": "ar condicionado",
       "descricao": "xxxxxxxxxxx",
-      "categoria_comodidade_id": 1
+      "tipoComodidade_id": 1
     },
     {
       "id": 2,
       "titulo": "elevador",
       "descricao": "xxxxxxxxxxx",
-      "categoria_comodidade_id": 2
+      "tipoComodidade_id": 2
     },
     {
       "id": 3,
       "titulo": "banheira hidro",
       "descricao": "xxxxxxxxxxx",
-      "categoria_comodidade_id": 3
+      "tipoComodidade_id": 3
     },
     {
       "id": 4,
       "titulo": "frigobar",
       "descricao": "xxxxxxxxxxx",
-      "categoria_comodidade_id": 1
+      "tipoComodidade_id": 1
     },
     {
       "id": 4,
       "titulo": "vista para o mar",
       "descricao": "xxxxxxxxxxx",
-      "categoria_comodidade_id": 2
+      "tipoComodidade_id": 2
     }
   ],
-  "categoria_comodidades": [
+  "tipoComodidade": [
     {
       "id": 1,
       "titulo": "quarto",
@@ -280,6 +452,28 @@
       "descricao": "caracteristicas relacionada a higiene e banho"
     }
   ],
+  "comodidadeTipoQuarto": [
+    {
+      "id": 1,
+      "id_comodidade_id": 1,
+      "tipoQuarto_id": 1
+    },
+    {
+      "id": 2,
+      "id_comodidade_id": 3,
+      "tipoQuarto_id": 1
+    },
+    {
+      "id": 3,
+      "id_comodidade_id": 2,
+      "tipoQuarto_id": 2
+    },
+    {
+      "id": 4,
+      "id_comodidade_id": 3,
+      "tipoQuarto_id": 4
+    }
+  ],
   "quarto": [
     {
       "id": 1,
@@ -288,7 +482,7 @@
       "bloco": 1,
       "status": "ocupado",
       "hotel_id": 1,
-      "tipo_quarto_id": 4
+      "tipoQuarto_id": 4
     },
     {
       "id": 1,
@@ -297,7 +491,7 @@
       "bloco": 2,
       "status": "ocupado",
       "hotel_id": 1,
-      "tipo_quarto_id": 1
+      "tipoQuarto_id": 1
     },
     {
       "id": 1,
@@ -306,7 +500,7 @@
       "bloco": 2,
       "status": "manutencao",
       "hotel_id": 1,
-      "tipo_quarto_id": 2
+      "tipoQuarto_id": 2
     },
     {
       "id": 1,
@@ -315,7 +509,77 @@
       "bloco": 1,
       "status": "disponivel",
       "hotel_id": 1,
-      "tipo_quarto_id": 4
+      "tipoQuarto_id": 4
+    }
+  ],
+  "quartoHospedagem": [
+    {
+      "id": 1,
+      "hospedagem_id": 1,
+      "quarto_id": 1,
+      "avaliacaoQuarto_id": 1
+    },
+    {
+      "id": 2,
+      "hospedagem_id": 1,
+      "quarto_id": 2,
+      "avaliacaoQuarto_id": 2
+    },
+    {
+      "id": 3,
+      "hospedagem_id": 4,
+      "quarto_id": 3,
+      "avaliacaoQuarto_id": 3
+    },
+    {
+      "id": 4,
+      "hospedagem_id": 2,
+      "quarto_id": 3,
+      "avaliacaoQuarto_id": 4
+    },
+    {
+      "id": 5,
+      "hospedagem_id": 3,
+      "quarto_id": 4,
+      "avaliacaoQuarto_id": 5
+    },
+    {
+      "id": 6,
+      "hospedagem_id": 4,
+      "quarto_id": 4,
+      "avaliacaoQuarto_id": 6
+    }
+  ],
+  "avaliacaoQuarto": [
+    {
+      "id": 1,
+      "nota": 3,
+      "comentario": "xxxxxxx"
+    },
+    {
+      "id": 2,
+      "nota": 3,
+      "comentario": "xxxxxxx"
+    },
+    {
+      "id": 3,
+      "nota": 5,
+      "comentario": "xxxxxxx"
+    },
+    {
+      "id": 4,
+      "nota": 4,
+      "comentario": "xxxxxxx"
+    },
+    {
+      "id": 5,
+      "nota": 3,
+      "comentario": "xxxxxxx"
+    },
+    {
+      "id": 6,
+      "nota": 5,
+      "comentario": "xxxxxxx"
     }
   ],
   "hospedagem": [
@@ -334,8 +598,8 @@
       "cliente_id": 1,
       "funcionario_id": 1,
       "hotel_id": 1,
-      "avaliacoes_hospedagem_id": 1,
-      "quarto_hospedagem_id": 1
+      "avaliacoesHospedagem_id": 1,
+      "quartoHospedagem_id": 1
     },
     {
       "id": 2,
@@ -352,8 +616,8 @@
       "cliente_id": 2,
       "funcionario_id": 1,
       "hotel_id": 1,
-      "avaliacoes_hospedagem_id": 2,
-      "quarto_hospedagem_id": 2
+      "avaliacoesHospedagem_id": 2,
+      "quartoHospedagem_id": 2
     },
     {
       "id": 3,
@@ -370,8 +634,8 @@
       "cliente_id": 3,
       "funcionario_id": 1,
       "hotel_id": 1,
-      "avaliacoes_hospedagem_id": 3,
-      "quarto_hospedagem_id": 3
+      "avaliacoesHospedagem_id": 3,
+      "quartoHospedagem_id": 3
     },
     {
       "id": 4,
@@ -388,16 +652,38 @@
       "cliente_id": 4,
       "funcionario_id": 1,
       "hotel_id": 1,
-      "avaliacoes_hospedagem_id": 4,
-      "quarto_hospedagem_id": 4
+      "avaliacoesHospedagem_id": 4,
+      "quartoHospedagem_id": 4
+    }
+  ],
+  "avaliacaoHospedagem": [
+    {
+      "id": 1,
+      "nota": 4,
+      "comentario": "gostei"
+    },
+    {
+      "id": 2,
+      "nota": 4.5,
+      "comentario": "gostei"
+    },
+    {
+      "id": 3,
+      "nota": 5,
+      "comentario": "perfeito"
+    },
+    {
+      "id": 4,
+      "nota": 2,
+      "comentario": "não gostei"
     }
   ],
   "reserva": [
     {
       "id": 1,
       "status": "ativo pago",
-      "datainicio": "10/10/2020",
-      "datafim": "20/10/2020",
+      "dataInicio": "10/10/2020",
+      "dataFim": "20/10/2020",
       "valorResrva": 2000,
       "cliente_id": 1,
       "funcionario_id": 1,
@@ -407,8 +693,8 @@
     {
       "id": 2,
       "status": "ativo nao pago",
-      "datainicio": "10/10/2020",
-      "datafim": "20/10/2020",
+      "dataInicio": "10/10/2020",
+      "dataFim": "20/10/2020",
       "valorResrva": 2000,
       "cliente_id": 5,
       "funcionario_id": 2,
@@ -418,8 +704,8 @@
     {
       "id": 3,
       "status": "hospedagem",
-      "datainicio": "10/10/2020",
-      "datafim": "20/10/2020",
+      "dataInicio": "10/10/2020",
+      "dataFim": "20/10/2020",
       "valorResrva": 2000,
       "cliente_id": 2,
       "funcionario_id": "NULL",
@@ -429,8 +715,8 @@
     {
       "id": 4,
       "status": "cancelada",
-      "datainicio": "10/10/2020",
-      "datafim": "20/10/2020",
+      "dataInicio": "10/10/2020",
+      "dataFim": "20/10/2020",
       "valorResrva": 2000,
       "cliente_id": 3,
       "funcionario_id": "NULL",
@@ -460,7 +746,7 @@
       "salario": 3000,
       "horaInicio": "07:00",
       "horaFim": "15:00",
-      "endereco_id": 7,
+      "endereco_id": 1,
       "hotel_id": 1,
       "cargo_id": 1
     },
@@ -474,7 +760,7 @@
       "salario": 3000,
       "horaInicio": "07:00",
       "horaFim": "15:00",
-      "endereco_id": 8,
+      "endereco_id": 2,
       "hotel_id": 1,
       "cargo_id": 1
     },
@@ -488,7 +774,7 @@
       "salario": 3000,
       "horaInicio": "07:00",
       "horaFim": "15:00",
-      "endereco_id": 9,
+      "endereco_id": 3,
       "hotel_id": 1,
       "cargo_id": 1
     },
@@ -502,7 +788,7 @@
       "salario": 3000,
       "horaInicio": "07:00",
       "horaFim": "15:00",
-      "endereco_id": 10,
+      "endereco_id": 4,
       "hotel_id": 1,
       "cargo_id": 1
     }
@@ -537,6 +823,58 @@
       "hotel_id": 1
     }
   ],
+  "dias_folga": [
+    {
+      "id": 1,
+      "diasSemana_id": 1,
+      "funcionairo_id": 1
+    },
+    {
+      "id": 2,
+      "diasSemana_id": 2,
+      "funcionairo_id": 2
+    },
+    {
+      "id": 3,
+      "diasSemana_id": 3,
+      "funcionairo_id": 3
+    },
+    {
+      "id": 4,
+      "diasSemana_id": 4,
+      "funcionairo_id": 4
+    }
+  ],
+  "diasSemana": [
+    {
+      "id": 1,
+      "diaSemana": "domingo"
+    },
+    {
+      "id": 2,
+      "diaSemana": "segunda-feira"
+    },
+    {
+      "id": 2,
+      "diaSemana": "terça-feira"
+    },
+    {
+      "id": 4,
+      "diaSemana": "quarta-feira"
+    },
+    {
+      "id": 5,
+      "diaSemana": "quinta-feira"
+    },
+    {
+      "id": 6,
+      "diaSemana": "sexta-feira"
+    },
+    {
+      "id": 7,
+      "diaSemana": "sábado"
+    }
+  ],
   "cliente": [
     {
       "id": 1,
@@ -545,7 +883,7 @@
       "dataNacimento": "08/04/1987",
       "email": "cliente01-01@gmail.com",
       "senha": "xxxxxxxx",
-      "endereco_id": 11
+      "endereco_id": 1
     },
     {
       "id": 2,
@@ -554,7 +892,7 @@
       "dataNacimento": "11/08/1999",
       "email": "cliente01-02@gmail.com",
       "senha": "xxxxxxxx",
-      "endereco_id": 12
+      "endereco_id": 2
     },
     {
       "id": 3,
@@ -563,7 +901,7 @@
       "dataNacimento": "10/09/2000",
       "email": "cliente01-03@gmail.com",
       "senha": "xxxxxxxx",
-      "endereco_id": 13
+      "endereco_id": 3
     },
     {
       "id": 4,
@@ -572,7 +910,7 @@
       "dataNacimento": "15/07/2002",
       "email": "cliente01-04@gmail.com",
       "senha": "xxxxxxxx",
-      "endereco_id": 14
+      "endereco_id": 4
     }
   ],
   "endereco": [
@@ -594,8 +932,8 @@
       "logradouro": "Rua fulano de tal",
       "bairro": "aeaet",
       "cep": "00000-000",
-      "cidade_id": 1,
-      "UF_id": 1,
+      "cidade_id": 2,
+      "UF_id": 2,
       "pais_id": 1
     },
     {
@@ -605,8 +943,8 @@
       "logradouro": "Rua fulano de tal",
       "bairro": "aeaet",
       "cep": "00000-000",
-      "cidade_id": 1,
-      "UF_id": 1,
+      "cidade_id": 3,
+      "UF_id": 3,
       "pais_id": 1
     },
     {
@@ -616,9 +954,158 @@
       "logradouro": "Rua fulano de tal",
       "bairro": "aeaet",
       "cep": "00000-000",
-      "cidade_id": 1,
-      "UF_id": 1,
+      "cidade_id": 4,
+      "UF_id": 4,
+      "pais_id": 2
+    }
+  ],
+  "cidade": [
+    {
+      "id": 1,
+      "titulo": "Juiz de Fora",
+      "uf_id": 1
+    },
+    {
+      "id": 2,
+      "titulo": "Belo Horizonte",
+      "uf_id": 1
+    },
+    {
+      "id": 3,
+      "titulo": "Rio de Janeiro",
+      "uf_id": 2
+    },
+    {
+      "id": 4,
+      "titulo": "João Pessoa",
+      "uf_id": 3
+    },
+    {
+      "id": 5,
+      "titulo": "Buenos Aires",
+      "uf_id": 4
+    }
+  ],
+  "uf": [
+    {
+      "id": 1,
+      "titulo": "Minas Gerais",
       "pais_id": 1
+    },
+    {
+      "id": 2,
+      "titulo": "Rio de Janeiro",
+      "pais_id": 1
+    },
+    {
+      "id": 3,
+      "titulo": "Paraíba",
+      "pais_id": 1
+    },
+    {
+      "id": 4,
+      "titulo": "Buenos Aires",
+      "pais_id": 2
+    }
+  ],
+  "pais": [
+    {
+      "id": 1,
+      "titulo": "Brasil"
+    },
+    {
+      "id": 2,
+      "titulo": "Argentina"
+    }
+  ],
+  "telefoneCliente": [
+    {
+      "id": 1,
+      "ddi": 55,
+      "ddd": 32,
+      "num": 999999999,
+      "cliente_id": 1
+    },
+    {
+      "id": 2,
+      "ddi": 55,
+      "ddd": 32,
+      "num": 999999999,
+      "cliente_id": 1
+    },
+    {
+      "id": 3,
+      "ddi": 55,
+      "ddd": 32,
+      "num": 999999999,
+      "cliente_id": 2
+    },
+    {
+      "id": 4,
+      "ddi": 55,
+      "ddd": 32,
+      "num": 999999999,
+      "cliente_id": 3
+    }
+  ],
+  "telefoneFuncionario": [
+    {
+      "id": 1,
+      "ddi": 55,
+      "ddd": 32,
+      "num": 999999999,
+      "funcionario_id": 1
+    },
+    {
+      "id": 2,
+      "ddi": 55,
+      "ddd": 32,
+      "num": 999999999,
+      "funcionario_id": 1
+    },
+    {
+      "id": 3,
+      "ddi": 55,
+      "ddd": 32,
+      "num": 999999999,
+      "funcionario_id": 2
+    },
+    {
+      "id": 4,
+      "ddi": 55,
+      "ddd": 32,
+      "num": 999999999,
+      "funcionario_id": 3
+    }
+  ],
+  "telefoneHotel": [
+    {
+      "id": 1,
+      "ddi": 55,
+      "ddd": 32,
+      "num": 999999999,
+      "hotel_id": 1
+    },
+    {
+      "id": 2,
+      "ddi": 55,
+      "ddd": 32,
+      "num": 999999999,
+      "hotel_id": 2
+    },
+    {
+      "id": 3,
+      "ddi": 55,
+      "ddd": 32,
+      "num": 999999999,
+      "hotel_id": 3
+    },
+    {
+      "id": 4,
+      "ddi": 55,
+      "ddd": 32,
+      "num": 999999999,
+      "hotel_id": 4
     }
   ]
 }
