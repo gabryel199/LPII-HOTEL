@@ -23,60 +23,93 @@ function CadastroTipoQuarto() {
   const baseURL = `${BASE_URL}/tipoQuarto`;
 
   const [id, setId] = useState('');
-  const [nome, setNome] = useState('');
-  const [nome1, setNome1] = useState('');
-  const [nome2, setNome2] = useState('');
-  const [nome3, setNome3] = useState('');
-  const [idCoordenador, setIdCoordenador] = useState(0);
+  const [var1, setVar1] = useState('');
+  const [var2, setVar2] = useState('');
+  const [var3, setVar3] = useState('');
+  const [var4, setVar4] = useState('');
+  const [var5, setVar5] = useState('');
+  const [var6, setVar6] = useState('');
+  const [var7, setVar7] = useState('');
 
   const [dados, setDados] = React.useState([]);
 
   return (
     <div className='container'>
-      <Card title='Cadastro de Produto'>
+      <Card title='Cadastro de Tipos de Quartos'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
-              <FormGroup label='Nome: *' htmlFor='inputNome'>
+              <FormGroup label='Titulo: *' htmlFor='inputTitulo'>
                 <input
                   type='text'
-                  id='inputNome'
-                  value={nome}
+                  id='inputTitulo'
+                  value={var1}
                   className='form-control'
-                  name='nome'
-                  onChange={(e) => setNome(e.target.value)}
+                  name='titulo'
+                  onChange={(e) => setVar1(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Descrição: *' htmlFor='inputDescricao'>
+              <FormGroup label='Descricao: *' htmlFor='inputDescricao'>
                 <input
                   type='text'
                   id='inputDescricao'
-                  value={nome1}
+                  value={var2}
                   className='form-control'
                   name='descricao'
-                  onChange={(e) => setNome1(e.target.value)}
+                  onChange={(e) => setVar2(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Preço: *' htmlFor='inputPreco'>
+              <FormGroup label='LimiteAdulto: *' htmlFor='inputLimiteAdulto'>
                 <input
                   type='text'
-                  id='inputPreco'
-                  value={nome2}
+                  id='inputLimiteAdulto'
+                  value={var3}
                   className='form-control'
-                  name='preco'
-                  onChange={(e) => setNome2(e.target.value)}
+                  name='limiteadulto'
+                  onChange={(e) => setVar3(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Categoria: *' htmlFor='inputCategoria'>
+              <FormGroup label='LimiteCrianca: *' htmlFor='inputLimiteCrianca'>
                 <input
                   type='text'
-                  id='inputCategoria'
-                  value={nome3}
+                  id='inputLimiteCrianca'
+                  value={var4}
                   className='form-control'
-                  name='categoria'
-                  onChange={(e) => setNome3(e.target.value)}
+                  name='limitecrianca'
+                  onChange={(e) => setVar4(e.target.value)}
                 />
               </FormGroup>
+              <FormGroup label='PrecoBase: *' htmlFor='inputPrecoBase'>
+                <input
+                  type='text'
+                  id='inputPrecoBase'
+                  value={var5}
+                  className='form-control'
+                  name='precobase'
+                  onChange={(e) => setVar5(e.target.value)}
+                />
+              </FormGroup>
+              <FormGroup label='DiasCancelarReserva: *' htmlFor='inputDiasCancelarReserva'>
+                <input
+                  type='text'
+                  id='inputDiasCancelarReserva'
+                  value={var6}
+                  className='form-control'
+                  name='diascancelarreserva'
+                  onChange={(e) => setVar6(e.target.value)}
+                />
+              </FormGroup>
+              <FormGroup label='Area: *' htmlFor='inputArea'>
+                <input
+                  type='text'
+                  id='inputArea'
+                  value={var7}
+                  className='form-control'
+                  name='area'
+                  onChange={(e) => setVar7(e.target.value)}
+                />
+              </FormGroup>
+              
               <br></br>
               <Stack spacing={1} padding={1} direction='row'>
                 <button

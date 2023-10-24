@@ -23,58 +23,44 @@ function CadastroCargo() {
   const baseURL = `${BASE_URL}/cargo`;
 
   const [id, setId] = useState('');
-  const [nome, setNome] = useState('');
-  const [nome1, setNome1] = useState('');
-  const [nome2, setNome2] = useState('');
-  const [nome3, setNome3] = useState('');
-  const [idCoordenador, setIdCoordenador] = useState(0);
-
-  const [dados, setDados] = React.useState([]);
+  const [var0, setVar0] = useState('');
+  const [var1, setVar1] = useState('');
+  const [var2, setVar2] = useState('');
 
   return (
     <div className='container'>
-      <Card title='Cadastro de Produto'>
+      <Card title='Cadastro de Cargos'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
-              <FormGroup label='Nome: *' htmlFor='inputNome'>
+              <FormGroup label='Cargo: *' htmlFor='inputCargo'>
                 <input
                   type='text'
-                  id='inputNome'
-                  value={nome}
+                  id='inputCargo'
+                  value={var0}
                   className='form-control'
-                  name='nome'
-                  onChange={(e) => setNome(e.target.value)}
+                  name='cargo'
+                  onChange={(e) => setVar0(e.target.value)}
                 />
               </FormGroup>
               <FormGroup label='Descrição: *' htmlFor='inputDescricao'>
                 <input
                   type='text'
                   id='inputDescricao'
-                  value={nome1}
+                  value={var1}
                   className='form-control'
                   name='descricao'
-                  onChange={(e) => setNome1(e.target.value)}
+                  onChange={(e) => setVar1(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Preço: *' htmlFor='inputPreco'>
+              <FormGroup label='Salário Base: *' htmlFor='inputSalarioBase'>
                 <input
                   type='text'
-                  id='inputPreco'
-                  value={nome2}
+                  id='inputSalarioBase'
+                  value={var2}
                   className='form-control'
-                  name='preco'
-                  onChange={(e) => setNome2(e.target.value)}
-                />
-              </FormGroup>
-              <FormGroup label='Categoria: *' htmlFor='inputCategoria'>
-                <input
-                  type='text'
-                  id='inputCategoria'
-                  value={nome3}
-                  className='form-control'
-                  name='categoria'
-                  onChange={(e) => setNome3(e.target.value)}
+                  name='salariobase'
+                  onChange={(e) => setVar2(e.target.value)}
                 />
               </FormGroup>
               <br></br>

@@ -48,7 +48,7 @@ function CadastroFuncionario() {
 
   return (
     <div className='container'>
-      <Card title='Cadastro de Produto'>
+      <Card title='Cadastro de Funcionários'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>

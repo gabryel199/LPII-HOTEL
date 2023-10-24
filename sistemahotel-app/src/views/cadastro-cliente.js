@@ -22,6 +22,7 @@ function CadastroCliente() {
 
   const baseURL = `${BASE_URL}/cliente`;
 
+  const [id, setId] = useState('');
   const [var0, setVar0] = useState('');//cpf
   const [var1, setVar1] = useState('');//nome
   const [var2, setVar2] = useState('');//dataN
@@ -39,7 +40,66 @@ function CadastroCliente() {
   const [var9, setVar9] = useState('');//log
   const [var10, setVar10] = useState('');//bai 
 
+  //ESSA é A PARTE DO BOTAO EDITAR
   const [dados, setDados] = React.useState([]);
+  
+  async function buscar() {
+    await axios.get(`${baseURL}/${idParam}`).then((response) => {
+      setDados(response.data);
+    });
+    setId(dados.id);
+    setVar0(dados.cpf);
+    setVar1(dados.nome);
+    setVar2(dados.dataNacimento);
+    setVar11(dados.email);
+    setVar12(dados.senha);
+    setVar13(dados.senha);
+    setVar14('');
+  }
+
+  const [dados2, setDados2] = React.useState(null); //end
+
+  useEffect(() => {
+    //axios.get(`${BASE_URL}/endereco/${dados.endereco_id}`).then((response) => {
+    axios.get(`${BASE_URL}/endereco/`).then((response) => {
+      setDados2(response.data);
+    });
+    /*setVar5(dados2.cidade);
+    setVar6(dados2.cep);
+    setVar7(dados2.num);
+    setVar8(dados2.complemento);
+    setVar9(dados2.logradouro);
+    setVar10('');*/
+  }, []);
+
+  const [dados3, setDados3] = React.useState(null); //uf
+
+  useEffect(() => {
+    //axios.get(`${BASE_URL}/uf/${dados2.UF_id}`).then((response) => {
+    axios.get(`${BASE_URL}/uf/`).then((response) => {
+      setDados3(response.data);
+    });
+    //setVar4(dados3.titulo)
+  }, []);
+
+  const [dados4, setDados4] = React.useState(null); //pais
+
+  useEffect(() => {
+    //axios.get(`${BASE_URL}/pais/${dados2.pais_id}`).then((response) => {
+    axios.get(`${BASE_URL}/pais/`).then((response) => {
+      setDados4(response.data);
+    });
+    //setVar3(dados4.titulo)
+  }, []);
+
+  useEffect(() => {
+      buscar(); // eslint-disable-next-line
+  }, [id]);
+
+  if (!dados) return null;
+  if (!dados2) return null;
+  if (!dados3) return null;
+  if (!dados4) return null;
 
   return (
     <div className='container'>
@@ -117,25 +177,41 @@ function CadastroCliente() {
                   onChange={(e) => setVar14(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Pais: *' htmlFor='inputPais'>
-                <input
-                  type='text'
-                  id='inputPais'
-                  value={var3}
-                  className='form-control'
+              <FormGroup label='Pais: *' htmlFor='selectPais'>
+                <select
+                  className='form-select'
+                  id='selectPais'
                   name='pais'
+                  value={var3}
                   onChange={(e) => setVar3(e.target.value)}
-                />
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados4.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
               </FormGroup>
-              <FormGroup label='UF: *' htmlFor='inputUF'>
-                <input
-                  type='text'
-                  id='inputUF'
+              <FormGroup label='UF: *' htmlFor='selectUF'>
+                <select
+                  className='form-select'
+                  id='selectUF'
+                  name='uf'
                   value={var4}
-                  className='form-control'
-                  name='UF'
                   onChange={(e) => setVar4(e.target.value)}
-                />
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados3.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
               </FormGroup>
               <FormGroup label='Cidade: *' htmlFor='inputCidade'>
                 <input

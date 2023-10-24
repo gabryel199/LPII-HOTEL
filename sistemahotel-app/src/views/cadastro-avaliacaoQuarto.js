@@ -14,13 +14,13 @@ import '../custom.css';
 import axios from 'axios';
 import { BASE_URL } from '../config/axios';
 
-function CadastroServicos() {
+function CadastroAvaliacaoQuarto() {
   
   const { idParam } = useParams();
 
   const navigate = useNavigate();
 
-  const baseURL = `${BASE_URL}/servico`;
+  const baseURL = `${BASE_URL}/avaliacaoQuarto`;
 
   const [id, setId] = useState('');
   const [var0, setVar0] = useState('');
@@ -28,72 +28,35 @@ function CadastroServicos() {
   const [var2, setVar2] = useState('');
   const [var3, setVar3] = useState('');
 
-  
-  const [dados2, setDados2] = React.useState(null); //tipo Produto
-
-  useEffect(() => {
-    axios.get(`${BASE_URL}/tipoServico`).then((response) => {
-      setDados2(response.data);
-    });
-  }, []);
-
-  if (!dados2) return null;
+  const [dados, setDados] = React.useState([]);
 
   return (
     <div className='container'>
-      <Card title='Cadastro de Serviços'>
+      <Card title='Cadastro de Avaliação da Quarto'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
-              <FormGroup label='Nome: *' htmlFor='inputNome'>
+              <FormGroup label='Nota: *' htmlFor='inputNota'>
                 <input
                   type='text'
-                  id='inputNome'
+                  id='inputNota'
                   value={var0}
                   className='form-control'
-                  name='nome'
+                  name='nota'
                   onChange={(e) => setVar0(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Descrição: *' htmlFor='inputDescricao'>
+              <FormGroup label='Comentario: *' htmlFor='inputComentario'>
                 <input
                   type='text'
-                  id='inputDescricao'
+                  id='inputComentario'
                   value={var1}
                   className='form-control'
-                  name='descricao'
+                  name='comentario'
                   onChange={(e) => setVar1(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Preço: *' htmlFor='inputPreco'>
-                <input
-                  type='text'
-                  id='inputPreco'
-                  value={var2}
-                  className='form-control'
-                  name='preco'
-                  onChange={(e) => setVar2(e.target.value)}
-                />
-              </FormGroup>
-              <FormGroup label='Tipo: *' htmlFor='selectTipo'>
-                <select
-                  className='form-select'
-                  id='selectTipo'
-                  name='tipo'
-                  value={var3}
-                  onChange={(e) => setVar3(e.target.value)}
-                >
-                  <option key='0' value='0'>
-                    {' '}
-                  </option>
-                  {dados2.map((dado) => (
-                    <option key={dado.id} value={dado.id}>
-                      {dado.titulo}
-                    </option>
-                  ))}
-                </select>
-              </FormGroup>
-
+              
               <br></br>
               <Stack spacing={1} padding={1} direction='row'>
                 <button
@@ -117,4 +80,4 @@ function CadastroServicos() {
   );
 }
 
-export default CadastroServicos;
+export default CadastroAvaliacaoQuarto;

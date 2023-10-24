@@ -124,6 +124,7 @@ function CadastroProduto() {
                   ))}
                 </select>
               </FormGroup>
+              
               <br></br>
               <Stack spacing={1} padding={1} direction='row'>
                 <button

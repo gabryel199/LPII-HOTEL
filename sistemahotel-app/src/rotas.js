@@ -22,6 +22,9 @@ import CadastroQuarto from './views/cadastro-quarto';
 import CadastroComodidades from './views/cadastro-comodidades';
 import CadastroReserva from './views/cadastro-reserva';
 import CadastroHospedagem from './views/cadastro-hospedagem';
+import CadastroHorarioServico from './views/cadastro-horarioServico';
+import CadastroAvaliacaoQuarto from './views/cadastro-avaliacaoQuarto';
+import CadastroAvaliacaoHospedagem from './views/cadastro-avaliacaoHospedagem';
 {/**/}
 
 
@@ -49,6 +52,9 @@ function Rotas(props) {
         <Route path='/cadastro-comodidades/:idParam?' element={<CadastroComodidades />} />   
         <Route path='/cadastro-reserva/:idParam?' element={<CadastroReserva />} />         
         <Route path='/cadastro-hospedagem/:idParam?' element={<CadastroHospedagem />} />   
+        <Route path='/cadastro-horarioServico/:idParam?' element={<CadastroHorarioServico />} />   
+        <Route path='/cadastro-avaliacaoQuarto/:idParam?' element={<CadastroAvaliacaoQuarto />} />   
+        <Route path='/cadastro-avaliacaoHospedagem/:idParam?' element={<CadastroAvaliacaoHospedagem />} />   
         {/**/}
         {/*          
         <Route path='/cadastro-tipo-produto' element={<CadastroTipoProduto />} />     

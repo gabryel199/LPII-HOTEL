@@ -23,60 +23,65 @@ function CadastroComodidades() {
   const baseURL = `${BASE_URL}/comodidade`;
 
   const [id, setId] = useState('');
-  const [nome, setNome] = useState('');
-  const [nome1, setNome1] = useState('');
-  const [nome2, setNome2] = useState('');
-  const [nome3, setNome3] = useState('');
-  const [idCoordenador, setIdCoordenador] = useState(0);
+  const [var0, setVar0] = useState('');
+  const [var1, setVar1] = useState('');
+  const [var2, setVar2] = useState('');
+  
+  const [dados2, setDados2] = React.useState(null); //cat comodidades
 
-  const [dados, setDados] = React.useState([]);
+  useEffect(() => {
+    axios.get(`${BASE_URL}/tipoComodidade`).then((response) => {
+      setDados2(response.data);
+    });
+  }, []);
+  
+  if (!dados2) return null;
 
   return (
     <div className='container'>
-      <Card title='Cadastro de Produto'>
+      <Card title='Cadastro de Comodidads'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
-              <FormGroup label='Nome: *' htmlFor='inputNome'>
+              <FormGroup label='Título: *' htmlFor='inputTitulo'>
                 <input
                   type='text'
-                  id='inputNome'
-                  value={nome}
+                  id='inputTitulo'
+                  value={var0}
                   className='form-control'
-                  name='nome'
-                  onChange={(e) => setNome(e.target.value)}
+                  name='titulo'
+                  onChange={(e) => setVar0(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Descrição: *' htmlFor='inputDescricao'>
+              <FormGroup label='Descricao: *' htmlFor='inputDescricao'>
                 <input
                   type='text'
                   id='inputDescricao'
-                  value={nome1}
+                  value={var1}
                   className='form-control'
                   name='descricao'
-                  onChange={(e) => setNome1(e.target.value)}
+                  onChange={(e) => setVar1(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Preço: *' htmlFor='inputPreco'>
-                <input
-                  type='text'
-                  id='inputPreco'
-                  value={nome2}
-                  className='form-control'
-                  name='preco'
-                  onChange={(e) => setNome2(e.target.value)}
-                />
-              </FormGroup>
-              <FormGroup label='Categoria: *' htmlFor='inputCategoria'>
-                <input
-                  type='text'
-                  id='inputCategoria'
-                  value={nome3}
-                  className='form-control'
+              <FormGroup label='Categoria: *' htmlFor='selectCategoria'>
+                <select
+                  className='form-select'
+                  id='selectCategoria'
                   name='categoria'
-                  onChange={(e) => setNome3(e.target.value)}
-                />
+                  value={var2}
+                  onChange={(e) => setVar2(e.target.value)}
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados2.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
               </FormGroup>
+
               <br></br>
               <Stack spacing={1} padding={1} direction='row'>
                 <button

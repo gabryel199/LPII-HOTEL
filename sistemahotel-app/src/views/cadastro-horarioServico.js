@@ -14,84 +14,76 @@ import '../custom.css';
 import axios from 'axios';
 import { BASE_URL } from '../config/axios';
 
-function CadastroServicos() {
+function CadastroHorarioServico() {
   
   const { idParam } = useParams();
 
   const navigate = useNavigate();
 
-  const baseURL = `${BASE_URL}/servico`;
+  const baseURL = `${BASE_URL}/horarioServico`;
 
   const [id, setId] = useState('');
-  const [var0, setVar0] = useState('');
   const [var1, setVar1] = useState('');
   const [var2, setVar2] = useState('');
   const [var3, setVar3] = useState('');
-
-  
-  const [dados2, setDados2] = React.useState(null); //tipo Produto
-
-  useEffect(() => {
-    axios.get(`${BASE_URL}/tipoServico`).then((response) => {
-      setDados2(response.data);
-    });
-  }, []);
-
-  if (!dados2) return null;
+  const [var4, setVar4] = useState('');
+  const [var5, setVar5] = useState('');
 
   return (
     <div className='container'>
-      <Card title='Cadastro de Serviços'>
+      <Card title='Cadastro de Horários de Serviço'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
-              <FormGroup label='Nome: *' htmlFor='inputNome'>
+              <FormGroup label='Status: *' htmlFor='inputStatus'>
                 <input
                   type='text'
-                  id='inputNome'
-                  value={var0}
-                  className='form-control'
-                  name='nome'
-                  onChange={(e) => setVar0(e.target.value)}
-                />
-              </FormGroup>
-              <FormGroup label='Descrição: *' htmlFor='inputDescricao'>
-                <input
-                  type='text'
-                  id='inputDescricao'
+                  id='inputStatus'
                   value={var1}
                   className='form-control'
-                  name='descricao'
+                  name='status'
                   onChange={(e) => setVar1(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Preço: *' htmlFor='inputPreco'>
+              <FormGroup label='Vagas Totais: *' htmlFor='inputVagaTotal'>
                 <input
                   type='text'
-                  id='inputPreco'
+                  id='inputVagaTotal'
                   value={var2}
                   className='form-control'
-                  name='preco'
+                  name='vagatotal'
                   onChange={(e) => setVar2(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Tipo: *' htmlFor='selectTipo'>
-                <select
-                  className='form-select'
-                  id='selectTipo'
-                  name='tipo'
+              <FormGroup label='Hora Início: *' htmlFor='inputHoraInicio'>
+                <input
+                  type='text'
+                  id='inputHoraInicio'
                   value={var3}
+                  className='form-control'
+                  name='horainicio'
                   onChange={(e) => setVar3(e.target.value)}
-                >
-                  <option key='0' value='0'>
-                    {' '}
-                  </option>
-                  {dados2.map((dado) => (
-                    <option key={dado.id} value={dado.id}>
-                      {dado.titulo}
-                    </option>
-                  ))}
-                </select>
+                />
+              </FormGroup>
+              <FormGroup label='Hora Fim: *' htmlFor='inputHoraFim'>
+                <input
+                  type='text'
+                  id='inputHoraFim'
+                  value={var4}
+                  className='form-control'
+                  name='horafim'
+                  onChange={(e) => setVar4(e.target.value)}
+                />
+              </FormGroup>
+              <FormGroup label='Data: *' htmlFor='inputData'>
+                <input
+                  type='text'
+                  id='inputData'
+                  value={var5}
+                  className='form-control'
+                  name='data'
+                  onChange={(e) => setVar5(e.target.value)}
+                />
               </FormGroup>
 
               <br></br>
@@ -117,4 +109,4 @@ function CadastroServicos() {
   );
 }
 
-export default CadastroServicos;
+export default CadastroHorarioServico;
