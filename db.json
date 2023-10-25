@@ -7,15 +7,6 @@
       "dataNacimento": "08/04/1987",
       "email": "cliente01-01@gmail.com",
       "senha": "xxxxxxxx",
-      "telefone": "32999999999",
-      "pais": "brasil",
-      "uf": "mg",
-      "cidade":"belo horizonte",
-      "cep":"33666-000",
-      "numero":"11",
-      "complemento":"",
-      "logradouro": "maria x",
-      "bairro": "centro",
       "endereco_id": 1
     },
     {
