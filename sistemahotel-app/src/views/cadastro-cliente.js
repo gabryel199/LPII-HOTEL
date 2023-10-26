@@ -211,10 +211,10 @@ function CadastroCliente() {
                 <input
                   type='text'
                   id='inputUF'
-                  value={var3}
+                  value={var4}
                   className='form-control'
                   name='UF'
-                  onChange={(e) => setVar3(e.target.value)}
+                  onChange={(e) => setVar4(e.target.value)}
                 />
               </FormGroup>
               {/*

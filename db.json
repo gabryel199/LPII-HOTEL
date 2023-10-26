@@ -37,50 +37,14 @@
         "endereco_id": 4
       }
     ],
-    "endereco": [
+    "pais": [
       {
         "id": 1,
-        "numero": "1005",
-        "complemento": "204",
-        "logradouro": "Rua fulano de tal",
-        "bairro": "aeaet",
-        "cep": "00000-000",
-        "cidade_id": 1,
-        "UF_id": 1,
-        "pais_id": 1
+        "titulo": "Brasil"
       },
       {
         "id": 2,
-        "numero": "2222",
-        "complemento": "204",
-        "logradouro": "Rua fulano de tal",
-        "bairro": "aeaet",
-        "cep": "00000-000",
-        "cidade_id": 2,
-        "UF_id": 2,
-        "pais_id": 1
-      },
-      {
-        "id": 3,
-        "numero": "333",
-        "complemento": "204",
-        "logradouro": "Rua fulano de tal",
-        "bairro": "aeaet",
-        "cep": "00000-000",
-        "cidade_id": 3,
-        "UF_id": 3,
-        "pais_id": 1
-      },
-      {
-        "id": 4,
-        "numero": "111",
-        "complemento": "204",
-        "logradouro": "Rua fulano de tal",
-        "bairro": "aeaet",
-        "cep": "00000-000",
-        "cidade_id": 4,
-        "UF_id": 4,
-        "pais_id": 2
+        "titulo": "Argentina"
       }
     ],
     "produto": [
