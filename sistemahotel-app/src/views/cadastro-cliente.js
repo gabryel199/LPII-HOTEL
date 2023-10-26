@@ -177,6 +177,17 @@ function CadastroCliente() {
                   onChange={(e) => setVar14(e.target.value)}
                 />
               </FormGroup>
+              <FormGroup label='Pais: *' htmlFor='inputPais'>
+                <input
+                  type='text'
+                  id='inputPais'
+                  value={var3}
+                  className='form-control'
+                  name='Pais'
+                  onChange={(e) => setVar3(e.target.value)}
+                />
+              </FormGroup>
+              {/*
               <FormGroup label='Pais: *' htmlFor='selectPais'>
                 <select
                   className='form-select'
@@ -195,6 +206,18 @@ function CadastroCliente() {
                   ))}
                 </select>
               </FormGroup>
+                  */}
+              <FormGroup label='UF: *' htmlFor='inputUF'>
+                <input
+                  type='text'
+                  id='inputUF'
+                  value={var3}
+                  className='form-control'
+                  name='UF'
+                  onChange={(e) => setVar3(e.target.value)}
+                />
+              </FormGroup>
+              {/*
               <FormGroup label='UF: *' htmlFor='selectUF'>
                 <select
                   className='form-select'
@@ -213,6 +236,7 @@ function CadastroCliente() {
                   ))}
                 </select>
               </FormGroup>
+                  */}
               <FormGroup label='Cidade: *' htmlFor='inputCidade'>
                 <input
                   type='text'
