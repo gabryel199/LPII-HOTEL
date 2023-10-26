@@ -1,118 +1,180 @@
 {
-  "cliente": [
+  "produto": [
     {
       "id": 1,
-      "nome": "cliente 01-01",
-      "cpf": "12345678987",
-      "dataNacimento": "08/04/1987",
-      "email": "cliente01-01@gmail.com",
-      "senha": "xxxxxxxx",
-      "endereco_id": 1
+      "titulo": "misto quente",
+      "descricao": "pao, presunto, queijo",
+      "preco": 5.50,
+      "quantidadeestoque": 100,
+      "hotel_id": 1,
+      "tipoProduto_id": 1
     },
     {
       "id": 2,
-      "nome": "cliente 01-02",
-      "cpf": "14578956832",
-      "dataNacimento": "11/08/1999",
-      "email": "cliente01-02@gmail.com",
-      "senha": "xxxxxxxx",
-      "endereco_id": 2
+      "titulo": "cerveja skol",
+      "descricao": "350ml",
+      "preco": 9.99,
+      "quantidadeestoque": 100,
+      "hotel_id": 1,
+      "tipoProduto_id": 2
     },
     {
       "id": 3,
-      "nome": "cliente 01-03",
-      "cpf": "44785223982",
-      "dataNacimento": "10/09/2000",
-      "email": "cliente01-03@gmail.com",
-      "senha": "xxxxxxxx",
-      "endereco_id": 3
+      "titulo": "barra de chocolate nestle",
+      "descricao": "amargo, 75g",
+      "preco": 6.99,
+      "quantidadeestoque": 100,
+      "hotel_id": 1,
+      "tipoProduto_id": 3
     },
     {
       "id": 4,
-      "nome": "cliente 01-04",
-      "cpf": "55877422598",
-      "dataNacimento": "15/07/2002",
-      "email": "cliente01-04@gmail.com",
-      "senha": "xxxxxxxx",
-      "endereco_id": 4
+      "titulo": "salada de frutas",
+      "descricao": "maça, abacaxi, laranja",
+      "preco": 5.50,
+      "quantidadeestoque": 100,
+      "hotel_id": 1,
+      "tipoProduto_id": 4
     }
   ],
-  "endereco": [
+  "tipoProduto": [
     {
       "id": 1,
-      "numero": "1005",
-      "complemento": "204",
-      "logradouro": "Rua fulano de tal",
-      "bairro": "aeaet",
-      "cep": "00000-000",
-      "cidade_id": 1,
-      "UF_id": 1,
-      "pais_id": 1
+      "titulo": "lanche",
+      "descricao": "xxxxxxxxxxxxxxxx"
     },
     {
       "id": 2,
-      "numero": "2222",
-      "complemento": "204",
-      "logradouro": "Rua fulano de tal",
-      "bairro": "aeaet",
-      "cep": "00000-000",
-      "cidade_id": 2,
-      "UF_id": 2,
-      "pais_id": 1
+      "titulo": "bebida",
+      "descricao": "xxxxxxxxxxxx"
     },
     {
       "id": 3,
-      "numero": "333",
-      "complemento": "204",
-      "logradouro": "Rua fulano de tal",
-      "bairro": "aeaet",
-      "cep": "00000-000",
-      "cidade_id": 3,
-      "UF_id": 3,
-      "pais_id": 1
+      "titulo": "doce",
+      "descricao": "xxxxxxxx"
     },
     {
       "id": 4,
-      "numero": "111",
-      "complemento": "204",
-      "logradouro": "Rua fulano de tal",
-      "bairro": "aeaet",
-      "cep": "00000-000",
-      "cidade_id": 4,
-      "UF_id": 4,
-      "pais_id": 2
+      "titulo": "sobremesa",
+      "descricao": "xxxxxxxxx"
     }
   ],
-  "uf": [
+  "produtoHospedagem": [
     {
       "id": 1,
-      "titulo": "Minas Gerais",
-      "pais_id": 1
+      "quant": 1,
+      "valorTotal": 30,
+      "hospedagem_id": 1,
+      "produto_id": 1
     },
     {
       "id": 2,
-      "titulo": "Rio de Janeiro",
-      "pais_id": 1
+      "quant": 1,
+      "valorTotal": 30,
+      "hospedagem_id": 1,
+      "produto_id": 1
     },
     {
       "id": 3,
-      "titulo": "Paraíba",
-      "pais_id": 1
+      "quant": 1,
+      "valorTotal": 30,
+      "hospedagem_id": 1,
+      "produto_id": 3
     },
     {
       "id": 4,
-      "titulo": "Buenos Aires",
-      "pais_id": 2
+      "quant": 1,
+      "valorTotal": 30,
+      "hospedagem_id": 1,
+      "produto_id": 2
+    },
+    {
+      "id": 5,
+      "quant": 1,
+      "valorTotal": 30,
+      "hospedagem_id": 1,
+      "produto_id": 3
+    },
+    {
+      "id": 6,
+      "quant": 1,
+      "valorTotal": 30,
+      "hospedagem_id": 1,
+      "produto_id": 4
     }
   ],
-  "pais": [
+  "hospedagem": [
     {
       "id": 1,
-      "titulo": "Brasil"
+      "status": "ativo",
+      "dataInicio": "10/10/2020",
+      "dataFim1": "20/10/2020",
+      "dataFim2": "10/10/2020",
+      "valorEstadia": 2000,
+      "statusValorEstadia": "pago",
+      "valorConsumo": 200,
+      "valorServicos": 200,
+      "valorEstadiaAdicional": 0,
+      "valorTotal": 2400,
+      "cliente_id": 1,
+      "funcionario_id": 1,
+      "hotel_id": 1,
+      "avaliacoesHospedagem_id": 1,
+      "quartoHospedagem_id": 1
     },
     {
       "id": 2,
-      "titulo": "Argentina"
+      "status": "concluido",
+      "dataInicio": "10/10/2020",
+      "dataFim1": "20/10/2020",
+      "dataFim2": "10/10/2020",
+      "valorEstadia": 2000,
+      "statusValorEstadia": "pago",
+      "valorConsumo": 200,
+      "valorServicos": 200,
+      "valorEstadiaAdicional": 0,
+      "valorTotal": 2400,
+      "cliente_id": 2,
+      "funcionario_id": 1,
+      "hotel_id": 1,
+      "avaliacoesHospedagem_id": 2,
+      "quartoHospedagem_id": 2
+    },
+    {
+      "id": 3,
+      "status": "concluido",
+      "dataInicio": "10/10/2020",
+      "dataFim1": "20/10/2020",
+      "dataFim2": "10/10/2020",
+      "valorEstadia": 2000,
+      "statusValorEstadia": "pago",
+      "valorConsumo": 200,
+      "valorServicos": 200,
+      "valorEstadiaAdicional": 0,
+      "valorTotal": 2400,
+      "cliente_id": 3,
+      "funcionario_id": 1,
+      "hotel_id": 1,
+      "avaliacoesHospedagem_id": 3,
+      "quartoHospedagem_id": 3
+    },
+    {
+      "id": 4,
+      "status": "ativo",
+      "dataInicio": "10/10/2020",
+      "dataFim1": "20/10/2020",
+      "dataFim2": "10/10/2020",
+      "valorEstadia": 2000,
+      "statusValorEstadia": "pago",
+      "valorConsumo": 200,
+      "valorServicos": 200,
+      "valorEstadiaAdicional": 0,
+      "valorTotal": 2400,
+      "cliente_id": 4,
+      "funcionario_id": 1,
+      "hotel_id": 1,
+      "avaliacoesHospedagem_id": 4,
+      "quartoHospedagem_id": 4
     }
   ]
 }
