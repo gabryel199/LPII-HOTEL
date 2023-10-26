@@ -88,22 +88,22 @@
     "tipoProduto": [
       {
         "id": 1,
-        "titulo": "lanche",
+        "titulo": "Lanche",
         "descricao": "xxxxxxxxxxxxxxxx"
       },
       {
         "id": 2,
-        "titulo": "bebida",
+        "titulo": "Bebida",
         "descricao": "xxxxxxxxxxxx"
       },
       {
         "id": 3,
-        "titulo": "doce",
+        "titulo": "Doce",
         "descricao": "xxxxxxxx"
       },
       {
         "id": 4,
-        "titulo": "sobremesa",
+        "titulo": "Sobremesa",
         "descricao": "xxxxxxxxx"
       }
     ]
