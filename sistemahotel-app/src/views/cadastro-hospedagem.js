@@ -52,19 +52,9 @@ function CadastroHospedagem() {
                   onChange={(e) => setVar0(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Status: *' htmlFor='inputStatus'>
+              <FormGroup label='Data de Inicio: *' htmlFor='inputDataInicio'>
                 <input
-                  type='text'
-                  id='inputStatus'
-                  value={var0}
-                  className='form-control'
-                  name='Status'
-                  onChange={(e) => setVar0(e.target.value)}
-                />
-              </FormGroup>
-              <FormGroup label='DataInicio: *' htmlFor='inputDataInicio'>
-                <input
-                  type='text'
+                  type='date'
                   id='inputDataInicio'
                   value={var1}
                   className='form-control'
@@ -72,9 +62,9 @@ function CadastroHospedagem() {
                   onChange={(e) => setVar1(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='DataFim1: *' htmlFor='inputDataFim1'>
+              <FormGroup label='Data Fim: *' htmlFor='inputDataFim1'>
                 <input
-                  type='text'
+                  type='date'
                   id='inputDataFim1'
                   value={var2}
                   className='form-control'
@@ -82,19 +72,19 @@ function CadastroHospedagem() {
                   onChange={(e) => setVar2(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='DataFim2: *' htmlFor='inputDataFim2'>
+              {/* <FormGroup label='Data Extendida: *' htmlFor='inputDataFim2'>
                 <input
-                  type='text'
+                  type='date'
                   id='inputDataFim2'
                   value={var3}
                   className='form-control'
                   name='DataFim2'
                   onChange={(e) => setVar3(e.target.value)}
                 />
-              </FormGroup>
-              <FormGroup label='ValorEstadia: *' htmlFor='inputValorEstadia'>
+              </FormGroup> */}
+              <FormGroup label='Valor da Estadia: *' htmlFor='inputValorEstadia'>
                 <input
-                  type='text'
+                  type='number'
                   id='inputValorEstadia'
                   value={var4}
                   className='form-control'
@@ -102,7 +92,7 @@ function CadastroHospedagem() {
                   onChange={(e) => setVar4(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='StatusValorEstadia: *' htmlFor='inputStatusValorEstadia'>
+              <FormGroup label='Status do Valor da Estadia: *' htmlFor='inputStatusValorEstadia'>
                 <input
                   type='text'
                   id='inputStatusValorEstadia'
@@ -112,56 +102,46 @@ function CadastroHospedagem() {
                   onChange={(e) => setVar5(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='ValorConsumo: *' htmlFor='inputValorConsumo'>
+              {/* <FormGroup label='Valor do Consumo: *' htmlFor='inputValorConsumo'>
                 <input
-                  type='text'
+                  type='number'
                   id='inputValorConsumo'
                   value={var6}
                   className='form-control'
                   name='ValorConsumo'
                   onChange={(e) => setVar6(e.target.value)}
                 />
-              </FormGroup>
-              <FormGroup label='ValorServicos: *' htmlFor='inputValorServicos'>
+              </FormGroup> */}
+             {/*  <FormGroup label='Valor dos Serviços: *' htmlFor='inputValorServicos'>
                 <input
-                  type='text'
+                  type='number'
                   id='inputValorServicos'
                   value={var7}
                   className='form-control'
                   name='ValorServicos'
                   onChange={(e) => setVar7(e.target.value)}
                 />
-              </FormGroup>
-              <FormGroup label='ValorEstadiaAdicional: *' htmlFor='inputValorEstadiaAdicional'>
+              </FormGroup> */}
+             {/*  <FormGroup label='Valor da Estadia Adicional: *' htmlFor='inputValorEstadiaAdicional'>
                 <input
-                  type='text'
+                  type='number'
                   id='inputValorEstadiaAdicional'
                   value={var8}
                   className='form-control'
                   name='ValorEstadiaAdicional'
                   onChange={(e) => setVar8(e.target.value)}
                 />
-              </FormGroup>
-              <FormGroup label='ValorTotal: *' htmlFor='inputValorTotal'>
+              </FormGroup> */}
+              {/* <FormGroup label='Valor Total: *' htmlFor='inputValorTotal'>
                 <input
-                  type='text'
+                  type='number'
                   id='inputValorTotal'
                   value={var9}
                   className='form-control'
                   name='ValorTotal'
                   onChange={(e) => setVar9(e.target.value)}
                 />
-              </FormGroup>
-              <FormGroup label='ValorTotal: *' htmlFor='inputValorTotal'>
-                <input
-                  type='text'
-                  id='inputValorTotal'
-                  value={var9}
-                  className='form-control'
-                  name='ValorTotal'
-                  onChange={(e) => setVar9(e.target.value)}
-                />
-              </FormGroup>
+              </FormGroup> */}
 
               <br></br>
               <Stack spacing={1} padding={1} direction='row'>

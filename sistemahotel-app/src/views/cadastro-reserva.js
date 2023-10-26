@@ -46,9 +46,9 @@ function CadastroReserva() {
                   onChange={(e) => setVar0(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='DataInicio: *' htmlFor='inputDataInicio'>
+              <FormGroup label='Data de Início: *' htmlFor='inputDataInicio'>
                 <input
-                  type='text'
+                  type='date'
                   id='inputDataInicio'
                   value={var1}
                   className='form-control'
@@ -56,9 +56,9 @@ function CadastroReserva() {
                   onChange={(e) => setVar1(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='DataFim: *' htmlFor='inputDataFim'>
+              <FormGroup label='Data Fim: *' htmlFor='inputDataFim'>
                 <input
-                  type='text'
+                  type='date'
                   id='inputDataFim'
                   value={var2}
                   className='form-control'
@@ -66,7 +66,7 @@ function CadastroReserva() {
                   onChange={(e) => setVar2(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='ValorResrva: *' htmlFor='inputValorResrva'>
+              <FormGroup label='Valor da Resrva: *' htmlFor='inputValorResrva'>
                 <input
                   type='text'
                   id='inputValorResrva'

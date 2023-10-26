@@ -77,8 +77,8 @@ function CadastroProduto() {
                 />
               </FormGroup>
               <FormGroup label='Descrição: *' htmlFor='inputDescricao'>
-                <input
-                  type='text'
+                <textarea
+                  // type='text'
                   id='inputDescricao'
                   value={var1}
                   className='form-control'

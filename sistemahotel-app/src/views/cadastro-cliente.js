@@ -130,7 +130,7 @@ function CadastroCliente() {
                   onChange={(e) => setVar1(e.target.value)}
                 />
               </FormGroup>
-            <FormGroup label='DataNascimento: *' htmlFor='inputDataNascimento'>
+            <FormGroup label='Data de Nascimento: *' htmlFor='inputDataNascimento'>
                 <input
                   type='date'
                   id='inputDataNascimento'
@@ -140,7 +140,7 @@ function CadastroCliente() {
                   onChange={(e) => setVar2(e.target.value)}
                 />
               </FormGroup>
-            <FormGroup label='Email: *' htmlFor='inputEmail'>
+            <FormGroup label='E-mail: *' htmlFor='inputEmail'>
                 <input
                   type='email'
                   id='inputEmail'
@@ -150,7 +150,7 @@ function CadastroCliente() {
                   onChange={(e) => setVar11(e.target.value)}
                 />
               </FormGroup>
-            <FormGroup label='Senha1: *' htmlFor='inputSenha1'>
+            {/* <FormGroup label='Senha1: *' htmlFor='inputSenha1'>
                 <input
                   type='password'
                   id='inputSenha1'
@@ -159,8 +159,8 @@ function CadastroCliente() {
                   name='senha1'
                   onChange={(e) => setVar12(e.target.value)}
                 />
-              </FormGroup>
-            <FormGroup label='Senha2: *' htmlFor='inputSenha2'>
+              </FormGroup> */}
+            {/* <FormGroup label='Senha2: *' htmlFor='inputSenha2'>
                 <input
                   type='password'
                   id='inputSenha2'
@@ -169,7 +169,7 @@ function CadastroCliente() {
                   name='senha2'
                   onChange={(e) => setVar13(e.target.value)}
                 />
-              </FormGroup>
+              </FormGroup> */}
               <FormGroup label='Telefone: *' htmlFor='inputTelefone'>
                 <input
                   type='tel'
@@ -192,7 +192,7 @@ function CadastroCliente() {
                 />
               </FormGroup>
                   */}
-              <FormGroup label='Pais: *' htmlFor='selectPais'>
+              <FormGroup label='País: *' htmlFor='selectPais'>
                 <select
                   className='form-select'
                   id='selectPais'
@@ -270,7 +270,7 @@ function CadastroCliente() {
                   onChange={(e) => setVar7(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Complemento: *' htmlFor='inputComplemento'>
+              <FormGroup label='Complemento: ' htmlFor='inputComplemento'>
                 <input
                   type='number'
                   id='inputComplemento'

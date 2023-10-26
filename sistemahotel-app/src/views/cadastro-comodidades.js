@@ -39,7 +39,7 @@ function CadastroComodidades() {
 
   return (
     <div className='container'>
-      <Card title='Cadastro de Comodidads'>
+      <Card title='Cadastro de Comodidades'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
@@ -53,15 +53,15 @@ function CadastroComodidades() {
                   onChange={(e) => setVar0(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Descricao: *' htmlFor='inputDescricao'>
-                <input
-                  type='text'
-                  id='inputDescricao'
-                  value={var1}
-                  className='form-control'
-                  name='descricao'
-                  onChange={(e) => setVar1(e.target.value)}
-                />
+              <FormGroup label='Descricao: ' htmlFor='inputDescricao'>
+                <textarea 
+                  id='inputDescricao' 
+                  name="descricao" 
+                  className='form-control' 
+                  value={var1} 
+                  rows="3" cols="150" 
+                  onChange={(e) => setVar1(e.target.value)}>
+                </textarea>
               </FormGroup>
               <FormGroup label='Categoria: *' htmlFor='selectCategoria'>
                 <select

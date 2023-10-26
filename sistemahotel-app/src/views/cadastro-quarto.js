@@ -53,7 +53,7 @@ function CadastroQuarto() {
             <div className='bs-component'>
               <FormGroup label='Numero: *' htmlFor='inputNumero'>
                 <input
-                  type='text'
+                  type='number'
                   id='inputNumero'
                   value={var0}
                   className='form-control'
@@ -63,7 +63,7 @@ function CadastroQuarto() {
               </FormGroup>
               <FormGroup label='Andar: *' htmlFor='inputAndar'>
                 <input
-                  type='text'
+                  type='number'
                   id='inputAndar'
                   value={var1}
                   className='form-control'
@@ -73,7 +73,7 @@ function CadastroQuarto() {
               </FormGroup>
               <FormGroup label='Bloco: *' htmlFor='inputBloco'>
                 <input
-                  type='text'
+                  type='number'
                   id='inputBloco'
                   value={var2}
                   className='form-control'

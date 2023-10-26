@@ -45,7 +45,7 @@ function CadastroHotel() {
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
-              <FormGroup label='Titulo: *' htmlFor='inputTitulo'>
+              <FormGroup label='Título: *' htmlFor='inputTitulo'>
                 <input
                   type='text'
                   id='inputTitulo'
@@ -56,7 +56,7 @@ function CadastroHotel() {
                 />
               </FormGroup>
               <FormGroup label='Descrição: *' htmlFor='inputDescricao'>
-                <input
+                <textarea
                   type='text'
                   id='inputDescricao'
                   value={var1}
@@ -75,7 +75,7 @@ function CadastroHotel() {
                   onChange={(e) => setVar2(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Pais: *' htmlFor='inputPais'>
+              <FormGroup label='País: *' htmlFor='inputPais'>
                 <input
                   type='text'
                   id='inputPais'
@@ -125,16 +125,6 @@ function CadastroHotel() {
                   onChange={(e) => setVar7(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Complemento: *' htmlFor='inputComplemento'>
-                <input
-                  type='number'
-                  id='inputComplemento'
-                  value={var8}
-                  className='form-control'
-                  name='complemento'
-                  onChange={(e) => setVar8(e.target.value)}
-                />
-                </FormGroup>
               <FormGroup label='Logradouro: *' htmlFor='inputLogradouro'>
                 <input
                   type='text'
