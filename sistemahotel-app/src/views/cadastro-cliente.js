@@ -56,7 +56,7 @@ function CadastroCliente() {
     setVar13(dados.senha);
     setVar14('');
   }
-
+  /*
   const [dados2, setDados2] = React.useState(null); //end
 
   useEffect(() => {
@@ -64,14 +64,16 @@ function CadastroCliente() {
     axios.get(`${BASE_URL}/endereco/`).then((response) => {
       setDados2(response.data);
     });
-    /*setVar5(dados2.cidade);
+    /*
+    setVar5(dados2.cidade);
     setVar6(dados2.cep);
     setVar7(dados2.num);
     setVar8(dados2.complemento);
     setVar9(dados2.logradouro);
-    setVar10('');*/
+    setVar10('');
   }, []);
 
+  
   const [dados3, setDados3] = React.useState(null); //uf
 
   useEffect(() => {
@@ -81,7 +83,8 @@ function CadastroCliente() {
     });
     //setVar4(dados3.titulo)
   }, []);
-
+  
+  */
   const [dados4, setDados4] = React.useState(null); //pais
 
   useEffect(() => {
@@ -97,8 +100,8 @@ function CadastroCliente() {
   }, [id]);
   */
   if (!dados) return null;
-  if (!dados2) return null;
-  if (!dados3) return null;
+  //if (!dados2) return null;
+  //if (!dados3) return null;
   if (!dados4) return null;
 
   return (
@@ -177,6 +180,7 @@ function CadastroCliente() {
                   onChange={(e) => setVar14(e.target.value)}
                 />
               </FormGroup>
+              {/*
               <FormGroup label='Pais: *' htmlFor='inputPais'>
                 <input
                   type='text'
@@ -187,7 +191,7 @@ function CadastroCliente() {
                   onChange={(e) => setVar3(e.target.value)}
                 />
               </FormGroup>
-              {/*
+                  */}
               <FormGroup label='Pais: *' htmlFor='selectPais'>
                 <select
                   className='form-select'
@@ -206,7 +210,6 @@ function CadastroCliente() {
                   ))}
                 </select>
               </FormGroup>
-                  */}
               <FormGroup label='UF: *' htmlFor='inputUF'>
                 <input
                   type='text'

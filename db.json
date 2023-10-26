@@ -1,110 +1,215 @@
 {
-  "cliente": [
+  "hotel": [
       {
         "id": 1,
-        "nome": "cliente 01-01",
-        "cpf": "12345678987",
-        "dataNacimento": "08/04/1987",
-        "email": "cliente01-01@gmail.com",
-        "senha": "xxxxxxxx",
+        "titulo": "hotel 01",
+        "descricao": "zdhzfdhryryry",
+        "avaliacaoMedia": 4.5,
         "endereco_id": 1
       },
       {
         "id": 2,
-        "nome": "cliente 01-02",
-        "cpf": "14578956832",
-        "dataNacimento": "11/08/1999",
-        "email": "cliente01-02@gmail.com",
-        "senha": "xxxxxxxx",
+        "titulo": "hotel 02",
+        "descricao": "zdhzfdhryryry",
+        "avaliacaoMedia": 4.5,
         "endereco_id": 2
       },
       {
         "id": 3,
-        "nome": "cliente 01-03",
-        "cpf": "44785223982",
-        "dataNacimento": "10/09/2000",
-        "email": "cliente01-03@gmail.com",
-        "senha": "xxxxxxxx",
+        "titulo": "hotel 03",
+        "descricao": "zdhzfdhryryry",
+        "avaliacaoMedia": 4.7,
         "endereco_id": 3
       },
       {
         "id": 4,
-        "nome": "cliente 01-04",
-        "cpf": "55877422598",
-        "dataNacimento": "15/07/2002",
-        "email": "cliente01-04@gmail.com",
-        "senha": "xxxxxxxx",
+        "titulo": "hotel 04",
+        "descricao": "zdhzfdhryryry",
+        "avaliacaoMedia": 3,
         "endereco_id": 4
+      },
+      {
+        "id": 5,
+        "titulo": "hotel 05",
+        "descricao": "zdhzfdhryryry",
+        "avaliacaoMedia": 4.5,
+        "endereco_id": 5
+      },
+      {
+        "id": 6,
+        "titulo": "hotel 06",
+        "descricao": "zdhzfdhryryry",
+        "avaliacaoMedia": 4.1,
+        "endereco_id": 6
       }
     ],
-    "pais": [
+    "hospedagem": [
       {
         "id": 1,
-        "titulo": "Brasil"
+        "status": "ativo",
+        "dataInicio": "10/10/2020",
+        "dataFim1": "20/10/2020",
+        "dataFim2": "10/10/2020",
+        "valorEstadia": 2000,
+        "statusValorEstadia": "pago",
+        "valorConsumo": 200,
+        "valorServicos": 200,
+        "valorEstadiaAdicional": 0,
+        "valorTotal": 2400,
+        "cliente_id": 1,
+        "funcionario_id": 1,
+        "hotel_id": 1,
+        "avaliacoesHospedagem_id": 1,
+        "quartoHospedagem_id": 1
       },
       {
         "id": 2,
-        "titulo": "Argentina"
-      }
-    ],
-    "produto": [
-      {
-        "id": 1,
-        "titulo": "misto quente",
-        "descricao": "pao, presunto, queijo",
-        "preco": 5.50,
-        "quantidadeestoque": 100,
+        "status": "concluido",
+        "dataInicio": "10/10/2020",
+        "dataFim1": "20/10/2020",
+        "dataFim2": "10/10/2020",
+        "valorEstadia": 2000,
+        "statusValorEstadia": "pago",
+        "valorConsumo": 200,
+        "valorServicos": 200,
+        "valorEstadiaAdicional": 0,
+        "valorTotal": 2400,
+        "cliente_id": 2,
+        "funcionario_id": 1,
         "hotel_id": 1,
-        "tipoProduto_id": 1
-      },
-      {
-        "id": 2,
-        "titulo": "cerveja skol",
-        "descricao": "350ml",
-        "preco": 9.99,
-        "quantidadeestoque": 100,
-        "hotel_id": 1,
-        "tipoProduto_id": 2
+        "avaliacoesHospedagem_id": 2,
+        "quartoHospedagem_id": 2
       },
       {
         "id": 3,
-        "titulo": "barra de chocolate nestle",
-        "descricao": "amargo, 75g",
-        "preco": 6.99,
-        "quantidadeestoque": 100,
+        "status": "concluido",
+        "dataInicio": "10/10/2020",
+        "dataFim1": "20/10/2020",
+        "dataFim2": "10/10/2020",
+        "valorEstadia": 2000,
+        "statusValorEstadia": "pago",
+        "valorConsumo": 200,
+        "valorServicos": 200,
+        "valorEstadiaAdicional": 0,
+        "valorTotal": 2400,
+        "cliente_id": 3,
+        "funcionario_id": 1,
         "hotel_id": 1,
-        "tipoProduto_id": 3
+        "avaliacoesHospedagem_id": 3,
+        "quartoHospedagem_id": 3
       },
       {
         "id": 4,
-        "titulo": "salada de frutas",
-        "descricao": "maça, abacaxi, laranja",
-        "preco": 5.50,
-        "quantidadeestoque": 100,
+        "status": "ativo",
+        "dataInicio": "10/10/2020",
+        "dataFim1": "20/10/2020",
+        "dataFim2": "10/10/2020",
+        "valorEstadia": 2000,
+        "statusValorEstadia": "pago",
+        "valorConsumo": 200,
+        "valorServicos": 200,
+        "valorEstadiaAdicional": 0,
+        "valorTotal": 2400,
+        "cliente_id": 4,
+        "funcionario_id": 1,
         "hotel_id": 1,
-        "tipoProduto_id": 4
+        "avaliacoesHospedagem_id": 4,
+        "quartoHospedagem_id": 4
       }
     ],
-    "tipoProduto": [
+    "reserva": [
       {
         "id": 1,
-        "titulo": "lanche",
-        "descricao": "xxxxxxxxxxxxxxxx"
+        "status": "ativo pago",
+        "dataInicio": "10/10/2020",
+        "dataFim": "20/10/2020",
+        "valorResrva": 2000,
+        "cliente_id": 1,
+        "funcionario_id": 1,
+        "hotel_id": 1,
+        "hospedagem_id": "NULL"
       },
       {
         "id": 2,
-        "titulo": "bebida",
-        "descricao": "xxxxxxxxxxxx"
+        "status": "ativo nao pago",
+        "dataInicio": "10/10/2020",
+        "dataFim": "20/10/2020",
+        "valorResrva": 2000,
+        "cliente_id": 5,
+        "funcionario_id": 2,
+        "hotel_id": 1,
+        "hospedagem_id": "NULL"
       },
       {
         "id": 3,
-        "titulo": "doce",
-        "descricao": "xxxxxxxx"
+        "status": "hospedagem",
+        "dataInicio": "10/10/2020",
+        "dataFim": "20/10/2020",
+        "valorResrva": 2000,
+        "cliente_id": 2,
+        "funcionario_id": "NULL",
+        "hotel_id": 1,
+        "hospedagem_id": 1
       },
       {
         "id": 4,
-        "titulo": "sobremesa",
-        "descricao": "xxxxxxxxx"
+        "status": "cancelada",
+        "dataInicio": "10/10/2020",
+        "dataFim": "20/10/2020",
+        "valorResrva": 2000,
+        "cliente_id": 3,
+        "funcionario_id": "NULL",
+        "hotel_id": 1,
+        "hospedagem_id": "NULL"
+      },
+      {
+        "id": 5,
+        "status": "concluida",
+        "datainicio": "10/10/2020",
+        "datafim": "20/10/2020",
+        "valorResrva": 2000,
+        "cliente_id": 4,
+        "funcionario_id": "NULL",
+        "hotel_id": 1,
+        "hospedagem_id": 3
+      }
+    ],
+    "quarto": [
+      {
+        "id": 1,
+        "numero": "1101",
+        "andar": "1",
+        "bloco": 1,
+        "status": "ocupado",
+        "hotel_id": 1,
+        "tipoQuarto_id": 4
+      },
+      {
+        "id": 1,
+        "numero": "2601",
+        "andar": "1",
+        "bloco": 2,
+        "status": "ocupado",
+        "hotel_id": 1,
+        "tipoQuarto_id": 1
+      },
+      {
+        "id": 1,
+        "numero": "2102",
+        "andar": "1",
+        "bloco": 2,
+        "status": "manutencao",
+        "hotel_id": 1,
+        "tipoQuarto_id": 2
+      },
+      {
+        "id": 1,
+        "numero": "1507",
+        "andar": "5",
+        "bloco": 1,
+        "status": "disponivel",
+        "hotel_id": 1,
+        "tipoQuarto_id": 4
       }
     ]
 }
