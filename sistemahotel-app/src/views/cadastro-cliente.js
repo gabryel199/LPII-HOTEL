@@ -91,11 +91,11 @@ function CadastroCliente() {
     });
     //setVar3(dados4.titulo)
   }, []);
-
+  /*
   useEffect(() => {
       buscar(); // eslint-disable-next-line
   }, [id]);
-
+  */
   if (!dados) return null;
   if (!dados2) return null;
   if (!dados3) return null;

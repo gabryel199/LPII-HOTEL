@@ -45,17 +45,17 @@ function CadastroProduto() {
   }
 
   const [dados2, setDados2] = React.useState(null); //tipo Produto
-
+  
   useEffect(() => {
     axios.get(`${BASE_URL}/tipoProduto`).then((response) => {
       setDados2(response.data);
     });
   }, []);
-
+  /*
   useEffect(() => {
       buscar(); // eslint-disable-next-line
   }, [id]);
-
+  */
   if (!dados) return null;
   if (!dados2) return null;
   
