@@ -165,8 +165,8 @@
       {
         "id": 5,
         "status": "concluida",
-        "datainicio": "10/10/2020",
-        "datafim": "20/10/2020",
+        "dataInicio": "10/10/2020",
+        "dataFim": "20/10/2020",
         "valorResrva": 2000,
         "cliente_id": 4,
         "funcionario_id": "NULL",

@@ -88,8 +88,8 @@ function ListagemReserva() {
                   {dados.map((dado) => (
                     <tr key={dado.id}>
                       <td>{dado.status}</td>
-                      <td>{dado.datainicio}</td>
-                      <td>{dado.datafim}</td>
+                      <td>{dado.dataInicio}</td>
+                      <td>{dado.dataFim}</td>
                       <td>{dado.valorResrva}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>
