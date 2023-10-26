@@ -1,3 +1,2 @@
 # LPII-HOTEL
-teste1
-teste22
+// produto e tipo , cliente e pais ->db
