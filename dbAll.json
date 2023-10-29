@@ -550,6 +550,33 @@
       "avaliacaoQuarto_id": 6
     }
   ],
+  "tipoQuartoReserva": [
+    {
+      "id": 1,
+      "reserva_id": 1,
+      "tipoQuarto_id": 1
+    },
+    {
+      "id": 2,
+      "reserva_id": 2,
+      "tipoQuarto_id": 2
+    },
+    {
+      "id": 3,
+      "reserva_id": 3,
+      "tipoQuarto_id": 3
+    },
+    {
+      "id": 4,
+      "reserva_id": 4,
+      "tipoQuarto_id": 4
+    },
+    {
+      "id": 5,
+      "reserva_id": 5,
+      "tipoQuarto_id": 3
+    }
+  ],
   "avaliacaoQuarto": [
     {
       "id": 1,
