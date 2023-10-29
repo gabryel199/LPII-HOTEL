@@ -3,3 +3,5 @@ export const BASE_URL =
   // 'https://my-json-server.typicode.com/gabryel199/LPII-HOTEL'; // produto e tipo , cliente e pais
   // 'https://my-json-server.typicode.com/gabryel199/LP2-Hotel-2'; //reserva hospedagem hotel funcionario
   'https://my-json-server.typicode.com/gabryel199/LP2-Hotel-3'; // quarto e tipo, comodidade e tipo
+
+  export const BASE_URL_endereco = 'https://my-json-server.typicode.com/gabryel199/LP2-HOTEL-endereco';
