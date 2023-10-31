@@ -15,8 +15,9 @@ import EditIcon from '@mui/icons-material/Edit';
 import axios from 'axios';
 
 import { BASE_URL } from '../config/axios';
+import { URL_funcionario } from '../config/axios';
 
-const baseURL = `${BASE_URL}/funcionario`;
+const baseURL = `${URL_funcionario}/funcionario`;
 
 
 function ListagemFuncionario() {

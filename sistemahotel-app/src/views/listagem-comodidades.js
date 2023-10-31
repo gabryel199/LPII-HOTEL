@@ -15,8 +15,9 @@ import EditIcon from '@mui/icons-material/Edit';
 import axios from 'axios';
 
 import { BASE_URL } from '../config/axios';
+import { URL_comodidade } from '../config/axios';
 
-const baseURL = `${BASE_URL}/comodidade`;
+const baseURL = `${URL_comodidade}/comodidade`;
 
 
 function ListagemComodidades() {

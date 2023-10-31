@@ -13,6 +13,7 @@ import '../custom.css';
 
 import axios from 'axios';
 import { BASE_URL } from '../config/axios';
+import { URL_hotel } from '../config/axios';
 
 function CadastroHotel() {
 
@@ -20,25 +21,105 @@ function CadastroHotel() {
 
   const navigate = useNavigate();
 
-  const baseURL = `${BASE_URL}/hotel`;
+  const baseURL = `${URL_hotel}/hotel`;
 
-  const [id, setId] = useState('');
-  const [var0, setVar0] = useState('');
-  const [var1, setVar1] = useState('');
-  const [var2, setVar2] = useState('');
+  const [id, setId] = useState(0);
+  const [var0, setVar0] = useState('');//titulo
+  const [var1, setVar1] = useState('');//desc
+  const [var2, setVar2] = useState('');//end id
+  const [var11, setVar11] = useState('');//tel 1
+  const [var12, setVar12] = useState('');//tel 2
 
   const [var3, setVar3] = useState('');//pais
   const [var4, setVar4] = useState('');//uf
   const [var5, setVar5] = useState('');//cidade
   const [var6, setVar6] = useState('');//cep
-  const [var7, setVar7] = useState('');//num
-  const [var8, setVar8] = useState('');//com
+  const [var7, setVar7] = useState(0);//num
+  const [var8, setVar8] = useState(0);//com
   const [var9, setVar9] = useState('');//log
   const [var10, setVar10] = useState('');//bai 
-                                         
 
   const [dados, setDados] = React.useState([]);
 
+  
+  function inicializar() {
+    if (idParam == null) {
+      setId('');
+      setVar0('');
+      setVar1('');
+      setVar2('');
+      setVar3('');
+      setVar4('');
+      setVar5('');
+      setVar6('');
+      setVar7('');
+      setVar8('');
+      setVar9('');
+      setVar10('');
+      setVar11('');
+      setVar12('');
+    } else {
+      setId(dados.id);
+      setVar0(dados.titulo);
+      setVar1(dados.descricao);
+      setVar2(dados.endereco_id);
+    }
+  }
+
+  async function salvar() {
+    let data = {
+      id,
+      var0,
+      var1,
+      var2
+    };
+    data = JSON.stringify(data);
+    if (idParam == null) {
+      await axios
+        .post(baseURL, data, {
+          headers: { 'Content-Type': 'application/json' },
+        })
+        .then(function (response) {
+          mensagemSucesso(`Hotel ${var0} cadastrado com sucesso!`);
+          navigate(`/listagem-hoteis`);
+        })
+        .catch(function (error) {
+          mensagemErro(error.response.data);
+        });
+    } else {
+      await axios
+        .put(`${baseURL}/${idParam}`, data, {
+          headers: { 'Content-Type': 'application/json' },
+        })
+        .then(function (response) {
+          mensagemSucesso(`Hotel ${var0} alterado com sucesso!`);
+          navigate(`/listagem-hoteis`);
+        })
+        .catch(function (error) {
+          mensagemErro(error.response.data);
+        });
+    }
+  }
+
+  async function buscar() {
+    if (idParam != null) {
+      await axios.get(`${baseURL}/${idParam}`).then((response) => {
+        setDados(response.data);
+      });
+      setId(dados.id);
+      setVar0(dados.titulo);
+      setVar1(dados.descricao);
+      setVar2(dados.endereco_id);
+    }
+  }
+                                         
+  useEffect(() => {
+    buscar(); // eslint-disable-next-line
+}, [id]);
+
+if (!dados) return null;
+
+if (!dados) return null;
   return (
     <div className='container'>
       <Card title='Cadastro de Hotéis'>
@@ -69,10 +150,10 @@ function CadastroHotel() {
                 <input
                   type='tel'
                   id='inputTelefone'
-                  value={var2}
+                  value={var11}
                   className='form-control'
                   name='telefone'
-                  onChange={(e) => setVar2(e.target.value)}
+                  onChange={(e) => setVar11(e.target.value)}
                 />
               </FormGroup>
               <FormGroup label='País: *' htmlFor='inputPais'>
@@ -125,6 +206,16 @@ function CadastroHotel() {
                   onChange={(e) => setVar7(e.target.value)}
                 />
               </FormGroup>
+              <FormGroup label='Complemento: *' htmlFor='inputComplemento'>
+                <input
+                  type='number'
+                  id='inputComplemento'
+                  value={var8}
+                  className='form-control'
+                  name='complemento'
+                  onChange={(e) => setVar8(e.target.value)}
+                />
+              </FormGroup>
               <FormGroup label='Logradouro: *' htmlFor='inputLogradouro'>
                 <input
                   type='text'
@@ -151,12 +242,14 @@ function CadastroHotel() {
               <br></br>
               <Stack spacing={1} padding={1} direction='row'>
                 <button
+                  onClick={salvar}
                   type='button'
                   className='btn btn-success'
                 >
                   Salvar
                 </button>
                 <button
+                  onClick={inicializar}
                   type='button'
                   className='btn btn-danger'
                 >

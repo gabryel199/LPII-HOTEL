@@ -15,8 +15,9 @@ import EditIcon from '@mui/icons-material/Edit';
 import axios from 'axios';
 
 import { BASE_URL } from '../config/axios';
+import { URL_hospedagem } from '../config/axios';
 
-const baseURL = `${BASE_URL}/hospedagem`;
+const baseURL = `${URL_hospedagem}/hospedagem`;
 
 
 function ListagemHospedagem() {

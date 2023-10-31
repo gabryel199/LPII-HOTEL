@@ -15,8 +15,9 @@ import EditIcon from '@mui/icons-material/Edit';
 import axios from 'axios';
 
 import { BASE_URL } from '../config/axios';
+import { URL_servico } from '../config/axios';
 
-const baseURL = `${BASE_URL}/servico`;
+const baseURL = `${URL_servico}/servico`;
 
 
 function ListagemServicos() {

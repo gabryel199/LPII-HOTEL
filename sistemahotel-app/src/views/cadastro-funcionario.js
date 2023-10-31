@@ -13,6 +13,8 @@ import '../custom.css';
 
 import axios from 'axios';
 import { BASE_URL } from '../config/axios';
+import { URL_funcionario } from '../config/axios';
+import { URL_endereco } from '../config/axios';
 
 function CadastroFuncionario() {
   
@@ -20,8 +22,12 @@ function CadastroFuncionario() {
 
   const navigate = useNavigate();
 
-  const baseURL = `${BASE_URL}/funcionario`;
+  const baseURL = `${URL_funcionario}/funcionario`;
+  const baseURL_endereco = `${URL_endereco}/endereco`;
+  const baseURL_uf = `${URL_endereco}/uf`;
+  const baseURL_pais = `${URL_endereco}/pais`;
 
+  const [id, setId] = useState('');
   const [var0, setVar0] = useState('');//cpf
   const [var1, setVar1] = useState('');//nome
   const [var2, setVar2] = useState('');//dataN
@@ -29,11 +35,11 @@ function CadastroFuncionario() {
   const [var12, setVar12] = useState('');//senha1
   const [var13, setVar13] = useState('');//senha2
   const [var14, setVar14] = useState('');//tel
+  const [var15, setVar15] = useState('');//tel2
   
-  const [var15, setVar15] = useState('');//cargo
   const [var16, setVar16] = useState('');//hInicio
   const [var17, setVar17] = useState('');//hFim
-  const [var18, setVar18] = useState('');//FolgaSemana
+  const [var18, setVar18] = useState('');//salario
 
   const [var3, setVar3] = useState('');//pais
   const [var4, setVar4] = useState('');//uf
@@ -43,9 +49,145 @@ function CadastroFuncionario() {
   const [var8, setVar8] = useState('');//com
   const [var9, setVar9] = useState('');//log
   const [var10, setVar10] = useState('');//bai 
+  
+  const [var19, setVar19] = useState('');//endereco_id
+  const [var20, setVar20] = useState('');//hotel_id
+  const [var21, setVar21] = useState('');//cargo_id
 
   const [dados, setDados] = React.useState([]);
 
+  function inicializar() {
+    if (idParam == null) {
+      setId('');
+      setVar0('');
+      setVar1('');
+      setVar2('');
+      setVar3('');
+      setVar4('');
+      setVar5('');
+      setVar6('');
+      setVar7('');
+      setVar8('');
+      setVar9('');
+      setVar10('');
+      setVar11('');
+      setVar12('');
+      setVar13('');
+      setVar14('');
+      setVar15('');
+      setVar16('');
+      setVar17('');
+      setVar18('');
+      setVar19('');
+      setVar20('');
+      setVar21('');
+    } else {
+      setId(dados.id);
+      setVar0(dados.cpf);
+      setVar1(dados.nome);
+      setVar2(dados.dataNacimento);
+      setVar11(dados.email);
+      setVar12(dados.senha);
+      setVar13(dados.senha);
+      setVar14('');
+      setVar15('');
+      
+      setVar16(dados.horaInicio);
+      setVar17(dados.horaFim);
+      setVar18(dados.salario);
+
+      setVar19(dados.endereco_id);
+      setVar20(dados.hotel_id);
+      setVar21(dados.cargo_id);
+    }
+  }
+
+  async function salvar() {
+    let data = {
+      id,
+      var1,
+      var0,
+      var2,
+      var11,
+      var12,
+      var18,
+      var16,
+      var17,
+      var19,
+      var20,
+      var21
+    };
+    data = JSON.stringify(data);
+    if (idParam == null) {
+      await axios
+        .post(baseURL, data, {
+          headers: { 'Content-Type': 'application/json' },
+        })
+        .then(function (response) {
+          mensagemSucesso(`Funcionário ${var1} cadastrado com sucesso!`);
+          navigate(`/listagem-funcionario`);
+        })
+        .catch(function (error) {
+          mensagemErro(error.response.data);
+        });
+    } else {
+      await axios
+        .put(`${baseURL}/${idParam}`, data, {
+          headers: { 'Content-Type': 'application/json' },
+        })
+        .then(function (response) {
+          mensagemSucesso(`Funcionário ${var1} alterado com sucesso!`);
+          navigate(`/listagem-funcionario`);
+        })
+        .catch(function (error) {
+          mensagemErro(error.response.data);
+        });
+    }
+  }
+
+
+  async function buscar() {
+    if (idParam != null) {
+      await axios.get(`${baseURL}/${idParam}`).then((response) => {
+        setDados(response.data);
+      });
+      setId(dados.id);
+      setVar0(dados.cpf);
+      setVar1(dados.nome);
+      setVar2(dados.dataNacimento);
+      setVar11(dados.email);
+      setVar12(dados.senha);
+      setVar13(dados.senha);
+      setVar14('');
+      setVar15('');
+      
+      setVar16(dados.horaInicio);
+      setVar17(dados.horaFim);
+      setVar18(dados.salario);
+
+      setVar19(dados.endereco_id);
+      setVar20(dados.hotel_id);
+      setVar21(dados.cargo_id);
+    }
+  }
+  
+  const [dados5, setDados5] = React.useState(null); //tipo Produto
+
+  useEffect(() => {
+    //axios.get(`${URL_produto}/tipoProduto`).then((response) => {
+    axios.get(`${URL_funcionario}/cargo`).then((response) => {
+      setDados5(response.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    buscar(); // eslint-disable-next-line
+}, [id]);
+
+  if (!dados) return null;
+  if (!dados5) return null;
+  // if (!dados2) return null;
+  // if (!dados3) return null;
   return (
     <div className='container'>
       <Card title='Cadastro de Funcionários'>
@@ -122,15 +264,23 @@ function CadastroFuncionario() {
                   onChange={(e) => setVar14(e.target.value)}
                 />
               </FormGroup>
-            <FormGroup label='Cargo: *' htmlFor='inputCargo'>
-                <input
-                  type='text'
-                  id='inputCargo'
-                  value={var15}
-                  className='form-control'
+              <FormGroup label='Cargo: *' htmlFor='selectCargo'>
+                <select
+                  className='form-select'
+                  id='selectCargo'
                   name='cargo'
-                  onChange={(e) => setVar15(e.target.value)}
-                />
+                  value={var21}
+                  onChange={(e) => setVar21(e.target.value)}
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados5.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.cargo}
+                    </option>
+                  ))}
+                </select>
               </FormGroup>
             <FormGroup label='Horário de Início: *' htmlFor='inputHoraInicio'>
                 <input
@@ -247,12 +397,14 @@ function CadastroFuncionario() {
               <br></br>
               <Stack spacing={1} padding={1} direction='row'>
                 <button
+                  onClick={salvar}
                   type='button'
                   className='btn btn-success'
                 >
                   Salvar
                 </button>
                 <button
+                  onClick={inicializar}
                   type='button'
                   className='btn btn-danger'
                 >

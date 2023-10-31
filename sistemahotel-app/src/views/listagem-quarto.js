@@ -15,8 +15,9 @@ import EditIcon from '@mui/icons-material/Edit';
 import axios from 'axios';
 
 import { BASE_URL } from '../config/axios';
+import { URL_quarto } from '../config/axios';
 
-const baseURL = `${BASE_URL}/quarto`;
+const baseURL = `${URL_quarto}/quarto`;
 
 
 function ListagemQuarto() {
