@@ -82,9 +82,18 @@ function CadastroCliente() {
       setVar11(dados.email);
       setVar12(dados.senha);
       setVar13(dados.senha);
-      setVar14('');
-      setVar15('');
-      setVar16(dados.endereco_id);
+      //setVar14(`+${dados.ddi1} (${dados.ddd1}) ${dados.num1}`);
+      setVar14("+$"+dados.ddi1 + " (" + dados.ddd1 + ") " + dados.num1);
+      setVar15(`+${dados.ddi2} (${dados.ddd2}) ${dados.num2}`);
+      //setVar16(dados.endereco_id);
+      setVar5(dados.cidade);//cidade
+      setVar6(dados.cep);//cep
+      setVar7(dados.numero);//num
+      setVar8(dados.complemento);//com
+      setVar9(dados.logradouro);//log
+      setVar10(dados.bairro);//bai 
+      setVar17(dados.UF_id);//id uf
+      setVar18(dados.pais_id);//ud pais 
     }
   }
 
@@ -108,7 +117,7 @@ function CadastroCliente() {
           headers: { 'Content-Type': 'application/json' },
         })
         .then(function (response) {
-          mensagemSucesso(`Cliente ${var0} cadastrado com sucesso!`);
+          mensagemSucesso(`Cliente ${var1} cadastrado com sucesso!`);
           navigate(`/listagem-cliente`);
         })
         .catch(function (error) {
@@ -120,7 +129,7 @@ function CadastroCliente() {
           headers: { 'Content-Type': 'application/json' },
         })
         .then(function (response) {
-          mensagemSucesso(`Cliente ${var0} alterado com sucesso!`);
+          mensagemSucesso(`Cliente ${var1} alterado com sucesso!`);
           navigate(`/listagem-cliente`);
         })
         .catch(function (error) {
@@ -143,9 +152,17 @@ function CadastroCliente() {
       setVar11(dados.email);
       setVar12(dados.senha);
       setVar13(dados.senha);
-      setVar14('');
-      setVar15('');
-      setVar16(dados.endereco_id);
+      setVar14(`+${dados.ddi1} (${dados.ddd1}) ${dados.num1}`);
+      setVar15(`+${dados.ddi2} (${dados.ddd2}) ${dados.num2}`);
+      //setVar16(dados.endereco_id);
+      setVar5(dados.cidade);//cidade
+      setVar6(dados.cep);//cep
+      setVar7(dados.numero);//num
+      setVar8(dados.complemento);//com
+      setVar9(dados.logradouro);//log
+      setVar10(dados.bairro);//bai 
+      setVar17(dados.UF_id);//id uf
+      setVar18(dados.pais_id);//ud pais
       // console.log(`${var16} var16`);
 
     }
@@ -173,8 +190,6 @@ function CadastroCliente() {
       }
     }
   } */
-  // const [dados3, setDados3] = React.useState(null); //uf
-  // const [dados4, setDados4] = React.useState(null); //pais
   
   /* useEffect(() => {
     //console.log('endereco');
@@ -212,21 +227,24 @@ function CadastroCliente() {
       });
     }
   }, [dados2, dados, var17]); */
-/* 
+
+  const [dados3, setDados3] = React.useState(null); //uf
+  const [dados4, setDados4] = React.useState(null); //pais
+
   useEffect(() => {
-    axios.get(`${baseURL_uf}/uf`).then((response) => {
+    axios.get(`${baseURL_uf}`).then((response) => {
       setDados3(response.data);
     });
     // setVar4(dados3.titulo)
   }, []); 
 
   useEffect(() => {
-    axios.get(`${baseURL_pais}/pais`).then((response) => {
+    axios.get(`${baseURL_pais}`).then((response) => {
       setDados4(response.data);
     });
     // setVar3(dados4.titulo)
   }, []); 
-   */
+  
   
   useEffect(() => {
     buscar(); // eslint-disable-next-line
@@ -238,8 +256,8 @@ function CadastroCliente() {
 
   if (!dados) return null;
   // if (!dados2) return null;
-  // if (!dados3) return null;
-  // if (!dados4) return null;
+  if (!dados3) return null;
+  if (!dados4) return null;
 
   return (
     <div className='container'>
@@ -307,24 +325,24 @@ function CadastroCliente() {
                   onChange={(e) => setVar13(e.target.value)}
                 />
               </FormGroup> */}
-              <FormGroup label='Telefone: *' htmlFor='inputTelefone'>
+              <FormGroup label='Telefone 1: *' htmlFor='inputTelefone'>
                 <input
-                  type='tel'
+                  type='text'
                   id='inputTelefone'
                   value={var14}
                   className='form-control'
                   name='telefone'
                   onChange={(e) => setVar14(e.target.value)}
                 />
-              </FormGroup>{/*
-              <FormGroup label='Pais: *' htmlFor='inputPais'>
+              </FormGroup>
+              <FormGroup label='Telefone 2: *' htmlFor='inputTelefone2'>
                 <input
                   type='text'
-                  id='inputPais'
-                  value={var3}
+                  id='inputTelefone2'
+                  value={var15}
                   className='form-control'
-                  name='Pais'
-                  onChange={(e) => setVar3(e.target.value)}
+                  name='telefone2'
+                  onChange={(e) => setVar15(e.target.value)}
                 />
               </FormGroup>
               <FormGroup label='País: *' htmlFor='selectPais'>
@@ -332,8 +350,8 @@ function CadastroCliente() {
                   className='form-select'
                   id='selectPais'
                   name='pais'
-                  value={var3}
-                  onChange={(e) => setVar3(e.target.value)}
+                  value={var18}
+                  onChange={(e) => setVar18(e.target.value)}
                 >
                   <option key='0' value='0'>
                     {' '}
@@ -345,25 +363,14 @@ function CadastroCliente() {
                   ))}
                 </select>
               </FormGroup>
-                  */}
-             {/*  <FormGroup label='UF: *' htmlFor='inputUF'>
-                <input
-                  type='text'
-                  id='inputUF'
-                  value={var4}
-                  className='form-control'
-                  name='UF'
-                  onChange={(e) => setVar4(e.target.value)}
-                />
-              </FormGroup> */}
               
-              {/* <FormGroup label='UF: *' htmlFor='selectUF'>
+              <FormGroup label='UF: *' htmlFor='selectUF'>
                 <select
                   className='form-select'
                   id='selectUF'
                   name='uf'
-                  value={var4}
-                  onChange={(e) => setVar4(e.target.value)}
+                  value={var17}
+                  onChange={(e) => setVar17(e.target.value)}
                 >
                   <option key='0' value='0'>
                     {' '}
@@ -374,26 +381,7 @@ function CadastroCliente() {
                     </option>
                   ))}
                 </select>
-              </FormGroup> */}
-                 {/*
-              <FormGroup label='Cidade: *' htmlFor='selectCidade'>
-                <select
-                  className='form-select'
-                  id='selectCidade'
-                  name='cidade'
-                  value={var16}
-                  onChange={(e) => setVar16(e.target.value)}
-                >
-                  <option key='0' value='0'>
-                    {' '}
-                  </option>
-                  {dados2.map((dado) => (
-                    <option key={dado.id} value={dado.id}>
-                      {dado.cidade}
-                    </option>
-                  ))}
-                </select>
-              </FormGroup>*/}
+              </FormGroup>
               <FormGroup label='Cidade: *' htmlFor='inputCidade'>
                 <input
                   type='text'
