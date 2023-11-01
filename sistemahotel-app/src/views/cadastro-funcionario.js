@@ -129,6 +129,7 @@ function CadastroFuncionario() {
       var19,
       var20,
       var21
+      //tem q arrumar ainda
     };
     data = JSON.stringify(data);
     if (idParam == null) {
@@ -171,7 +172,7 @@ function CadastroFuncionario() {
       setVar11(dados.email);
       setVar12(dados.senha);
       setVar13(dados.senha);
-      setVar14("+$"+dados.ddi1 + " (" + dados.ddd1 + ") " + dados.num1);
+      setVar14("+"+dados.ddi1 + " (" + dados.ddd1 + ") " + dados.num1);
       setVar15(`+${dados.ddi2} (${dados.ddd2}) ${dados.num2}`);
       
       setVar16(dados.horaInicio);
@@ -203,14 +204,32 @@ function CadastroFuncionario() {
     });
   }, []);
 
+  const [dados3, setDados3] = React.useState(null); //uf
+
+  useEffect(() => {
+    axios.get(`${baseURL_uf}`).then((response) => {
+      setDados3(response.data);
+    });
+    // setVar4(dados3.titulo)
+  }, []); 
+
+  const [dados4, setDados4] = React.useState(null); //pais
+
+  useEffect(() => {
+    axios.get(`${baseURL_pais}`).then((response) => {
+      setDados4(response.data);
+    });
+    // setVar3(dados4.titulo)
+  }, []); 
+
   useEffect(() => {
     buscar(); // eslint-disable-next-line
 }, [id]);
 
   if (!dados) return null;
   if (!dados5) return null;
-  // if (!dados2) return null;
-  // if (!dados3) return null;
+  if (!dados4) return null;
+  if (!dados3) return null;
   return (
     <div className='container'>
       <Card title='Cadastro de Funcionários'>
@@ -277,14 +296,24 @@ function CadastroFuncionario() {
                   onChange={(e) => setVar13(e.target.value)}
                 />
               </FormGroup> */}
-              <FormGroup label='Telefone: *' htmlFor='inputTelefone'>
+              <FormGroup label='Telefone 1: *' htmlFor='inputTelefone'>
                 <input
-                  type='tel'
+                  type='text'
                   id='inputTelefone'
                   value={var14}
                   className='form-control'
                   name='telefone'
                   onChange={(e) => setVar14(e.target.value)}
+                />
+              </FormGroup>
+              <FormGroup label='Telefone 2: *' htmlFor='inputTelefone2'>
+                <input
+                  type='text'
+                  id='inputTelefone2'
+                  value={var15}
+                  className='form-control'
+                  name='telefone2'
+                  onChange={(e) => setVar15(e.target.value)}
                 />
               </FormGroup>
               <FormGroup label='Cargo: *' htmlFor='selectCargo'>
@@ -335,25 +364,42 @@ function CadastroFuncionario() {
                   onChange={(e) => setVar18(e.target.value)}
                 />
               </FormGroup> */}
-              <FormGroup label='País: *' htmlFor='inputPais'>
-                <input
-                  type='text'
-                  id='inputPais'
-                  value={var3}
-                  className='form-control'
+              <FormGroup label='País: *' htmlFor='selectPais'>
+                <select
+                  className='form-select'
+                  id='selectPais'
                   name='pais'
-                  onChange={(e) => setVar3(e.target.value)}
-                />
+                  value={var23}
+                  onChange={(e) => setVar23(e.target.value)}
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados4.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
               </FormGroup>
-              <FormGroup label='UF: *' htmlFor='inputUF'>
-                <input
-                  type='text'
-                  id='inputUF'
-                  value={var4}
-                  className='form-control'
-                  name='UF'
-                  onChange={(e) => setVar4(e.target.value)}
-                />
+              
+              <FormGroup label='UF: *' htmlFor='selectUF'>
+                <select
+                  className='form-select'
+                  id='selectUF'
+                  name='uf'
+                  value={var22}
+                  onChange={(e) => setVar22(e.target.value)}
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados3.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
               </FormGroup>
               <FormGroup label='Cidade: *' htmlFor='inputCidade'>
                 <input
@@ -367,7 +413,7 @@ function CadastroFuncionario() {
               </FormGroup>
               <FormGroup label='CEP: *' htmlFor='inputCEP'>
                 <input
-                  type='number'
+                  type='text'
                   id='inputCEP'
                   value={var6}
                   className='form-control'

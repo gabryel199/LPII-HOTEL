@@ -26,7 +26,7 @@ function CadastroCliente() {
   const baseURL_uf = `${URL_endereco}/uf`;
   const baseURL_pais = `${URL_endereco}/pais`;
 
-  const [id, setId] = useState(0);
+  const [id, setId] = useState('');
   const [var0, setVar0] = useState('');//cpf
   const [var1, setVar1] = useState('');//nome
   const [var2, setVar2] = useState('');//dataN
@@ -168,68 +168,8 @@ function CadastroCliente() {
     }
   }
 
-  // const [dados2, setDados2] = React.useState(null); //end
-
-/*   async function buscar2() {
-    console.log("buscar2")
-    if (var16 > 0) {
-      let hold_id = var16;
-      await axios.get(`${baseURL_endereco}/${hold_id}`).then((response) => {
-        setDados2(response.data);
-      });
-      if (dados2 != null) {
-        console.log(dados2);
-        console.log(dados2);
-        setVar5(dados2.cidade);
-        setVar6(dados2.cep);
-        setVar7(dados2.numero);
-        setVar8(dados2.complemento);
-        setVar9(dados2.logradouro);
-        setVar10(dados2.bairro);
-        setVar17(dados2.UF_id);
-      }
-    }
-  } */
-  
-  /* useEffect(() => {
-    //console.log('endereco');
-    //console.log(`${var16} var16`);
-    if (var16 > 0) {
-      const hold_id = var16;
-      axios.get(`${baseURL_endereco}/${hold_id}`).then((response) => {
-        setDados2(response.data);
-      });
-      if (dados2 != null) {
-        console.log(dados2);
-        setVar5(dados2.cidade);
-        setVar6(dados2.cep);
-        setVar7(dados2.num);
-        setVar8(dados2.complemento);
-        setVar9(dados2.logradouro);
-        setVar10(dados2.bairro);
-        setVar17(dados2.UF_id);
-      }
-    }
-  }, [dados]); */
-
-  /* useEffect(() => {
-    console.log(`${var17} var17`);
-    if (var17 > 0) {
-      const hold_id = var17;
-      axios.get(`${baseURL_uf}/${hold_id}`).then((response) => {
-        setDados3(response.data);
-      if (dados3 != null) {
-        console.log(`dados3`);
-        console.log(dados3);
-        setVar4(dados3.titulo)
-        setVar18(dados3.pais_id)
-      }
-      });
-    }
-  }, [dados2, dados, var17]); */
 
   const [dados3, setDados3] = React.useState(null); //uf
-  const [dados4, setDados4] = React.useState(null); //pais
 
   useEffect(() => {
     axios.get(`${baseURL_uf}`).then((response) => {
@@ -237,6 +177,8 @@ function CadastroCliente() {
     });
     // setVar4(dados3.titulo)
   }, []); 
+
+  const [dados4, setDados4] = React.useState(null); //pais
 
   useEffect(() => {
     axios.get(`${baseURL_pais}`).then((response) => {
