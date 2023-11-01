@@ -50,9 +50,12 @@ function CadastroFuncionario() {
   const [var9, setVar9] = useState('');//log
   const [var10, setVar10] = useState('');//bai 
   
-  const [var19, setVar19] = useState('');//endereco_id
-  const [var20, setVar20] = useState('');//hotel_id
-  const [var21, setVar21] = useState('');//cargo_id
+  const [var19, setVar19] = useState(0);//endereco_id
+  const [var20, setVar20] = useState(0);//hotel_id
+  const [var21, setVar21] = useState(0);//cargo_id
+  const [var22, setVar22] = useState(0);//id uf 
+  const [var23, setVar23] = useState(0);//id pais 
+
 
   const [dados, setDados] = React.useState([]);
 
@@ -89,12 +92,22 @@ function CadastroFuncionario() {
       setVar11(dados.email);
       setVar12(dados.senha);
       setVar13(dados.senha);
-      setVar14('');
-      setVar15('');
+      setVar14("+$"+dados.ddi1 + " (" + dados.ddd1 + ") " + dados.num1);
+      setVar15(`+${dados.ddi2} (${dados.ddd2}) ${dados.num2}`);
       
       setVar16(dados.horaInicio);
       setVar17(dados.horaFim);
       setVar18(dados.salario);
+
+      
+      setVar5(dados.cidade);//cidade
+      setVar6(dados.cep);//cep
+      setVar7(dados.numero);//num
+      setVar8(dados.complemento);//com
+      setVar9(dados.logradouro);//log
+      setVar10(dados.bairro);//bai 
+      setVar22(dados.UF_id);//id uf
+      setVar23(dados.pais_id);//ud pais 
 
       setVar19(dados.endereco_id);
       setVar20(dados.hotel_id);
@@ -158,12 +171,22 @@ function CadastroFuncionario() {
       setVar11(dados.email);
       setVar12(dados.senha);
       setVar13(dados.senha);
-      setVar14('');
-      setVar15('');
+      setVar14("+$"+dados.ddi1 + " (" + dados.ddd1 + ") " + dados.num1);
+      setVar15(`+${dados.ddi2} (${dados.ddd2}) ${dados.num2}`);
       
       setVar16(dados.horaInicio);
       setVar17(dados.horaFim);
       setVar18(dados.salario);
+
+      
+      setVar5(dados.cidade);//cidade
+      setVar6(dados.cep);//cep
+      setVar7(dados.numero);//num
+      setVar8(dados.complemento);//com
+      setVar9(dados.logradouro);//log
+      setVar10(dados.bairro);//bai 
+      setVar22(dados.UF_id);//id uf
+      setVar23(dados.pais_id);//ud pais 
 
       setVar19(dados.endereco_id);
       setVar20(dados.hotel_id);
