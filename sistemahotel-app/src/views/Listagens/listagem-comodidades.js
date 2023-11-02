@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Card from '../components/card';
-import { mensagemSucesso, mensagemErro } from '../components/toastr';
+import Card from '../../components/card';
+import { mensagemSucesso, mensagemErro } from '../../components/toastr';
 
-import '../custom.css';
+import '../../custom.css';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -14,8 +14,8 @@ import EditIcon from '@mui/icons-material/Edit';
 
 import axios from 'axios';
 
-import { BASE_URL } from '../config/axios';
-import { URL_comodidade } from '../config/axios';
+import { BASE_URL } from '../../config/axios';
+import { URL_comodidade } from '../../config/axios';
 
 const baseURL = `${URL_comodidade}/comodidade`;
 

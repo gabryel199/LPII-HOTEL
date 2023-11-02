@@ -3,24 +3,24 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import Stack from '@mui/material/Stack';
 
-import Card from '../components/card';
+import Card from '../../../components/card';
 
-import FormGroup from '../components/form-group';
+import FormGroup from '../../../components/form-group';
 
-import { mensagemSucesso, mensagemErro } from '../components/toastr';
+import { mensagemSucesso, mensagemErro } from '../../../components/toastr';
 
-import '../custom.css';
+import '../../../custom.css';
 
 import axios from 'axios';
-import { BASE_URL } from '../config/axios';
+import { BASE_URL } from '../../../config/axios';
 
-function CadastroTipoCama() {
+function CadastroTipoComodidade() {
   
   const { idParam } = useParams();
 
   const navigate = useNavigate();
 
-  const baseURL = `${BASE_URL}/tipoCama`;
+  const baseURL = `${BASE_URL}/tipoComodidade`;
 
   const [id, setId] = useState('');
   const [var0, setVar0] = useState('');
@@ -32,7 +32,7 @@ function CadastroTipoCama() {
 
   return (
     <div className='container'>
-      <Card title='Cadastro de Tipos de Camas'>
+      <Card title='Cadastro de Tipos de Comodidades'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
@@ -56,19 +56,7 @@ function CadastroTipoCama() {
                   onChange={(e) => setVar1(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Ocupantes: *' htmlFor='inputOcupantes'>
-                <input
-                  type='text'
-                  id='inputOcupantes'
-                  value={var2}
-                  className='form-control'
-                  name='ocupantes'
-                  onChange={(e) => setVar2(e.target.value)}
-                />
-              </FormGroup>
               
-              
-
               <br></br>
               <Stack spacing={1} padding={1} direction='row'>
                 <button
@@ -92,4 +80,4 @@ function CadastroTipoCama() {
   );
 }
 
-export default CadastroTipoCama;
+export default CadastroTipoComodidade;

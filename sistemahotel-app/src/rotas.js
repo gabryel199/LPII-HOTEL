@@ -3,29 +3,36 @@ import React from 'react';
 import Login from './views/login';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
-import ListagemCliente from './views/listagem-cliente';
-import ListagemFuncionario from './views/listagem-funcionario';
-import ListagemHoteis from './views/listagem-hoteis';
-import ListagemProdutos from './views/listagem-produtos';
-import ListagemServicos from './views/listagem-servicos';
-import ListagemComodidades from './views/listagem-comodidades';
-import ListagemQuarto from './views/listagem-quarto';
-import ListagemHospedagem from './views/listagem-hospedagem';
-import ListagemReserva from './views/listagem-reserva';
+import ListagemCliente from './views/Listagens/listagem-cliente';
+import ListagemFuncionario from './views/Listagens/listagem-funcionario';
+import ListagemHoteis from './views/Listagens/listagem-hoteis';
+import ListagemProdutos from './views/Listagens/listagem-produtos';
+import ListagemServicos from './views/Listagens/listagem-servicos';
+import ListagemComodidades from './views/Listagens/listagem-comodidades';
+import ListagemQuarto from './views/Listagens/listagem-quarto';
+import ListagemHospedagem from './views/Listagens/listagem-hospedagem';
+import ListagemReserva from './views/Listagens/listagem-reserva';
 
-import CadastroProduto from './views/cadastro-produto';
-import CadastroHotel from './views/cadastro-hotel';
-import CadastroCliente from './views/cadastro-cliente';
-import CadastroFuncionario from './views/cadastro-funcionario';
-import CadastroServicos from './views/cadastro-servicos';
-import CadastroQuarto from './views/cadastro-quarto';
-import CadastroComodidades from './views/cadastro-comodidades';
-import CadastroReserva from './views/cadastro-reserva';
-import CadastroHospedagem from './views/cadastro-hospedagem';
-import CadastroHorarioServico from './views/cadastro-horarioServico';
-import CadastroAvaliacaoQuarto from './views/cadastro-avaliacaoQuarto';
-import CadastroAvaliacaoHospedagem from './views/cadastro-avaliacaoHospedagem';
-{/**/}
+import CadastroProduto from './views/Cadastros/cadastro-produto';
+import CadastroHotel from './views/Cadastros/cadastro-hotel';
+import CadastroCliente from './views/Cadastros/cadastro-cliente';
+import CadastroFuncionario from './views/Cadastros/cadastro-funcionario';
+import CadastroServicos from './views/Cadastros/cadastro-servicos';
+import CadastroQuarto from './views/Cadastros/cadastro-quarto';
+import CadastroComodidades from './views/Cadastros/cadastro-comodidades';
+import CadastroReserva from './views/Cadastros/cadastro-reserva';
+import CadastroHospedagem from './views/Cadastros/cadastro-hospedagem';
+import CadastroHorarioServico from './views/Cadastros/SubCadastros/cadastro-horarioServico';
+import CadastroAvaliacaoQuarto from './views/Cadastros/SubCadastros/cadastro-avaliacaoQuarto';
+import CadastroAvaliacaoHospedagem from './views/Cadastros/SubCadastros/cadastro-avaliacaoHospedagem';
+
+
+import CadastroTipoProduto from './views/Cadastros/SubCadastros/cadastro-tipo-produto';
+import CadastroTipoServico from './views/Cadastros/SubCadastros/cadastro-tipo-servicos';
+import CadastroTipoQuarto from './views/Cadastros/SubCadastros/cadastro-tipo-quarto';
+import CadastroTipoCama from './views/Cadastros/SubCadastros/cadastro-tipo-cama';
+import CadastroTipoComodidade from './views/Cadastros/SubCadastros/cadastro-tipo-comodidade';
+import CadastroCargo from './views/Cadastros/SubCadastros/cadastro-cargo';
 
 
 function Rotas(props) {
@@ -56,14 +63,12 @@ function Rotas(props) {
         <Route path='/cadastro-avaliacaoQuarto/:idParam?' element={<CadastroAvaliacaoQuarto />} />   
         <Route path='/cadastro-avaliacaoHospedagem/:idParam?' element={<CadastroAvaliacaoHospedagem />} />   
         {/**/}
-        {/*          
         <Route path='/cadastro-tipo-produto' element={<CadastroTipoProduto />} />     
         <Route path='/cadastro-tipo-servicos' element={<CadastroTipoServico/>} />  
         <Route path='/cadastro-tipo-quarto' element={<CadastroTipoQuarto />} />     
         <Route path='/cadastro-tipo-cama' element={<CadastroTipoCama />} />   
         <Route path='/cadastro-tipo-comodidade' element={<CadastroTipoComodidade />} />   
-        <Route path='/cadastro-cargo' element={<CadastroCargo />} />                   
-        */}    
+        <Route path='/cadastro-cargo' element={<CadastroCargo />} />        
       </Routes>
     </BrowserRouter>
   );

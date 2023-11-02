@@ -3,37 +3,39 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import Stack from '@mui/material/Stack';
 
-import Card from '../components/card';
+import Card from '../../components/card';
 
-import FormGroup from '../components/form-group';
+import FormGroup from '../../components/form-group';
 
-import { mensagemSucesso, mensagemErro } from '../components/toastr';
+import { mensagemSucesso, mensagemErro } from '../../components/toastr';
 
-import '../custom.css';
+import '../../custom.css';
 
 import axios from 'axios';
-import { BASE_URL } from '../config/axios';
-import { URL_hospedagem } from '../config/axios';
+import { BASE_URL } from '../../config/axios';
+import { URL_quarto } from '../../config/axios';
 
-function CadastroReserva() {
+function CadastroQuarto() {
   
   const { idParam } = useParams();
 
   const navigate = useNavigate();
 
-  const baseURL = `${URL_hospedagem}/reserva`;
+  const baseURL = `${URL_quarto}/quarto`;
 
-  const [id, setId] = useState('');
-  const [var0, setVar0] = useState('');
-  const [var1, setVar1] = useState('');
-  const [var2, setVar2] = useState('');
-  const [var3, setVar3] = useState('');
-  const [var4, setVar4] = useState('');
-  const [var5, setVar5] = useState('');
+  const [id, setId] = useState(0);
+  const [var0, setVar0] = useState('');//num
+  const [var1, setVar1] = useState('');//andar
+  const [var2, setVar2] = useState('');//bloco
+  const [var3, setVar3] = useState('');//status
+  const [var4, setVar4] = useState('');//hotelid
+  const [var5, setVar5] = useState('');//tipoquartoid
   const [var6, setVar6] = useState('');
   const [var7, setVar7] = useState('');
+  const [var8, setVar8] = useState('');
+  const [var9, setVar9] = useState('');
 
-  const [dados, setDados] = React.useState([]);
+  const [dados, setDados] = React.useState([]); // quarto
 
   function inicializar() {
     if (idParam == null) {
@@ -44,18 +46,14 @@ function CadastroReserva() {
       setVar3('');
       setVar4('');
       setVar5('');
-      setVar6('');
-      setVar7('');
     } else {
       setId(dados.id);
-      setVar0(dados.status);
-      setVar1(dados.dataInicio);
-      setVar2(dados.dataFim);
-      setVar3(dados.valorResrva);
-      setVar4(dados.cliente_id);
-      setVar5(dados.funcionario_id);
-      setVar6(dados.hotel_id);
-      setVar7(dados.hospedagem_id);
+      setVar0(dados.numero);
+      setVar1(dados.andar);
+      setVar2(dados.bloco);
+      setVar3(dados.status);
+      setVar4(dados.hotel_id);
+      setVar5(dados.tipoQuarto_id);
     }
   }
 
@@ -67,9 +65,7 @@ function CadastroReserva() {
       var2,
       var3,
       var4,
-      var5,
-      var6,
-      var7
+      var5
     };
     data = JSON.stringify(data);
     if (idParam == null) {
@@ -78,8 +74,8 @@ function CadastroReserva() {
           headers: { 'Content-Type': 'application/json' },
         })
         .then(function (response) {
-          mensagemSucesso(`Reserva ${id} cadastrado com sucesso!`);
-          navigate(`/listagem-reserva`);
+          mensagemSucesso(`Quarto ${var0} cadastrado com sucesso!`);
+          navigate(`/listagem-quarto`);
         })
         .catch(function (error) {
           mensagemErro(error.response.data);
@@ -90,8 +86,8 @@ function CadastroReserva() {
           headers: { 'Content-Type': 'application/json' },
         })
         .then(function (response) {
-          mensagemSucesso(`Produto ${id} alterado com sucesso!`);
-          navigate(`/listagem-reserva`);
+          mensagemSucesso(`Quarto ${var0} alterado com sucesso!`);
+          navigate(`/listagem-quarto`);
         })
         .catch(function (error) {
           mensagemErro(error.response.data);
@@ -105,66 +101,94 @@ function CadastroReserva() {
         setDados(response.data);
       });
       setId(dados.id);
-      setVar0(dados.status);
-      setVar1(dados.dataInicio);
-      setVar2(dados.dataFim);
-      setVar3(dados.valorResrva);
-      setVar4(dados.cliente_id);
-      setVar5(dados.funcionario_id);
-      setVar6(dados.hotel_id);
-      setVar7(dados.hospedagem_id);
+      setVar0(dados.numero);
+      setVar1(dados.andar);
+      setVar2(dados.bloco);
+      setVar3(dados.status);
+      setVar4(dados.hotel_id);
+      setVar5(dados.tipoQuarto_id);
     }
   }
-  
+
+  const [dados2, setDados2] = React.useState(null); //tipo quarto
+
   useEffect(() => {
-    buscar(); // eslint-disable-next-line
+    axios.get(`${URL_quarto}/tipoQuarto`).then((response) => {
+      setDados2(response.data);
+    });
+  }, []);
+
+  useEffect(() => {
+      buscar(); // eslint-disable-next-line
   }, [id]);
+
+  if (!dados) return null;
+  if (!dados2) return null;
+
 
   return (
     <div className='container'>
-      <Card title='Cadastro de Reservas'>
+      <Card title='Cadastro de Quartos'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
+              <FormGroup label='Numero: *' htmlFor='inputNumero'>
+                <input
+                  type='number'
+                  id='inputNumero'
+                  value={var0}
+                  className='form-control'
+                  name='numero'
+                  onChange={(e) => setVar0(e.target.value)}
+                />
+              </FormGroup>
+              <FormGroup label='Andar: *' htmlFor='inputAndar'>
+                <input
+                  type='number'
+                  id='inputAndar'
+                  value={var1}
+                  className='form-control'
+                  name='andar'
+                  onChange={(e) => setVar1(e.target.value)}
+                />
+              </FormGroup>
+              <FormGroup label='Bloco: *' htmlFor='inputBloco'>
+                <input
+                  type='number'
+                  id='inputBloco'
+                  value={var2}
+                  className='form-control'
+                  name='bloco'
+                  onChange={(e) => setVar2(e.target.value)}
+                />
+              </FormGroup>
               <FormGroup label='Status: *' htmlFor='inputStatus'>
                 <input
                   type='text'
                   id='inputStatus'
-                  value={var0}
-                  className='form-control'
-                  name='status'
-                  onChange={(e) => setVar0(e.target.value)}
-                />
-              </FormGroup>
-              <FormGroup label='Data de Início: *' htmlFor='inputDataInicio'>
-                <input
-                  type='date'
-                  id='inputDataInicio'
-                  value={var1}
-                  className='form-control'
-                  name='datainicio'
-                  onChange={(e) => setVar1(e.target.value)}
-                />
-              </FormGroup>
-              <FormGroup label='Data Fim: *' htmlFor='inputDataFim'>
-                <input
-                  type='date'
-                  id='inputDataFim'
-                  value={var2}
-                  className='form-control'
-                  name='datafim'
-                  onChange={(e) => setVar2(e.target.value)}
-                />
-              </FormGroup>
-              <FormGroup label='Valor da Resrva: *' htmlFor='inputValorResrva'>
-                <input
-                  type='text'
-                  id='inputValorResrva'
                   value={var3}
                   className='form-control'
-                  name='valorresrva'
+                  name='status'
                   onChange={(e) => setVar3(e.target.value)}
                 />
+              </FormGroup>
+              <FormGroup label='Tipo: *' htmlFor='selectTipo'>
+                <select
+                  className='form-select'
+                  id='selectTipo'
+                  name='tipo'
+                  value={var5}
+                  onChange={(e) => setVar5(e.target.value)}
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados2.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
               </FormGroup>
 
               <br></br>
@@ -192,4 +216,4 @@ function CadastroReserva() {
   );
 }
 
-export default CadastroReserva;
+export default CadastroQuarto;

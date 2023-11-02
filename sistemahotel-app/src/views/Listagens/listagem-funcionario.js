@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Card from '../components/card';
-import { mensagemSucesso, mensagemErro } from '../components/toastr';
+import Card from '../../components/card';
+import { mensagemSucesso, mensagemErro } from '../../components/toastr';
 
-import '../custom.css';
+import '../../custom.css';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -14,21 +14,21 @@ import EditIcon from '@mui/icons-material/Edit';
 
 import axios from 'axios';
 
-import { BASE_URL } from '../config/axios';
-import { URL_hospedagem } from '../config/axios';
+import { BASE_URL } from '../../config/axios';
+import { URL_funcionario } from '../../config/axios';
 
-const baseURL = `${URL_hospedagem}/hospedagem`;
+const baseURL = `${URL_funcionario}/funcionario`;
 
 
-function ListagemHospedagem() {
+function ListagemFuncionario() {
   const navigate = useNavigate();
 
   const cadastrar = () => {
-    navigate(`/cadastro-hospedagem`);
+    navigate(`/cadastro-funcionario`);
   };
 
   const editar = (id) => {
-    navigate(`/cadastro-hospedagem/${id}`);
+    navigate(`/cadastro-funcionario/${id}`);
   };
 
   const [dados, setDados] = React.useState(null);
@@ -42,7 +42,7 @@ function ListagemHospedagem() {
         headers: { 'Content-Type': 'application/json' },
       })
       .then(function (response) {
-        mensagemSucesso(`Hospedagem excluída com sucesso!`);
+        mensagemSucesso(`funcionario excluído com sucesso!`);
         setDados(
           dados.filter((dado) => {
             return dado.id !== id;
@@ -50,7 +50,7 @@ function ListagemHospedagem() {
         );
       })
       .catch(function (error) {
-        mensagemErro(`Erro ao excluir a Hospedagem`);
+        mensagemErro(`Erro ao excluir o funcionario`);
       });
   }
 
@@ -64,7 +64,7 @@ function ListagemHospedagem() {
 
   return (
     <div className='container'>
-      <Card title='Listagem de Hospedagem'>
+      <Card title='Listagem de funcionarios'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
@@ -73,31 +73,23 @@ function ListagemHospedagem() {
                 className='btn btn-warning'
                 onClick={() => cadastrar()}
               >
-                Nova Hospedagem
+                Novo Funcionario
               </button>
               <table className='table table-hover'>
                 <thead>
                   <tr>
-                    <th scope='col'>ID</th>
-                    <th scope='col'>Status</th>
-                    <th scope='col'>Data de Inicio</th>
-                    <th scope='col'>Data Final</th>
-                    <th scope='col'>Data Final Extendida</th>
-                    <th scope='col'>Valor</th>
-                    <th scope='col'>Status de Pagamento Estadia</th>
+                    <th scope='col'>Nome</th>
+                    <th scope='col'>Data de Nascimento</th>
+                    <th scope='col'>E-mail</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>
                 <tbody>
                   {dados.map((dado) => (
                     <tr key={dado.id}>
-                      <td>{dado.id}</td>
-                      <td>{dado.status}</td>
-                      <td>{dado.dataInicio}</td>
-                      <td>{dado.dataFim1}</td>
-                      <td>{dado.dataFim2}</td>
-                      <td>{dado.valorEstadia}</td>
-                      <td>{dado.statusValorEstadia}</td>
+                      <td>{dado.nome}</td>
+                      <td>{dado.dataNacimento}</td>
+                      <td>{dado.email}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>
                           <IconButton
@@ -128,4 +120,4 @@ function ListagemHospedagem() {
 
 
 
-export default ListagemHospedagem;
+export default ListagemFuncionario;

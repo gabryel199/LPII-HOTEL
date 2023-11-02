@@ -3,24 +3,24 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import Stack from '@mui/material/Stack';
 
-import Card from '../components/card';
+import Card from '../../../components/card';
 
-import FormGroup from '../components/form-group';
+import FormGroup from '../../../components/form-group';
 
-import { mensagemSucesso, mensagemErro } from '../components/toastr';
+import { mensagemSucesso, mensagemErro } from '../../../components/toastr';
 
-import '../custom.css';
+import '../../../custom.css';
 
 import axios from 'axios';
-import { BASE_URL } from '../config/axios';
+import { BASE_URL } from '../../../config/axios';
 
-function CadastroTipoComodidade() {
+function CadastroAvaliacaoHospedagem() {
   
   const { idParam } = useParams();
 
   const navigate = useNavigate();
 
-  const baseURL = `${BASE_URL}/tipoComodidade`;
+  const baseURL = `${BASE_URL}/avaliacaoHospedagem`;
 
   const [id, setId] = useState('');
   const [var0, setVar0] = useState('');
@@ -32,27 +32,27 @@ function CadastroTipoComodidade() {
 
   return (
     <div className='container'>
-      <Card title='Cadastro de Tipos de Comodidades'>
+      <Card title='Cadastro de Avaliação da Hospedagem'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
-              <FormGroup label='Titulo: *' htmlFor='inputTitulo'>
+              <FormGroup label='Nota: *' htmlFor='inputNota'>
                 <input
                   type='text'
-                  id='inputTitulo'
+                  id='inputNota'
                   value={var0}
                   className='form-control'
-                  name='titulo'
+                  name='nota'
                   onChange={(e) => setVar0(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Descricao: *' htmlFor='inputDescricao'>
+              <FormGroup label='Comentario: *' htmlFor='inputComentario'>
                 <input
                   type='text'
-                  id='inputDescricao'
+                  id='inputComentario'
                   value={var1}
                   className='form-control'
-                  name='descricao'
+                  name='comentario'
                   onChange={(e) => setVar1(e.target.value)}
                 />
               </FormGroup>
@@ -80,4 +80,4 @@ function CadastroTipoComodidade() {
   );
 }
 
-export default CadastroTipoComodidade;
+export default CadastroAvaliacaoHospedagem;
