@@ -26,7 +26,7 @@ class Login extends React.Component {
     return (
       <div className='container'>
         <div className='col-lg-4'>
-          <Card title='Acesso'>
+          <Card title='Login'>
             <div className='row'>
               <div className='bs-component'>
                 <FormGroup label='Login: *' htmlFor='inputLogin'>
