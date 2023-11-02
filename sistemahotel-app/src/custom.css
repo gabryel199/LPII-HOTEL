@@ -34,8 +34,15 @@ pre {
   border: 2px solid rgb(0, 0, 0);
   border-radius: 5px;
   padding: 0;
+  
 }
 
 .dropdown-toggle::after {
   display: none;
+}
+
+.nav-link-dropdown-toggle {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  opacity: 0.7;
 }
