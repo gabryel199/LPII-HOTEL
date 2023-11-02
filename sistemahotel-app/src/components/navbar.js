@@ -4,6 +4,11 @@ import 'bootswatch/dist/lumen/bootstrap.css';
 import NavbarItem from './navbarItem';
 
 function Navbar(props) {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
   return (
     <div className='navbar navbar-expand-lg fixed-top navbar-dark bg-primary'>
       <div className='container'>
