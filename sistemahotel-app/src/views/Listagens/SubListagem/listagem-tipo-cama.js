@@ -14,9 +14,9 @@ import EditIcon from '@mui/icons-material/Edit';
 
 import axios from 'axios';
 
-import { URL_cargos } from '../../../config/axios';
+import { URL_tipoCama } from '../../../config/axios';
 
-const baseURL = `${URL_cargos}/cargo`;
+const baseURL = `${URL_tipoCama}/tipoCama`;
 
 
 function ListagemTipoCama() {
@@ -41,7 +41,7 @@ function ListagemTipoCama() {
         headers: { 'Content-Type': 'application/json' },
       })
       .then(function (response) {
-        mensagemSucesso(`Cargo excluído com sucesso!`);
+        mensagemSucesso(`Tipo de cama excluído com sucesso!`);
         setDados(
           dados.filter((dado) => {
             return dado.id !== id;
@@ -49,7 +49,7 @@ function ListagemTipoCama() {
         );
       })
       .catch(function (error) {
-        mensagemErro(`Erro ao excluir cargo`);
+        mensagemErro(`Erro ao excluir tipo de cama`);
       });
   }
 
@@ -63,7 +63,7 @@ function ListagemTipoCama() {
 
   return (
     <div className='container'>
-      <Card title='Listagem de cargos'>
+      <Card title='Listagem de tipos de cama'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
@@ -72,7 +72,7 @@ function ListagemTipoCama() {
                 className='btn btn-warning'
                 onClick={() => cadastrar()}
               >
-                Novo Cargo
+                Novo Tipo de Cama
               </button>
               <table className='table table-hover'>
                 <thead>
