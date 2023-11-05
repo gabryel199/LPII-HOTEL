@@ -78,12 +78,12 @@ function Rotas(props) {
         <Route path='/cadastro-avaliacaoHospedagem/:idParam?' element={<CadastroAvaliacaoHospedagem />} />   
         
 
-        <Route path='/cadastro-tipo-produto' element={<CadastroTipoProduto />} />     
-        <Route path='/cadastro-tipo-servicos' element={<CadastroTipoServico/>} />  
-        <Route path='/cadastro-tipo-quarto' element={<CadastroTipoQuarto />} />     
-        <Route path='/cadastro-tipo-cama' element={<CadastroTipoCama />} />   
-        <Route path='/cadastro-tipo-comodidade' element={<CadastroTipoComodidade />} />   
-        <Route path='/cadastro-cargo' element={<CadastroCargo />} />        
+        <Route path='/cadastro-tipo-produto/:idParam?' element={<CadastroTipoProduto />} />     
+        <Route path='/cadastro-tipo-servicos/:idParam?' element={<CadastroTipoServico/>} />  
+        <Route path='/cadastro-tipo-quarto/:idParam?' element={<CadastroTipoQuarto />} />     
+        <Route path='/cadastro-tipo-cama/:idParam?' element={<CadastroTipoCama />} />   
+        <Route path='/cadastro-tipo-comodidade/:idParam?' element={<CadastroTipoComodidade />} />   
+        <Route path='/cadastro-cargo/:idParam?' element={<CadastroCargo />} />        
       </Routes>
     </BrowserRouter>
   );
