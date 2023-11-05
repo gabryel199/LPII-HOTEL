@@ -7,7 +7,7 @@ function Navbar(props) {
   const [dropdown1Open, setDropdown1Open] = useState(false);
   const [dropdown2Open, setDropdown2Open] = useState(false);
   const [dropdown3Open, setDropdown3Open] = useState(false);
-  const [dropdown4Open, setDropdown4Open] = useState(false);
+  
   const [dropdown5Open, setDropdown5Open] = useState(false);
   const [tipoComodidadeDropdownOpen, setTipoComodidadeDropdownOpen] = useState(false); 
   const [tipoQuartosDropdownOpen, setTipoQuartosDropdownOpen] = useState(false);
@@ -24,9 +24,7 @@ function Navbar(props) {
     setDropdown3Open(!dropdown3Open);
   };
 
-  const toggleDropdown4 = () => {
-    setDropdown4Open(!dropdown4Open);
-  };
+ 
 
   const toggleDropdown5 = () => {
     setDropdown5Open(!dropdown5Open);
@@ -64,13 +62,7 @@ function Navbar(props) {
     setDropdown3Open(false);
   };
 
-  const handleMouseEnter4 = () => {
-    setDropdown4Open(true);
-  };
 
-  const handleMouseLeave4 = () => {
-    setDropdown4Open(false);
-  };
 
   const handleMouseEnter5 = () => {
     setDropdown5Open(true);

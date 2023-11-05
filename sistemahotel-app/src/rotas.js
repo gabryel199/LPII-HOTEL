@@ -60,8 +60,8 @@ function Rotas(props) {
         <Route path='/listagem-cargos' element={<ListagemCargos />} />
         <Route path='/listagem-tipo-cama' element={<ListagemTipoCama />} />
         <Route path='/listagem-tipo-comodidade' element={<ListagemTipoComodidade />} />   
-        <Route path='/listagem-tipo-produto' element={<ListagemTipoQuarto />} />
-        <Route path='/listagem-tipo-quarto' element={<ListagemTipoProduto />} />
+        <Route path='/listagem-tipo-quarto' element={<ListagemTipoQuarto />} />
+        <Route path='/listagem-tipo-produto' element={<ListagemTipoProduto />} />
         <Route path='/listagem-tipo-servico' element={<ListagemTipoServicos />} />
 
         <Route path='/cadastro-produto/:idParam?' element={<CadastroProduto />} /> 
