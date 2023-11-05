@@ -13,3 +13,5 @@ export const BASE_URL =
   export const URL_servico = 'https://my-json-server.typicode.com/gabryel199/LP2-HOTEL-servico';
   export const URL_cargos = 'https://my-json-server.typicode.com/Felipe25Franco/LP2-HOTEL-cargo';
   export const URL_tipoCama = 'https://my-json-server.typicode.com/Felipe25Franco/LP2-HOTEL-tipo-cama';
+  export const URL_tipoComodidade = 'https://my-json-server.typicode.com/Felipe25Franco/LP2-HOTEL-tipo-comodidade';
+  export const URL_tipoProduto = 'https://my-json-server.typicode.com/Felipe25Franco/LP2-HOTEL-tipo-produto';
