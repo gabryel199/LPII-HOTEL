@@ -12,7 +12,8 @@ import { mensagemSucesso, mensagemErro } from '../../components/toastr';
 import '../../custom.css';
 
 import axios from 'axios';
-import { BASE_URL } from '../../config/axios';
+import { URL_servico } from '../../config/axios';
+import { URL_tipoServico } from '../../config/axios';
 
 function CadastroServicos() {
   
@@ -20,7 +21,7 @@ function CadastroServicos() {
 
   const navigate = useNavigate();
 
-  const baseURL = `${BASE_URL}/servico`;
+  const baseURL = `${URL_servico}/servico`;
 
   const [id, setId] = useState('');
   const [var0, setVar0] = useState('');
@@ -32,7 +33,7 @@ function CadastroServicos() {
   const [dados2, setDados2] = React.useState(null); //tipo Produto
 
   useEffect(() => {
-    axios.get(`${BASE_URL}/tipoServico`).then((response) => {
+    axios.get(`${URL_tipoServico }/tipoServico`).then((response) => {
       setDados2(response.data);
     });
   }, []);
