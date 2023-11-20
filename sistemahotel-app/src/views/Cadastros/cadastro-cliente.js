@@ -21,12 +21,12 @@ function CadastroCliente() {
 
   const navigate = useNavigate();
 
-  const baseURL_cliente = `${URL_endereco}/cliente`;
+  const baseURL = `${URL_endereco}/cliente`;
   const baseURL_endereco = `${URL_endereco}/endereco`;
   const baseURL_uf = `${URL_endereco}/uf`;
   const baseURL_pais = `${URL_endereco}/pais`;
 
-  const [id, setId] = useState('');
+  const [id, setId] = useState(0);
   const [var0, setVar0] = useState('');//cpf
   const [var1, setVar1] = useState('');//nome
   const [var2, setVar2] = useState('');//dataN
@@ -83,7 +83,7 @@ function CadastroCliente() {
       setVar12(dados.senha);
       setVar13(dados.senha);
       //setVar14(`+${dados.ddi1} (${dados.ddd1}) ${dados.num1}`);
-      setVar14("+$"+dados.ddi1 + " (" + dados.ddd1 + ") " + dados.num1);
+      setVar14("+"+dados.ddi1 + " (" + dados.ddd1 + ") " + dados.num1);
       setVar15(`+${dados.ddi2} (${dados.ddd2}) ${dados.num2}`);
       //setVar16(dados.endereco_id);
       setVar5(dados.cidade);//cidade
@@ -141,10 +141,9 @@ function CadastroCliente() {
   async function buscar() {
     // console.log("buscar")
     if (idParam != null) { //evitar busca desnecessaria
-      await axios.get(`${baseURL_endereco}/${idParam}`).then((response) => {
+      await axios.get(`${baseURL}/${idParam}`).then((response) => {
         setDados(response.data);
       });
-      // console.log("buscar get terminou")
       setId(dados.id);
       setVar0(dados.cpf);
       setVar1(dados.nome);
@@ -152,7 +151,8 @@ function CadastroCliente() {
       setVar11(dados.email);
       setVar12(dados.senha);
       setVar13(dados.senha);
-      setVar14(`+${dados.ddi1} (${dados.ddd1}) ${dados.num1}`);
+      //setVar14(`+${dados.ddi1} (${dados.ddd1}) ${dados.num1}`);
+      setVar14("+"+dados.ddi1 + " (" + dados.ddd1 + ") " + dados.num1);
       setVar15(`+${dados.ddi2} (${dados.ddd2}) ${dados.num2}`);
       //setVar16(dados.endereco_id);
       setVar5(dados.cidade);//cidade
@@ -162,8 +162,7 @@ function CadastroCliente() {
       setVar9(dados.logradouro);//log
       setVar10(dados.bairro);//bai 
       setVar17(dados.UF_id);//id uf
-      setVar18(dados.pais_id);//ud pais
-      // console.log(`${var16} var16`);
+      setVar18(dados.pais_id);//ud pais 
 
     }
   }
