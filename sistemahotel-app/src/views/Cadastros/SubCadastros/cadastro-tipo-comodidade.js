@@ -12,7 +12,7 @@ import { mensagemSucesso, mensagemErro } from '../../../components/toastr';
 import '../../../custom.css';
 
 import axios from 'axios';
-import { BASE_URL } from '../../../config/axios';
+import { URL_comodidade } from '../../../config/axios';
 
 function CadastroTipoComodidade() {
   
@@ -20,15 +20,76 @@ function CadastroTipoComodidade() {
 
   const navigate = useNavigate();
 
-  const baseURL = `${BASE_URL}/tipoComodidade`;
+  const baseURL = `${URL_comodidade}/tipoComodidade`;
 
   const [id, setId] = useState('');
   const [var0, setVar0] = useState('');
   const [var1, setVar1] = useState('');
-  const [var2, setVar2] = useState('');
-  const [var3, setVar3] = useState('');
 
   const [dados, setDados] = React.useState([]);
+  
+  function inicializar() {
+    if (idParam == null) {
+      setId('');
+      setVar0('');
+      setVar1('');
+    } else {
+      setId(dados.id);
+      setVar0(dados.titulo);
+      setVar1(dados.descricao);
+    }
+  }
+
+  async function salvar() {
+    let data = {
+      id,
+      var0,
+      var1
+    };
+    data = JSON.stringify(data);
+    if (idParam == null) {
+      await axios
+        .post(baseURL, data, {
+          headers: { 'Content-Type': 'application/json' },
+        })
+        .then(function (response) {
+          mensagemSucesso(`Tipo de comodidade ${var0} cadastrado com sucesso!`);
+          navigate(`/listagem-tipo-comodidade`);
+        })
+        .catch(function (error) {
+          mensagemErro(error.response.data);
+        });
+    } else {
+      await axios
+        .put(`${baseURL}/${idParam}`, data, {
+          headers: { 'Content-Type': 'application/json' },
+        })
+        .then(function (response) {
+          mensagemSucesso(`Tipo de comodidade ${var0} alterado com sucesso!`);
+          navigate(`/listagem-tipo-comodidade`);
+        })
+        .catch(function (error) {
+          mensagemErro(error.response.data);
+        });
+    }
+  }
+
+  async function buscar() {
+    if (idParam != null) {
+      await axios.get(`${baseURL}/${idParam}`).then((response) => {
+        setDados(response.data);
+      });
+      setId(dados.id);
+      setVar0(dados.titulo);
+      setVar1(dados.descricao);
+    }
+  }
+  
+  useEffect(() => {
+      buscar(); // eslint-disable-next-line
+  }, [id]);
+ 
+  if (!dados) return null;
 
   return (
     <div className='container'>
@@ -46,7 +107,7 @@ function CadastroTipoComodidade() {
                   onChange={(e) => setVar0(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Descricao: *' htmlFor='inputDescricao'>
+              <FormGroup label='Descricao:' htmlFor='inputDescricao'>
                 <input
                   type='text'
                   id='inputDescricao'
@@ -60,12 +121,14 @@ function CadastroTipoComodidade() {
               <br></br>
               <Stack spacing={1} padding={1} direction='row'>
                 <button
+                  onClick={salvar}
                   type='button'
                   className='btn btn-success'
                 >
                   Salvar
                 </button>
                 <button
+                  onClick={inicializar}
                   type='button'
                   className='btn btn-danger'
                 >

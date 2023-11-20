@@ -81,6 +81,7 @@ function ListagemTipoQuarto() {
                     <th scope='col'>Valor</th>
                     <th scope='col'>Maximo de Ocupantes</th>
                     <th scope='col'>Tamanho</th>
+                    <th scope='col'>Avaliação</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>
@@ -91,6 +92,7 @@ function ListagemTipoQuarto() {
                       <td>{dado.precoBase}</td>
                       <td>{dado.limiteAdulto + dado.limiteCrianca}</td>
                       <td>{dado.area}</td>
+                      <td>{dado.avaliacaoMedia}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>
                           <IconButton

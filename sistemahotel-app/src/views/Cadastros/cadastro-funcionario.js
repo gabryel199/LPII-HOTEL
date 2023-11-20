@@ -92,7 +92,7 @@ function CadastroFuncionario() {
       setVar11(dados.email);
       setVar12(dados.senha);
       setVar13(dados.senha);
-      setVar14("+$"+dados.ddi1 + " (" + dados.ddd1 + ") " + dados.num1);
+      setVar14("+"+dados.ddi1 + " (" + dados.ddd1 + ") " + dados.num1);
       setVar15(`+${dados.ddi2} (${dados.ddd2}) ${dados.num2}`);
       
       setVar16(dados.horaInicio);
@@ -224,7 +224,7 @@ function CadastroFuncionario() {
 
   useEffect(() => {
     buscar(); // eslint-disable-next-line
-}, [id]);
+  }, [id]);
 
   if (!dados) return null;
   if (!dados5) return null;
