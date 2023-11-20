@@ -81,7 +81,6 @@ function ListagemQuarto() {
                     <th scope='col'>Numero</th>
                     <th scope='col'>Andar</th>
                     <th scope='col'>Bloco</th>
-                    <th scope='col'>ID Tipo de Quarto</th>
                     <th scope='col'>Status</th>
                     <th scope='col'>Ações</th>
                   </tr>
@@ -92,7 +91,6 @@ function ListagemQuarto() {
                       <td>{dado.numero}</td>
                       <td>{dado.andar}</td>
                       <td>{dado.bloco}</td>
-                      <td>{dado.tipoQuarto_id}</td>
                       <td>{dado.status}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>
