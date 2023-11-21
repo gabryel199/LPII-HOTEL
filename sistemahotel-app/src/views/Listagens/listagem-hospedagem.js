@@ -84,7 +84,6 @@ function ListagemHospedagem() {
                     <th scope='col'>Data Final</th>
                     <th scope='col'>Data Final Extendida</th>
                     <th scope='col'>Valor</th>
-                    <th scope='col'>Status de Pagamento Estadia</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>
@@ -97,7 +96,6 @@ function ListagemHospedagem() {
                       <td>{dado.dataFim1}</td>
                       <td>{dado.dataFim2}</td>
                       <td>{dado.valorEstadia}</td>
-                      <td>{dado.statusValorEstadia}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>
                           <IconButton
