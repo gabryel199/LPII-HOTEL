@@ -100,7 +100,7 @@ function CadastroTipoProduto() {
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
-              <FormGroup label='Titulo: *' htmlFor='inputTitulo'>
+              <FormGroup label='Título: *' htmlFor='inputTitulo'>
                 <input
                   type='text'
                   id='inputTitulo'
@@ -110,7 +110,7 @@ function CadastroTipoProduto() {
                   onChange={(e) => setVar0(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Descricao: *' htmlFor='inputDescricao'>
+              <FormGroup label='Descrição:' htmlFor='inputDescricao'>
                 <input
                   type='text'
                   id='inputDescricao'

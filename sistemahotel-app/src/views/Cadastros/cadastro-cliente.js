@@ -344,7 +344,7 @@ function CadastroCliente() {
                   onChange={(e) => setVar6(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='nº: *' htmlFor='inputNum'>
+              <FormGroup label='Nº: *' htmlFor='inputNum'>
                 <input
                   type='number'
                   id='inputNum'

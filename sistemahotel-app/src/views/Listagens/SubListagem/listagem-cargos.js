@@ -78,7 +78,7 @@ function ListagemCargos() {
                 <thead>
                   <tr>
                     <th scope='col'>Cargo</th>
-                    <th scope='col'>Salario</th>
+                    <th scope='col'>Salário</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>

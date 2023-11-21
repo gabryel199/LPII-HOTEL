@@ -266,7 +266,7 @@ function CadastroFuncionario() {
                   onChange={(e) => setVar2(e.target.value)}
                 />
               </FormGroup>
-            <FormGroup label='Email: *' htmlFor='inputEmail'>
+            <FormGroup label='E-mail: *' htmlFor='inputEmail'>
                 <input
                   type='email'
                   id='inputEmail'
@@ -421,7 +421,7 @@ function CadastroFuncionario() {
                   onChange={(e) => setVar6(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='nº: *' htmlFor='inputNum'>
+              <FormGroup label='Nº: *' htmlFor='inputNum'>
                 <input
                   type='number'
                   id='inputNum'

@@ -132,7 +132,7 @@ function CadastroQuarto() {
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
-              <FormGroup label='Numero: *' htmlFor='inputNumero'>
+              <FormGroup label='Número: *' htmlFor='inputNumero'>
                 <input
                   type='number'
                   id='inputNumero'

@@ -39,6 +39,7 @@ function CadastroHospedagem() {
   const [var12, setVar12] = useState(0);
   const [var13, setVar13] = useState(0);
   const [var14, setVar14] = useState(0);
+  const [var15, setVar15] = useState(0);
 
   const [dados, setDados] = React.useState([]);
 
@@ -60,6 +61,7 @@ function CadastroHospedagem() {
       setVar12(0);
       setVar13(0);
       setVar14(0);
+      setVar15(0);
     } else {
       setId(dados.id);
       setVar0(dados.status);
@@ -77,6 +79,7 @@ function CadastroHospedagem() {
       setVar12(dados.hotel_id);
       setVar13(dados.avaliacoesHospedagem_id);
       setVar14(dados.quartoHospedagem_id);
+      setVar15(dados.reserva_id);
     }
   }
 
@@ -96,7 +99,8 @@ function CadastroHospedagem() {
       var10, 
       var11, 
       var12, 
-      var14
+      var14,
+      var15
     };
     data = JSON.stringify(data);
     if (idParam == null) {
@@ -147,6 +151,7 @@ function CadastroHospedagem() {
       setVar12(dados.hotel_id);
       setVar13(dados.avaliacoesHospedagem_id);
       setVar14(dados.quartoHospedagem_id);
+      setVar15(dados.reserva_id);
     }
   }
 
@@ -191,7 +196,7 @@ function CadastroHospedagem() {
                   onChange={(e) => setVar2(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Data Extendida: *' htmlFor='inputDataFim2'>
+              <FormGroup label='Data Extendida:' htmlFor='inputDataFim2'>
                 <input
                   type='date'
                   id='inputDataFim2'
@@ -219,6 +224,36 @@ function CadastroHospedagem() {
                   className='form-control'
                   name='StatusValorEstadia'
                   onChange={(e) => setVar5(e.target.value)}
+                />
+              </FormGroup>
+              <FormGroup label='ID cliente: *' htmlFor='inputIDCliente'>
+                <input
+                  type='text'
+                  id='inputIDCliente'
+                  value={var10}
+                  className='form-control'
+                  name='IDCliente'
+                  onChange={(e) => setVar10(e.target.value)}
+                />
+              </FormGroup>
+              <FormGroup label='ID funcionário: *' htmlFor='inputIDFuncionario'>
+                <input
+                  type='text'
+                  id='inputIDFuncionario'
+                  value={var11}
+                  className='form-control'
+                  name='IDFuncionario'
+                  onChange={(e) => setVar11(e.target.value)}
+                />
+              </FormGroup>
+              <FormGroup label='ID reserva:' htmlFor='inputIDReserva'>
+                <input
+                  type='text'
+                  id='inputIDReserva'
+                  value={var15}
+                  className='form-control'
+                  name='IDReserva'
+                  onChange={(e) => setVar15(e.target.value)}
                 />
               </FormGroup>
               {/* <FormGroup label='Valor do Consumo: *' htmlFor='inputValorConsumo'>

@@ -166,6 +166,26 @@ function CadastroReserva() {
                   onChange={(e) => setVar3(e.target.value)}
                 />
               </FormGroup>
+              <FormGroup label='ID cliente: *' htmlFor='inputIDCliente'>
+                <input
+                  type='text'
+                  id='inputIDCliente'
+                  value={var4}
+                  className='form-control'
+                  name='IDCliente'
+                  onChange={(e) => setVar4(e.target.value)}
+                />
+              </FormGroup>
+              <FormGroup label='ID funcionário:' htmlFor='inputIDFuncionario'>
+                <input
+                  type='text'
+                  id='inputIDFuncionario'
+                  value={var5}
+                  className='form-control'
+                  name='IDFuncionario'
+                  onChange={(e) => setVar5(e.target.value)}
+                />
+              </FormGroup>
 
               <br></br>
               <Stack spacing={1} padding={1} direction='row'>

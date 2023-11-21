@@ -183,7 +183,7 @@ if (!dados3) return null;
                   onChange={(e) => setVar0(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Descrição: *' htmlFor='inputDescricao'>
+              <FormGroup label='Descrição:' htmlFor='inputDescricao'>
                 <textarea
                   type='text'
                   id='inputDescricao'
@@ -270,7 +270,7 @@ if (!dados3) return null;
                   onChange={(e) => setVar6(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='nº: *' htmlFor='inputNum'>
+              <FormGroup label='Nº: *' htmlFor='inputNum'>
                 <input
                   type='number'
                   id='inputNum'

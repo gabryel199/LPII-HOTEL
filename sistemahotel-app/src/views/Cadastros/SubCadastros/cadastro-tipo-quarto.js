@@ -181,7 +181,7 @@ function CadastroTipoQuarto() {
                   onChange={(e) => setVar7(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Área: *' htmlFor='inputArea'>
+              <FormGroup label='Área (m²): *' htmlFor='inputArea'>
                 <input
                   type='text'
                   id='inputArea'
