@@ -411,16 +411,16 @@ function CadastroFuncionario() {
                   onChange={(e) => setVar5(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='CEP: *' htmlFor='inputCEP'>
+              <FormGroup label='Logradouro: *' htmlFor='inputLogradouro'>
                 <input
                   type='text'
-                  id='inputCEP'
-                  value={var6}
+                  id='inputLogradouro'
+                  value={var9}
                   className='form-control'
-                  name='CEP'
-                  onChange={(e) => setVar6(e.target.value)}
+                  name='logradouro'
+                  onChange={(e) => setVar9(e.target.value)}
                 />
-              </FormGroup>
+                </FormGroup>
               <FormGroup label='Nº: *' htmlFor='inputNum'>
                 <input
                   type='number'
@@ -441,16 +441,6 @@ function CadastroFuncionario() {
                   onChange={(e) => setVar8(e.target.value)}
                 />
                 </FormGroup>
-              <FormGroup label='Logradouro: *' htmlFor='inputLogradouro'>
-                <input
-                  type='text'
-                  id='inputLogradouro'
-                  value={var9}
-                  className='form-control'
-                  name='logradouro'
-                  onChange={(e) => setVar9(e.target.value)}
-                />
-                </FormGroup>
               <FormGroup label='Bairro: *' htmlFor='inputBairro'>
                 <input
                   type='text'
@@ -461,6 +451,16 @@ function CadastroFuncionario() {
                   onChange={(e) => setVar10(e.target.value)}
                 />
                 </FormGroup>
+              <FormGroup label='CEP: *' htmlFor='inputCEP'>
+                <input
+                  type='text'
+                  id='inputCEP'
+                  value={var6}
+                  className='form-control'
+                  name='CEP'
+                  onChange={(e) => setVar6(e.target.value)}
+                />
+              </FormGroup>
 
 
               <br></br>
