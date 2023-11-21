@@ -6,3 +6,4 @@
 o que arumar
 status, tipo quarto na hospedagem e reserva e hotel, logradouro dps da cidade
 status reserva, hospedagem, quarto, servico
+VERIFICAR SE TEM ID DO HOTEL EM TUDO
