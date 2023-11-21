@@ -14,6 +14,8 @@ import '../../custom.css';
 import axios from 'axios';
 import { BASE_URL } from '../../config/axios';
 import { URL_hospedagem } from '../../config/axios';
+import { URL_status } from '../../config/axios';
+import { URL_quarto } from '../../config/axios';
 
 function CadastroHospedagem() {
   
@@ -155,26 +157,52 @@ function CadastroHospedagem() {
     }
   }
 
+  const [dados2, setDados2] = React.useState(null); //tipo Produto
+  
+  useEffect(() => {
+    axios.get(`${URL_status}/statusHospedagem`).then((response) => {
+      setDados2(response.data);
+    });
+  }, []);
+  
+  const [dados3, setDados3] = React.useState(null); //tipo Produto
+  
+  useEffect(() => {
+    axios.get(`${URL_quarto}/quarto`).then((response) => {
+      setDados3(response.data);
+    });
+  }, []);
+
   useEffect(() => {
     buscar(); // eslint-disable-next-line
   }, [id]);
 
   if (!dados) return null;
+  if (!dados2) return null;
+  if (!dados3) return null;
   return (
     <div className='container'>
       <Card title='Cadastro de Hospedagens'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
-              <FormGroup label='Status: *' htmlFor='inputStatus'>
-                <input
-                  type='text'
-                  id='inputStatus'
+              <FormGroup label='Status: *' htmlFor='selectStatus'>
+                <select
+                  className='form-select'
+                  id='selectStatus'
+                  name='status'
                   value={var0}
-                  className='form-control'
-                  name='Status'
                   onChange={(e) => setVar0(e.target.value)}
-                />
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados2.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
               </FormGroup>
               <FormGroup label='Data de Inicio: *' htmlFor='inputDataInicio'>
                 <input
@@ -206,6 +234,24 @@ function CadastroHospedagem() {
                   onChange={(e) => setVar3(e.target.value)}
                 />
               </FormGroup>
+              <FormGroup label='Quarto: *' htmlFor='selectQuarto'>
+                <select
+                  className='form-select'
+                  id='selectQuarto'
+                  name='quarto'
+                  value={var14}
+                  onChange={(e) => setVar14(e.target.value)}
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados3.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.numero}
+                    </option>
+                  ))}
+                </select>
+              </FormGroup>
               <FormGroup label='Valor da Estadia: *' htmlFor='inputValorEstadia'>
                 <input
                   type='num'
@@ -215,7 +261,7 @@ function CadastroHospedagem() {
                   name='ValorEstadia'
                   onChange={(e) => setVar4(e.target.value)}
                 />
-              </FormGroup>
+              </FormGroup>{/* 
               <FormGroup label='Status do Valor da Estadia: *' htmlFor='inputStatusValorEstadia'>
                 <input
                   type='text'
@@ -225,7 +271,7 @@ function CadastroHospedagem() {
                   name='StatusValorEstadia'
                   onChange={(e) => setVar5(e.target.value)}
                 />
-              </FormGroup>
+              </FormGroup> */}
               <FormGroup label='ID cliente: *' htmlFor='inputIDCliente'>
                 <input
                   type='text'
