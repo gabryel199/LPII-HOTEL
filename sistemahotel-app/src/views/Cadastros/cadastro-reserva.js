@@ -12,7 +12,7 @@ import { mensagemSucesso, mensagemErro } from '../../components/toastr';
 import '../../custom.css';
 
 import axios from 'axios';
-import { BASE_URL } from '../../config/axios';
+import { BASE_URL, URL_quarto, URL_status } from '../../config/axios';
 import { URL_hospedagem } from '../../config/axios';
 
 function CadastroReserva() {
@@ -32,6 +32,7 @@ function CadastroReserva() {
   const [var5, setVar5] = useState('');
   const [var6, setVar6] = useState('');
   const [var7, setVar7] = useState('');
+  const [var8, setVar8] = useState('');
 
   const [dados, setDados] = React.useState([]);
 
@@ -56,6 +57,7 @@ function CadastroReserva() {
       setVar5(dados.funcionario_id);
       setVar6(dados.hotel_id);
       setVar7(dados.hospedagem_id);
+      setVar8(dados.tipoQuarto_id);
     }
   }
 
@@ -69,7 +71,8 @@ function CadastroReserva() {
       var4,
       var5,
       var6,
-      var7
+      var7,
+      var8
     };
     data = JSON.stringify(data);
     if (idParam == null) {
@@ -113,28 +116,56 @@ function CadastroReserva() {
       setVar5(dados.funcionario_id);
       setVar6(dados.hotel_id);
       setVar7(dados.hospedagem_id);
+      setVar8(dados.tipoQuarto_id);
     }
   }
+
+  const [dados3, setDados3] = React.useState(null); //tipo Produto
+  
+  useEffect(() => {
+    axios.get(`${URL_status}/statusReserva`).then((response) => {
+      setDados3(response.data);
+    });
+  }, []);
+
+  const [dados2, setDados2] = React.useState(null); //tipo Produto
+  
+  useEffect(() => {
+    axios.get(`${URL_quarto}/tipoQuarto`).then((response) => {
+      setDados2(response.data);
+    });
+  }, []);
   
   useEffect(() => {
     buscar(); // eslint-disable-next-line
   }, [id]);
-
+  
+  if (!dados) return null;
+  if (!dados3) return null;
+  if (!dados2) return null;
   return (
     <div className='container'>
       <Card title='Cadastro de Reservas'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
-              <FormGroup label='Status: *' htmlFor='inputStatus'>
-                <input
-                  type='text'
-                  id='inputStatus'
-                  value={var0}
-                  className='form-control'
+              <FormGroup label='Status: *' htmlFor='selectStatus'>
+                <select
+                  className='form-select'
+                  id='selectStatus'
                   name='status'
+                  value={var0}
                   onChange={(e) => setVar0(e.target.value)}
-                />
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados3.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
               </FormGroup>
               <FormGroup label='Data de Início: *' htmlFor='inputDataInicio'>
                 <input
@@ -155,6 +186,24 @@ function CadastroReserva() {
                   name='datafim'
                   onChange={(e) => setVar2(e.target.value)}
                 />
+              </FormGroup>
+              <FormGroup label='Tipo de quarto: *' htmlFor='selectTipoQuarto'>
+                <select
+                  className='form-select'
+                  id='selectTipoQuarto'
+                  name='tipoquarto'
+                  value={var8}
+                  onChange={(e) => setVar8(e.target.value)}
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados2.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
               </FormGroup>
               <FormGroup label='Valor da Resrva: *' htmlFor='inputValorResrva'>
                 <input
