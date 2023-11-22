@@ -6,7 +6,7 @@ import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 
-import InteractiveTable from '../../components/interactiveTable';
+//import InteractiveTable from '../../components/interactiveTable';
 
 import Card from '../../components/card';
 
@@ -204,6 +204,113 @@ function CadastroHospedagem() {
   useEffect(() => {
     buscar(); // eslint-disable-next-line
   }, [id]);
+
+  //tabela interativa
+  const [tableData, setTableData] = useState([]);
+  const InteractiveTable = () => {
+
+  
+    const addRow = () => {
+  
+      const newRow = {
+        id: tableData.length + 1,
+        tipoQuarto: "null",
+        num: 0,
+        quantidade: 0
+      };
+  
+      setTableData([...tableData, newRow]);
+    };
+  
+    const removeRow = (id) => {
+  
+      const updatedTableData = tableData.filter(row => row.id !== id);
+  
+      setTableData(updatedTableData);
+    };
+  
+    const handleChange = (id, column, value) => {
+      const updatedRows = tableData.map((row) =>
+        row.id === id ? { ...row, [column]: value } : row
+      );
+      setTableData(updatedRows);
+    };
+  
+    return (
+      <div>
+        <table className="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Tipo</th>
+              <th scope="col">Nº</th>
+              <th scope="col">Quantidade</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tableData.map(row => (
+              <tr key={row.id} className="table-light">
+                <td>
+                  <select
+                    className='form-select'
+                    value={row.tipoQuarto}
+                    onChange={(e) => handleChange(row.id, 'tipoQuarto', e.target.value)}
+                  >
+                    <option key='0' value='0'>
+                      {' '}
+                    </option>
+                    {dados4.map((dado) => (
+                      <option key={dado.id} value={dado.id}>
+                        {dado.titulo}
+                      </option>
+                    ))}
+                  </select>
+                </td>
+                <td>
+                  <select
+                    className='form-select'
+                    value={row.num}
+                    onChange={(e) => handleChange(row.id, 'num', e.target.value)}
+                  >
+                    <option key='0' value='0'>
+                      {' '}
+                    </option>
+                    {dados3.map((dado) => (
+                      <option key={dado.id} value={dado.id}>
+                        {dado.numero}
+                      </option>
+                    ))}
+                  </select>
+                </td>
+                <td>
+                  <input 
+                    type='number' 
+                    className='form-control'
+                    value = {row.quantidade}
+                    onChange={(e) => handleChange(row.id, 'quantidade', e.target.value)}>
+                  </input>
+                </td>
+                <td>
+                  <IconButton
+                    aria-label='delete'
+                    onClick={() => removeRow(row.id)}
+                  >
+                    <DeleteIcon />
+                  </IconButton>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+          <IconButton
+            aria-label='add'
+            onClick={() => addRow()}
+          >
+            <AddBoxIcon />
+          </IconButton>
+      </div>
+    );
+  };
 
   if (!dados) return null;
   if (!dados2) return null;

@@ -80,7 +80,7 @@ function ListagemHospedagem() {
                   <tr>
                     <th scope='col'>ID</th>
                     <th scope='col'>Status</th>
-                    <th scope='col'>Data de Inicio</th>
+                    <th scope='col'>Data de Início</th>
                     <th scope='col'>Data Final</th>
                     <th scope='col'>Data Final Extendida</th>
                     <th scope='col'>Valor</th>

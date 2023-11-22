@@ -153,14 +153,59 @@ function CadastroServicos() {
                 />
               </FormGroup>
               <FormGroup label='Descrição:' htmlFor='inputDescricao'>
-                <input
-                  type='text'
+                <textarea
                   id='inputDescricao'
                   value={var1}
                   className='form-control'
                   name='descricao'
                   onChange={(e) => setVar1(e.target.value)}
                 />
+              </FormGroup>
+              <FormGroup label='Tipo: *' htmlFor='selectTipo'>
+                <select
+                  className='form-select'
+                  id='selectTipo'
+                  name='tipo'
+                  value={var5}
+                  onChange={(e) => setVar5(e.target.value)}
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados2.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
+              </FormGroup>
+              <FormGroup label='Tipo de reserva: *' htmlFor='inputTipoReserva'>
+                {/* <input 
+                  type="checkbox" 
+                  className="form-check-input" 
+                  id="btncheck1" 
+                  autocomplete="off"
+                  checked={var4}
+                  name='tiporeserva'
+                  onChange={(e) => setVar4(e.target.checked)}>
+                    </input> */}
+
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked={var4} onChange={(e) => setVar4(e.target.checked)}/>
+                        Agendada
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios2" value="option2" checked={!var4} onChange={(e) => setVar4(!e.target.checked)}/>
+                        Não agendada
+                    </div>
+                {/* <input
+                  type='texte' //checkbox
+                  id='inputTipoReserva'
+                  value={var4}
+                  className='form-control'
+                  name='tiporeserva'
+                  onChange={(e) => setVar4(e.target.checked)}
+                /> */}
               </FormGroup>
               <FormGroup label='Preço por horário: *' htmlFor='inputPreco'>
                 <input
@@ -181,34 +226,6 @@ function CadastroServicos() {
                   name='status'
                   onChange={(e) => setVar3(e.target.value)}
                 />
-              </FormGroup>
-              <FormGroup label='Tipo reserva: *' htmlFor='inputTipoReserva'>
-                <input
-                  type='texte' //checkbox
-                  id='inputTipoReserva'
-                  value={var4}
-                  className='form-control'
-                  name='tiporeserva'
-                  onChange={(e) => setVar4(e.target.checked)}
-                />
-              </FormGroup>
-              <FormGroup label='Tipo: *' htmlFor='selectTipo'>
-                <select
-                  className='form-select'
-                  id='selectTipo'
-                  name='tipo'
-                  value={var5}
-                  onChange={(e) => setVar5(e.target.value)}
-                >
-                  <option key='0' value='0'>
-                    {' '}
-                  </option>
-                  {dados2.map((dado) => (
-                    <option key={dado.id} value={dado.id}>
-                      {dado.titulo}
-                    </option>
-                  ))}
-                </select>
               </FormGroup>
               <FormGroup label='Hotel: *' htmlFor='selectHotel'>
                 <select
