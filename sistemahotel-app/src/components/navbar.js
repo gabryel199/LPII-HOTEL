@@ -92,7 +92,7 @@ function Navbar(props) {
     <div className='navbar navbar-expand-lg fixed-top navbar-dark bg-primary'>
       <div className='container'>
         <a href='/' className='navbar-brand'>
-          REDE DE HOTEIS X
+          REDE DE HOTÉIS X
         </a>
         <button
           className='navbar-toggler'
@@ -119,10 +119,10 @@ function Navbar(props) {
 
           
           <ul className="nav-item-dropdown" onMouseEnter={handleMouseEnter3} onMouseLeave={handleMouseLeave3}>
-            <a className={`nav-link dropdown-toggle ${dropdown3Open ? 'show' : ''}`} onClick={toggleDropdown3}> Funcionarios
+            <a className={`nav-link dropdown-toggle ${dropdown3Open ? 'show' : ''}`} onClick={toggleDropdown3}> Funcionários
             </a>
             <div className={`dropdown-menu ${dropdown3Open ? 'show' : ''}`}>
-              <a className="dropdown-item" href='/listagem-funcionario'>Listagem de Funcionarios</a>
+              <a className="dropdown-item" href='/listagem-funcionario'>Funcionários</a>
               <a className="dropdown-item" href='/listagem-cargos'>Cargos</a>
             </div>
           </ul>
@@ -133,8 +133,8 @@ function Navbar(props) {
             <a className={`nav-link dropdown-toggle ${dropdown1Open ? 'show' : ''}`} onClick={toggleDropdown1}> Produtos
             </a>
             <div className={`dropdown-menu ${dropdown1Open ? 'show' : ''}`}>
-              <a className="dropdown-item" href='/listagem-produtos'>Listagem de Produtos</a>
-              <a className="dropdown-item" href='/listagem-tipo-produto'>Tipo de Produtos</a>
+              <a className="dropdown-item" href='/listagem-produtos'>Produtos</a>
+              <a className="dropdown-item" href='/listagem-tipo-produto'>Tipos de Produto</a>
             </div>
           </ul>
 
@@ -144,8 +144,8 @@ function Navbar(props) {
             <a className={`nav-link dropdown-toggle ${dropdown2Open ? 'show' : ''}`} onClick={toggleDropdown2}> Serviços
             </a>
             <div className={`dropdown-menu ${dropdown2Open ? 'show' : ''}`}>
-              <a className="dropdown-item" href='/listagem-servicos'>Listagem de Serviços</a>
-              <a className="dropdown-item" href='/listagem-tipo-servico'>Tipo de Serviços</a>
+              <a className="dropdown-item" href='/listagem-servicos'>Serviços</a>
+              <a className="dropdown-item" href='/listagem-tipo-servico'>Tipos de Serviço</a>
             </div>
           </ul>
 
@@ -155,19 +155,19 @@ function Navbar(props) {
             <a className={`nav-link dropdown-toggle ${dropdown5Open ? 'show' : ''}`} onClick={toggleDropdown5}> Quartos
             </a>
             <div className={`dropdown-menu ${dropdown5Open ? 'show' : ''}`}>
-              <a className="dropdown-item" href='/listagem-quarto'>Listagem de Quartos</a>
+              <a className="dropdown-item" href='/listagem-quarto'>Quartos</a>
               <ul className="nav-item-dropdown" onMouseEnter={handleMouseEnterTipoQuartos} onMouseLeave={handleMouseLeaveTipoQuartos}>
                 <a className={`nav-link-dropdown-toggle ${tipoQuartosDropdownOpen ? 'show' : ''}`} onClick={toggleTipoQuartosDropdown}> Tipo de Quartos </a>
                 <div className={`dropdown-menu ${tipoQuartosDropdownOpen ? 'show' : ''}`} style={{ position: 'absolute', left: '100%', top: '50px' }}>
-                  <a className="dropdown-item" href='/listagem-tipo-quarto'>Listagem Tipo de Quartos</a>
-                  <a className="dropdown-item" href='/listagem-tipo-cama'>Tipo de Cama</a>
+                  <a className="dropdown-item" href='/listagem-tipo-quarto'>Tipos de Quarto</a>
+                  <a className="dropdown-item" href='/listagem-tipo-cama'>Tipos de Cama</a>
                 </div>
               </ul>
               <ul className="nav-item-dropdown" onMouseEnter={handleMouseEnterTipoComodidade} onMouseLeave={handleMouseLeaveTipoComodidade}>
-                <a className={`nav-link-dropdown-toggle ${tipoComodidadeDropdownOpen ? 'show' : ''}`} onClick={toggleTipoComodidadeDropdown}> Comodidades </a>
+                <a className={`nav-link-dropdown-toggle ${tipoComodidadeDropdownOpen ? 'show' : ''}`} onClick={toggleTipoComodidadeDropdown}>Comodidades </a>
                 <div className={`dropdown-menu ${tipoComodidadeDropdownOpen ? 'show' : ''}`} style={{ position: 'absolute', left: '100%', top: '95px' }}>
-                  <a className="dropdown-item" href='/listagem-comodidades'>Listagem de Comodidades</a>
-                  <a className="dropdown-item" href='/listagem-tipo-comodidade'>Tipo de Comodidades</a>
+                  <a className="dropdown-item" href='/listagem-comodidades'>Comodidades</a>
+                  <a className="dropdown-item" href='/listagem-tipo-comodidade'>Tipos de Comodidade</a>
                 </div>
               </ul>
             </div>

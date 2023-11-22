@@ -253,7 +253,7 @@ function CadastroHospedagem() {
                 </select>
               </FormGroup>
               <FormGroup label='Quartos: *' htmlFor='selectQuartos'>
-                <InteractiveTable dadosQuarto = {dados3} dadosTiposQuarto = {dados4}/>
+                  <InteractiveTable dadosQuarto = {dados3} dadosTiposQuarto = {dados4}/>
               </FormGroup>
               <FormGroup label='Data de Inicio: *' htmlFor='inputDataInicio'>
                 <input

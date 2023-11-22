@@ -64,7 +64,7 @@ function ListagemHospedagem() {
 
   return (
     <div className='container'>
-      <Card title='Listagem de Hospedagem'>
+      <Card title='Listagem de Hospedagens'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
