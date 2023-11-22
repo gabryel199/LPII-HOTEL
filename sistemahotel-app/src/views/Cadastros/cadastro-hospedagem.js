@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import Stack from '@mui/material/Stack';
+import { IconButton } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+
+import InteractiveTable from '../../components/interactiveTable';
 
 import Card from '../../components/card';
 
@@ -11,12 +16,15 @@ import { mensagemSucesso, mensagemErro } from '../../components/toastr';
 
 import '../../custom.css';
 
+
 import axios from 'axios';
 import { BASE_URL } from '../../config/axios';
 import { URL_hospedagem } from '../../config/axios';
 import { URL_status } from '../../config/axios';
 import { URL_quarto } from '../../config/axios';
 
+
+let i = 1;
 function CadastroHospedagem() {
   
   const { idParam } = useParams();
@@ -42,6 +50,9 @@ function CadastroHospedagem() {
   const [var13, setVar13] = useState(0);
   const [var14, setVar14] = useState(0);
   const [var15, setVar15] = useState(0);
+  const [var98, setVar98] = useState('');//teste
+  const [var99, setVar99] = useState('');//teste
+  const [var100, setVar100] = useState([]);//teste
 
   const [dados, setDados] = React.useState([]);
 
@@ -173,6 +184,14 @@ function CadastroHospedagem() {
     });
   }, []);
 
+  const [dados4, setDados4] = React.useState(null); //tipo Produto
+  
+  useEffect(() => {
+    axios.get(`${URL_quarto}/tipoQuarto`).then((response) => {
+      setDados4(response.data);
+    });
+  }, []);
+
   useEffect(() => {
     buscar(); // eslint-disable-next-line
   }, [id]);
@@ -180,6 +199,7 @@ function CadastroHospedagem() {
   if (!dados) return null;
   if (!dados2) return null;
   if (!dados3) return null;
+  if (!dados4) return null;
   return (
     <div className='container'>
       <Card title='Cadastro de Hospedagens'>
@@ -233,7 +253,7 @@ function CadastroHospedagem() {
                   name='DataFim2'
                   onChange={(e) => setVar3(e.target.value)}
                 />
-              </FormGroup>
+              </FormGroup>{/* 
               <FormGroup label='Quarto: *' htmlFor='selectQuarto'>
                 <select
                   className='form-select'
@@ -250,8 +270,77 @@ function CadastroHospedagem() {
                       {dado.numero}
                     </option>
                   ))}
-                </select>
+                </select> 
+              </FormGroup> */}
+              <FormGroup label='Quartos: *' htmlFor='selectQuartos'>
+                <InteractiveTable dadosQuarto = {dados3} dadosTiposQuarto = {dados4}/>
               </FormGroup>
+              {/* <FormGroup label='Quartos: *' htmlFor='selectQuartos'>
+                <table id = "tableQuartos" className="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Tipo</th>
+                      <th scope="col">Nº</th>
+                      <th scope="col">Quantidade</th>
+                      <th scope="col">Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="table-light">
+                      <td>
+                        <select
+                          className='form-select'
+                          id='selectTipoQuarto'
+                          name='tipoquarto'
+                          value={var98}
+                          onChange={(e) => setVar98(e.target.value)}
+                        >
+                          <option key='0' value='0'>
+                            {' '}
+                          </option>
+                          {dados4.map((dado) => (
+                            <option key={dado.id} value={dado.id}>
+                              {dado.titulo}
+                            </option>
+                          ))}
+                        </select>
+                      </td>
+                      <td>
+                        <select
+                          className='form-select'
+                          id='selectQuarto'
+                          name='quarto'
+                          value={var99}
+                          onChange={(e) => setVar99(e.target.value)}
+                        >
+                          <option key='0' value='0'>
+                            {' '}
+                          </option>
+                          {dados3.map((dado) => (
+                            <option key={dado.id} value={dado.id}>
+                              {dado.numero}
+                            </option>
+                          ))}
+                        </select>
+                      </td>
+                      <td><input type='number' className='form-control'></input></td>
+                      <td>
+                          <IconButton
+                            aria-label='delete'
+                            // onClick={() => excluir(dado.id)}
+                          >
+                            <DeleteIcon />
+                          </IconButton></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <IconButton
+                  aria-label='add'
+                  onClick={() => newQuarto(dados3)}
+                >
+                  <AddBoxIcon />
+                </IconButton>
+              </FormGroup> */}
               <FormGroup label='Valor da Estadia: *' htmlFor='inputValorEstadia'>
                 <input
                   type='num'
@@ -261,17 +350,7 @@ function CadastroHospedagem() {
                   name='ValorEstadia'
                   onChange={(e) => setVar4(e.target.value)}
                 />
-              </FormGroup>{/* 
-              <FormGroup label='Status do Valor da Estadia: *' htmlFor='inputStatusValorEstadia'>
-                <input
-                  type='text'
-                  id='inputStatusValorEstadia'
-                  value={var5}
-                  className='form-control'
-                  name='StatusValorEstadia'
-                  onChange={(e) => setVar5(e.target.value)}
-                />
-              </FormGroup> */}
+              </FormGroup>
               <FormGroup label='ID cliente: *' htmlFor='inputIDCliente'>
                 <input
                   type='text'
@@ -369,3 +448,88 @@ function CadastroHospedagem() {
 }
 
 export default CadastroHospedagem;
+
+function newQuarto (dados3) {
+  let table=document.getElementById("tableQuartos");     
+  
+  let newRow = table.insertRow(-1);
+  if(i%2==0) {
+    newRow.className = "table-light";
+  }
+  else {
+    newRow.className = "table-dark";
+  }
+
+  let cell0 = newRow.insertCell(0);
+  let cell1 = newRow.insertCell(1);
+  let cell2 = newRow.insertCell(2);
+  let cell3 = newRow.insertCell(3);
+
+  let qtInput = document.createElement("input");
+  qtInput.className = "form-control";
+  qtInput.type = "number";
+  cell2.appendChild(qtInput);
+
+  /* const DeleteIcon = React.createElement("DeleteIcon");
+  const IconButton = React.createElement("IconButton",{ariaLabel:'delete'},DeleteIcon);
+ */
+  let IconButton = document.createElement("IconButton");
+  IconButton.ariaLabel = 'delete';
+  let DeleteIcon = document.createElement("DeleteIcon");
+  IconButton.appendChild(DeleteIcon);
+  cell3.appendChild(IconButton);
+
+  let dropdown1 = document.createElement("select");
+  dropdown1.className = "form-select";
+  let dropdown2 = document.createElement("select");
+  dropdown2.className = "form-select";
+
+  // Add options to the dropdowns
+  let names = ["New Name 1", "New Name 2"];
+  let ages = ["New Age 1", "New Age 2"];
+
+  for (let i = 0; i < names.length; i++) {
+      let option1 = document.createElement("option");
+      option1.value = names[i];
+      option1.text = names[i];
+      dropdown1.appendChild(option1);
+
+      let option2 = document.createElement("option");
+      option2.value = ages[i];
+      option2.text = ages[i];
+      dropdown2.appendChild(option2);
+  }
+
+  cell0.appendChild(dropdown1);
+  cell1.appendChild(dropdown2);
+
+  /* let row = document.createElement("TR");
+  //row.setAttribute("id", "democlass");
+  if(i%2==0) {
+    row.setAttribute("className", "table-dark");
+  }
+  else {
+    row.setAttribute("className", "table-light");
+  }
+  let th = document.createElement("TH");
+  th.setAttribute("scope", "row");
+  th.innerText = "teste";
+  let td0 = document.createElement("TD");
+  td0.innerHTML = "teste";
+  let td1 = document.createElement("TD");
+  td0.innerHTML = "<input></input>";
+  let td2 = document.createElement("TD");
+  td2.innerHTML =`<IconButton aria-label="delete"> <DeleteIcon /> </IconButton>`;
+  row.appendChild(th);
+  row.appendChild(td0);
+  row.appendChild(td1);
+  row.appendChild(td2);
+  table.appendChild(row); */
+
+  i++;
+}
+
+
+function selectQuarto (dados3) {
+  return ("<select className='form-select' name='quarto'> <option key='0' value='0'> {' '} </option> {dados3.map((dado) => (<option key={dado.id} value={dado.id}> {dado.numero} </option> ))} </select>")
+}
