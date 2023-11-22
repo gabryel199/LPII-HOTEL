@@ -394,53 +394,6 @@ function CadastroFuncionario() {
                   onChange={(e) => setVar18(e.target.value)}
                 />
               </FormGroup> */}
-              <FormGroup label='País: *' htmlFor='selectPais'>
-                <select
-                  className='form-select'
-                  id='selectPais'
-                  name='pais'
-                  value={var23}
-                  onChange={(e) => setVar23(e.target.value)}
-                >
-                  <option key='0' value='0'>
-                    {' '}
-                  </option>
-                  {dados4.map((dado) => (
-                    <option key={dado.id} value={dado.id}>
-                      {dado.titulo}
-                    </option>
-                  ))}
-                </select>
-              </FormGroup>
-              
-              <FormGroup label='UF: *' htmlFor='selectUF'>
-                <select
-                  className='form-select'
-                  id='selectUF'
-                  name='uf'
-                  value={var22}
-                  onChange={(e) => setVar22(e.target.value)}
-                >
-                  <option key='0' value='0'>
-                    {' '}
-                  </option>
-                  {dados3.map((dado) => (
-                    <option key={dado.id} value={dado.id}>
-                      {dado.titulo}
-                    </option>
-                  ))}
-                </select>
-              </FormGroup>
-              <FormGroup label='Cidade: *' htmlFor='inputCidade'>
-                <input
-                  type='text'
-                  id='inputCidade'
-                  value={var5}
-                  className='form-control'
-                  name='cidade'
-                  onChange={(e) => setVar5(e.target.value)}
-                />
-              </FormGroup>
               <FormGroup label='Logradouro: *' htmlFor='inputLogradouro'>
                 <input
                   type='text'
@@ -481,6 +434,34 @@ function CadastroFuncionario() {
                   onChange={(e) => setVar10(e.target.value)}
                 />
                 </FormGroup>
+                <FormGroup label='Cidade: *' htmlFor='inputCidade'>
+                <input
+                  type='text'
+                  id='inputCidade'
+                  value={var5}
+                  className='form-control'
+                  name='cidade'
+                  onChange={(e) => setVar5(e.target.value)}
+                />
+              </FormGroup>
+              <FormGroup label='UF: *' htmlFor='selectUF'>
+                <select
+                  className='form-select'
+                  id='selectUF'
+                  name='uf'
+                  value={var22}
+                  onChange={(e) => setVar22(e.target.value)}
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados3.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
+              </FormGroup>
               <FormGroup label='CEP: *' htmlFor='inputCEP'>
                 <input
                   type='text'
@@ -491,8 +472,25 @@ function CadastroFuncionario() {
                   onChange={(e) => setVar6(e.target.value)}
                 />
               </FormGroup>
-
-
+              <FormGroup label='País: *' htmlFor='selectPais'>
+                <select
+                  className='form-select'
+                  id='selectPais'
+                  name='pais'
+                  value={var23}
+                  onChange={(e) => setVar23(e.target.value)}
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados4.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
+              </FormGroup>
+              
               <br></br>
               <Stack spacing={1} padding={1} direction='row'>
                 <button
