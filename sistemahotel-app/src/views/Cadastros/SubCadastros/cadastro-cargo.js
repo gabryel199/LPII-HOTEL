@@ -129,7 +129,7 @@ function CadastroCargo() {
                   onChange={(e) => setVar0(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Descrição: *' htmlFor='inputDescricao'>
+              <FormGroup label='Descrição: ' htmlFor='inputDescricao'>
                 <textarea
                   // type='text'
                   id='inputDescricao'

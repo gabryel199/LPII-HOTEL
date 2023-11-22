@@ -280,7 +280,7 @@ if (!dados3) return null;
                   onChange={(e) => setVar7(e.target.value)}
                 />
               </FormGroup>
-              {/*<FormGroup label='Complemento: *' htmlFor='inputComplemento'>
+              <FormGroup label='Complemento: *' htmlFor='inputComplemento'>
                 <input
                   type='number'
                   id='inputComplemento'
@@ -289,7 +289,7 @@ if (!dados3) return null;
                   name='complemento'
                   onChange={(e) => setVar8(e.target.value)}
                 />
-              </FormGroup>*/}
+              </FormGroup>
               <FormGroup label='Bairro: *' htmlFor='inputBairro'>
                 <input
                   type='text'

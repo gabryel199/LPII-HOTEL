@@ -22,6 +22,7 @@ import { BASE_URL } from '../../config/axios';
 import { URL_hospedagem } from '../../config/axios';
 import { URL_status } from '../../config/axios';
 import { URL_quarto } from '../../config/axios';
+import { URL_hotel } from '../../config/axios';
 
 
 let i = 1;
@@ -192,6 +193,14 @@ function CadastroHospedagem() {
     });
   }, []);
 
+  const [dados5, setDados5] = React.useState(null); //tipo Produto
+  
+  useEffect(() => {
+    axios.get(`${URL_hotel}/hotel`).then((response) => {
+      setDados5(response.data);
+    });
+  }, []);
+
   useEffect(() => {
     buscar(); // eslint-disable-next-line
   }, [id]);
@@ -200,6 +209,7 @@ function CadastroHospedagem() {
   if (!dados2) return null;
   if (!dados3) return null;
   if (!dados4) return null;
+  if (!dados5) return null;
   return (
     <div className='container'>
       <Card title='Cadastro de Hospedagens'>
@@ -223,6 +233,27 @@ function CadastroHospedagem() {
                     </option>
                   ))}
                 </select>
+              </FormGroup>
+              <FormGroup label='Hotel: *' htmlFor='selectHotel'>
+                <select
+                  className='form-select'
+                  id='selectHotel'
+                  name='hotel'
+                  value={var12}
+                  onChange={(e) => setVar12(e.target.value)}
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados5.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
+              </FormGroup>
+              <FormGroup label='Quartos: *' htmlFor='selectQuartos'>
+                <InteractiveTable dadosQuarto = {dados3} dadosTiposQuarto = {dados4}/>
               </FormGroup>
               <FormGroup label='Data de Inicio: *' htmlFor='inputDataInicio'>
                 <input
@@ -272,9 +303,6 @@ function CadastroHospedagem() {
                   ))}
                 </select> 
               </FormGroup> */}
-              <FormGroup label='Quartos: *' htmlFor='selectQuartos'>
-                <InteractiveTable dadosQuarto = {dados3} dadosTiposQuarto = {dados4}/>
-              </FormGroup>
               {/* <FormGroup label='Quartos: *' htmlFor='selectQuartos'>
                 <table id = "tableQuartos" className="table table-hover">
                   <thead>

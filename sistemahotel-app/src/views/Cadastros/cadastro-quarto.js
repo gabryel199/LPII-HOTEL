@@ -14,6 +14,7 @@ import '../../custom.css';
 import axios from 'axios';
 import { BASE_URL } from '../../config/axios';
 import { URL_quarto } from '../../config/axios';
+import { URL_hotel } from '../../config/axios';
 
 function CadastroQuarto() {
   
@@ -117,6 +118,14 @@ function CadastroQuarto() {
       setDados2(response.data);
     });
   }, []);
+  
+  const [dados3, setDados3] = React.useState(null); //tipo quarto
+
+  useEffect(() => {
+    axios.get(`${URL_hotel}/hotel`).then((response) => {
+      setDados3(response.data);
+    });
+  }, []);
 
   useEffect(() => {
       buscar(); // eslint-disable-next-line
@@ -124,6 +133,7 @@ function CadastroQuarto() {
 
   if (!dados) return null;
   if (!dados2) return null;
+  if (!dados3) return null;
 
 
   return (
@@ -132,6 +142,34 @@ function CadastroQuarto() {
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
+              <FormGroup label='Status: *' htmlFor='inputStatus'>
+                <input
+                  type='text'
+                  id='inputStatus'
+                  value={var3}
+                  className='form-control'
+                  name='status'
+                  onChange={(e) => setVar3(e.target.value)}
+                />
+              </FormGroup>
+              <FormGroup label='Tipo: *' htmlFor='selectTipo'>
+                <select
+                  className='form-select'
+                  id='selectTipo'
+                  name='tipo'
+                  value={var5}
+                  onChange={(e) => setVar5(e.target.value)}
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados2.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
+              </FormGroup>
               <FormGroup label='Número: *' htmlFor='inputNumero'>
                 <input
                   type='number'
@@ -162,28 +200,18 @@ function CadastroQuarto() {
                   onChange={(e) => setVar2(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Status: *' htmlFor='inputStatus'>
-                <input
-                  type='text'
-                  id='inputStatus'
-                  value={var3}
-                  className='form-control'
-                  name='status'
-                  onChange={(e) => setVar3(e.target.value)}
-                />
-              </FormGroup>
-              <FormGroup label='Tipo: *' htmlFor='selectTipo'>
+              <FormGroup label='Hotel: *' htmlFor='selectHotel'>
                 <select
                   className='form-select'
-                  id='selectTipo'
-                  name='tipo'
-                  value={var5}
-                  onChange={(e) => setVar5(e.target.value)}
+                  id='selectHotel'
+                  name='Hotel'
+                  value={var4}
+                  onChange={(e) => setVar4(e.target.value)}
                 >
                   <option key='0' value='0'>
                     {' '}
                   </option>
-                  {dados2.map((dado) => (
+                  {dados3.map((dado) => (
                     <option key={dado.id} value={dado.id}>
                       {dado.titulo}
                     </option>

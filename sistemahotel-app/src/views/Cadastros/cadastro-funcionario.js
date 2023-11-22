@@ -15,6 +15,7 @@ import axios from 'axios';
 import { BASE_URL } from '../../config/axios';
 import { URL_funcionario } from '../../config/axios';
 import { URL_endereco } from '../../config/axios';
+import { URL_hotel } from '../../config/axios';
 
 function CadastroFuncionario() {
   
@@ -26,6 +27,7 @@ function CadastroFuncionario() {
   const baseURL_endereco = `${URL_endereco}/endereco`;
   const baseURL_uf = `${URL_endereco}/uf`;
   const baseURL_pais = `${URL_endereco}/pais`;
+  const baseURL_hotel = `${URL_hotel}/hotel`;
 
   const [id, setId] = useState('');
   const [var0, setVar0] = useState('');//cpf
@@ -222,11 +224,21 @@ function CadastroFuncionario() {
     // setVar3(dados4.titulo)
   }, []); 
 
+  const [dados6, setDados6] = React.useState(null); //pais
+
+  useEffect(() => {
+    axios.get(`${baseURL_hotel}`).then((response) => {
+      setDados6(response.data);
+    });
+    // setVar3(dados6.titulo)
+  }, []);
+
   useEffect(() => {
     buscar(); // eslint-disable-next-line
   }, [id]);
 
   if (!dados) return null;
+  if (!dados6) return null;
   if (!dados5) return null;
   if (!dados4) return null;
   if (!dados3) return null;
@@ -330,6 +342,24 @@ function CadastroFuncionario() {
                   {dados5.map((dado) => (
                     <option key={dado.id} value={dado.id}>
                       {dado.cargo}
+                    </option>
+                  ))}
+                </select>
+              </FormGroup>
+              <FormGroup label='Hotel: *' htmlFor='selectHotel'>
+                <select
+                  className='form-select'
+                  id='selectHotel'
+                  name='Hotel'
+                  value={var20}
+                  onChange={(e) => setVar20(e.target.value)}
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados6.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
                     </option>
                   ))}
                 </select>
