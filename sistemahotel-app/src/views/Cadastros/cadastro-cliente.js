@@ -286,54 +286,6 @@ function CadastroCliente() {
                   onChange={(e) => setVar15(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='País: *' htmlFor='selectPais'>
-                <select
-                  className='form-select'
-                  id='selectPais'
-                  name='pais'
-                  value={var18}
-                  onChange={(e) => setVar18(e.target.value)}
-                >
-                  <option key='0' value='0'>
-                    {' '}
-                  </option>
-                  {dados4.map((dado) => (
-                    <option key={dado.id} value={dado.id}>
-                      {dado.titulo}
-                    </option>
-                  ))}
-                </select>
-              </FormGroup>
-              
-              <FormGroup label='UF: *' htmlFor='selectUF'>
-                <select
-                  className='form-select'
-                  id='selectUF'
-                  name='uf'
-                  value={var17}
-                  onChange={(e) => setVar17(e.target.value)}
-                >
-                  <option key='0' value='0'>
-                    {' '}
-                  </option>
-                  {dados3.map((dado) => (
-                    <option key={dado.id} value={dado.id}>
-                      {dado.titulo}
-                    </option>
-                  ))}
-                </select>
-              </FormGroup>
-              <FormGroup label='Cidade: *' htmlFor='inputCidade'>
-                <input
-                  type='text'
-                  id='inputCidade'
-                  value={var5}
-                  // value={dados2[3].cidade}
-                  className='form-control'
-                  name='cidade'
-                  onChange={(e) => setVar5(e.target.value)}
-                />
-              </FormGroup>
               <FormGroup label='Logradouro: *' htmlFor='inputLogradouro'>
                 <input
                   type='text'
@@ -343,7 +295,7 @@ function CadastroCliente() {
                   name='logradouro'
                   onChange={(e) => setVar9(e.target.value)}
                 />
-                </FormGroup>
+              </FormGroup>
               <FormGroup label='Nº: *' htmlFor='inputNum'>
                 <input
                   type='number'
@@ -364,7 +316,7 @@ function CadastroCliente() {
                   onChange={(e) => setVar8(e.target.value)}
                 />
                 </FormGroup>
-              <FormGroup label='Bairro: *' htmlFor='inputBairro'>
+                <FormGroup label='Bairro: *' htmlFor='inputBairro'>
                 <input
                   type='text'
                   id='inputBairro'
@@ -374,6 +326,35 @@ function CadastroCliente() {
                   onChange={(e) => setVar10(e.target.value)}
                 />
                 </FormGroup>
+                <FormGroup label='Cidade: *' htmlFor='inputCidade'>
+                <input
+                  type='text'
+                  id='inputCidade'
+                  value={var5}
+                  // value={dados2[3].cidade}
+                  className='form-control'
+                  name='cidade'
+                  onChange={(e) => setVar5(e.target.value)}
+                />
+              </FormGroup>
+              <FormGroup label='UF: *' htmlFor='selectUF'>
+                <select
+                  className='form-select'
+                  id='selectUF'
+                  name='uf'
+                  value={var17}
+                  onChange={(e) => setVar17(e.target.value)}
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados3.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
+              </FormGroup>
               <FormGroup label='CEP: *' htmlFor='inputCEP'>
                 <input
                   type='text'
@@ -384,8 +365,25 @@ function CadastroCliente() {
                   onChange={(e) => setVar6(e.target.value)}
                 />
               </FormGroup>
-
-
+              <FormGroup label='País: *' htmlFor='selectPais'>
+                <select
+                  className='form-select'
+                  id='selectPais'
+                  name='pais'
+                  value={var18}
+                  onChange={(e) => setVar18(e.target.value)}
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados4.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
+              </FormGroup>
+              
               <br></br>
               <Stack spacing={1} padding={1} direction='row'>
                 <button
