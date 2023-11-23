@@ -157,7 +157,7 @@ function Navbar(props) {
             <div className={`dropdown-menu ${dropdown5Open ? 'show' : ''}`}>
               <a className="dropdown-item" href='/listagem-quarto'>Quartos</a>
               <ul className="nav-item-dropdown" onMouseEnter={handleMouseEnterTipoQuartos} onMouseLeave={handleMouseLeaveTipoQuartos}>
-                <a className={`nav-link-dropdown-toggle ${tipoQuartosDropdownOpen ? 'show' : ''}`} onClick={toggleTipoQuartosDropdown}> Tipo de Quartos </a>
+                <a className={`nav-link-dropdown-toggle ${tipoQuartosDropdownOpen ? 'show' : ''}`} onClick={toggleTipoQuartosDropdown}> Tipos de Quarto </a>
                 <div className={`dropdown-menu ${tipoQuartosDropdownOpen ? 'show' : ''}`} style={{ position: 'absolute', left: '100%', top: '50px' }}>
                   <a className="dropdown-item" href='/listagem-tipo-quarto'>Tipos de Quarto</a>
                   <a className="dropdown-item" href='/listagem-tipo-cama'>Tipos de Cama</a>
