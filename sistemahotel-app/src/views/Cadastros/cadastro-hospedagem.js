@@ -51,11 +51,10 @@ function CadastroHospedagem() {
   const [var13, setVar13] = useState(0);
   const [var14, setVar14] = useState(0);
   const [var15, setVar15] = useState(0);
-  const [var98, setVar98] = useState('');//teste
-  const [var99, setVar99] = useState('');//teste
-  const [var100, setVar100] = useState([]);//teste
+  const [var16, setVar16] = useState([]);
 
   const [dados, setDados] = React.useState([]);
+  const [tableData, setTableData] = useState([]);
 
   function inicializar() {
     if (idParam == null) {
@@ -76,6 +75,8 @@ function CadastroHospedagem() {
       setVar13(0);
       setVar14(0);
       setVar15(0);
+      setVar16([]);
+      setTableData([]);
     } else {
       setId(dados.id);
       setVar0(dados.status);
@@ -94,6 +95,8 @@ function CadastroHospedagem() {
       setVar13(dados.avaliacoesHospedagem_id);
       setVar14(dados.quartoHospedagem_id);
       setVar15(dados.reserva_id);
+      setVar16(dados.listaQuartos);
+      setTableData(dados.listaQuartos);
     }
   }
 
@@ -166,6 +169,8 @@ function CadastroHospedagem() {
       setVar13(dados.avaliacoesHospedagem_id);
       setVar14(dados.quartoHospedagem_id);
       setVar15(dados.reserva_id);
+      setVar16(dados.listaQuartos);
+      setTableData(dados.listaQuartos);
     }
   }
 
@@ -206,17 +211,16 @@ function CadastroHospedagem() {
   }, [id]);
 
   //tabela interativa
-  const [tableData, setTableData] = useState([]);
   const InteractiveTable = () => {
-
-  
+    // const [tableData, setTableData] = useState([]);
+    // setTableData = var16;
     const addRow = () => {
   
       const newRow = {
         id: tableData.length + 1,
         tipoQuarto: "null",
         num: 0,
-        quantidade: 0
+        qtd: 0
       };
   
       setTableData([...tableData, newRow]);
@@ -236,6 +240,7 @@ function CadastroHospedagem() {
       setTableData(updatedRows);
     };
   
+    if (!tableData) return null;
     return (
       <div>
         <table className="table table-hover">
@@ -243,7 +248,7 @@ function CadastroHospedagem() {
             <tr>
               <th scope="col">Tipo</th>
               <th scope="col">Nº</th>
-              <th scope="col">Quantidade</th>
+              {/* <th scope="col">Quantidade</th> */}
               <th scope="col">Ações</th>
             </tr>
           </thead>
@@ -282,14 +287,14 @@ function CadastroHospedagem() {
                     ))}
                   </select>
                 </td>
-                <td>
+                {/* <td>
                   <input 
                     type='number' 
                     className='form-control'
-                    value = {row.quantidade}
-                    onChange={(e) => handleChange(row.id, 'quantidade', e.target.value)}>
+                    value = {row.qtd}
+                    onChange={(e) => handleChange(row.id, 'qtd', e.target.value)}>
                   </input>
-                </td>
+                </td> */}
                 <td>
                   <IconButton
                     aria-label='delete'
@@ -311,6 +316,7 @@ function CadastroHospedagem() {
       </div>
     );
   };
+ 
 
   if (!dados) return null;
   if (!dados2) return null;
