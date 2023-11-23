@@ -16,6 +16,7 @@ import axios from 'axios';
 
 import { BASE_URL } from '../../config/axios';
 import { URL_hospedagem } from '../../config/axios';
+import { URL_status } from '../../config/axios';
 
 const baseURL = `${URL_hospedagem}/hospedagem`;
 
@@ -60,6 +61,15 @@ function ListagemHospedagem() {
     });
   }, []);
 
+  const [dados2, setDados2] = React.useState(null);
+
+  React.useEffect(() => {
+    axios.get(`${URL_status}/statusHospedagem`).then((response) => {
+      setDados2(response.data);
+    });
+  }, []);
+  
+  if (!dados2) return null;
   if (!dados) return null;
 
   return (
@@ -91,7 +101,7 @@ function ListagemHospedagem() {
                   {dados.map((dado) => (
                     <tr key={dado.id}>
                       <td>{dado.id}</td>
-                      <td>{dado.status}</td>
+                      <td>{dados2[dado.status-1].titulo}</td>
                       <td>{dado.dataInicio}</td>
                       <td>{dado.dataFim1}</td>
                       <td>{dado.dataFim2}</td>

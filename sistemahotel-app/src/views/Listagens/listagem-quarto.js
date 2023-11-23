@@ -16,6 +16,7 @@ import axios from 'axios';
 
 import { BASE_URL } from '../../config/axios';
 import { URL_quarto } from '../../config/axios';
+import { URL_status } from '../../config/axios';
 
 const baseURL = `${URL_quarto}/quarto`;
 
@@ -54,12 +55,22 @@ function ListagemQuarto() {
       });
   }
 
+
   React.useEffect(() => {
     axios.get(baseURL).then((response) => {
       setDados(response.data);
     });
   }, []);
 
+  const [dados2, setDados2] = React.useState(null);
+
+  React.useEffect(() => {
+    axios.get(`${URL_status}/statusQuarto`).then((response) => {
+      setDados2(response.data);
+    });
+  }, []);
+  
+  if (!dados2) return null;
   if (!dados) return null;
 
   return (
@@ -91,7 +102,7 @@ function ListagemQuarto() {
                       <td>{dado.numero}</td>
                       <td>{dado.andar}</td>
                       <td>{dado.bloco}</td>
-                      <td>{dado.status}</td>
+                      <td>{dados2[dado.status-1].titulo}</td>
                       <td>
                         <Stack spacing={1} padding={0} direction='row'>
                           <IconButton

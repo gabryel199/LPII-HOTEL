@@ -16,6 +16,7 @@ import axios from 'axios';
 
 import { BASE_URL } from '../../config/axios';
 import { URL_servico } from '../../config/axios';
+import { URL_status } from '../../config/axios';
 
 const baseURL = `${URL_servico}/servico`;
 
@@ -60,6 +61,15 @@ function ListagemServicos() {
         });
     }, []);
 
+    const [dados2, setDados2] = React.useState(null);
+  
+    React.useEffect(() => {
+      axios.get(`${URL_status}/statusServico`).then((response) => {
+        setDados2(response.data);
+      });
+    }, []);
+    
+    if (!dados2) return null;
     if (!dados) return null;
 
     return (
@@ -89,7 +99,7 @@ function ListagemServicos() {
                                         <tr key={dado.id}>
                                             <td>{dado.titulo}</td>
                                             <td>{dado.descricao}</td>
-                                            <td>{dado.status}</td>
+                                            <td>{dados2[dado.status-1].titulo}</td>
                                             <td>
                                                 <Stack spacing={1} padding={0} direction='row'>
                                                     <IconButton
