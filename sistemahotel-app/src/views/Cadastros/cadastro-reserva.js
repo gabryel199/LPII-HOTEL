@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import Stack from '@mui/material/Stack';
+import { IconButton } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import AddBoxIcon from '@mui/icons-material/AddBox';
 
 import Card from '../../components/card';
 
@@ -13,7 +16,7 @@ import '../../custom.css';
 
 import axios from 'axios';
 import { BASE_URL, URL_quarto, URL_status } from '../../config/axios';
-import { URL_hospedagem } from '../../config/axios';
+import { URL_hospedagem,  URL_hotel} from '../../config/axios';
 
 function CadastroReserva() {
   
@@ -35,6 +38,7 @@ function CadastroReserva() {
   const [var8, setVar8] = useState('');
 
   const [dados, setDados] = React.useState([]);
+  const [tableData, setTableData] = useState([]);
 
   function inicializar() {
     if (idParam == null) {
@@ -47,6 +51,7 @@ function CadastroReserva() {
       setVar5('');
       setVar6('');
       setVar7('');
+      setTableData([]);
     } else {
       setId(dados.id);
       setVar0(dados.status);
@@ -58,6 +63,7 @@ function CadastroReserva() {
       setVar6(dados.hotel_id);
       setVar7(dados.hospedagem_id);
       setVar8(dados.tipoQuarto_id);
+      setTableData(dados.listaQuartos);
     }
   }
 
@@ -117,6 +123,7 @@ function CadastroReserva() {
       setVar6(dados.hotel_id);
       setVar7(dados.hospedagem_id);
       setVar8(dados.tipoQuarto_id);
+      setTableData(dados.listaQuartos);
     }
   }
 
@@ -135,14 +142,130 @@ function CadastroReserva() {
       setDados2(response.data);
     });
   }, []);
+
+  const [dados5, setDados5] = React.useState(null); //tipo Produto
+  
+  useEffect(() => {
+    axios.get(`${URL_hotel}/hotel`).then((response) => {
+      setDados5(response.data);
+    });
+  }, []);
   
   useEffect(() => {
     buscar(); // eslint-disable-next-line
   }, [id]);
   
+  //tabela interativa
+  const InteractiveTable = () => {
+    // const [tableData, setTableData] = useState([]);
+    // setTableData = var16;
+    const addRow = () => {
+  
+      const newRow = {
+        id: tableData.length + 1,
+        tipoQuarto: "null",
+        num: 0,
+        qtd: 0
+      };
+  
+      setTableData([...tableData, newRow]);
+    };
+  
+    const removeRow = (id) => {
+  
+      const updatedTableData = tableData.filter(row => row.id !== id);
+  
+      setTableData(updatedTableData);
+    };
+  
+    const handleChange = (id, column, value) => {
+      const updatedRows = tableData.map((row) =>
+        row.id === id ? { ...row, [column]: value } : row
+      );
+      setTableData(updatedRows);
+    };
+  
+    if (!tableData) return null;
+    return (
+      <div>
+        <table className="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Tipo</th>
+              {/* <th scope="col">Nº</th> */}
+              <th scope="col">Quantidade</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tableData.map(row => (
+              <tr key={row.id} className="table-light">
+                <td>
+                  <select
+                    className='form-select'
+                    value={row.tipoQuarto}
+                    onChange={(e) => handleChange(row.id, 'tipoQuarto', e.target.value)}
+                  >
+                    <option key='0' value='0'>
+                      {' '}
+                    </option>
+                    {dados2.map((dado) => (
+                      <option key={dado.id} value={dado.id}>
+                        {dado.titulo}
+                      </option>
+                    ))}
+                  </select>
+                </td>
+                {/* <td>
+                  <select
+                    className='form-select'
+                    value={row.num}
+                    onChange={(e) => handleChange(row.id, 'num', e.target.value)}
+                  >
+                    <option key='0' value='0'>
+                      {' '}
+                    </option>
+                    {dados3.map((dado) => (
+                      <option key={dado.id} value={dado.id}>
+                        {dado.numero}
+                      </option>
+                    ))}
+                  </select>
+                </td> */}
+                <td>
+                  <input 
+                    type='number' 
+                    className='form-control'
+                    value = {row.qtd}
+                    onChange={(e) => handleChange(row.id, 'qtd', e.target.value)}>
+                  </input>
+                </td>
+                <td>
+                  <IconButton
+                    aria-label='delete'
+                    onClick={() => removeRow(row.id)}
+                  >
+                    <DeleteIcon />
+                  </IconButton>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+          <IconButton
+            aria-label='add'
+            onClick={() => addRow()}
+          >
+            <AddBoxIcon />
+          </IconButton>
+      </div>
+    );
+  };
+
   if (!dados) return null;
   if (!dados3) return null;
   if (!dados2) return null;
+  if (!dados5) return null;
   return (
     <div className='container'>
       <Card title='Cadastro de Reservas'>
@@ -167,6 +290,27 @@ function CadastroReserva() {
                   ))}
                 </select>
               </FormGroup>
+              <FormGroup label='Hotel: *' htmlFor='selectHotel'>
+                <select
+                  className='form-select'
+                  id='selectHotel'
+                  name='hotel'
+                  value={var6}
+                  onChange={(e) => setVar6(e.target.value)}
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados5.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
+              </FormGroup>
+              <FormGroup label='Quartos: *' htmlFor='selectQuartos'>
+                  <InteractiveTable />
+              </FormGroup>
               <FormGroup label='Data de Início: *' htmlFor='inputDataInicio'>
                 <input
                   type='date'
@@ -186,24 +330,6 @@ function CadastroReserva() {
                   name='datafim'
                   onChange={(e) => setVar2(e.target.value)}
                 />
-              </FormGroup>
-              <FormGroup label='Tipo de quarto: *' htmlFor='selectTipoQuarto'>
-                <select
-                  className='form-select'
-                  id='selectTipoQuarto'
-                  name='tipoquarto'
-                  value={var8}
-                  onChange={(e) => setVar8(e.target.value)}
-                >
-                  <option key='0' value='0'>
-                    {' '}
-                  </option>
-                  {dados2.map((dado) => (
-                    <option key={dado.id} value={dado.id}>
-                      {dado.titulo}
-                    </option>
-                  ))}
-                </select>
               </FormGroup>
               <FormGroup label='Valor da Resrva: *' htmlFor='inputValorResrva'>
                 <input

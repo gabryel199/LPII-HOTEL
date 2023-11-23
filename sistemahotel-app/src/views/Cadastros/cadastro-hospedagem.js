@@ -6,8 +6,6 @@ import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 
-//import InteractiveTable from '../../components/interactiveTable';
-
 import Card from '../../components/card';
 
 import FormGroup from '../../components/form-group';
