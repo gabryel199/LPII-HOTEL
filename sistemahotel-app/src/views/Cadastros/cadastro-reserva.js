@@ -155,7 +155,7 @@ function CadastroReserva() {
     buscar(); // eslint-disable-next-line
   }, [id]);
   
-  //tabela interativa
+  //tabela interativa------------------------------------------------
   const InteractiveTable = () => {
     // const [tableData, setTableData] = useState([]);
     // setTableData = var16;
@@ -190,7 +190,7 @@ function CadastroReserva() {
       <div>
         <table className="table table-hover">
           <thead>
-            <tr>
+            <tr className="table-dark">
               <th scope="col">Tipo</th>
               {/* <th scope="col">Nº</th> */}
               <th scope="col">Quantidade</th>
@@ -309,7 +309,11 @@ function CadastroReserva() {
                 </select>
               </FormGroup>
               <FormGroup label='Quartos: *' htmlFor='selectQuartos'>
+              <div class="card">
+                <div class="card-body">
                   <InteractiveTable />
+                </div>
+              </div>
               </FormGroup>
               <FormGroup label='Data de Início: *' htmlFor='inputDataInicio'>
                 <input

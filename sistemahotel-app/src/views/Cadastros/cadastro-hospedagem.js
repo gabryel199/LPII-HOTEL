@@ -243,7 +243,7 @@ function CadastroHospedagem() {
       <div>
         <table className="table table-hover">
           <thead>
-            <tr>
+            <tr className="table-dark">
               <th scope="col">Tipo</th>
               <th scope="col">Nº</th>
               {/* <th scope="col">Quantidade</th> */}
@@ -364,7 +364,11 @@ function CadastroHospedagem() {
                 </select>
               </FormGroup>
               <FormGroup label='Quartos: *' htmlFor='selectQuartos'>
+              <div class="card">
+                <div class="card-body">
                   <InteractiveTable dadosQuarto = {dados3} dadosTiposQuarto = {dados4}/>
+                </div>
+              </div>
               </FormGroup>
               <FormGroup label='Data de Inicio: *' htmlFor='inputDataInicio'>
                 <input
