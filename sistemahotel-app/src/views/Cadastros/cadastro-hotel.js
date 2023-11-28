@@ -169,7 +169,7 @@ if (!dados4) return null;
 if (!dados3) return null;
   return (
     <div className='container'>
-      <Card title='Cadastro de Hotéis'>
+      <Card title='Cadastro de Hotel'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>

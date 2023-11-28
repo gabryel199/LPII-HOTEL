@@ -268,7 +268,7 @@ function CadastroReserva() {
   if (!dados5) return null;
   return (
     <div className='container'>
-      <Card title='Cadastro de Reservas'>
+      <Card title='Cadastro de Reserva'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>

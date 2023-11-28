@@ -137,7 +137,7 @@ function CadastroProduto() {
   // ESSA é A PARTE DO HTML
   return (
     <div className='container'>
-      <Card title='Cadastro de Produtos'>
+      <Card title='Cadastro de Produto'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>

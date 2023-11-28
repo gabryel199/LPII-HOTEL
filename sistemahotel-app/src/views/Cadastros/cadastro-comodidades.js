@@ -109,7 +109,7 @@ function CadastroComodidades() {
 
   return (
     <div className='container'>
-      <Card title='Cadastro de Comodidades'>
+      <Card title='Cadastro de Comodidade'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>

@@ -244,7 +244,7 @@ function CadastroFuncionario() {
   if (!dados3) return null;
   return (
     <div className='container'>
-      <Card title='Cadastro de Funcionários'>
+      <Card title='Cadastro de Funcionário'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
