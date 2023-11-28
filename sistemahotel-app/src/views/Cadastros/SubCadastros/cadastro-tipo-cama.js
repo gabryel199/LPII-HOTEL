@@ -99,7 +99,7 @@ function CadastroTipoCama() {
 
   return (
     <div className='container'>
-      <Card title='Cadastro de Tipos de Cama'>
+      <Card title='Cadastro de Tipo de Cama'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>

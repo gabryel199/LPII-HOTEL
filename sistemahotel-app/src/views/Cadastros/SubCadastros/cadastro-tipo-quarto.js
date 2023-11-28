@@ -117,7 +117,7 @@ function CadastroTipoQuarto() {
 
   return (
     <div className='container'>
-      <Card title='Cadastro de Tipos de Quarto'>
+      <Card title='Cadastro de Tipo de Quarto'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>

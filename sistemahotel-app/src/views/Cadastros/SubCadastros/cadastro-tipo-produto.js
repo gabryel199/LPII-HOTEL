@@ -96,7 +96,7 @@ function CadastroTipoProduto() {
 
   return (
     <div className='container'>
-      <Card title='Cadastro de Categorias de Produto'>
+      <Card title='Cadastro de Tipo de Produto'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
