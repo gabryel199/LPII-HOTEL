@@ -64,7 +64,7 @@ function ListagemProdutos() {
 
   return (
     <div className='container'>
-      <Card title='Listagem de Produtos'>
+      <Card title='Listagem de Produto'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>

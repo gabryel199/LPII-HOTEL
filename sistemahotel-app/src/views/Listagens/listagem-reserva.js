@@ -74,7 +74,7 @@ function ListagemReserva() {
 
   return (
     <div className='container'>
-      <Card title='Listagem de Reservas'>
+      <Card title='Listagem de Reserva'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>

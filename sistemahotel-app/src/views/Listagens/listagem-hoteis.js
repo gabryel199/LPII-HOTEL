@@ -64,7 +64,7 @@ function ListagemHoteis() {
 
   return (
     <div className='container'>
-      <Card title='Listagem de Hotéis'>
+      <Card title='Listagem de Hotel'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
