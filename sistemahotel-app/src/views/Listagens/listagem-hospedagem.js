@@ -79,7 +79,7 @@ function ListagemHospedagem() {
 
   return (
     <div className='container'>
-      <Card title='Listagem de Hospedagem'>
+      <Card title='Listagem de Hospedagens'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
@@ -96,8 +96,8 @@ function ListagemHospedagem() {
                     <th scope='col'>ID</th>
                     <th scope='col'>Status</th>
                     <th scope='col'>Data de Início</th>
-                    <th scope='col'>Data Final</th>
-                    <th scope='col'>Data Final Extendida</th>
+                    <th scope='col'>Data de Término</th>
+                    <th scope='col'>Data de Término Extendida</th>
                     <th scope='col'>Valor</th>
                     <th scope='col'>Ações</th>
                   </tr>

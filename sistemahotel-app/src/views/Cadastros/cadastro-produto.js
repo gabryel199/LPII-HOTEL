@@ -141,6 +141,24 @@ function CadastroProduto() {
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
+            <FormGroup label='Hotel: *' htmlFor='selectHotel'>
+                <select
+                  className='form-select'
+                  id='selectHotel'
+                  name='hotel'
+                  value={var5}
+                  onChange={(e) => setVar5(e.target.value)}
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados3.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
+              </FormGroup>
               <FormGroup label='Nome: *' htmlFor='inputNome'>
                 <input
                   type='text'
@@ -151,7 +169,7 @@ function CadastroProduto() {
                   onChange={(e) => setVar0(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Descrição: ' htmlFor='inputDescricao'>
+              <FormGroup label='Descrição: *' htmlFor='inputDescricao'>
                 <textarea
                   // type='text'
                   id='inputDescricao'
@@ -199,24 +217,7 @@ function CadastroProduto() {
                   ))}
                 </select>
               </FormGroup>
-              <FormGroup label='Hotel: *' htmlFor='selectHotel'>
-                <select
-                  className='form-select'
-                  id='selectHotel'
-                  name='hotel'
-                  value={var5}
-                  onChange={(e) => setVar5(e.target.value)}
-                >
-                  <option key='0' value='0'>
-                    {' '}
-                  </option>
-                  {dados3.map((dado) => (
-                    <option key={dado.id} value={dado.id}>
-                      {dado.titulo}
-                    </option>
-                  ))}
-                </select>
-              </FormGroup>
+              
               
               <br></br>
               <Stack spacing={1} padding={1} direction='row'>

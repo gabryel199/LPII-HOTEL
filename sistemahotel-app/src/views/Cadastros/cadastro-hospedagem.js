@@ -327,6 +327,24 @@ function CadastroHospedagem() {
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
+            <FormGroup label='Hotel: *' htmlFor='selectHotel'>
+                <select
+                  className='form-select'
+                  id='selectHotel'
+                  name='hotel'
+                  value={var12}
+                  onChange={(e) => setVar12(e.target.value)}
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados5.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
+              </FormGroup>
               <FormGroup label='Status: *' htmlFor='selectStatus'>
                 <select
                   className='form-select'
@@ -345,24 +363,7 @@ function CadastroHospedagem() {
                   ))}
                 </select>
               </FormGroup>
-              <FormGroup label='Hotel: *' htmlFor='selectHotel'>
-                <select
-                  className='form-select'
-                  id='selectHotel'
-                  name='hotel'
-                  value={var12}
-                  onChange={(e) => setVar12(e.target.value)}
-                >
-                  <option key='0' value='0'>
-                    {' '}
-                  </option>
-                  {dados5.map((dado) => (
-                    <option key={dado.id} value={dado.id}>
-                      {dado.titulo}
-                    </option>
-                  ))}
-                </select>
-              </FormGroup>
+              
               <FormGroup label='Quartos: *' htmlFor='selectQuartos'>
               <div class="card">
                 <div class="card-body">
@@ -380,7 +381,7 @@ function CadastroHospedagem() {
                   onChange={(e) => setVar1(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Data Fim: *' htmlFor='inputDataFim1'>
+              <FormGroup label='Data de Término: *' htmlFor='inputDataFim1'>
                 <input
                   type='date'
                   id='inputDataFim1'
@@ -390,7 +391,7 @@ function CadastroHospedagem() {
                   onChange={(e) => setVar2(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Data Extendida:' htmlFor='inputDataFim2'>
+              <FormGroup label='Data de Término Extendida:' htmlFor='inputDataFim2'>
                 <input
                   type='date'
                   id='inputDataFim2'

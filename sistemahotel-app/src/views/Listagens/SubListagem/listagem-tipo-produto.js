@@ -68,7 +68,7 @@ function ListagemTipoProduto() {
 
   return (
     <div className='container'>
-      <Card title='Listagem de tipo de produto'>
+      <Card title='Listagem de Tipo de Produtos'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>

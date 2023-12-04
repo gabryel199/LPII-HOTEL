@@ -68,7 +68,7 @@ function ListagemTipoCama() {
 
   return (
     <div className='container'>
-      <Card title='Listagem de tipo de cama'>
+      <Card title='Listagem de Tipo de Camas'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
@@ -84,7 +84,7 @@ function ListagemTipoCama() {
                   <tr>
                     <th scope='col'>Nome</th>
                     <th scope='col'>Descrição</th>
-                    <th scope='col'>Numero de Ocupantes</th>
+                    <th scope='col'>Número de Ocupantes</th>
                     <th scope='col'>Ações</th>
                   </tr>
                 </thead>

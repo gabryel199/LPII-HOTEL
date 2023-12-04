@@ -109,7 +109,7 @@ function CadastroTipoServico() {
                   onChange={(e) => setVar0(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Descricao:' htmlFor='inputDescricao'>
+              <FormGroup label='Descricao: *' htmlFor='inputDescricao'>
                 <input
                   type='text'
                   id='inputDescricao'

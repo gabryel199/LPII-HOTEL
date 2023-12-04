@@ -79,7 +79,7 @@ function ListagemReserva() {
 
   return (
     <div className='container'>
-      <Card title='Listagem de Reserva'>
+      <Card title='Listagem de Reservas'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
@@ -95,8 +95,8 @@ function ListagemReserva() {
                   <tr>
                     <th scope='col'>ID</th>
                     <th scope='col'>Status</th>
-                    <th scope='col'>Data de Inicio</th>
-                    <th scope='col'>Data Final</th>
+                    <th scope='col'>Data de Início</th>
+                    <th scope='col'>Data de Término</th>
                     <th scope='col'>Valor</th>
                     <th scope='col'>Ações</th>
                   </tr>

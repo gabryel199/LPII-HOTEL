@@ -131,7 +131,7 @@ function CadastroTipoQuarto() {
                   onChange={(e) => setVar1(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Descrição:' htmlFor='inputDescricao'>
+              <FormGroup label='Descrição: *' htmlFor='inputDescricao'>
                 <input
                   type='text'
                   id='inputDescricao'

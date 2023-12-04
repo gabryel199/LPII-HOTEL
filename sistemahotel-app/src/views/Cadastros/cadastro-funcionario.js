@@ -248,6 +248,24 @@ function CadastroFuncionario() {
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
+            <FormGroup label='Hotel: *' htmlFor='selectHotel'>
+                <select
+                  className='form-select'
+                  id='selectHotel'
+                  name='Hotel'
+                  value={var20}
+                  onChange={(e) => setVar20(e.target.value)}
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados6.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
+              </FormGroup>
             <FormGroup label='CPF: *' htmlFor='inputCPF'>
               <input
                 type='number'
@@ -346,24 +364,7 @@ function CadastroFuncionario() {
                   ))}
                 </select>
               </FormGroup>
-              <FormGroup label='Hotel: *' htmlFor='selectHotel'>
-                <select
-                  className='form-select'
-                  id='selectHotel'
-                  name='Hotel'
-                  value={var20}
-                  onChange={(e) => setVar20(e.target.value)}
-                >
-                  <option key='0' value='0'>
-                    {' '}
-                  </option>
-                  {dados6.map((dado) => (
-                    <option key={dado.id} value={dado.id}>
-                      {dado.titulo}
-                    </option>
-                  ))}
-                </select>
-              </FormGroup>
+              
             <FormGroup label='Horário de Início: *' htmlFor='inputHoraInicio'>
                 <input
                   type='time'

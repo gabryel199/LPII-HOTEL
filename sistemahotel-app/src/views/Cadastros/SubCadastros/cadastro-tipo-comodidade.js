@@ -107,7 +107,7 @@ function CadastroTipoComodidade() {
                   onChange={(e) => setVar0(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Descrição:' htmlFor='inputDescricao'>
+              <FormGroup label='Descrição: *' htmlFor='inputDescricao'>
                 <input
                   type='text'
                   id='inputDescricao'

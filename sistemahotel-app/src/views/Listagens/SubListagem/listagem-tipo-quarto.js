@@ -68,7 +68,7 @@ function ListagemTipoQuarto() {
 
   return (
     <div className='container'>
-      <Card title='Listagem de tipo de quarto'>
+      <Card title='Listagem de Tipo de Quartos'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
@@ -84,7 +84,7 @@ function ListagemTipoQuarto() {
                   <tr>
                     <th scope='col'>Tipo</th>
                     <th scope='col'>Valor</th>
-                    <th scope='col'>Maximo de Ocupantes</th>
+                    <th scope='col'>Máximo de Ocupantes</th>
                     <th scope='col'>Tamanho</th>
                     <th scope='col'>Avaliação</th>
                     <th scope='col'>Ações</th>

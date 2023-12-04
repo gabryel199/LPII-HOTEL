@@ -80,7 +80,7 @@ function ListagemQuarto() {
 
   return (
     <div className='container'>
-      <Card title='Listagem de Quarto'>
+      <Card title='Listagem de Quartos'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
@@ -94,7 +94,7 @@ function ListagemQuarto() {
               <table className='table table-hover'>
                 <thead>
                   <tr>
-                    <th scope='col'>Numero</th>
+                    <th scope='col'>Número</th>
                     <th scope='col'>Andar</th>
                     <th scope='col'>Bloco</th>
                     <th scope='col'>Status</th>

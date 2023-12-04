@@ -123,7 +123,7 @@ function CadastroComodidades() {
                   onChange={(e) => setVar0(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Descrição: ' htmlFor='inputDescricao'>
+              <FormGroup label='Descrição: *' htmlFor='inputDescricao'>
                 <textarea 
                   id='inputDescricao' 
                   name="descricao" 

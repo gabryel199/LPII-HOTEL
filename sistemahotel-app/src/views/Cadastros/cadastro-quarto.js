@@ -152,6 +152,24 @@ function CadastroQuarto() {
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
+            <FormGroup label='Hotel: *' htmlFor='selectHotel'>
+                <select
+                  className='form-select'
+                  id='selectHotel'
+                  name='Hotel'
+                  value={var4}
+                  onChange={(e) => setVar4(e.target.value)}
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados3.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
+              </FormGroup>
               <FormGroup label='Status: *' htmlFor='selectStatus'>
                 <select
                   className='form-select'
@@ -218,24 +236,7 @@ function CadastroQuarto() {
                   onChange={(e) => setVar2(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Hotel: *' htmlFor='selectHotel'>
-                <select
-                  className='form-select'
-                  id='selectHotel'
-                  name='Hotel'
-                  value={var4}
-                  onChange={(e) => setVar4(e.target.value)}
-                >
-                  <option key='0' value='0'>
-                    {' '}
-                  </option>
-                  {dados3.map((dado) => (
-                    <option key={dado.id} value={dado.id}>
-                      {dado.titulo}
-                    </option>
-                  ))}
-                </select>
-              </FormGroup>
+              
 
               <br></br>
               <Stack spacing={1} padding={1} direction='row'>
