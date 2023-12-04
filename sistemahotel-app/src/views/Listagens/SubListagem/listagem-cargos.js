@@ -33,6 +33,11 @@ function ListagemCargos() {
   const [dados, setDados] = React.useState(null);
 
   async function excluir(id) {
+    const confirmacao = window.confirm('Você tem certeza que deseja excluir o cargo?');
+    
+    if (!confirmacao) {
+      return;
+    }
     let data = JSON.stringify({ id });
     let url = `${baseURL}/${id}`;
 
