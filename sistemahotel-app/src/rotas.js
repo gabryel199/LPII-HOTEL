@@ -19,6 +19,9 @@ import ListagemTipoComodidade from './views/Listagens/SubListagem/listagem-tipo-
 import ListagemTipoProduto from './views/Listagens/SubListagem/listagem-tipo-produto';
 import ListagemTipoQuarto from './views/Listagens/SubListagem/listagem-tipo-quarto';
 import ListagemTipoServicos from './views/Listagens/SubListagem/listagem-tipo-servico';
+import ListagemAvaliacaoQuarto from './views/Listagens/SubListagem/listagem-avaliacaoQuarto';
+import ListagemAvaliacaoHospedagem from './views/Listagens/SubListagem/listagem-avaliacaoHospedagem';
+
 
 import CadastroProduto from './views/Cadastros/cadastro-produto';
 import CadastroHotel from './views/Cadastros/cadastro-hotel';
@@ -63,6 +66,9 @@ function Rotas(props) {
         <Route path='/listagem-tipo-quarto' element={<ListagemTipoQuarto />} />
         <Route path='/listagem-tipo-produto' element={<ListagemTipoProduto />} />
         <Route path='/listagem-tipo-servico' element={<ListagemTipoServicos />} />
+        <Route path='/listagem-avaliacao-quarto' element={<ListagemAvaliacaoQuarto />} />
+        <Route path='/listagem-avaliacao-hospedagem' element={<ListagemAvaliacaoHospedagem />} />
+        
 
         <Route path='/cadastro-produto/:idParam?' element={<CadastroProduto />} /> 
         <Route path='/cadastro-hotel/:idParam?' element={<CadastroHotel />} />   
