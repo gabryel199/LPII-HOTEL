@@ -21,6 +21,7 @@ import { URL_hospedagem } from '../../config/axios';
 import { URL_status } from '../../config/axios';
 import { URL_quarto } from '../../config/axios';
 import { URL_hotel } from '../../config/axios';
+import { URL_produto } from '../../config/axios';
 
 
 let i = 1;
@@ -50,9 +51,11 @@ function CadastroHospedagem() {
   const [var14, setVar14] = useState(0);
   const [var15, setVar15] = useState(0);
   const [var16, setVar16] = useState([]);
+  const [varListaProd, setVarListaProd] = useState([]);
 
   const [dados, setDados] = React.useState([]);
   const [tableData, setTableData] = useState([]);
+  const [tableData2, setTableData2] = useState([]);
 
   function inicializar() {
     if (idParam == null) {
@@ -75,6 +78,8 @@ function CadastroHospedagem() {
       setVar15(0);
       setVar16([]);
       setTableData([]);
+      setVarListaProd([]);
+      setTableData2([]);
     } else {
       setId(dados.id);
       setVar0(dados.status);
@@ -95,6 +100,8 @@ function CadastroHospedagem() {
       setVar15(dados.reserva_id);
       setVar16(dados.listaQuartos);
       setTableData(dados.listaQuartos);
+      setVarListaProd(dados.produtoHospedagem);
+      setTableData2(dados.produtoHospedagem);
     }
   }
 
@@ -169,6 +176,8 @@ function CadastroHospedagem() {
       setVar15(dados.reserva_id);
       setVar16(dados.listaQuartos);
       setTableData(dados.listaQuartos);
+      setVarListaProd(dados.produtoHospedagem);
+      setTableData2(dados.produtoHospedagem);
     }
   }
 
@@ -204,11 +213,19 @@ function CadastroHospedagem() {
     });
   }, []);
 
+  const [dados6, setDados6] = React.useState(null); //tipo Produto
+  
+  useEffect(() => {
+    axios.get(`${URL_produto}/produto`).then((response) => {
+      setDados6(response.data);
+    });
+  }, []);
+
   useEffect(() => {
     buscar(); // eslint-disable-next-line
   }, [id]);
 
-  //tabela interativa
+  //tabela interativa-------------------------------------------------------------------------
   const InteractiveTable = () => {
     // const [tableData, setTableData] = useState([]);
     // setTableData = var16;
@@ -314,6 +331,144 @@ function CadastroHospedagem() {
       </div>
     );
   };
+
+  //tabela interativa2-------------------------------------------------------------------------
+  const InteractiveTable2 = () => {
+    // const [tableData2, setTableData2] = useState([]);
+    // setTableData2 = var16;
+    const addRow = () => {
+  
+      const newRow = {
+        id: tableData2.length + 1,
+        produto_id: 0,
+        quant: 0,
+        valorTotal: 0
+      };
+  
+      setTableData2([...tableData2, newRow]);
+    };
+
+    const addRow0 = () => {
+  
+      const newRow = {
+        id: 1,
+        produto_id: 1,
+        quant: 0,
+        valorTotal: 0
+      };
+  
+      setTableData2([newRow]);
+    };
+  
+    const removeRow = (id) => {
+  
+      const updatedTableData2 = tableData2.filter(row => row.id !== id);
+  
+      setTableData2(updatedTableData2);
+    };
+  
+    const handleChange = (id, column, value) => {
+      let updatedRows = tableData2.map((row) =>
+        row.id === id ? { ...row, [column]: value} : row
+        // row.id === id ? { ...row, [column]: value, ['valorTotal']: row.quant*(dados6.find(obj => obj.id === row.produto_id).preco) } : row
+      );
+      updatedRows = updatedRows.map((row) =>
+        // row.id === id ? { ...row, [column]: value} : row
+        row.id === id ? { ...row, ['valorTotal']: row.quant*(dados6.find(obj => obj.id == row.produto_id).preco) } : row
+      );
+      setTableData2(updatedRows);
+    };
+
+    if (!tableData2) {
+      console.log("sadasds") 
+      addRow0();
+    }
+    if (!tableData2) {
+      console.log("sadasds") 
+      return;
+    }
+    console.log("eeeeee") 
+    return (
+      <div>
+        <table className="table table-hover">
+          <thead>
+            <tr className="table-dark">
+              <th scope="col">Produto</th>
+              <th scope="col">Quantidade</th>
+              <th scope="col">Valor</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tableData2.map(row => (
+              <tr key={row.id} className="table-light">
+                <td>
+                  <select
+                    className='form-select'
+                    value={row.produto_id}
+                    onChange={(e) => handleChange(row.id, 'produto_id', e.target.value)}
+                  >
+                    <option key='0' value='0'>
+                      {' '}
+                    </option>
+                    {dados6.map((dado) => (
+                      <option key={dado.id} value={dado.id}>
+                        {dado.titulo}
+                      </option>
+                    ))}
+                  </select>
+                </td>
+                <td>
+                  <input 
+                    type='number' 
+                    className='form-control'
+                    min = '1'
+                    value = {row.quant}
+                    onChange={(e) => handleChange(row.id, 'quant', e.target.value)}>
+                  </input>
+                </td>
+                <td>
+                  <input 
+                    type='text' 
+                    className='form-control'
+                    //min = '1'
+                    readOnly
+                    //value = {(row.find(obj => obj.id === row.id).quant)*(dados6.find(obj => obj.id === row.produto_id).preco)}
+                    //value = {row.valorTotal}
+                    value = {row.valorTotal}
+                    //onChange={(e) => handleChange(row.id, 'valorTotal', e.target.value)}
+                    >
+                  </input>
+                </td>
+                {/* <td>
+                  <input 
+                    type='number' 
+                    className='form-control'
+                    value = {row.qtd}
+                    onChange={(e) => handleChange(row.id, 'qtd', e.target.value)}>
+                  </input>
+                </td> */}
+                <td>
+                  <IconButton
+                    aria-label='delete'
+                    onClick={() => removeRow(row.id)}
+                  >
+                    <DeleteIcon />
+                  </IconButton>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+          <IconButton
+            aria-label='add'
+            onClick={() => addRow()}
+          >
+            <AddBoxIcon />
+          </IconButton>
+      </div>
+    );
+  };
  
 
   if (!dados) return null;
@@ -321,7 +476,8 @@ function CadastroHospedagem() {
   if (!dados3) return null;
   if (!dados4) return null;
   if (!dados5) return null;
-  return (
+  if (!dados6) return null;
+  if (idParam>0) return (
     <div className='container'>
       <Card title='Cadastro de Hospedagem'>
         <div className='row'>
@@ -565,6 +721,13 @@ function CadastroHospedagem() {
                   onChange={(e) => setVar9(e.target.value)}
                 />
               </FormGroup> */}
+              <FormGroup label='Lista de Produtos: ' htmlFor='selectListaProdutos'>
+              <div class="card">
+                <div class="card-body">
+                  <InteractiveTable2 />
+                </div>
+              </div>
+              </FormGroup>
 
               <br></br>
               <Stack spacing={1} padding={1} direction='row'>
@@ -589,6 +752,275 @@ function CadastroHospedagem() {
       </Card>
     </div>
   );
+
+return (
+  <div className='container'>
+    <Card title='Cadastro de Hospedagem'>
+      <div className='row'>
+        <div className='col-lg-12'>
+          <div className='bs-component'>
+          <FormGroup label='Hotel: *' htmlFor='selectHotel'>
+              <select
+                className='form-select'
+                id='selectHotel'
+                name='hotel'
+                value={var12}
+                onChange={(e) => setVar12(e.target.value)}
+              >
+                <option key='0' value='0'>
+                  {' '}
+                </option>
+                {dados5.map((dado) => (
+                  <option key={dado.id} value={dado.id}>
+                    {dado.titulo}
+                  </option>
+                ))}
+              </select>
+            </FormGroup>
+            <FormGroup label='Status: *' htmlFor='selectStatus'>
+              <select
+                className='form-select'
+                id='selectStatus'
+                name='status'
+                value={var0}
+                onChange={(e) => setVar0(e.target.value)}
+              >
+                <option key='0' value='0'>
+                  {' '}
+                </option>
+                {dados2.map((dado) => (
+                  <option key={dado.id} value={dado.id}>
+                    {dado.titulo}
+                  </option>
+                ))}
+              </select>
+            </FormGroup>
+            
+            <FormGroup label='Quartos: *' htmlFor='selectQuartos'>
+            <div class="card">
+              <div class="card-body">
+                <InteractiveTable dadosQuarto = {dados3} dadosTiposQuarto = {dados4}/>
+              </div>
+            </div>
+            </FormGroup>
+            <FormGroup label='Data de Inicio: *' htmlFor='inputDataInicio'>
+              <input
+                type='date'
+                id='inputDataInicio'
+                value={var1}
+                className='form-control'
+                name='DataInicio'
+                onChange={(e) => setVar1(e.target.value)}
+              />
+            </FormGroup>
+            <FormGroup label='Data de Término: *' htmlFor='inputDataFim1'>
+              <input
+                type='date'
+                id='inputDataFim1'
+                value={var2}
+                className='form-control'
+                name='DataFim1'
+                onChange={(e) => setVar2(e.target.value)}
+              />
+            </FormGroup>
+            <FormGroup label='Data de Término Extendida:' htmlFor='inputDataFim2'>
+              <input
+                type='date'
+                id='inputDataFim2'
+                value={var3}
+                className='form-control'
+                name='DataFim2'
+                onChange={(e) => setVar3(e.target.value)}
+              />
+            </FormGroup>{/* 
+            <FormGroup label='Quarto: *' htmlFor='selectQuarto'>
+              <select
+                className='form-select'
+                id='selectQuarto'
+                name='quarto'
+                value={var14}
+                onChange={(e) => setVar14(e.target.value)}
+              >
+                <option key='0' value='0'>
+                  {' '}
+                </option>
+                {dados3.map((dado) => (
+                  <option key={dado.id} value={dado.id}>
+                    {dado.numero}
+                  </option>
+                ))}
+              </select> 
+            </FormGroup> */}
+            {/* <FormGroup label='Quartos: *' htmlFor='selectQuartos'>
+              <table id = "tableQuartos" className="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Nº</th>
+                    <th scope="col">Quantidade</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="table-light">
+                    <td>
+                      <select
+                        className='form-select'
+                        id='selectTipoQuarto'
+                        name='tipoquarto'
+                        value={var98}
+                        onChange={(e) => setVar98(e.target.value)}
+                      >
+                        <option key='0' value='0'>
+                          {' '}
+                        </option>
+                        {dados4.map((dado) => (
+                          <option key={dado.id} value={dado.id}>
+                            {dado.titulo}
+                          </option>
+                        ))}
+                      </select>
+                    </td>
+                    <td>
+                      <select
+                        className='form-select'
+                        id='selectQuarto'
+                        name='quarto'
+                        value={var99}
+                        onChange={(e) => setVar99(e.target.value)}
+                      >
+                        <option key='0' value='0'>
+                          {' '}
+                        </option>
+                        {dados3.map((dado) => (
+                          <option key={dado.id} value={dado.id}>
+                            {dado.numero}
+                          </option>
+                        ))}
+                      </select>
+                    </td>
+                    <td><input type='number' className='form-control'></input></td>
+                    <td>
+                        <IconButton
+                          aria-label='delete'
+                          // onClick={() => excluir(dado.id)}
+                        >
+                          <DeleteIcon />
+                        </IconButton></td>
+                  </tr>
+                </tbody>
+              </table>
+              <IconButton
+                aria-label='add'
+                onClick={() => newQuarto(dados3)}
+              >
+                <AddBoxIcon />
+              </IconButton>
+            </FormGroup> */}
+            <FormGroup label='Valor da Estadia: *' htmlFor='inputValorEstadia'>
+              <input
+                type='num'
+                id='inputValorEstadia'
+                value={var4}
+                className='form-control'
+                name='ValorEstadia'
+                onChange={(e) => setVar4(e.target.value)}
+              />
+            </FormGroup>
+            <FormGroup label='ID cliente: *' htmlFor='inputIDCliente'>
+              <input
+                type='text'
+                id='inputIDCliente'
+                value={var10}
+                className='form-control'
+                name='IDCliente'
+                onChange={(e) => setVar10(e.target.value)}
+              />
+            </FormGroup>
+            <FormGroup label='ID funcionário: *' htmlFor='inputIDFuncionario'>
+              <input
+                type='text'
+                id='inputIDFuncionario'
+                value={var11}
+                className='form-control'
+                name='IDFuncionario'
+                onChange={(e) => setVar11(e.target.value)}
+              />
+            </FormGroup>
+            <FormGroup label='ID reserva:' htmlFor='inputIDReserva'>
+              <input
+                type='text'
+                id='inputIDReserva'
+                value={var15}
+                className='form-control'
+                name='IDReserva'
+                onChange={(e) => setVar15(e.target.value)}
+              />
+            </FormGroup>
+            {/* <FormGroup label='Valor do Consumo: *' htmlFor='inputValorConsumo'>
+              <input
+                type='number'
+                id='inputValorConsumo'
+                value={var6}
+                className='form-control'
+                name='ValorConsumo'
+                onChange={(e) => setVar6(e.target.value)}
+              />
+            </FormGroup> */}
+           {/*  <FormGroup label='Valor dos Serviços: *' htmlFor='inputValorServicos'>
+              <input
+                type='number'
+                id='inputValorServicos'
+                value={var7}
+                className='form-control'
+                name='ValorServicos'
+                onChange={(e) => setVar7(e.target.value)}
+              />
+            </FormGroup> */}
+           {/*  <FormGroup label='Valor da Estadia Adicional: *' htmlFor='inputValorEstadiaAdicional'>
+              <input
+                type='number'
+                id='inputValorEstadiaAdicional'
+                value={var8}
+                className='form-control'
+                name='ValorEstadiaAdicional'
+                onChange={(e) => setVar8(e.target.value)}
+              />
+            </FormGroup> */}
+            {/* <FormGroup label='Valor Total: *' htmlFor='inputValorTotal'>
+              <input
+                type='number'
+                id='inputValorTotal'
+                value={var9}
+                className='form-control'
+                name='ValorTotal'
+                onChange={(e) => setVar9(e.target.value)}
+              />
+            </FormGroup> */}
+
+            <br></br>
+            <Stack spacing={1} padding={1} direction='row'>
+              <button
+                onClick={salvar}
+                type='button'
+                className='btn btn-success'
+              >
+                Salvar
+              </button>
+              <button
+                onClick={inicializar}
+                type='button'
+                className='btn btn-danger'
+              >
+                Cancelar
+              </button>
+            </Stack>
+          </div>
+        </div>
+      </div>
+    </Card>
+  </div>
+);
 }
 
 export default CadastroHospedagem;
