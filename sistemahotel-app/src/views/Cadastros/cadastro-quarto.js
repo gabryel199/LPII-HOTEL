@@ -152,7 +152,7 @@ function CadastroQuarto() {
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
-            <FormGroup label='Hotel: *' htmlFor='selectHotel'>
+              <FormGroup label='Hotel: *' htmlFor='selectHotel'>
                 <select
                   className='form-select'
                   id='selectHotel'

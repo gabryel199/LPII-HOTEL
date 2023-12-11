@@ -12,7 +12,10 @@ import { mensagemSucesso, mensagemErro } from '../../../components/toastr';
 import '../../../custom.css';
 
 import axios from 'axios';
-import { BASE_URL } from '../../../config/axios';
+import { URL_hospedagem } from '../../../config/axios';
+import { URL_hotel } from '../../../config/axios';
+
+const baseURL = `${URL_hospedagem}/avaliacaoHospedagem`;
 
 function CadastroAvaliacaoHospedagem() {
   
@@ -20,25 +23,120 @@ function CadastroAvaliacaoHospedagem() {
 
   const navigate = useNavigate();
 
-  const baseURL = `${BASE_URL}/avaliacaoHospedagem`;
 
   const [id, setId] = useState('');
-  const [var0, setVar0] = useState('');
-  const [var1, setVar1] = useState('');
-  const [var2, setVar2] = useState('');
-  const [var3, setVar3] = useState('');
+  const [var0, setVar0] = useState('');//nota
+  const [var1, setVar1] = useState('');//comentario
+  const [var2, setVar2] = useState('');//tipoHospedagem_id
 
   const [dados, setDados] = React.useState([]);
 
+  function inicializar() {
+    if (idParam == null) {
+      setId('');
+      setVar0('');
+      setVar1('');
+      setVar2('');
+    } else {
+      setId(dados.id);
+      setVar0(dados.nota);
+      setVar1(dados.comentario);
+      setVar2(dados.hotel_id);
+    }
+  }
+
+  async function salvar() {
+    let data = {
+      id,
+      var0,
+      var1,
+      var2,
+    };
+    data = JSON.stringify(data);
+    if (idParam == null) {
+      await axios
+        .post(baseURL, data, {
+          headers: { 'Content-Type': 'application/json' },
+        })
+        .then(function (response) {
+          mensagemSucesso(`Avaliação cadastrada com sucesso!`);
+          navigate(`/listagem-avaliacao-hospedagem`);
+        })
+        .catch(function (error) {
+          mensagemErro(error.response.data);
+        });
+    } else {
+      await axios
+        .put(`${baseURL}/${idParam}`, data, {
+          headers: { 'Content-Type': 'application/json' },
+        })
+        .then(function (response) {
+          mensagemSucesso(`Avaliação alterada com sucesso!`);
+          navigate(`/listagem-avaliacao-hospedagem`);
+        })
+        .catch(function (error) {
+          mensagemErro(error.response.data);
+        });
+    }
+  }
+
+  async function buscar() {
+    if (idParam != null) {
+      await axios.get(`${baseURL}/${idParam}`).then((response) => {
+        setDados(response.data);
+      });
+      setId(dados.id);
+      setVar0(dados.nota);
+      setVar1(dados.comentario);
+      setVar2(dados.hotel_id);
+    }
+  }
+
+  const [dados2, setDados2] = React.useState(null); //tipo hospedagem
+
+  useEffect(() => {
+    axios.get(`${URL_hotel}/hotel`).then((response) => {
+      setDados2(response.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    buscar(); // eslint-disable-next-line
+  }, [id]);
+  
+  if (!dados) return null;
+  if (!dados2) return null;
+  
   return (
     <div className='container'>
-      <Card title='Cadastro de Avaliação da Hospedagem'>
+      <Card title='Cadastro de Avaliação do Hotel'>
         <div className='row'>
           <div className='col-lg-12'>
             <div className='bs-component'>
+              <FormGroup label='Hotel : *' htmlFor='selectHotel'>
+                <select
+                  className='form-select'
+                  id='selectHotel'
+                  name='tipo'
+                  value={var2}
+                  onChange={(e) => setVar2(e.target.value)}
+                >
+                  <option key='0' value='0'>
+                    {' '}
+                  </option>
+                  {dados2.map((dado) => (
+                    <option key={dado.id} value={dado.id}>
+                      {dado.titulo}
+                    </option>
+                  ))}
+                </select>
+              </FormGroup>
               <FormGroup label='Nota: *' htmlFor='inputNota'>
                 <input
-                  type='text'
+                  type='number'
+                  min = '0.5'
+                  max = '5'
+                  step ='0.5'
                   id='inputNota'
                   value={var0}
                   className='form-control'
@@ -46,7 +144,7 @@ function CadastroAvaliacaoHospedagem() {
                   onChange={(e) => setVar0(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Comentario: *' htmlFor='inputComentario'>
+              <FormGroup label='Comentário: ' htmlFor='inputComentario'>
                 <input
                   type='text'
                   id='inputComentario'
@@ -62,12 +160,14 @@ function CadastroAvaliacaoHospedagem() {
                 <button
                   type='button'
                   className='btn btn-success'
+                  onClick={salvar}
                 >
                   Salvar
                 </button>
                 <button
                   type='button'
                   className='btn btn-danger'
+                  onClick={inicializar}
                 >
                   Cancelar
                 </button>
