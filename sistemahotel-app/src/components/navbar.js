@@ -229,9 +229,7 @@ function Navbar(props) {
             <NavbarItem render='true' href='/listagem-hospedagem' label='Hospedagens' />
           </ul>
 
-          <ul className='navbar-nav'>
-            <NavbarItem render='true' href='/listagem-avaliacao-quarto' label='Avaliação Quarto' />
-          </ul>
+          
           
         </div>
       </div>
