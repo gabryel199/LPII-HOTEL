@@ -7,7 +7,8 @@ function Navbar(props) {
   const [dropdown1Open, setDropdown1Open] = useState(false);
   const [dropdown2Open, setDropdown2Open] = useState(false);
   const [dropdown3Open, setDropdown3Open] = useState(false);
-  
+  const [dropdown4Open, setDropdown4Open] = useState(false);
+  const [dropdown6Open, setDropdown6Open] = useState(false);
   const [dropdown5Open, setDropdown5Open] = useState(false);
   const [tipoComodidadeDropdownOpen, setTipoComodidadeDropdownOpen] = useState(false); 
   const [tipoQuartosDropdownOpen, setTipoQuartosDropdownOpen] = useState(false);
@@ -24,10 +25,16 @@ function Navbar(props) {
     setDropdown3Open(!dropdown3Open);
   };
 
- 
+  const toggleDropdown4 = () => {
+    setDropdown4Open(!dropdown4Open);
+  };
 
   const toggleDropdown5 = () => {
     setDropdown5Open(!dropdown5Open);
+  };
+
+  const toggleDropdown6 = () => {
+    setDropdown6Open(!dropdown6Open);
   };
 
   const toggleTipoComodidadeDropdown = () => {
@@ -62,7 +69,13 @@ function Navbar(props) {
     setDropdown3Open(false);
   };
 
+  const handleMouseEnter4 = () => {
+    setDropdown4Open(true);
+  };
 
+  const handleMouseLeave4 = () => {
+    setDropdown4Open(false);
+  };
 
   const handleMouseEnter5 = () => {
     setDropdown5Open(true);
@@ -70,6 +83,14 @@ function Navbar(props) {
 
   const handleMouseLeave5 = () => {
     setDropdown5Open(false);
+  };
+
+  const handleMouseEnter6 = () => {
+    setDropdown6Open(true);
+  };
+
+  const handleMouseLeave6 = () => {
+    setDropdown6Open(false);
   };
 
   const handleMouseEnterTipoComodidade = () => {
@@ -109,9 +130,18 @@ function Navbar(props) {
           <ul className='navbar-nav'>
             <NavbarItem render='true' href='/login' label='Entrar' />
           </ul>
-          <ul className='navbar-nav'>
-            <NavbarItem render='true' href='/listagem-hoteis' label='Hotéis' />
+          
+
+          <ul className="nav-item-dropdown" onMouseEnter={handleMouseEnter4} onMouseLeave={handleMouseLeave4}>
+            <a className={`nav-link dropdown-toggle ${dropdown4Open ? 'show' : ''}`} onClick={toggleDropdown4}> Hotéis
+            </a>
+            <div className={`dropdown-menu ${dropdown4Open ? 'show' : ''}`}>
+              <a className="dropdown-item" href='/listagem-hoteis'>Hotéis</a>
+              <a className="dropdown-item" href='/listagem-avaliacao-hospedagem'>Avaliação de Hotéis</a>
+            </div>
           </ul>
+
+
           <ul className='navbar-nav'>
             <NavbarItem render='true' href='/listagem-cliente' label='Clientes' />
           </ul>
@@ -155,7 +185,24 @@ function Navbar(props) {
             <a className={`nav-link dropdown-toggle ${dropdown5Open ? 'show' : ''}`} onClick={toggleDropdown5}> Quartos
             </a>
             <div className={`dropdown-menu ${dropdown5Open ? 'show' : ''}`}>
-              <a className="dropdown-item" href='/listagem-quarto'>Quartos</a>
+
+
+
+
+              
+
+
+              <ul className="nav-item-dropdown" onMouseEnter={handleMouseEnter6} onMouseLeave={handleMouseLeave6}>
+                <a className={`nav-link-dropdown-toggle ${dropdown6Open ? 'show' : ''}`} onClick={toggleDropdown6}> Quartos </a>
+                <div className={`dropdown-menu ${dropdown6Open ? 'show' : ''}`} style={{ position: 'absolute', left: '100%', top: '0px' }}>
+                  <a className="dropdown-item" href='/listagem-quarto'>Quartos</a>
+                  <a className="dropdown-item" href='/listagem-avaliacao-quarto'>Avaliação de Quarto</a>
+                </div>
+              </ul>
+
+
+
+
               <ul className="nav-item-dropdown" onMouseEnter={handleMouseEnterTipoQuartos} onMouseLeave={handleMouseLeaveTipoQuartos}>
                 <a className={`nav-link-dropdown-toggle ${tipoQuartosDropdownOpen ? 'show' : ''}`} onClick={toggleTipoQuartosDropdown}> Tipos de Quarto </a>
                 <div className={`dropdown-menu ${tipoQuartosDropdownOpen ? 'show' : ''}`} style={{ position: 'absolute', left: '100%', top: '50px' }}>
@@ -185,9 +232,7 @@ function Navbar(props) {
           <ul className='navbar-nav'>
             <NavbarItem render='true' href='/listagem-avaliacao-quarto' label='Avaliação Quarto' />
           </ul>
-          <ul className='navbar-nav'>
-            <NavbarItem render='true' href='/listagem-avaliacao-hospedagem' label='Avaliação Hospedagem' />
-          </ul>
+          
         </div>
       </div>
     </div>
