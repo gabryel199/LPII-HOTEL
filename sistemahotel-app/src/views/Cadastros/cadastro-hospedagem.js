@@ -332,6 +332,7 @@ function CadastroHospedagem() {
     );
   };
 
+  const [ConsumoTotal, setConsumoTotal] = React.useState(0); //tipo Produto
   //tabela interativa2-------------------------------------------------------------------------
   const InteractiveTable2 = () => {
     // const [tableData2, setTableData2] = useState([]);
@@ -377,6 +378,10 @@ function CadastroHospedagem() {
         row.id === id ? { ...row, ['valorTotal']: row.quant*(dados6.find(obj => obj.id == row.produto_id).preco) } : row
       );
       setTableData2(updatedRows);
+
+      setConsumoTotal(tableData2.reduce((accumulator, currentValue) => {
+        return accumulator + currentValue.valorTotal;
+      }, 0));
     };
 
     if (!tableData2) {
@@ -388,6 +393,16 @@ function CadastroHospedagem() {
       return;
     }
     console.log("eeeeee") 
+
+    //apenas para atualizar os valores total na tab
+    /* let tempTable = tableData2.forEach(obj => {
+      obj.valorTotal = obj.quant*(dados6.find(obj2 => obj2.id == obj.produto_id).preco);
+    });
+    setTableData2(tempTable);
+    setConsumoTotal(tableData2.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue.valorTotal;
+    }, 0)); */
+
     return (
       <div>
         <table className="table table-hover">
@@ -395,7 +410,7 @@ function CadastroHospedagem() {
             <tr className="table-dark">
               <th scope="col">Produto</th>
               <th scope="col">Quantidade</th>
-              <th scope="col">Valor</th>
+              <th scope="col">Valor (R$ {ConsumoTotal})</th>
               <th scope="col">Ações</th>
             </tr>
           </thead>
@@ -460,12 +475,27 @@ function CadastroHospedagem() {
             ))}
           </tbody>
         </table>
-          <IconButton
-            aria-label='add'
-            onClick={() => addRow()}
-          >
-            <AddBoxIcon />
-          </IconButton>
+            <IconButton
+              aria-label='add'
+              onClick={() => addRow()}
+            >
+              <AddBoxIcon />
+            </IconButton>
+              
+            {/* <FormGroup label='Consumo total: ' htmlFor='selectHotel'>
+                <input 
+                  id = 'consumoTotalID'
+                  type='text' 
+                  className='form-control'
+                  //min = '1'
+                  readOnly
+                  //value = {(row.find(obj => obj.id === row.id).quant)*(dados6.find(obj => obj.id === row.produto_id).preco)}
+                  //value = {row.valorTotal}
+                  value = {ConsumoTotal}
+                  //onChange={(e) => handleChange(row.id, 'valorTotal', e.target.value)}
+                  >
+                </input>
+            </FormGroup> */}
       </div>
     );
   };

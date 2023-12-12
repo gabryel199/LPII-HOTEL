@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import Stack from '@mui/material/Stack';
+import { IconButton } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import AddBoxIcon from '@mui/icons-material/AddBox';
 
 import Card from '../../../components/card';
 
@@ -12,7 +15,7 @@ import { mensagemSucesso, mensagemErro } from '../../../components/toastr';
 import '../../../custom.css';
 
 import axios from 'axios';
-import { URL_quarto } from '../../../config/axios';
+import { URL_quarto, URL_comodidade, URL_tipoQuarto } from '../../../config/axios';
 
 function CadastroTipoQuarto() {
   
@@ -31,8 +34,12 @@ function CadastroTipoQuarto() {
   const [var6, setVar6] = useState('');//avaliacaoMedia
   const [var7, setVar7] = useState('');//diasCancelarReserva
   const [var8, setVar8] = useState('');//area
+  const [listaCama, setListaCama] = useState([]);//area
+  const [listaComodidade, setListaComodidade] = useState([]);//area
 
   const [dados, setDados] = React.useState([]);
+  const [tableData, setTableData] = useState([]);
+  const [tableData2, setTableData2] = useState([]);
   
   function inicializar() {
     if (idParam == null) {
@@ -45,6 +52,10 @@ function CadastroTipoQuarto() {
       setVar6('');
       setVar7('');
       setVar8('');
+      setListaCama('');
+      setListaComodidade('');
+      setTableData('');
+      setTableData2('');
     } else {
       setId(dados.id);
       setVar1(dados.titulo);
@@ -55,6 +66,10 @@ function CadastroTipoQuarto() {
       setVar6(dados.avaliacaoMedia);
       setVar7(dados.diasCancelarReserva);
       setVar8(dados.area);
+      setListaCama(dados.camaTipoQuarto);
+      setListaComodidade(dados.comodidadeTipoQuarto);
+      setTableData(dados.camaTipoQuarto);
+      setTableData2(dados.comodidadeTipoQuarto);
     }
   }
 
@@ -106,14 +121,248 @@ function CadastroTipoQuarto() {
       setVar6(dados.avaliacaoMedia);
       setVar7(dados.diasCancelarReserva);
       setVar8(dados.area);
+      setListaCama(dados.camaTipoQuarto);
+      setListaComodidade(dados.comodidadeTipoQuarto);
+      setTableData(dados.camaTipoQuarto);
+      setTableData2(dados.comodidadeTipoQuarto);
     }
   }
   
+  const [dados2, setDados2] = React.useState(null); //tipo Produto
+  
+  useEffect(() => {
+    axios.get(`${URL_comodidade}/comodidade`).then((response) => {
+      setDados2(response.data);
+    });
+  }, []);
+
+  const [dados3, setDados3] = React.useState(null); //tipo Produto
+  
+  useEffect(() => {
+    axios.get(`${URL_quarto}/tipoCama`).then((response) => {
+      setDados3(response.data);
+    });
+  }, []);
+
   useEffect(() => {
       buscar(); // eslint-disable-next-line
   }, [id]);
  
+  //tabela interativa------------------------------------------------
+  const InteractiveTable = () => {
+    // const [tableData, setTableData] = useState([]);
+    // setTableData = var16;
+    const addRow = () => {
+  
+      const newRow = {
+        id: tableData.length + 1,
+        tipoCama_id: 0,
+        quantidade: 0
+      };
+  
+      setTableData([...tableData, newRow]);
+    };
+  
+    const removeRow = (id) => {
+  
+      const updatedTableData = tableData.filter(row => row.id !== id);
+  
+      setTableData(updatedTableData);
+    };
+  
+    const handleChange = (id, column, value) => {
+      const updatedRows = tableData.map((row) =>
+        row.id === id ? { ...row, [column]: value } : row
+      );
+      setTableData(updatedRows);
+    };
+  
+    if (!tableData) return null;
+    return (
+      <div>
+        <table className="table table-hover">
+          <thead>
+            <tr className="table-dark">
+              <th scope="col">Tipo de Cama</th>
+              {/* <th scope="col">Nº</th> */}
+              <th scope="col">Quantidade</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tableData.map(row => (
+              <tr key={row.id} className="table-light">
+                <td>
+                  <select
+                    className='form-select'
+                    value={row.tipoCama_id}
+                    onChange={(e) => handleChange(row.id, 'tipoCama_id', e.target.value)}
+                  >
+                    <option key='0' value='0'>
+                      {' '}
+                    </option>
+                    {dados3.map((dado) => (
+                      <option key={dado.id} value={dado.id}>
+                        {dado.titulo}
+                      </option>
+                    ))}
+                  </select>
+                </td>
+                {/* <td>
+                  <select
+                    className='form-select'
+                    value={row.num}
+                    onChange={(e) => handleChange(row.id, 'num', e.target.value)}
+                  >
+                    <option key='0' value='0'>
+                      {' '}
+                    </option>
+                    {dados3.map((dado) => (
+                      <option key={dado.id} value={dado.id}>
+                        {dado.numero}
+                      </option>
+                    ))}
+                  </select>
+                </td> */}
+                <td>
+                  <input 
+                    type='number' 
+                    className='form-control'
+                    value = {row.quantidade}
+                    onChange={(e) => handleChange(row.id, 'quantidade', e.target.value)}>
+                  </input>
+                </td>
+                <td>
+                  <IconButton
+                    aria-label='delete'
+                    onClick={() => removeRow(row.id)}
+                  >
+                    <DeleteIcon />
+                  </IconButton>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+          <IconButton
+            aria-label='add'
+            onClick={() => addRow()}
+          >
+            <AddBoxIcon />
+          </IconButton>
+      </div>
+    );
+  };
+
+  //tabela interativa------------------------------------------------
+  const InteractiveTable2 = () => {
+    // const [tableData, setTableData] = useState([]);
+    // setTableData = var16;
+    const addRow = () => {
+  
+      const newRow = {
+        id: tableData2.length + 1,
+        tipoCama_id: 0,
+        quantidade: 0
+      };
+  
+      setTableData2([...tableData2, newRow]);
+    };
+  
+    const removeRow = (id) => {
+  
+      const updatedTableData2 = tableData2.filter(row => row.id !== id);
+  
+      setTableData2(updatedTableData2);
+    };
+  
+    const handleChange = (id, column, value) => {
+      const updatedRows = tableData2.map((row) =>
+        row.id === id ? { ...row, [column]: value } : row
+      );
+      setTableData2(updatedRows);
+    };
+  
+    if (!tableData2) return null;
+    return (
+      <div>
+        <table className="table table-hover">
+          <thead>
+            <tr className="table-dark">
+              <th scope="col">Comodidades</th>
+              {/* <th scope="col">Nº</th> */}
+              <th scope="col">Quantidade</th>
+              <th scope="col">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tableData2.map(row => (
+              <tr key={row.id} className="table-light">
+                <td>
+                  <select
+                    className='form-select'
+                    value={row.id_comodidade_id}
+                    onChange={(e) => handleChange(row.id, 'id_comodidade_id', e.target.value)}
+                  >
+                    <option key='0' value='0'>
+                      {' '}
+                    </option>
+                    {dados2.map((dado) => (
+                      <option key={dado.id} value={dado.id}>
+                        {dado.titulo}
+                      </option>
+                    ))}
+                  </select>
+                </td>
+                {/* <td>
+                  <select
+                    className='form-select'
+                    value={row.num}
+                    onChange={(e) => handleChange(row.id, 'num', e.target.value)}
+                  >
+                    <option key='0' value='0'>
+                      {' '}
+                    </option>
+                    {dados3.map((dado) => (
+                      <option key={dado.id} value={dado.id}>
+                        {dado.numero}
+                      </option>
+                    ))}
+                  </select>
+                </td> */}
+                <td>
+                  <input 
+                    type='number' 
+                    className='form-control'
+                    value = {row.qtd}
+                    onChange={(e) => handleChange(row.id, 'qtd', e.target.value)}>
+                  </input>
+                </td>
+                <td>
+                  <IconButton
+                    aria-label='delete'
+                    onClick={() => removeRow(row.id)}
+                  >
+                    <DeleteIcon />
+                  </IconButton>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+          <IconButton
+            aria-label='add'
+            onClick={() => addRow()}
+          >
+            <AddBoxIcon />
+          </IconButton>
+      </div>
+    );
+  };
+
   if (!dados) return null;
+  if (!dados2) return null;
+  if (!dados3) return null;
 
   return (
     <div className='container'>
@@ -190,6 +439,20 @@ function CadastroTipoQuarto() {
                   name='area'
                   onChange={(e) => setVar8(e.target.value)}
                 />
+              </FormGroup>
+              <FormGroup label='Camas: *' htmlFor='selectCamas'>
+              <div class="card">
+                <div class="card-body">
+                  <InteractiveTable />
+                </div>
+              </div>
+              </FormGroup>
+              <FormGroup label='Comodidades: *' htmlFor='selectComodidades'>
+              <div class="card">
+                <div class="card-body">
+                  <InteractiveTable2 />
+                </div>
+              </div>
               </FormGroup>
               
               <br></br>

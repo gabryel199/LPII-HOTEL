@@ -137,7 +137,7 @@ function Navbar(props) {
             </a>
             <div className={`dropdown-menu ${dropdown4Open ? 'show' : ''}`}>
               <a className="dropdown-item" href='/listagem-hoteis'>Hotéis</a>
-              <a className="dropdown-item" href='/listagem-avaliacao-hospedagem'>Avaliação de Hotéis</a>
+              <a className="dropdown-item" href='/listagem-avaliacao-hospedagem'>Avaliações de Hotéis</a>
             </div>
           </ul>
 
@@ -196,7 +196,7 @@ function Navbar(props) {
                 <a className={`nav-link-dropdown-toggle ${dropdown6Open ? 'show' : ''}`} onClick={toggleDropdown6}> Quartos </a>
                 <div className={`dropdown-menu ${dropdown6Open ? 'show' : ''}`} style={{ position: 'absolute', left: '100%', top: '0px' }}>
                   <a className="dropdown-item" href='/listagem-quarto'>Quartos</a>
-                  <a className="dropdown-item" href='/listagem-avaliacao-quarto'>Avaliação de Quarto</a>
+                  <a className="dropdown-item" href='/listagem-avaliacao-quarto'>Avaliações de Quartos</a>
                 </div>
               </ul>
 

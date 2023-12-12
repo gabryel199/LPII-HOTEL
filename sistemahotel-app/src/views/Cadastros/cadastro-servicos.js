@@ -195,11 +195,11 @@ function CadastroServicos() {
         <table className="table table-hover">
           <thead>
             <tr className="table-dark">
-              <th scope="col">horarioInicio</th>
-              <th scope="col">horarioFim</th>
-              <th scope="col">vagasTotal</th>
-              <th scope="col">vagasOcupadas</th>
-              <th scope="col">status</th>
+              <th scope="col">Horário de Início</th>
+              <th scope="col">Horário de Término</th>
+              <th scope="col">Vagas Limite</th>
+              <th scope="col">Vagas Ocupadas</th>
+              <th scope="col">Status</th>
               <th scope="col">Ações</th>
             </tr>
           </thead>
@@ -423,6 +423,11 @@ function CadastroServicos() {
                 </select>
               </FormGroup>
               {/* parte do data hoario */}
+              <br></br>
+              <div class="card">
+                <div class="card-body">
+                Manejamento de Horários
+              <br></br>
               <FormGroup label='Data:' htmlFor='selectDate'>
                 <input
                   type="date"
@@ -432,13 +437,15 @@ function CadastroServicos() {
                   onChange={(e) => setDate(e.target.value)}
                 />
               </FormGroup>
-              <FormGroup label='Horarios: *' htmlFor='selectHorarios'>
+              <FormGroup label='Horários: *' htmlFor='selectHorarios'>
               <div class="card">
                 <div class="card-body">
                   <InteractiveTable />
                 </div>
               </div>
               </FormGroup>
+                </div>
+              </div>
               
 
               <br></br>
