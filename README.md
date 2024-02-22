@@ -28,3 +28,9 @@ springweb
 spring security - dps
 spring data jpa para percistencia
 postgresql driver
+
+swagger para disponibilizar os gets
+dto é data transfer object - objeto padrao para transf
+controller é do mvc (model vie w controlelr) para aparte da api entre as outras
+repository - comu bd
+hibernate - mapeamento classe registro - icorporado JPA
