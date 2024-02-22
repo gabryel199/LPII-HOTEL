@@ -3,6 +3,8 @@
 //aula dia 31/10 dps so 21/11
 //https://github.com/marcoaparaujo
 
+// MEETING = fbb-cboo-zbk
+
 o que arumar
 status, tipo quarto na hospedagem e reserva e hotel, logradouro dps da cidade
 status reserva, hospedagem, quarto, servico
