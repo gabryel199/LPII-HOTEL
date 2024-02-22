@@ -5,6 +5,7 @@
 
 // [MEETING = fbb-cboo-zbk](https://meet.google.com/fbb-cboo-zbk)
 
+// LP II
 o que arumar
 status, tipo quarto na hospedagem e reserva e hotel, logradouro dps da cidade
 status reserva, hospedagem, quarto, servico
@@ -15,3 +16,15 @@ Cadastro horarios no servico -> ao selecionar um dia no calendaro abrirria a tab
 cadastro lista de pedidos e servico na hospedagem
 por ao dia da seeman de folga no fucnmionario
 padrao danta na listagem
+
+//LP III
+spring io. no inteli j professional tem
+project new spring
+Spring Initializr
+DEPENDENCIAS DO PROJETO
+spring boot dev tools
+lombok
+springweb
+spring security - dps
+spring data jpa para percistencia
+postgresql driver
