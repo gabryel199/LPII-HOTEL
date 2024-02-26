@@ -8,16 +8,26 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+import java.util.Date;
+import java.util.Timer;
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoriaProduto {
+public class HorarioServicos {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
 
-    private String descricao;
-    private String categoria;
+    private String status;
+    private int vagasTotal;
+    private int vagasOcupadas;
+    private Date data;
+    private Timer horaInicio;
+    private Timer horaFim;
+
 }

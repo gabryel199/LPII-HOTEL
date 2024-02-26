@@ -18,4 +18,7 @@ public class Hotel {
     private Long id;
     private String titulo;
     private String descricao;
+    private float avaliacaoMedia;
+    private String telefone1;
+    private String telefone2;
 }

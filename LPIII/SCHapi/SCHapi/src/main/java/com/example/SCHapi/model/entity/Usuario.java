@@ -8,16 +8,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoriaProduto {
+public abstract class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
-
-    private String descricao;
-    private String categoria;
+    private String nome;
+    private String cpf;
+    private Date dataNascimento;
+    private String email;
+    private String senha;
+    private String telefone1;
+    private String telefone2;
 }

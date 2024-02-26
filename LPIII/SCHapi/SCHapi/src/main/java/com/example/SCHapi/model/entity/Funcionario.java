@@ -8,16 +8,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Timer;
+
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoriaProduto {
+public class Funcionario extends Usuario{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
-
-    private String descricao;
-    private String categoria;
+    private float salario;
+    private Timer horaInicio;
+    private Timer horaFim;
 }

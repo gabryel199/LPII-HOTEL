@@ -12,12 +12,16 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoriaProduto {
+public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
-
-    private String descricao;
-    private String categoria;
+    private int numero;
+    private String complemento;
+    private String logradouro;
+    private String bairro;
+    private Uf uf;
+    private Pais pais;
+    private String cidade;
+    private String cep;
 }
