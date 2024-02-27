@@ -1,12 +1,11 @@
 package com.example.SCHapi.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import jakarta.persistence.*;
+import java.util.List;
 
 import java.util.Date;
 
@@ -14,6 +13,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@MappedSuperclass
 public abstract class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,4 +25,7 @@ public abstract class Usuario {
     private String senha;
     private String telefone1;
     private String telefone2;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Endereco endereco;
 }

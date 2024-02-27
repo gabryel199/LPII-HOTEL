@@ -1,9 +1,8 @@
 package com.example.SCHapi.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import java.util.List;
+
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,4 +20,21 @@ public class Hotel {
     private float avaliacaoMedia;
     private String telefone1;
     private String telefone2;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Endereco endereco;
+    @OneToMany
+    private List<Servico> servicos;
+    @OneToMany
+    private List<Quarto> quartos;
+    @OneToMany
+    private List<AvaliacaoHospedagem> avaliacaoHospedagens;
+    @OneToMany
+    private List<Reserva> reservas;
+    @OneToMany
+    private List<Hospedagem> hospedagens;
+    @OneToMany
+    private List<Funcionario> funcionarios;
+    @OneToMany
+    private List<Produto> produtos;
 }
