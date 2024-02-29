@@ -1,11 +1,15 @@
 package com.example.SCHapi.model.entity;
 
-import java.util.List;
-
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import java.util.Date;
 
 @Entity
 @Data
@@ -17,32 +21,15 @@ public class Hospedagem {
     private Long id;
 
     private String statusHospedagem;
-    private Data dataInicio;
-    private Data dataFim1;
-    private Data dataFim2;
+    private Date dataInicio;
+    private Date dataFim1;
+    private Date dataFim2;
     private float valorEstadia;
     private float valorConsumo;
     private float valorServicos;
     private float valorEstadiaAdicional;
     private float valorTotalPago;
 
-    @ManyToOne
-    private Cliente cliente;
-    @ManyToOne
-    private Funcionario funcionario;
-    @ManyToOne
-    private Hotel hotel;
-    @OneToMany
-    private List<AvaliacaoQuarto> avaliacaoQuartos;
-    @ManyToMany
-    private List<Quarto> quartos;
-    @OneToMany
-    private List<ServicoSolicitado> servicoSolicitados;
-    @OneToMany
-    private List<ProdutoSolicitado> produtoSolicitados;
-    @OneToOne(cascade = CascadeType.ALL)
-    private AvaliacaoHospedagem avaliacaoHospedagem;
-    @OneToOne
-    private Reserva reserva;
+
 
 }

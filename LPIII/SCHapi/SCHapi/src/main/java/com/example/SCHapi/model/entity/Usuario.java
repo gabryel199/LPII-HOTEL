@@ -4,8 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import jakarta.persistence.*;
-import java.util.List;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+
 
 import java.util.Date;
 
@@ -25,6 +29,5 @@ public abstract class Usuario {
     private String telefone1;
     private String telefone2;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Endereco endereco;
+
 }

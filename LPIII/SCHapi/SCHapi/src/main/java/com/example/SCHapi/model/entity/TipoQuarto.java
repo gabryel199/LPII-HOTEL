@@ -1,11 +1,13 @@
 package com.example.SCHapi.model.entity;
 
-import java.util.List;
-
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 @Data
@@ -14,7 +16,7 @@ import lombok.NoArgsConstructor;
 public class TipoQuarto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id;;
 
     private String titulo;
     private String descricao;
@@ -25,16 +27,5 @@ public class TipoQuarto {
     private int diasCancelarReserva;
     private float area;
 
-    @OneToMany(mappedBy = "tipoQuarto")
-    private List<TipoCamaQuarto> tipoCamaQuartos;
-    @ManyToOne
-    private Cargo cargo;
-    @ManyToMany
-    private List<Reserva> reservas;
-    @OneToOne(cascade = CascadeType.ALL)
-    private AvaliacaoQuarto avaliacaoQuarto;
-    @OneToMany(mappedBy = "tipoQuarto")
-    private List<ComodidadesTipoQuarto> comodidadesTipoQuartos;
-    @OneToMany(mappedBy = "tipoQuarto")
-    private List<Quarto> quartos;
+
 }
