@@ -1,10 +1,11 @@
 package com.example.SCHapi.model.entity;
 
+import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
+
 
 @Entity
 @Data
@@ -12,4 +13,5 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 public class RecusosHumanos extends Funcionario{
 
+    private String descricao;
 }

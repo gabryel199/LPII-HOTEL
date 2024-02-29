@@ -1,10 +1,11 @@
 package com.example.SCHapi.model.entity;
 
+import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.MappedSuperclass;
+
 @MappedSuperclass
 @Data
 @NoArgsConstructor
