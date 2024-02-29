@@ -34,3 +34,9 @@ dto é data transfer object - objeto padrao para transf
 controller é do mvc (model vie w controlelr) para aparte da api entre as outras
 repository - comu bd
 hibernate - mapeamento classe registro - icorporado JPA
+
+29/02/24
+pgadmin 4 pra criar banc
+ddl auto atualiza o bd qdo muda a classe - ele nao remove por seguranca
+2 ultiams lina de sec nao agora
+senha admin
