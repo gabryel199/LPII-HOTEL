@@ -12,5 +12,5 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 
 public class AdministradorGeral extends Funcionario{
-
+    private String descricao;
 }

@@ -14,4 +14,5 @@ import javax.persistence.Entity;
 
 public class Financeiro extends Funcionario{
 
+    private String descricao;
 }

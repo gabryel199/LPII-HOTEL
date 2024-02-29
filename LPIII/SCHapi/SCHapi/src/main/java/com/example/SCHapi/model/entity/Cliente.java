@@ -13,5 +13,5 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 public class Cliente extends Usuario{
 
-
+    private String descricao;
 }

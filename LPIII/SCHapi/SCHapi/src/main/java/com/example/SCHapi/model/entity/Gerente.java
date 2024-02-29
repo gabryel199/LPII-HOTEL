@@ -13,4 +13,5 @@ import javax.persistence.Entity;
 
 public class Gerente extends Funcionario{
 
+    private String descricao;
 }

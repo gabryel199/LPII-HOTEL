@@ -12,4 +12,5 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 public class Recepcionista extends Funcionario{
 
+    private String descricao;
 }

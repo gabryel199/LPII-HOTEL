@@ -12,4 +12,5 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 public class RecusosHumanos extends Funcionario{
 
+    private String descricao;
 }
