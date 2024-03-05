@@ -1,6 +1,7 @@
 package com.example.SCHapi.model.entity;
 
 
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,4 +20,8 @@ public abstract class Funcionario extends Usuario{
     private String horaFim;
 
 
+    @ManyToOne
+    private Cargo cargo;
+    @ManyToOne
+    private Hotel hotel;
 }

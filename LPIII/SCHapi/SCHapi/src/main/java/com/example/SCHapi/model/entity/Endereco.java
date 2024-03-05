@@ -27,10 +27,8 @@ public class Endereco {
 
     @ManyToOne
     private Uf uf;
-
     @OneToOne
     private Hotel hotel;
-
     @OneToOne
     private Usuario usuario;
 }
