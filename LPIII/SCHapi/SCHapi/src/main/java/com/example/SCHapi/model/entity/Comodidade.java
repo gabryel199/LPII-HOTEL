@@ -23,5 +23,7 @@ public class Comodidade {
     private String titulo;
     private String descricao;
 
+    @ManyToOne
+    private CategoriaComodidade categoriaComodidades;
 
 }

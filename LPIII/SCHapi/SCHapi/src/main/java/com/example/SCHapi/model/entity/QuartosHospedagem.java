@@ -8,24 +8,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class ComodidadesTipoQuarto {
+public class QuartosHospedagem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private int quantidade;
-
-    @ManyToOne
-    private TipoQuarto tipoQuarto;
-    @ManyToOne
-    private Comodidade comodidades;
-    
-
+    private String descricao;
 }

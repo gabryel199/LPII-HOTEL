@@ -23,6 +23,8 @@ public class AvaliacaoQuarto {
     private float nota;
     private String comentario;
 
+    @ManyToOne
+    private Hospedagem hospedagem;
     
 
 }

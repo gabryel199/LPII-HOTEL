@@ -23,5 +23,7 @@ public class Cargo {
     private String descricao;
     private float salarioBase;
 
+    @ManyToOne
+    private Hotel hotel;
 
 }
