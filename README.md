@@ -5,6 +5,8 @@
 
 // [MEETING = fbb-cboo-zbk](https://meet.google.com/fbb-cboo-zbk)
 
+// npm install react-scripts --save
+
 // LP II
 o que arumar
 status, tipo quarto na hospedagem e reserva e hotel, logradouro dps da cidade
