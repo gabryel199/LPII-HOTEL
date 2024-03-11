@@ -8,5 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ComodidadeDTO {
-
+    private Long id;
+    private String titulo;
+    private String descricao;
+    private Long idTipoComodidade;
 }

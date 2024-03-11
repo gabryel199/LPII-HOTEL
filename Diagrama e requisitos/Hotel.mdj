@@ -33993,7 +33993,7 @@
 											"top": 455,
 											"width": 139.88330078125,
 											"height": 13,
-											"text": "TipoCama_Quarto"
+											"text": "CamaTipoQuarto"
 										},
 										{
 											"_type": "LabelView",
@@ -39313,7 +39313,7 @@
 											"top": 735,
 											"width": 164.4423828125,
 											"height": 13,
-											"text": "Comodidades_TipoQuarto"
+											"text": "ComodidadeTipoQuarto"
 										},
 										{
 											"_type": "LabelView",
@@ -40585,8 +40585,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": -64,
-											"top": 208,
+											"left": -32,
+											"top": 352,
 											"height": 13
 										},
 										{
@@ -40596,8 +40596,8 @@
 												"$ref": "AAAAAAGODj3QZdzaq+E="
 											},
 											"font": "Arial;13;1",
-											"left": 493,
-											"top": 479,
+											"left": 509,
+											"top": 551,
 											"width": 130.78076171875,
 											"height": 13,
 											"text": "TipoQuartosReserva"
@@ -40610,8 +40610,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": -64,
-											"top": 208,
+											"left": -32,
+											"top": 352,
 											"width": 162.54443359375,
 											"height": 13,
 											"text": "(from Diagrama de Classes)"
@@ -40624,15 +40624,15 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": -64,
-											"top": 208,
+											"left": -32,
+											"top": 352,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 488,
-									"top": 472,
+									"left": 504,
+									"top": 544,
 									"width": 140.78076171875,
 									"height": 25,
 									"stereotypeLabel": {
@@ -40657,11 +40657,30 @@
 									"model": {
 										"$ref": "AAAAAAGODj3QZNzXTy4="
 									},
+									"subViews": [
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGOL2uvykjctmU=",
+											"_parent": {
+												"$ref": "AAAAAAGODj3QZdzfOMY="
+											},
+											"model": {
+												"$ref": "AAAAAAGOL2uvvEhq9YU="
+											},
+											"font": "Arial;13;0",
+											"left": 509,
+											"top": 574,
+											"width": 130.78076171875,
+											"height": 13,
+											"text": "-qtd",
+											"horizontalAlignment": 0
+										}
+									],
 									"font": "Arial;13;0",
-									"left": 488,
-									"top": 497,
+									"left": 504,
+									"top": 569,
 									"width": 140.78076171875,
-									"height": 10
+									"height": 23
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -40673,8 +40692,8 @@
 										"$ref": "AAAAAAGODj3QZNzXTy4="
 									},
 									"font": "Arial;13;0",
-									"left": 488,
-									"top": 507,
+									"left": 504,
+									"top": 592,
 									"width": 140.78076171875,
 									"height": 10
 								},
@@ -40689,8 +40708,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -32,
-									"top": 104,
+									"left": -16,
+									"top": 176,
 									"width": 10,
 									"height": 10
 								},
@@ -40705,18 +40724,18 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -32,
-									"top": 104,
+									"left": -16,
+									"top": 176,
 									"width": 10,
 									"height": 10
 								}
 							],
 							"font": "Arial;13;0",
 							"containerChangeable": true,
-							"left": 488,
-							"top": 472,
+							"left": 504,
+							"top": 544,
 							"width": 140.78076171875,
-							"height": 45,
+							"height": 58,
 							"nameCompartment": {
 								"$ref": "AAAAAAGODj3QZdzaq+E="
 							},
@@ -40761,8 +40780,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 256,
-											"top": -256,
+											"left": 160,
+											"top": -304,
 											"height": 13
 										},
 										{
@@ -40772,8 +40791,8 @@
 												"$ref": "AAAAAAGODj8RXefbOZY="
 											},
 											"font": "Arial;13;1",
-											"left": 685,
-											"top": 855,
+											"left": 637,
+											"top": 831,
 											"width": 131.47265625,
 											"height": 13,
 											"text": "QuartosHospedagem"
@@ -40786,8 +40805,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 256,
-											"top": -256,
+											"left": 160,
+											"top": -304,
 											"width": 162.54443359375,
 											"height": 13,
 											"text": "(from Diagrama de Classes)"
@@ -40800,15 +40819,15 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 256,
-											"top": -256,
+											"left": 160,
+											"top": -304,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 680,
-									"top": 848,
+									"left": 632,
+									"top": 824,
 									"width": 141.47265625,
 									"height": 25,
 									"stereotypeLabel": {
@@ -40833,11 +40852,30 @@
 									"model": {
 										"$ref": "AAAAAAGODj8RXefY8ac="
 									},
+									"subViews": [
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGOL0CULP+NYCY=",
+											"_parent": {
+												"$ref": "AAAAAAGODj8RXefgcVM="
+											},
+											"model": {
+												"$ref": "AAAAAAGOL0CUGv8b1l8="
+											},
+											"font": "Arial;13;0",
+											"left": 637,
+											"top": 854,
+											"width": 131.47265625,
+											"height": 13,
+											"text": "-qtd",
+											"horizontalAlignment": 0
+										}
+									],
 									"font": "Arial;13;0",
-									"left": 680,
-									"top": 873,
+									"left": 632,
+									"top": 849,
 									"width": 141.47265625,
-									"height": 10
+									"height": 23
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -40849,8 +40887,8 @@
 										"$ref": "AAAAAAGODj8RXefY8ac="
 									},
 									"font": "Arial;13;0",
-									"left": 680,
-									"top": 883,
+									"left": 632,
+									"top": 872,
 									"width": 141.47265625,
 									"height": 10
 								},
@@ -40865,8 +40903,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 128,
-									"top": -128,
+									"left": 80,
+									"top": -152,
 									"width": 10,
 									"height": 10
 								},
@@ -40881,18 +40919,18 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 128,
-									"top": -128,
+									"left": 80,
+									"top": -152,
 									"width": 10,
 									"height": 10
 								}
 							],
 							"font": "Arial;13;0",
 							"containerChangeable": true,
-							"left": 680,
-							"top": 848,
+							"left": 632,
+							"top": 824,
 							"width": 141.47265625,
-							"height": 45,
+							"height": 58,
 							"nameCompartment": {
 								"$ref": "AAAAAAGODj8RXefbOZY="
 							},
@@ -40937,8 +40975,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 48,
-											"top": -32,
+											"left": 256,
+											"top": -16,
 											"height": 13
 										},
 										{
@@ -40948,8 +40986,8 @@
 												"$ref": "AAAAAAGODkHic089DXY="
 											},
 											"font": "Arial;13;1",
-											"left": 517,
-											"top": 1215,
+											"left": 621,
+											"top": 1223,
 											"width": 157.5234375,
 											"height": 13,
 											"text": "RelacaoHorariosServico"
@@ -40962,8 +41000,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 48,
-											"top": -32,
+											"left": 256,
+											"top": -16,
 											"width": 162.54443359375,
 											"height": 13,
 											"text": "(from Diagrama de Classes)"
@@ -40976,15 +41014,15 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 48,
-											"top": -32,
+											"left": 256,
+											"top": -16,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 512,
-									"top": 1208,
+									"left": 616,
+									"top": 1216,
 									"width": 167.5234375,
 									"height": 25,
 									"stereotypeLabel": {
@@ -41010,8 +41048,8 @@
 										"$ref": "AAAAAAGODkHick86KwU="
 									},
 									"font": "Arial;13;0",
-									"left": 512,
-									"top": 1233,
+									"left": 616,
+									"top": 1241,
 									"width": 167.5234375,
 									"height": 10
 								},
@@ -41025,8 +41063,8 @@
 										"$ref": "AAAAAAGODkHick86KwU="
 									},
 									"font": "Arial;13;0",
-									"left": 512,
-									"top": 1243,
+									"left": 616,
+									"top": 1251,
 									"width": 167.5234375,
 									"height": 10
 								},
@@ -41041,8 +41079,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 24,
-									"top": -16,
+									"left": 128,
+									"top": -8,
 									"width": 10,
 									"height": 10
 								},
@@ -41057,16 +41095,16 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 24,
-									"top": -16,
+									"left": 128,
+									"top": -8,
 									"width": 10,
 									"height": 10
 								}
 							],
 							"font": "Arial;13;0",
 							"containerChangeable": true,
-							"left": 512,
-							"top": 1208,
+							"left": 616,
+							"top": 1216,
 							"width": 167.5234375,
 							"height": 45,
 							"nameCompartment": {
@@ -44974,7 +45012,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGKkHxj8QnLxvs="
 					},
-					"name": "TipoCama_Quarto",
+					"name": "CamaTipoQuarto",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -45207,7 +45245,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGKkHxj8QnLxvs="
 					},
-					"name": "Comodidades_TipoQuarto",
+					"name": "ComodidadeTipoQuarto",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -45259,7 +45297,18 @@
 					"_parent": {
 						"$ref": "AAAAAAGKkHxj8QnLxvs="
 					},
-					"name": "TipoQuartosReserva"
+					"name": "TipoQuartosReserva",
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGOL2uvvEhq9YU=",
+							"_parent": {
+								"$ref": "AAAAAAGODj3QZNzXTy4="
+							},
+							"name": "qtd",
+							"visibility": "private"
+						}
+					]
 				},
 				{
 					"_type": "UMLClass",
@@ -45267,7 +45316,18 @@
 					"_parent": {
 						"$ref": "AAAAAAGKkHxj8QnLxvs="
 					},
-					"name": "QuartosHospedagem"
+					"name": "QuartosHospedagem",
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGOL0CUGv8b1l8=",
+							"_parent": {
+								"$ref": "AAAAAAGODj8RXefY8ac="
+							},
+							"name": "qtd",
+							"visibility": "private"
+						}
+					]
 				},
 				{
 					"_type": "UMLClass",

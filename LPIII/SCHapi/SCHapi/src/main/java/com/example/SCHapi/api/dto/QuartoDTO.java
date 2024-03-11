@@ -7,4 +7,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class QuartoDTO {
+    private Long id;
+    private Integer numero;
+    private Integer andar;
+    private Integer bloco;
+    private String status;
+    private Long idHhotel;
+    private Long idTipoQuarto;
 }

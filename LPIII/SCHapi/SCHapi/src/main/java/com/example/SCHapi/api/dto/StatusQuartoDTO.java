@@ -7,4 +7,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class StatusQuartoDTO {
+    private Long id;
+
+    private String titulo;
 }

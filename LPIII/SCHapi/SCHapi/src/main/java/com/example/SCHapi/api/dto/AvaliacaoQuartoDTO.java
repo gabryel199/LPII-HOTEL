@@ -8,4 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AvaliacaoQuartoDTO {
+    private Long id;
+    private String nota;
+    private String comentario;
+    private Long idTipoQuarto;
 }

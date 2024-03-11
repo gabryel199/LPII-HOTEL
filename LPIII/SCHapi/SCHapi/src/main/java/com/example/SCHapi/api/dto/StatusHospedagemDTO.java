@@ -8,4 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class StatusHospedagemDTO {
 
+    private Long id;
+
+    private String titulo;
 }

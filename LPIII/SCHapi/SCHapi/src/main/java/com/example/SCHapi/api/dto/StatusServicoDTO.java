@@ -7,4 +7,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class StatusServicoDTO {
+    private Long id;
+
+    private String titulo;
 }

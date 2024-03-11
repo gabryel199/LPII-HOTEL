@@ -8,5 +8,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CargoDTO {
-
+    private Long id;
+    private String cargo;
+    private String descricao;
+    private Float salarioBase;
+    private Long idHotel;
 }

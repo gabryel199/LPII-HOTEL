@@ -2,6 +2,7 @@ package com.example.SCHapi.api.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -13,23 +14,23 @@ public class FuncionarioDTO {
   private Date dataNacimento;
   private String email;
   private String senha;
-  private String salario;
+  private Float salario;
   private String horaInicio;
   private String horaFim;
-  private String ddi1;
-  private String ddd1;
-  private String num1;
-  private String ddi2;
-  private String ddd2;
-  private String num2;
-  private String numero;,
+  private Integer ddi1;
+  private Integer ddd1;
+  private Integer num1;
+  private Integer ddi2;
+  private Integer ddd2;
+  private Integer num2;
+  private Integer numero;
   private String complemento;
   private String logradouro;
   private String bairro;
   private String cep;
-  private String idCidade;
-  private String idUf;
-  private String idPais;
-  private String idHotel;
-  private String idCargo;
+  private String cidade;
+  private Long idUf;
+  private Long idPais;
+  private Long idHotel;
+  private Long idCargo;
 }

@@ -8,5 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PaisDTO {
-
+    private Long id;
+    private String titulo;
 }

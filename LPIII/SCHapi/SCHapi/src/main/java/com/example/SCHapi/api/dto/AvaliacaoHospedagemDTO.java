@@ -7,4 +7,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AvaliacaoHospedagemDTO {
+    private Long id;
+    private Integer nota;
+    private String comentario;
+    private Long idHotel;
 }

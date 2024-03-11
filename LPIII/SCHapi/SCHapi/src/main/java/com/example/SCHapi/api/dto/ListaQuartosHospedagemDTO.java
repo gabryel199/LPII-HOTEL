@@ -5,10 +5,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class TipoComodidadeDTO {
+@AllArgsConstructor
+
+public class ListaQuartosHospedagemDTO {
     private Long id;
-    private String titulo;
-    private String descricao;
+    private Integer qtd;
+    private Float idQuarto;
+    private Long idTipoQuarto;////////
 }

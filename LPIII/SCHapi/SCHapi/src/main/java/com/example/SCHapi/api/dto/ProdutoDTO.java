@@ -7,5 +7,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProdutoDTO {
-
+    private Long id;
+    private String titulo;
+    private String descricao;
+    private Float preco;
+    private Integer quantidadeestoque;
+    private Long idHotel;
+    private Long idTipoProduto;
 }
