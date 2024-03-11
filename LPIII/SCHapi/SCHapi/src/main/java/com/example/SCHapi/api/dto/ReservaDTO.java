@@ -22,6 +22,5 @@ public class ReservaDTO {
     private Long idTipoQuarto;
     private Long idReserva;
 
-    private ListaQuartosHospedagemDTO listaQuartos;
-    private ProdutoSolicitado produtoHospedagem;
+    private ListaQuartosReservaDTO listaQuartos;
 }

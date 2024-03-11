@@ -32,5 +32,5 @@ public class HospedagemDTO {
     private Long idReserva;
 
     private ListaQuartosHospedagemDTO listaQuartos;
-    private ProdutoSolicitado produtoHospedagem;
+    private ProdutoSolicitadoDTO produtoHospedagem;
 }
