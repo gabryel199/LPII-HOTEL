@@ -3,9 +3,11 @@ package com.example.SCHapi.api.dto;
 import com.example.SCHapi.model.entity.CamaTipoQuarto;
 import com.example.SCHapi.model.entity.ComodidadeTipoQuarto;
 
+import com.example.SCHapi.model.entity.TipoQuarto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.modelmapper.ModelMapper;
 
 @Data
 @AllArgsConstructor
@@ -22,4 +24,11 @@ public class TipoQuartoDTO {
     private Float area;
     private CamaTipoQuarto CamaTipoQuarto;
     private ComodidadeTipoQuarto ComodidadeTipoQuarto;
+
+    public static TipoQuartoDTO create(TipoQuarto tipoQuarto) {
+        ModelMapper modelMapper = new ModelMapper();
+        TipoQuartoDTO dto = modelMapper.map(tipoQuarto, TipoQuartoDTO.class);
+
+        return dto;
+    }
 }
