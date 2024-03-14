@@ -42,3 +42,8 @@ pgadmin 4 pra criar banc
 ddl auto atualiza o bd qdo muda a classe - ele nao remove por seguranca
 2 ultiams lina de sec nao agora
 senha admin
+
+
+14/03/2024
+
+NAS CLASSES DTO COLOCAR O METODO CREATE, POREM QUANDO HOUVER UM ATRIBUTO ESPECIFICO DE OUTRA CLASSE, NA CLASSE; TEM QUE COLOCAR UM OUTRO TIPO DE MAPEAMENTO NO DTO.
