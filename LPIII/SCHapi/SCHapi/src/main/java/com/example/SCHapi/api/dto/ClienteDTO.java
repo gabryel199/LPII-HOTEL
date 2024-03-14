@@ -2,9 +2,12 @@ package com.example.SCHapi.api.dto;
 
 import java.util.Date;
 
+import com.example.SCHapi.model.entity.Cargo;
+import com.example.SCHapi.model.entity.Cliente;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.modelmapper.ModelMapper;
 
 @Data
 @NoArgsConstructor
@@ -30,4 +33,11 @@ public class ClienteDTO {
     private String cidade;
     private Long idUf;
     private Long idPais;
+
+    public static ClienteDTO create(Cliente cliente) {
+        ModelMapper modelMapper = new ModelMapper();
+        ClienteDTO dto = modelMapper.map(cliente, ClienteDTO.class);
+
+        return dto;
+    }
 }

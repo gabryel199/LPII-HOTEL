@@ -2,9 +2,11 @@ package com.example.SCHapi.api.dto;
 
 import java.util.Date;
 
+import com.example.SCHapi.model.entity.Endereco;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.modelmapper.ModelMapper;
 
 @Data
 @NoArgsConstructor
@@ -18,4 +20,11 @@ public class EnderecoDTO {
     private String cep;
     private String cidade;
     private Long idUf;
+
+    public static EnderecoDTO create(Endereco endereco) {
+        ModelMapper modelMapper = new ModelMapper();
+        EnderecoDTO dto = modelMapper.map(endereco, EnderecoDTO.class);
+
+        return dto;
+    }
 }

@@ -1,11 +1,14 @@
 package com.example.SCHapi.api.dto;
 import java.util.Date;
 
+import com.example.SCHapi.model.entity.Cargo;
 import com.example.SCHapi.model.entity.ProdutoSolicitado;
 
+import com.example.SCHapi.model.entity.Reserva;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.modelmapper.ModelMapper;
 
 @Data
 @AllArgsConstructor
@@ -23,4 +26,11 @@ public class ReservaDTO {
     private Long idReserva;
 
     private ListaQuartosReservaDTO listaQuartos;
+
+    public static ReservaDTO create(Reserva reserva) {
+        ModelMapper modelMapper = new ModelMapper();
+        ReservaDTO dto = modelMapper.map(reserva, ReservaDTO.class);
+
+        return dto;
+    }
 }

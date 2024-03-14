@@ -1,8 +1,10 @@
 package com.example.SCHapi.api.dto;
 
+import com.example.SCHapi.model.entity.Cargo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.modelmapper.ModelMapper;
 
 @Data
 @NoArgsConstructor
@@ -13,4 +15,7 @@ public class ListaQuartosHospedagemDTO {
     private Integer qtd;
     private Float idQuarto;
     private Long idTipoQuarto;////////
+
+
+
 }
