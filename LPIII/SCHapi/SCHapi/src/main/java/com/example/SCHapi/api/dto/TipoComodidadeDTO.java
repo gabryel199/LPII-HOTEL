@@ -16,5 +16,5 @@ public class TipoComodidadeDTO {
     private String descricao;
 
 
-   
+
 }
