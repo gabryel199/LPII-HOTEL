@@ -16,11 +16,14 @@ import org.modelmapper.ModelMapper;
 public class UfDTO {
     private Long id;
     private String titulo;
-    private Long idPais;
+    //private Long idPais;
+    private String nome;
 
     public static UfDTO create(Uf uf) {
         ModelMapper modelMapper = new ModelMapper();
         UfDTO dto = modelMapper.map(uf, UfDTO.class);
+
+        dto.nome = uf.getPais().getTitulo();
 
         return dto;
     }
