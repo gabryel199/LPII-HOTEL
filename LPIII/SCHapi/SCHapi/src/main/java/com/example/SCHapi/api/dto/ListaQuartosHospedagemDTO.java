@@ -1,6 +1,7 @@
 package com.example.SCHapi.api.dto;
 
 import com.example.SCHapi.model.entity.Cargo;
+import com.example.SCHapi.model.entity.Hotel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

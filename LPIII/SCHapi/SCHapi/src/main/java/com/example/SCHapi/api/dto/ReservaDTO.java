@@ -31,6 +31,9 @@ public class ReservaDTO {
         ModelMapper modelMapper = new ModelMapper();
         ReservaDTO dto = modelMapper.map(reserva, ReservaDTO.class);
 
+        dto.idHotel = reserva.getHotel().getId();
+        dto.idCliente = reserva.getCliente().getId();
+        dto.idReserva = reserva.getFuncionario().getId();
         return dto;
     }
 }

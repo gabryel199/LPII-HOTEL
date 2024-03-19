@@ -20,6 +20,7 @@ public class ProdutoSolicitadoDTO {
         ModelMapper modelMapper = new ModelMapper();
         ProdutoSolicitadoDTO dto = modelMapper.map(produtoSolicitado, ProdutoSolicitadoDTO.class);
 
+        dto.idProduto = produtoSolicitado.getProduto().getId();
         return dto;
     }
 }

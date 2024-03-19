@@ -41,6 +41,11 @@ public class HospedagemDTO {
         ModelMapper modelMapper = new ModelMapper();
         HospedagemDTO dto = modelMapper.map(hospedagem, HospedagemDTO.class);
 
+        dto.idCliente = hospedagem.getCliente().getId();
+        dto.idFuncionario = hospedagem.getFuncionario().getId();
+        dto.idHotel = hospedagem.getHotel().getId();
+
+
         return dto;
     }
 }

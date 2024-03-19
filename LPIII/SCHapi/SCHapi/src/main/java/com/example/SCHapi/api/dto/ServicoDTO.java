@@ -26,6 +26,8 @@ public class ServicoDTO {
         ModelMapper modelMapper = new ModelMapper();
         ServicoDTO dto = modelMapper.map(servico, ServicoDTO.class);
 
+        dto.idHotel = servico.getHotel().getId();
+        dto.idTipoServico = servico.getTipoServico().getId();
         return dto;
     }
 }

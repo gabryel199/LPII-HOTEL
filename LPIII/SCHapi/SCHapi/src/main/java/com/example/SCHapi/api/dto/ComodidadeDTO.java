@@ -20,6 +20,7 @@ public class ComodidadeDTO {
         ModelMapper modelMapper = new ModelMapper();
         ComodidadeDTO dto = modelMapper.map(comodidade, ComodidadeDTO.class);
 
+
         return dto;
     }
 }

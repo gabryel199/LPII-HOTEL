@@ -22,6 +22,7 @@ public class ProdutoDTO {
         ModelMapper modelMapper = new ModelMapper();
         ProdutoDTO dto = modelMapper.map(produto, ProdutoDTO.class);
 
+        dto.idHotel = produto.getHotel().getId();
         return dto;
     }
 }

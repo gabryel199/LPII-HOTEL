@@ -20,6 +20,7 @@ public class AvaliacaoQuartoDTO {
         ModelMapper modelMapper = new ModelMapper();
         AvaliacaoQuartoDTO dto = modelMapper.map(avaliacaoQuarto, AvaliacaoQuartoDTO.class);
 
+        dto.idTipoQuarto = avaliacaoQuarto.getId();
         return dto;
     }
 }

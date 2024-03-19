@@ -22,6 +22,7 @@ public class QuartoDTO {
         ModelMapper modelMapper = new ModelMapper();
         QuartoDTO dto = modelMapper.map(quarto, QuartoDTO.class);
 
+        dto.idHhotel = quarto.getId();
         return dto;
     }
 }

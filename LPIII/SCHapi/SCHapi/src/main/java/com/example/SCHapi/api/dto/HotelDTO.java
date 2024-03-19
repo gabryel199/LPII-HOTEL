@@ -34,6 +34,7 @@ public class HotelDTO {
         ModelMapper modelMapper = new ModelMapper();
         HotelDTO dto = modelMapper.map(hotel, HotelDTO.class);
 
+
         return dto;
     }
 }

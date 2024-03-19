@@ -19,6 +19,7 @@ public class AvaliacaoHospedagemDTO {
        ModelMapper modelMapper = new ModelMapper();
         AvaliacaoHospedagemDTO dto = modelMapper.map(avaliacaoHospedagem, AvaliacaoHospedagemDTO.class);
 
+        dto.idHotel = avaliacaoHospedagem.getHotel().getId();
         return dto;
     }
 }

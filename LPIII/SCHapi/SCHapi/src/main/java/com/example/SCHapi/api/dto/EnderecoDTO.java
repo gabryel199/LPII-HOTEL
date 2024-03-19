@@ -25,6 +25,7 @@ public class EnderecoDTO {
         ModelMapper modelMapper = new ModelMapper();
         EnderecoDTO dto = modelMapper.map(endereco, EnderecoDTO.class);
 
+        dto.idUf = endereco.getUf().getId();
         return dto;
     }
 }
