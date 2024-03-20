@@ -25,7 +25,7 @@ public class TipoQuartoDTO {
     private CamaTipoQuarto CamaTipoQuarto;
     private ComodidadeTipoQuarto ComodidadeTipoQuarto;
 
-    public static TipoQuartoDTO create(TipoQuarto tipoQuarto) {
+    public static TipoQuartoDTO create(TipoQuartoController tipoQuarto) {
         ModelMapper modelMapper = new ModelMapper();
         TipoQuartoDTO dto = modelMapper.map(tipoQuarto, TipoQuartoDTO.class);
 

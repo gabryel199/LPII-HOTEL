@@ -39,7 +39,7 @@ public class FuncionarioDTO {
   private Long idCargo;
 
 
-  public static FuncionarioDTO create(Funcionario funcionario) {
+  public static FuncionarioDTO create(FuncionarioController funcionario) {
     ModelMapper modelMapper = new ModelMapper();
     FuncionarioDTO dto = modelMapper.map(funcionario, FuncionarioDTO.class);
 

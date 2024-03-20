@@ -26,7 +26,7 @@ public class Endereco {
 
 
     @ManyToOne
-    private Uf uf;
+    private UfController uf;
     @OneToOne(cascade = CascadeType.ALL)
     private Hotel hotel;
     @OneToOne(cascade = CascadeType.ALL)

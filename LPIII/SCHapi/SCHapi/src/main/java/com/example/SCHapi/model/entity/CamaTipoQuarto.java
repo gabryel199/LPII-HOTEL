@@ -20,7 +20,7 @@ public class CamaTipoQuarto {
     private int quantidade;
 
     @ManyToOne
-    private TipoQuarto tipoQuarto;
+    private TipoQuartoController tipoQuarto;
     @ManyToOne
     private TipoCama tipoCama;
 }

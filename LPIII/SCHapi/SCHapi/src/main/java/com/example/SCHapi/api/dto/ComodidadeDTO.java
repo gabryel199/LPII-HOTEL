@@ -16,7 +16,7 @@ public class ComodidadeDTO {
     private String descricao;
     private Long idTipoComodidade;
 
-    public static ComodidadeDTO create(Comodidade comodidade) {
+    public static ComodidadeDTO create(ComodidadeController comodidade) {
         ModelMapper modelMapper = new ModelMapper();
         ComodidadeDTO dto = modelMapper.map(comodidade, ComodidadeDTO.class);
 

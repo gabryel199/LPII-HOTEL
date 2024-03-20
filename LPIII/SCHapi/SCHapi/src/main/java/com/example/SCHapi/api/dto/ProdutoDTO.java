@@ -18,7 +18,7 @@ public class ProdutoDTO {
     private Long idHotel;
     private Long idTipoProduto;
 
-    public static ProdutoDTO create(Produto produto) {
+    public static ProdutoDTO create(ProdutoController produto) {
         ModelMapper modelMapper = new ModelMapper();
         ProdutoDTO dto = modelMapper.map(produto, ProdutoDTO.class);
 

@@ -20,9 +20,9 @@ public class ComodidadeTipoQuarto {
     private int quantidade;
 
     @ManyToOne
-    private TipoQuarto tipoQuarto;
+    private TipoQuartoController tipoQuarto;
     @ManyToOne
-    private Comodidade comodidades;
+    private ComodidadeController comodidades;
     
 
 }

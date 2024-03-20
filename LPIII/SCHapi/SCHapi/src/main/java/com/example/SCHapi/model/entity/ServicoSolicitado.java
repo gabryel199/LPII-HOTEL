@@ -24,7 +24,7 @@ public class ServicoSolicitado {
 
 
     @ManyToOne
-    private Servico servico;
+    private ServicoController servico;
     @ManyToOne
     private Hospedagem hospedagem;
 }

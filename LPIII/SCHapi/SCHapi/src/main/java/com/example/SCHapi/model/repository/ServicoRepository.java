@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 
-public interface ServicoRepository extends JpaRepository<Servico, Long> {
+public interface ServicoRepository extends JpaRepository<ServicoController, Long> {
 
 }

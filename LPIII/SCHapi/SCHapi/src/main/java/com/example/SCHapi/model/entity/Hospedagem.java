@@ -32,7 +32,7 @@ public class Hospedagem {
     @ManyToOne
     private Cliente cliente;
     @ManyToOne
-    private Funcionario funcionario;
+    private FuncionarioController funcionario;
     @ManyToOne
     private Hotel hotel;
 

@@ -22,7 +22,7 @@ public class ServicoDTO {
     private Long idTipoServico;
     private HorarioServicoDTO horarioServico;
 
-    public static ServicoDTO create(Servico servico) {
+    public static ServicoDTO create(ServicoController servico) {
         ModelMapper modelMapper = new ModelMapper();
         ServicoDTO dto = modelMapper.map(servico, ServicoDTO.class);
 

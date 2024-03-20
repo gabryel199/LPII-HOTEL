@@ -18,7 +18,7 @@ public class QuartoDTO {
     private Long idHhotel;
     private Long idTipoQuarto;
 
-    public static QuartoDTO create(Quarto quarto) {
+    public static QuartoDTO create(QuartoController quarto) {
         ModelMapper modelMapper = new ModelMapper();
         QuartoDTO dto = modelMapper.map(quarto, QuartoDTO.class);
 

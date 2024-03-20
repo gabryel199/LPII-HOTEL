@@ -18,5 +18,5 @@ public class QuartosHospedagem {
     @ManyToOne
     private Hospedagem hospedagem;
     @ManyToOne
-    private Quarto quarto;
+    private QuartoController quarto;
 }

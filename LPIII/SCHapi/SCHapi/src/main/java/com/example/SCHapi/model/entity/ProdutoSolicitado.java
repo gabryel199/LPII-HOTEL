@@ -24,5 +24,5 @@ public class ProdutoSolicitado {
     @ManyToOne
     private Hospedagem hospedagem;
     @ManyToOne
-    private Produto produto;
+    private ProdutoController produto;
 }

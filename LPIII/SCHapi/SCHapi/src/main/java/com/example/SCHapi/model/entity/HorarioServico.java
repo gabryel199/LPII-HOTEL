@@ -26,7 +26,7 @@ public class HorarioServico {
     private String horaFim;
 
     @ManyToOne
-    private Servico servico;
+    private ServicoController servico;
 
 
 }

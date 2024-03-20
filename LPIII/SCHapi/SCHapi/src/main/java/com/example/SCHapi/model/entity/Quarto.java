@@ -23,7 +23,7 @@ public class Quarto {
     private String status;
 
     @ManyToOne
-    private TipoQuarto tipoQuarto;
+    private TipoQuartoController tipoQuarto;
     @ManyToOne
     private Hotel hotel;
 

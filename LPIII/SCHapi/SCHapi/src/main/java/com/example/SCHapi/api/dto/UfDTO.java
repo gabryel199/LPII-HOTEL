@@ -19,7 +19,7 @@ public class UfDTO {
     //private Long idPais;
     private String nome;
 
-    public static UfDTO create(Uf uf) {
+    public static UfDTO create(UfController uf) {
         ModelMapper modelMapper = new ModelMapper();
         UfDTO dto = modelMapper.map(uf, UfDTO.class);
 
