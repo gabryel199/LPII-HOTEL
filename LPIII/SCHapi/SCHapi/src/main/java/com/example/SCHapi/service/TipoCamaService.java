@@ -1,27 +1,27 @@
 package com.example.SCHapi.service;
 
 import com.example.SCHapi.model.entity.StatusHospedagem;
-import com.example.SCHapi.model.entity.StatusQuarto;
+import com.example.SCHapi.model.entity.TipoCama;
 import com.example.SCHapi.model.repository.StatusHospedagemRepository;
-import com.example.SCHapi.model.repository.StatusQuartoRepository;
+import com.example.SCHapi.model.repository.TipoCamaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 @Service
-public class StatusQuartoService {
+public class TipoCamaService {
 
-    private StatusQuartoRepository repository;
+    private TipoCamaRepository repository;
 
-    public StatusQuartoService(StatusQuartoRepository repository) {
+    public TipoCamaService(TipoCamaRepository repository) {
         this.repository = repository;
     }
 
-    public List<StatusQuarto> getStatusQuarto(){
+    public List<TipoCama> getTipoCama(){
         return repository.findAll();
     }
 
-    public Optional<StatusQuarto> getStatusQuartoById(Long id) {
+    public Optional<TipoCama> getTipoCamaById(Long id) {
         return repository.findById(id);
     }
 }
