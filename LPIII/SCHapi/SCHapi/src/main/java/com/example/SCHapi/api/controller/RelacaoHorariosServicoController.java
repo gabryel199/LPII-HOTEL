@@ -1,12 +1,12 @@
 package com.example.SCHapi.api.controller;
 
 import org.modelmapper.ModelMapper;
-import com.example.SCHapi.api.dto.ClienteDTO;
-import com.example.SCHapi.model.entity.Cliente;
+import com.example.SCHapi.api.dto.RelacaoHorariosServicoDTO;
+import com.example.SCHapi.model.entity.RelacaoHorariosServico;
 
-public class ClienteController {
-    public Cliente converter(ClienteDTO dto) {
+public class RelacaoHorariosServicoController {
+    public RelacaoHorariosServico converter(RelacaoHorariosServicoDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(dto, Cliente.class);
+        return modelMapper.map(dto, RelacaoHorariosServico.class);
     }
 }
