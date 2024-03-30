@@ -37,7 +37,14 @@ public class ClienteDTO {
     public static ClienteDTO create(Cliente cliente) {
         ModelMapper modelMapper = new ModelMapper();
         ClienteDTO dto = modelMapper.map(cliente, ClienteDTO.class);
-
+        dto.numero = cliente.getEndereco().getNumero();
+        dto.complemento = cliente.getEndereco().getComplemento();
+        dto.logradouro = cliente.getEndereco().getLogradouro();
+        dto.bairro = cliente.getEndereco().getBairro();
+        dto.cep = cliente.getEndereco().getCep();
+        dto.cidade = cliente.getEndereco().getCidade();
+        dto.idUf = cliente.getEndereco().getUf();
+        dto.idPais = cliente.getEndereco().getCep();
 
 
         return dto;

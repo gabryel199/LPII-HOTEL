@@ -1,4 +1,4 @@
-package com.example.SCHapi.model.service;
+package com.example.SCHapi.service;
 
 import com.example.SCHapi.exception.RegraNegocioException;
 import com.example.SCHapi.model.entity.*;
