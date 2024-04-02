@@ -15,7 +15,7 @@ public class ServicoService {
         this.repository = repository;
     }
 
-    public List<Servico> getServico(){
+    public List<Servico> getServicos(){
         return repository.findAll();
     }
 

@@ -29,9 +29,9 @@ public class TipoQuartoDTO {
         ModelMapper modelMapper = new ModelMapper();
         TipoQuartoDTO dto = modelMapper.map(tipoQuarto, TipoQuartoDTO.class);
 
-        dto.idTipoCama = tipoQuarto.getTipoCama().getId();
-        dto.qntTipoCama = tipoQuarto.getTipoCama().getOcupantes();
-        dto.idComodidade = tipoQuarto.getComodidade().getId();
+        // dto.idTipoCama = tipoQuarto.getTipoCama().getId();
+        // dto.qntTipoCama = tipoQuarto.getTipoCama().getOcupantes();
+        // dto.idComodidade = tipoQuarto.getComodidade().getId();
 
 
         return dto;

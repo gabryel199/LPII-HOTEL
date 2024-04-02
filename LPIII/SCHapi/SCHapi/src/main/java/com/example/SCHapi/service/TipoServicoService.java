@@ -17,7 +17,7 @@ public class TipoServicoService {
         this.repository = repository;
     }
 
-    public List<TipoServico> getTipoServico(){
+    public List<TipoServico> getTipoServicos(){
         return repository.findAll();
     }
 

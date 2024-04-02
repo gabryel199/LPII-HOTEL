@@ -17,7 +17,7 @@ public class TipoQuartoService {
         this.repository = repository;
     }
 
-    public List<TipoQuarto> getTipoQuarto(){
+    public List<TipoQuarto> getTipoQuartos(){
         return repository.findAll();
     }
 

@@ -17,7 +17,7 @@ public class UfService {
         this.repository = repository;
     }
 
-    public List<Uf> getUf(){
+    public List<Uf> getUfs(){
         return repository.findAll();
     }
 

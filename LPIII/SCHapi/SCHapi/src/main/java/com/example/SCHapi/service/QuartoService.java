@@ -18,7 +18,7 @@ public class QuartoService {
         this.repository = repository;
     }
 
-    public List<Quarto> getQuarto(){
+    public List<Quarto> getQuartos(){
         return repository.findAll();
     }
 

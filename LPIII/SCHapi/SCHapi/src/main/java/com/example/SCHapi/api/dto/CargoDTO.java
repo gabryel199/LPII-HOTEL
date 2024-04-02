@@ -20,7 +20,7 @@ public class CargoDTO {
         ModelMapper modelMapper = new ModelMapper();
         CargoDTO dto = modelMapper.map(cargo, CargoDTO.class);
 
-        dto.idHotel = cargo.getHotel().getId();
+        //dto.idHotel = cargo.getHotel().getId();
         return dto;
     }
 }

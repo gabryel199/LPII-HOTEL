@@ -32,8 +32,8 @@ public class HotelDTO {
         ModelMapper modelMapper = new ModelMapper();
         HotelDTO dto = modelMapper.map(hotel, HotelDTO.class);
 
-        dto.idUf = hotel.getUf().getId();
-        dto.idPais = hotel.getPais().getId();
+        // dto.idUf = hotel.getUf().getId();
+        // dto.idPais = hotel.getPais().getId();
         return dto;
     }
 }

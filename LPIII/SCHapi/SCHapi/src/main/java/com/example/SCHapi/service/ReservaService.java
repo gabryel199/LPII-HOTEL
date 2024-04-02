@@ -16,7 +16,7 @@ public class ReservaService {
         this.repository = repository;
     }
 
-    public List<Reserva> getReserva(){
+    public List<Reserva> getReservas(){
         return repository.findAll();
     }
 

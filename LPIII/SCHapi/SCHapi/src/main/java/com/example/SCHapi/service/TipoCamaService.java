@@ -17,7 +17,7 @@ public class TipoCamaService {
         this.repository = repository;
     }
 
-    public List<TipoCama> getTipoCama(){
+    public List<TipoCama> getTipoCamas(){
         return repository.findAll();
     }
 

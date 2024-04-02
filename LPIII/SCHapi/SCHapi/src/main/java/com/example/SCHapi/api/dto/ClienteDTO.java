@@ -18,12 +18,12 @@ public class ClienteDTO {
     private Date dataNacimento;
     private String email;
     private String senha;
-    private Integer ddi1;
-    private Integer ddd1;
-    private Integer num1;
-    private Integer ddi2;
-    private Integer ddd2;
-    private Integer num2;
+    private String ddi1;
+    private String ddd1;
+    private String num1;
+    private String ddi2;
+    private String ddd2;
+    private String num2;
     private Integer numero;
     private String complemento;
     private String logradouro;
@@ -37,8 +37,20 @@ public class ClienteDTO {
         ModelMapper modelMapper = new ModelMapper();
         ClienteDTO dto = modelMapper.map(cliente, ClienteDTO.class);
 
-        dto.idUf = cliente.getUf().getId();
-        dto.idPais = cliente.getPais().getId();
+        //dps arrumor aq pra dividir.
+        dto.ddi1 = cliente.getTelefone1();
+        dto.ddd1 = cliente.getTelefone1();
+        dto.num1 = cliente.getTelefone1();
+        dto.ddi2 = cliente.getTelefone2();
+        dto.ddd2 = cliente.getTelefone2();
+        dto.num2 = cliente.getTelefone2();
+
+        dto.numero = cliente.getEndereco().getNumero();
+        dto.complemento = cliente.getEndereco().getComplemento();
+        dto.logradouro = cliente.getEndereco().getLogradouro();
+        dto.bairro = cliente.getEndereco().getBairro();
+        dto.cep = cliente.getEndereco().getCep();
+        dto.cidade = cliente.getEndereco().getCidade();
         return dto;
     }
 }

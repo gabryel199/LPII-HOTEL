@@ -24,8 +24,8 @@ public class ProdutoDTO {
         ModelMapper modelMapper = new ModelMapper();
         ProdutoDTO dto = modelMapper.map(produto, ProdutoDTO.class);
 
-        dto.idHotel = produto.getHotel().getId();
-        dto.categoriaProdutoId = produto.getTipoProduto().getId();
+        // dto.idHotel = produto.getHotel().getId();
+        // dto.categoriaProdutoId = produto.getTipoProduto().getId();
         return dto;
     }
 }

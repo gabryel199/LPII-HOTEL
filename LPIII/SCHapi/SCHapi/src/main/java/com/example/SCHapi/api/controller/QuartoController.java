@@ -5,7 +5,9 @@ import com.example.SCHapi.service.StatusQuartoService;
 import com.example.SCHapi.service.TipoQuartoService;
 import com.example.SCHapi.service.HotelService;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -15,11 +17,16 @@ import com.example.SCHapi.model.entity.Quarto;
 import com.example.SCHapi.model.entity.StatusQuarto;
 import com.example.SCHapi.model.entity.TipoQuarto;
 import com.example.SCHapi.model.entity.Hotel;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/api/v1/quartos")
 @RequiredArgsConstructor
 public class QuartoController {
 
@@ -27,6 +34,21 @@ public class QuartoController {
     private final HotelService hotelService;
     private final TipoQuartoService tipoquartoService;
     private final StatusQuartoService statusquartoService;
+
+    @GetMapping()
+    public ResponseEntity get() {
+       List<Quarto> quartos = service.getQuartos();
+        return ResponseEntity.ok(quartos.stream().map(QuartoDTO::create).collect(Collectors.toList()));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity get(@PathVariable("id") Long id) {
+        Optional<Quarto> quarto = service.getQuartoById(id);
+        if (!quarto.isPresent()) {
+            return new ResponseEntity("Quarto não encontrada", HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(quarto.map(QuartoDTO::create));
+    }
 
     public Quarto converter(QuartoDTO dto) {
         ModelMapper modelMapper = new ModelMapper();

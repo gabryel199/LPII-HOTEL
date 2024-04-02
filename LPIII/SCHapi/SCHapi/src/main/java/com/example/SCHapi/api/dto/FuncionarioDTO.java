@@ -42,10 +42,10 @@ public class FuncionarioDTO {
         ModelMapper modelMapper = new ModelMapper();
         FuncionarioDTO dto = modelMapper.map(funcionario, FuncionarioDTO.class);
 
-        dto.idCargo = funcionario.getCargo().getId();
-        dto.idHotel = funcionario.getHotel().getId();
-        dto.idUf = funcionario.getUf().getId();
-        dto.idPais = funcionario.getPais().getId();
+        // dto.idCargo = funcionario.getCargo().getId();
+        // dto.idHotel = funcionario.getHotel().getId();
+        // dto.idUf = funcionario.getUf().getId();
+        // dto.idPais = funcionario.getPais().getId();
 
 
         return dto;

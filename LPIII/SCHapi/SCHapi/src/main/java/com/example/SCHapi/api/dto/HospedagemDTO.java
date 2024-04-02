@@ -36,13 +36,13 @@ public class HospedagemDTO {
         ModelMapper modelMapper = new ModelMapper();
         HospedagemDTO dto = modelMapper.map(hospedagem, HospedagemDTO.class);
 
-        dto.idHotel = hospedagem.getHotel().getId();
-        dto.idCliente = hospedagem.getCliente().getId();
-        dto.idFuncionario = hospedagem.getFuncionario().getId();
-        dto.idStatusHospedagem = hospedagem.getStatusHospedagem().getId();
-        dto.idTipoQuarto = hospedagem.getTipoQuarto().getId();
-        dto.idReserva = hospedagem.getReserva().getId();
-        dto.idAvaliacaoHospedagem = hospedagem.getAvaliacaoHospedagem().getId();
+        // dto.idHotel = hospedagem.getHotel().getId();
+        // dto.idCliente = hospedagem.getCliente().getId();
+        // dto.idFuncionario = hospedagem.getFuncionario().getId();
+        // dto.idStatusHospedagem = hospedagem.getStatusHospedagem().getId();
+        // dto.idTipoQuarto = hospedagem.getTipoQuarto().getId();
+        // dto.idReserva = hospedagem.getReserva().getId();
+        // dto.idAvaliacaoHospedagem = hospedagem.getAvaliacaoHospedagem().getId();
         return dto;
     }
 }
