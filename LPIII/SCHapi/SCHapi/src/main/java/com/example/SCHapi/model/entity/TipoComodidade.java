@@ -15,13 +15,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class CategoriaProduto {
+public class TipoComodidade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
-    private String descricao;
+    private Long id;
     private String categoria;
+    private String descricao;
 
 
 }

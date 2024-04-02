@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 
-public interface RelacaoHorariosServicoRepository extends JpaRepository<RelacaoHorariosServicoController, Long> {
+public interface RelacaoHorariosServicoRepository extends JpaRepository<RelacaoHorariosServico, Long> {
 
 }

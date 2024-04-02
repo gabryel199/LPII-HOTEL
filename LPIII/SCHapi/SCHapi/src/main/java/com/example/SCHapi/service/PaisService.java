@@ -25,7 +25,7 @@ public class PaisService {
         return repository.findAll();
     }
 
-    public Optional<Pais> getProdutoSolicitadoById(Long id) {
+    public Optional<Pais> getPaisById(Long id) {
         return repository.findById(id);
     }
 }

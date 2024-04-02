@@ -2,7 +2,7 @@ package com.example.SCHapi.service;
 
 import com.example.SCHapi.exception.RegraNegocioException;
 import com.example.SCHapi.model.entity.*;
-import com.example.SCHapi.model.repository.CategoriaProdutoRepository;
+import com.example.SCHapi.model.repository.TipoProdutoRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,19 +13,19 @@ import java.util.Optional;
 
 
 @Service
-public class CategoriaProdutoService {
+public class TipoProdutoService {
 
-    private CategoriaProdutoRepository repository;
+    private TipoProdutoRepository repository;
 
-    public CategoriaProdutoService(CategoriaProdutoRepository repository) {
+    public TipoProdutoService(TipoProdutoRepository repository) {
         this.repository = repository;
     }
 
-    public List<CategoriaProduto> getCategoriaProdutos() {
+    public List<TipoProduto> getTipoProdutos() {
         return repository.findAll();
     }
 
-    public Optional<CategoriaProduto> getCategoriaProdutoById(Long id) {
+    public Optional<TipoProduto> getTipoProdutoById(Long id) {
         return repository.findById(id);
     }
 }

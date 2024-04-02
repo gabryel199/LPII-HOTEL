@@ -28,6 +28,8 @@ public abstract class Usuario {
     private String telefone1;
     private String telefone2;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private Endereco endereco;
     @ManyToOne
     private Uf uf;
     @ManyToOne

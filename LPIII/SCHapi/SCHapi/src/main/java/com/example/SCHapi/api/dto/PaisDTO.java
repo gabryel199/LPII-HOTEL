@@ -1,26 +1,23 @@
 package com.example.SCHapi.api.dto;
 
 import com.example.SCHapi.model.entity.Cargo;
+import com.example.SCHapi.model.entity.Pais;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class CargoDTO {
+public class PaisDTO {
     private Long id;
-    private String cargo;
-    private String descricao;
-    private Float salarioBase;
-    private Long IdHotel;
+    private String titulo;
 
-    public static CargoDTO create(Cargo cargo) {
+    public static PaisDTO create(Pais pais) {
         ModelMapper modelMapper = new ModelMapper();
-        CargoDTO dto = modelMapper.map(cargo, CargoDTO.class);
+        PaisDTO dto = modelMapper.map(pais, PaisDTO.class);
 
-        dto.IdHotel = cargo.getHotel().getId();
         return dto;
     }
 }

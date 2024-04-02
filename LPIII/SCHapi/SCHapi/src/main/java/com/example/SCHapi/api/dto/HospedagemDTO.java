@@ -28,6 +28,7 @@ public class HospedagemDTO {
     private Long idHotel;
     private Long idStatusHospedagem;
     private Long idTipoQuarto;
+    private Long idAvaliacaoHospedagem;
 
     private Long idReserva;
 
@@ -41,6 +42,7 @@ public class HospedagemDTO {
         dto.idStatusHospedagem = hospedagem.getStatusHospedagem().getId();
         dto.idTipoQuarto = hospedagem.getTipoQuarto().getId();
         dto.idReserva = hospedagem.getReserva().getId();
+        dto.idAvaliacaoHospedagem = hospedagem.getAvaliacaoHospedagem().getId();
         return dto;
     }
 }

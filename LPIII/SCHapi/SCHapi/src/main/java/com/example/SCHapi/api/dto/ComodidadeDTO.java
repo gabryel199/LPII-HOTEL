@@ -19,7 +19,7 @@ public class ComodidadeDTO {
         ModelMapper modelMapper = new ModelMapper();
         ComodidadeDTO dto = modelMapper.map(comodidade, ComodidadeDTO.class);
 
-        dto.idTipoComodidade = comodidade.getCategoriaComodidades().getId();
+        dto.idTipoComodidade = comodidade.getTipoComodidade().getId();
         return dto;
     }
 }

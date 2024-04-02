@@ -1,23 +1,23 @@
 package com.example.SCHapi.api.dto;
 
-import com.example.SCHapi.model.entity.CategoriaProduto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
 
+import com.example.SCHapi.model.entity.TipoComodidade;
+
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class CategoriaProdutoDTO {
-
+public class TipoComodidadeDTO {
     private Long id;
+    private String titulo;
     private String descricao;
-    private String categoria;
 
-    public static CategoriaProdutoDTO create(CategoriaProduto categoriaProduto) {
+    public static TipoComodidadeDTO create(TipoComodidade tipoComodidade) {
         ModelMapper modelMapper = new ModelMapper();
-        CategoriaProdutoDTO dto = modelMapper.map(categoriaProduto, CategoriaProdutoDTO.class);
+        TipoComodidadeDTO dto = modelMapper.map(tipoComodidade, TipoComodidadeDTO.class);
 
         return dto;
     }

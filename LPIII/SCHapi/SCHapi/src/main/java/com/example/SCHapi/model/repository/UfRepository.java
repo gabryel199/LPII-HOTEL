@@ -4,6 +4,6 @@ import com.example.SCHapi.model.entity.Uf;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface UfRepository extends JpaRepository<UfController, Long> {
+public interface UfRepository extends JpaRepository<Uf, Long> {
 
 }

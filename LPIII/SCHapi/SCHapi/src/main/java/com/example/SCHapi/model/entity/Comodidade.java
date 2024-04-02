@@ -21,6 +21,6 @@ public class Comodidade {
     private String descricao;
 
     @ManyToOne
-    private CategoriaComodidade categoriaComodidades;
+    private TipoComodidade tipoComodidade;
 
 }

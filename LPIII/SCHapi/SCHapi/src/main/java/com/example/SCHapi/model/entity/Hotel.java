@@ -36,4 +36,6 @@ public class Hotel {
     @ManyToOne
     private Pais pais;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private Endereco endereco;
 }

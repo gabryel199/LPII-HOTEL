@@ -17,15 +17,15 @@ public class ProdutoDTO {
     private String descricao;
     private double precoBase;
     private int quantidadeEstoque;
-    private Long hoteId;
+    private Long IdHotel;
     private Long categoriaProdutoId;
 
     public static ProdutoDTO create(Produto produto) {
         ModelMapper modelMapper = new ModelMapper();
         ProdutoDTO dto = modelMapper.map(produto, ProdutoDTO.class);
 
-        dto.hoteId = produto.getHotel().getId();
-        dto.categoriaProdutoId = produto.getCategoriaProduto().getId();
+        dto.IdHotel = produto.getHotel().getId();
+        dto.categoriaProdutoId = produto.getTipoProduto().getId();
         return dto;
     }
 }

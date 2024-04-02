@@ -22,7 +22,7 @@ public class Produto {
     private int quantidadeEstoque;
 
     @ManyToOne
-    private CategoriaProduto categoriaProduto;
+    private TipoProduto tipoProduto;
     @ManyToOne
     private Hotel hotel;
 }

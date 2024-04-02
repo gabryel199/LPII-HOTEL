@@ -20,8 +20,8 @@ public class AvaliacaoHospedagem {
     private float nota;
     private String comentario;
 
-    @ManyToOne
-    private Hotel hotel;
+    //@ManyToOne
+    //private Hotel hotel;
     
 
 }

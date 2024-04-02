@@ -41,5 +41,7 @@ public class Hospedagem {
 
     @OneToOne
     private Reserva reserva;
+    @OneToOne
+    private AvaliacaoHospedagem AvaliacaoHospedagem;
 
 }

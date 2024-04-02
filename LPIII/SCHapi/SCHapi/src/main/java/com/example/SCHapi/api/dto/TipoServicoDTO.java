@@ -10,6 +10,11 @@ import org.modelmapper.ModelMapper;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TipoServicoDTO {
+    
+    private Long id; 
+    private String titulo;
+    private String descricao;
+    
     public static TipoServicoDTO create(TipoServico tipoServico) {
         ModelMapper modelMapper = new ModelMapper();
         TipoServicoDTO dto = modelMapper.map(tipoServico, TipoServicoDTO.class);
