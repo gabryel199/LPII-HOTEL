@@ -2,6 +2,7 @@ package com.example.SCHapi.api.controller;
 
 import java.util.Optional;
 
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 
 import com.example.SCHapi.api.dto.HospedagemDTO;
@@ -19,7 +20,12 @@ import com.example.SCHapi.service.ClienteService;
 import com.example.SCHapi.service.FuncionarioService;
 import com.example.SCHapi.service.StatusHospedagemService;
 import com.example.SCHapi.service.TipoQuartoService;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
+@RequestMapping("/api/v1/")
+@RequiredArgsConstructor
 public class HospedagemController {
     private final HospedagemService service;
     private final ClienteService clienteService;

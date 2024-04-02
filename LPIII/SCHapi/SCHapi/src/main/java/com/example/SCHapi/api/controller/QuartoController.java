@@ -7,6 +7,7 @@ import com.example.SCHapi.service.HotelService;
 
 import java.util.Optional;
 
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 
 import com.example.SCHapi.api.dto.QuartoDTO;
@@ -14,7 +15,12 @@ import com.example.SCHapi.model.entity.Quarto;
 import com.example.SCHapi.model.entity.StatusQuarto;
 import com.example.SCHapi.model.entity.TipoQuarto;
 import com.example.SCHapi.model.entity.Hotel;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
+@RequestMapping("/api/v1/")
+@RequiredArgsConstructor
 public class QuartoController {
 
     private final QuartoService service;
