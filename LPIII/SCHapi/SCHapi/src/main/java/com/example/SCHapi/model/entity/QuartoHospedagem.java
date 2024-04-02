@@ -9,14 +9,14 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RelacaoHorariosServico {
+public class QuartoHospedagem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String descricao;
 
     @ManyToOne
-    private ServicoSolicitado servicoSolicitado;
+    private Hospedagem hospedagem;
     @ManyToOne
-    private HorarioServico horarioServico;
+    private Quarto quarto;
 }

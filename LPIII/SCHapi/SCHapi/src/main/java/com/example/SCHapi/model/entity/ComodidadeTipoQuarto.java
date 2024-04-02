@@ -22,7 +22,7 @@ public class ComodidadeTipoQuarto {
     @ManyToOne
     private TipoQuarto tipoQuarto;
     @ManyToOne
-    private Comodidade comodidades;
+    private Comodidade comodidade;
     
 
 }

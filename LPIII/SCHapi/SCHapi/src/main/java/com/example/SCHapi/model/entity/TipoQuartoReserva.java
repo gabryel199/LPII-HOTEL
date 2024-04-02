@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TipoQuartosReserva {
+public class TipoQuartoReserva {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

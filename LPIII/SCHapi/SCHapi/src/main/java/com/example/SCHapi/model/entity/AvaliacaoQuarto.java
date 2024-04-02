@@ -21,7 +21,7 @@ public class AvaliacaoQuarto {
     private String comentario;
 
     @ManyToOne
-    private TipoQuarto tipoQuarto;
+    private Hospedagem hospedagem;
     
 
 }

@@ -19,8 +19,8 @@ public class Hotel {
     private String titulo;
     private String descricao;
     private Float avaliacaoMedia;
-    private Integer telefone1;
-    private Integer telefone2;
+    private String telefone1;
+    private String telefone2;
 
 
 

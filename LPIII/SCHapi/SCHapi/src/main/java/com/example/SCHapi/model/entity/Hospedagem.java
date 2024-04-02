@@ -35,8 +35,7 @@ public class Hospedagem {
     private Hotel hotel;
     @ManyToOne
     private StatusHospedagem statusHospedagem;
-    @ManyToOne
-    private TipoQuarto tipoQuarto;
+
 
 
     @OneToOne

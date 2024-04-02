@@ -9,7 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-@MappedSuperclass
+//@MappedSuperclass
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

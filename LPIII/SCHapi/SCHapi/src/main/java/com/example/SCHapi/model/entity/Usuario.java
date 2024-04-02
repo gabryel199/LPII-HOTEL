@@ -30,9 +30,9 @@ public abstract class Usuario {
 
     @OneToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
-    @ManyToOne
-    private Uf uf;
-    @ManyToOne
-    private Pais pais;
+    // @ManyToOne
+    // private Uf uf;
+    // @ManyToOne
+    // private Pais pais;
 
 }

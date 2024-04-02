@@ -1,7 +1,7 @@
 package com.example.SCHapi.service;
 
 import com.example.SCHapi.model.entity.Quarto;
-import com.example.SCHapi.model.entity.QuartosHospedagem;
+import com.example.SCHapi.model.entity.QuartoHospedagem;
 import com.example.SCHapi.model.repository.QuartoRepository;
 import com.example.SCHapi.model.repository.QuartosHospedagemRepository;
 import org.springframework.stereotype.Service;
@@ -18,11 +18,11 @@ public class QuartosHospedagemService {
         this.repository = repository;
     }
 
-    public List<QuartosHospedagem> getQuartosHospedagem(){
+    public List<QuartoHospedagem> getQuartosHospedagem(){
         return repository.findAll();
     }
 
-    public Optional<QuartosHospedagem> getQuartosHospedagemById(Long id) {
+    public Optional<QuartoHospedagem> getQuartosHospedagemById(Long id) {
         return  repository.findById(id);
     }
 }

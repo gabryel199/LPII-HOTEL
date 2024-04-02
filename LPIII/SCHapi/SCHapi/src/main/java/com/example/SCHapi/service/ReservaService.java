@@ -1,8 +1,6 @@
 package com.example.SCHapi.service;
 
-import com.example.SCHapi.model.entity.RelacaoHorariosServico;
 import com.example.SCHapi.model.entity.Reserva;
-import com.example.SCHapi.model.repository.RelacaoHorariosServicoRepository;
 import com.example.SCHapi.model.repository.ReservaRepository;
 import org.springframework.stereotype.Service;
 
