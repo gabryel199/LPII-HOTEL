@@ -1,6 +1,5 @@
 package com.example.SCHapi.api.dto;
 
-import com.example.SCHapi.model.entity.Cargo;
 import com.example.SCHapi.model.entity.Pais;
 import lombok.AllArgsConstructor;
 import lombok.Data;

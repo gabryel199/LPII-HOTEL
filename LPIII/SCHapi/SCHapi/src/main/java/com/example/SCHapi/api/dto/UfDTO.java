@@ -1,11 +1,7 @@
 package com.example.SCHapi.api.dto;
 
 
-import java.util.Date;
-
 import com.example.SCHapi.api.controller.UfController;
-import com.example.SCHapi.model.entity.Cargo;
-import com.example.SCHapi.model.entity.Uf;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
