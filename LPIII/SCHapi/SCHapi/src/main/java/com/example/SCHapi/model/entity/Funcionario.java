@@ -2,14 +2,15 @@ package com.example.SCHapi.model.entity;
 
 
 
-import jakarta.persistence.ManyToOne;
-// import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
+import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
 //@MappedSuperclass
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

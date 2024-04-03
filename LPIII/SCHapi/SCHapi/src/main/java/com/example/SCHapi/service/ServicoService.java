@@ -1,13 +1,16 @@
 package com.example.SCHapi.service;
 
-import com.example.SCHapi.model.entity.Reserva;
+
+import com.example.SCHapi.exception.RegraNegocioException;
 import com.example.SCHapi.model.entity.Servico;
-import com.example.SCHapi.model.repository.ReservaRepository;
 import com.example.SCHapi.model.repository.ServicoRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ServicoService {
     private ServicoRepository repository;
 

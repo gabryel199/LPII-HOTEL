@@ -8,6 +8,9 @@ import com.example.SCHapi.model.repository.ServicoSolicitadoRepository;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class ServicoSolicitadoService {
 
     private ServicoSolicitadoRepository repository;
