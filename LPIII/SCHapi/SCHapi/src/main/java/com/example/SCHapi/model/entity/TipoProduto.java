@@ -21,7 +21,7 @@ public class TipoProduto {
     private Long id;
 
     private String descricao;
-    private String categoria;
+    private String titulo;
 
 
 }

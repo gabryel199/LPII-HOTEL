@@ -1,0 +1,386 @@
+
+
+
+
+
+INSERT INTO public.avaliacao_hospedagem(id, comentario, nota) 
+VALUES 
+    (1, 'Ótima experiência, recomendo!', 5),
+    (2, 'Serviço de quarto deixou a desejar.', 3),
+    (3, 'Localização excelente, mas o quarto estava sujo.', 2),
+    (4, 'Staff muito atencioso, voltarei com certeza.', 4),
+    (5, 'Instalações antigas, precisam de renovação.', 2);
+
+
+----------------------------------------------------------------------------
+
+INSERT INTO public.tipo_comodidade(id, titulo, descricao)
+VALUES 
+    (1, 'Quarto', 'Ar-condicionado'),
+    (2, 'Quarto', 'TV de tela plana'),
+    (3, 'Quarto', 'Wi-Fi gratuito'),
+    (4, 'Área Comum', 'Piscina'),
+    (5, 'Área Comum', 'Academia');
+
+----------------------------------------------------------------------------
+
+INSERT INTO public.comodidade(id, descricao, titulo, tipo_comodidade_id)
+VALUES 
+    (1, 'Ar-condicionado central', 'Ar-condicionado Central', 1),
+    (2, 'TV de tela plana', 'TV de Tela Plana', 2),
+    (3, 'Wi-Fi gratuito', 'Wi-Fi Gratuito', 3),
+    (4, 'Piscina externa', 'Piscina Externa', 4),
+    (5, 'Academia 24 horas', 'Academia 24 Horas', 5);
+
+-----------------------------------------------------------------------------
+
+
+INSERT INTO public.tipo_cama(id, descricao, ocupantes, titulo)
+VALUES 
+    (1, 'Cama de casal padrão', 2, 'Cama de Casal'),
+    (2, 'Cama de solteiro padrão', 1, 'Cama de Solteiro'),
+    (3, 'Cama de solteiro extra', 1, 'Cama de Solteiro Extra'),
+    (4, 'Beliche padrão', 2, 'Beliche'),
+    (5, 'Cama king-size', 2, 'Cama King-Size');
+
+-----------------------------------------------------------------------------
+
+
+INSERT INTO public.tipo_quarto(
+    id, area, avaliacao_media, descricao, dias_cancelar_reserva, limite_adultos, limite_criancas, preco_base, titulo)
+VALUES 
+    (1, 30, 4.5, 'Quarto padrão com cama de casal e banheiro privativo.', 7, 2, 1, 150.00, 'Quarto Duplo Padrão'),
+    (2, 35, 4.8, 'Quarto com vista para o mar, cama king-size e banheiro privativo.', 14, 2, 2, 250.00, 'Suíte com Vista para o Mar'),
+    (3, 25, 4.2, 'Quarto com duas camas de solteiro e banheiro privativo.', 3, 2, 2, 120.00, 'Quarto Twin'),
+    (4, 40, 4.6, 'Quarto com cama king-size, área de estar e banheiro privativo.', 10, 2, 1, 200.00, 'Suíte Deluxe'),
+    (5, 45, 4.7, 'Quarto espaçoso com cama queen-size, banheira de hidromassagem e varanda privativa.', 21, 2, 2, 300.00, 'Suíte Master');
+
+
+
+-----------------------------------------------------------------------------
+
+
+INSERT INTO public.pais(id, titulo)
+VALUES 
+    (1, 'Brasil'),
+    (2, 'Estados Unidos'),
+    (3, 'França'),
+    (4, 'Japão'),
+    (5, 'Itália');
+
+----------------------------------------------------------------------------
+
+INSERT INTO public.uf(id, titulo, pais_id)
+VALUES 
+    (1, 'São Paulo', 1),
+    (2, 'Rio de Janeiro', 1),
+    (3, 'Pernambuco', 1),
+    (4, 'Minas Gerais', 1),
+    (5, 'Bahia', 1);
+
+----------------------------------------------------------------------------
+
+INSERT INTO public.endereco(
+    id, bairro, cep, cidade, complemento, logradouro, numero, uf_id)
+VALUES 
+    (1, 'Centro', '00000-000', 'São Paulo', 'Próximo à praça central', 'Rua Principal', '123', 1),
+    (2, 'Copacabana', '11111-111', 'Rio de Janeiro', 'Em frente à praia', 'Avenida Beira Mar', '456', 1),
+    (3, 'Leblon', '22222-222', 'Rio de Janeiro', 'Perto do shopping', 'Rua das Palmeiras', '789', 1),
+    (4, 'Boa Viagem', '33333-333', 'Recife', 'Próximo ao aeroporto', 'Avenida Boa Viagem', '1010', 2),
+    (5, 'Jardins', '44444-444', 'São Paulo', 'Ao lado do parque', 'Alameda dos Anjos', '222', 1);
+
+----------------------------------------------------------------------------
+
+
+INSERT INTO public.cliente(
+    id, cpf, data_nascimento, email, nome, senha, telefone1, telefone2, descricao, endereco_id)
+VALUES 
+    (1, '111.222.333-44', '1990-03-15', 'cliente1@example.com', 'Maria Oliveira', 'senha123', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', 'Cliente frequente', 1),
+    (2, '222.333.444-55', '1985-07-20', 'cliente2@example.com', 'João Silva', 'senha456', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', 'Cliente corporativo', 2),
+    (3, '333.444.555-66', '1992-05-25', 'cliente3@example.com', 'Ana Santos', 'senha789', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', 'Cliente VIP', 3),
+    (4, '444.555.666-77', '1988-10-12', 'cliente4@example.com', 'Pedro Lima', 'senhaabc', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', 'Cliente em potencial', 4),
+    (5, '555.666.777-88', '1995-12-30', 'cliente5@example.com', 'Lucas Martins', 'senhadef', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', 'Cliente ocasional', 5);
+
+----------------------------------------------------------------------------
+
+
+
+INSERT INTO public.hotel(
+    id, avaliacao_media, descricao, telefone1, telefone2, titulo, endereco_id)
+VALUES 
+    (1, 4.3, 'Um hotel luxuoso com uma bela vista para o mar.', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', 'Hotel Estrela do Mar', 1),
+    (2, 3.8, 'Um hotel aconchegante no coração da cidade.', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', 'Hotel Central', 2),
+    (3, 4.5, 'Um hotel de negócios com instalações modernas.', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', 'Hotel Executivo', 3),
+    (4, 4.1, 'Um hotel familiar com atividades para todas as idades.', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', 'Hotel Familiar', 4),
+    (5, 4.6, 'Um hotel boutique com design contemporâneo.', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', 'Hotel Boutique', 5);
+
+-----------------------------------------------------------------------------
+
+INSERT INTO public.cargo(id, cargo, descricao, salario_base, hotel_id)
+VALUES 
+    (1, 'Gerente Geral', 'Responsável por supervisionar todas as operações do hotel.', 8000.00, 1),
+    (2, 'Chefe de Cozinha', 'Encarregado da equipe de cozinha e do cardápio.', 5000.00, 2),
+    (3, 'Recepcionista', 'Responsável pelo atendimento aos hóspedes e check-in/check-out.', 3500.00, 3),
+    (4, 'Camareira', 'Encarregado da limpeza e organização dos quartos.', 3000.00, 4),
+    (5, 'Manobrista', 'Responsável pelo estacionamento dos veículos dos hóspedes.', 2500.00, 5);
+
+-----------------------------------------------------------------------------
+
+
+INSERT INTO public.funcionario(
+    id, cpf, data_nascimento, email, nome, senha, telefone1, telefone2, hora_fim, hora_inicio, salario, endereco_id, cargo_id, hotel_id)
+VALUES 
+    (1, '123.456.789-10', '1990-05-15', 'funcionario1@example.com', 'João Silva', 'senha123', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', '18:00:00', '08:00:00', 3500.00, 1, 3, 1),
+    (2, '987.654.321-10', '1988-10-20', 'funcionario2@example.com', 'Maria Santos', 'senha456', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', '18:00:00', '08:00:00', 3000.00, 2, 2, 2),
+    (3, '111.222.333-44', '1995-03-25', 'funcionario3@example.com', 'Pedro Oliveira', 'senha789', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', '18:00:00', '08:00:00', 4000.00, 3, 1, 3),
+    (4, '555.666.777-88', '1992-08-12', 'funcionario4@example.com', 'Ana Lima', 'senhaabc', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', '18:00:00', '08:00:00', 3200.00, 4, 4, 4),
+    (5, '999.888.777-66', '1997-12-30', 'funcionario5@example.com', 'Lucas Martins', 'senhadef', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', '18:00:00', '08:00:00', 2800.00, 5, 5, 5);
+
+
+-----------------------------------------------------------------------------
+
+
+INSERT INTO public.status_hospedagem(id, titulo)
+VALUES 
+    (1, 'Reservado'),
+    (2, 'Check-in Realizado'),
+    (3, 'Em Andamento'),
+    (4, 'Check-out Realizado'),
+    (5, 'Cancelado');
+
+
+-----------------------------------------------------------------------------
+
+INSERT INTO public.status_reserva(id, titulo)
+VALUES 
+    (1, 'Reservada'),
+    (2, 'Confirmada'),
+    (3, 'Em Andamento'),
+    (4, 'Concluída'),
+    (5, 'Cancelada');
+
+
+-----------------------------------------------------------------------------
+
+
+INSERT INTO public.reserva(
+    id, data_fim, data_inicio, valor_reserva, cliente_id, funcionario_id, hotel_id, status_reserva_id)
+VALUES 
+    (1, '2024-05-15', '2024-05-10', 500.00, 1, 1, 1, 2),
+    (2, '2024-06-20', '2024-06-15', 600.00, 2, 2, 2, 2),
+    (3, '2024-07-25', '2024-07-20', 700.00, 3, 3, 3, 2),
+    (4, '2024-08-30', '2024-08-25', 800.00, 4, 4, 4, 2),
+    (5, '2024-09-05', '2024-09-01', 900.00, 5, 5, 5, 2);
+
+
+
+
+-----------------------------------------------------------------------------
+
+
+INSERT INTO public.hospedagem(
+    id, data_fim1, data_fim2, data_inicio, valor_consumo, valor_estadia, valor_estadia_adicional, valor_servicos, valor_total_pago, avaliacao_hospedagem_id, cliente_id, funcionario_id, hotel_id, reserva_id, status_hospedagem_id)
+VALUES 
+    (1, '2024-05-15', '2024-05-17', '2024-05-10', 100.00, 400.00, 0.00, 50.00, 550.00, 1, 1, 1, 1, 1, 2),
+    (2, '2024-06-25', '2024-06-28', '2024-06-20', 150.00, 450.00, 0.00, 60.00, 660.00, 2, 2, 2, 2, 2, 2),
+    (3, '2024-07-30', '2024-08-02', '2024-07-25', 200.00, 500.00, 0.00, 70.00, 770.00, 3, 3, 3, 3, 3, 2),
+    (4, '2024-09-05', '2024-09-09', '2024-08-30', 250.00, 550.00, 0.00, 80.00, 880.00, 4, 4, 4, 4, 4, 2),
+    (5, '2024-10-10', '2024-10-15', '2024-09-05', 300.00, 600.00, 0.00, 90.00, 990.00, 5, 5, 5, 5, 5, 2);
+
+
+
+-----------------------------------------------------------------------------
+
+
+INSERT INTO public.avaliacao_quarto(
+    id, comentario, nota, hospedagem_id, tipo_quarto_id)
+VALUES 
+    (1, 'O quarto estava limpo e confortável. Ótima estadia!', 4.5, 1, 1),
+    (2, 'A vista do quarto era incrível! Muito satisfeito.', 4.8, 2, 2),
+    (3, 'O quarto era simples, mas atendeu às minhas necessidades.', 3.8, 3, 3),
+    (4, 'A suíte era luxuosa e espaçosa. Uma experiência incrível.', 4.9, 4, 4),
+    (5, 'O quarto era exatamente como esperado. Nenhuma queixa.', 4.7, 5, 5);
+
+
+-----------------------------------------------------------------------------
+
+
+INSERT INTO public.tipo_produto(id, titulo, descricao)
+VALUES 
+    (1, 'Comida', 'Salgado de queijo'),
+    (2, 'Bebida', 'Coca Cola'),
+    (3, 'Comida', 'Feijoada'),
+    (4, 'Bebida', 'Cerveja Skol'),
+    (5, 'Doce', 'Brigadeiro');
+
+
+-----------------------------------------------------------------------------
+
+INSERT INTO public.produto(
+    id, descricao, preco_base, quantidade_estoque, titulo, hotel_id, tipo_produto_id)
+VALUES 
+    (1, 'Whisky escocês de 12 anos', 100.00, 10, 'Whisky 12 Anos', 1, 1),
+    (2, 'Vinho tinto argentino Malbec', 50.00, 20, 'Vinho Malbec', 2, 5),
+    (3, 'Cerveja artesanal IPA', 8.00, 50, 'Cerveja IPA', 3, 2),
+    (4, 'Bolo de chocolate com cobertura de ganache', 30.00, 15, 'Bolo de Chocolate', 4, 4),
+    (5, 'Cupcake de baunilha com frosting de morango', 3.00, 30, 'Cupcake de Baunilha', 5, 5);
+
+
+-----------------------------------------------------------------------------
+
+INSERT INTO public.status_quarto(id, titulo)
+VALUES 
+    (1, 'Disponível'),
+    (2, 'Ocupado'),
+    (3, 'Em Limpeza'),
+    (4, 'Manutenção'),
+    (5, 'Reservado');
+
+
+-----------------------------------------------------------------------------
+
+
+INSERT INTO public.quarto(
+    id, andar, bloco, numero, status, hotel_id, status_quarto_id, tipo_quarto_id)
+VALUES 
+    (1, 2, 'A', 101, 'Disponível', 1, 1, 1),
+    (2, 3, 'B', 201, 'Disponível', 2, 1, 2),
+    (3, 4, 'C', 301, 'Ocupado', 3, 2, 3),
+    (4, 5, 'D', 401, 'Disponível', 4, 1, 4),
+    (5, 6, 'E', 501, 'Disponível', 5, 1, 5);
+
+
+-----------------------------------------------------------------------------
+
+
+
+INSERT INTO public.tipo_servico(id, descricao, titulo)
+VALUES 
+    (1, 'Serviço de Limpeza', 'Limpeza'),
+    (2, 'Serviço de Alimentação', 'Alimentação'),
+    (3, 'Serviço de Transporte', 'Transporte'),
+    (4, 'Serviço de Segurança', 'Segurança'),
+    (5, 'Serviço de Recepção', 'Recepção');
+
+----------------------------------------------------------------------------
+
+
+INSERT INTO public.status_servico(id, titulo)
+VALUES 
+    (1, 'Ativo'),
+    (2, 'Inativo'),
+    (3, 'Pendente'),
+    (4, 'Cancelado'),
+    (5, 'Concluído');
+
+-----------------------------------------------------------------------------
+
+INSERT INTO public.servico(
+    id, descricao, status, tipo_reserva, titulo, valor_por_horario, hotel_id, status_servico_id, tipo_servico_id)
+VALUES 
+    (1, 'Serviço de limpeza diária dos quartos', 'Ativo', 'Diária', 'Limpeza Diária', 30.00, 1, 1, 1),
+    (2, 'Serviço de café da manhã no restaurante do hotel', 'Ativo', 'Horário', 'Café da Manhã', 20.00, 2, 1, 2),
+    (3, 'Serviço de transfer do aeroporto para o hotel', 'Ativo', 'Agendamento', 'Transfer Aeroporto', 50.00, 3, 1, 3),
+    (4, 'Serviço de massagem relaxante no spa do hotel', 'Ativo', 'Agendamento', 'Massagem Relaxante', 80.00, 4, 1, 4),
+    (5, 'Serviço de concierge para reservas em restaurantes e passeios', 'Ativo', 'Agendamento', 'Concierge', 0.00, 5, 1, 5);
+
+-----------------------------------------------------------------------------
+
+INSERT INTO public.comodidade_tipo_quarto(
+    id, quantidade, comodidade_id, tipo_quarto_id)
+VALUES 
+    (1, 2, 1, 1),
+    (2, 1, 2, 2),
+    (3, 1, 3, 3),
+    (4, 3, 4, 4),
+    (5, 2, 5, 5);
+
+-----------------------------------------------------------------------------
+
+INSERT INTO public.horario_servico(
+    id, data, hora_fim, hora_inicio, status, vagas_ocupadas, vagas_total, servico_id)
+VALUES 
+    (1, '2024-05-10', '12:00', '10:00', 'Disponível', 0, 10, 1),
+    (2, '2024-06-15', '14:00', '11:00', 'Disponível', 0, 12, 2),
+    (3, '2024-07-20', '16:00', '13:00', 'Disponível', 0, 15, 3),
+    (4, '2024-08-25', '18:00', '15:00', 'Disponível', 0, 8, 4),
+    (5, '2024-09-01', '20:00', '17:00', 'Disponível', 0, 20, 5);
+
+-----------------------------------------------------------------------------
+
+INSERT INTO public.produto_solicitado(
+    id, quantidade, valor_total, hospedagem_id, produto_id)
+VALUES 
+    (1, 2, 30.00, 1, 1),
+    (2, 1, 50.00, 2, 2),
+    (3, 3, 20.00, 3, 3),
+    (4, 2, 40.00, 4, 4),
+    (5, 1, 25.00, 5, 5);
+
+-----------------------------------------------------------------------------
+
+
+
+
+INSERT INTO public.servico_solicitado(
+    id, quantidade_vagas, valor_total, hospedagem_id, servico_id)
+VALUES 
+    (1, 1, 50.00, 1, 1),
+    (2, 2, 100.00, 2, 2),
+    (3, 1, 80.00, 3, 3),
+    (4, 3, 150.00, 4, 4),
+    (5, 1, 60.00, 5, 5);
+
+-------------------------------------------------------------------------------	
+	
+INSERT INTO public.relacao_horario_servico(
+    id, descricao, horario_servico_id, servico_solicitado_id)
+VALUES 
+    (1, 'Agendamento para massagem relaxante', 1, 1),
+    (2, 'Sessão de treinamento na academia', 2, 2),
+    (3, 'Aula de mergulho na piscina', 3, 3),
+    (4, 'Tratamento facial no spa', 4, 4),
+    (5, 'Sessão de ioga no jardim', 5, 5);
+
+
+
+
+
+-------------------------------------------------------------------------------
+
+INSERT INTO public.quarto_hospedagem(
+    id, descricao, hospedagem_id, quarto_id)
+VALUES 
+    (1, 'Quarto luxuoso com vista para o mar', 1, 1),
+    (2, 'Quarto padrão com cama king-size', 2, 2),
+    (3, 'Suíte executiva com banheira de hidromassagem', 3, 3),
+    (4, 'Quarto com varanda privativa', 4, 4),
+    (5, 'Suíte presidencial com sala de estar', 5, 5);
+
+
+-------------------------------------------------------------------------------
+
+
+INSERT INTO public.tipo_cama_tipo_quarto(
+    id, quantidade, tipo_cama_id, tipo_quarto_id)
+VALUES 
+    (1, 1, 1, 1),
+    (2, 2, 2, 2),
+    (3, 1, 3, 3),
+    (4, 3, 4, 4),
+    (5, 2, 5, 5);
+
+
+-------------------------------------------------------------------------------
+
+INSERT INTO public.tipo_quarto_reserva(
+    id, descricao, reserva_id, tipo_quarto_id)
+VALUES 
+    (1, 'Quarto de luxo com vista para o mar', 1, 1),
+    (2, 'Quarto padrão com cama king-size', 2, 2),
+    (3, 'Suíte executiva com banheira de hidromassagem', 3, 3),
+    (4, 'Quarto com varanda privativa', 4, 4),
+    (5, 'Suíte presidencial com sala de estar', 5, 5);
+
+
+

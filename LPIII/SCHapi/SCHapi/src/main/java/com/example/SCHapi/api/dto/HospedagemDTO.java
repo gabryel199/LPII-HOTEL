@@ -27,7 +27,6 @@ public class HospedagemDTO {
     private Long idFuncionario;
     private Long idHotel;
     private Long idStatusHospedagem;
-    private Long idTipoQuarto;
     private Long idAvaliacaoHospedagem;
 
     private Long idReserva;

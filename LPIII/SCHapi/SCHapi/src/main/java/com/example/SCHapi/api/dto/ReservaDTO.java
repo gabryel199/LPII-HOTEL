@@ -26,7 +26,6 @@ public class ReservaDTO {
     private Long idCliente;
     private Long idFuncionario;
     private Long idHotel;
-    private Long idTipoQuarto;
     private Long idStatusReserva;
     private List<TipoQuartoReserva> listaQuartos;
 

@@ -23378,7 +23378,7 @@
 											"top": 595,
 											"width": 134,
 											"height": 13,
-											"text": "-limiteCriancas",
+											"text": "-limiteCrianca",
 											"horizontalAlignment": 0
 										},
 										{
@@ -23395,7 +23395,7 @@
 											"top": 610,
 											"width": 134,
 											"height": 13,
-											"text": "-limiteAdultos",
+											"text": "-limiteAdulto",
 											"horizontalAlignment": 0
 										},
 										{
@@ -42385,9 +42385,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGKkIHTDU0G5ec="
 							},
-							"name": "limiteCriancas",
-							"visibility": "private",
-							"type": ""
+							"name": "limiteCrianca",
+							"visibility": "private"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -42395,9 +42394,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGKkIHTDU0G5ec="
 							},
-							"name": "limiteAdultos",
-							"visibility": "private",
-							"type": ""
+							"name": "limiteAdulto",
+							"visibility": "private"
 						},
 						{
 							"_type": "UMLAttribute",

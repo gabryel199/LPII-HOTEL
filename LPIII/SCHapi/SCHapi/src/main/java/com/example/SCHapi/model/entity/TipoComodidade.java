@@ -20,7 +20,7 @@ public class TipoComodidade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
-    private String categoria;
+    private String titulo;
     private String descricao;
 
 
