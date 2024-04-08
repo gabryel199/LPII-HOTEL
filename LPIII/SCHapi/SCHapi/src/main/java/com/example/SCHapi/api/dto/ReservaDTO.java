@@ -29,7 +29,7 @@ public class ReservaDTO {
     private Long idStatusReserva;
     private List<TipoQuartoReserva> listaQuartos;
 
-
+    
 
 
     public static ReservaDTO create(Reserva reserva) {
@@ -37,9 +37,9 @@ public class ReservaDTO {
         ReservaDTO dto = modelMapper.map(reserva, ReservaDTO.class);
 
         //aqui tem q pegar o TipoQuartoReserva e criar o ListaQuartos
-        // TipoQuartoReservaService tipoQuartoReservaService;
-        // ReservaService reservaService;
-        // Optional<Reserva> reservaO = reservaService.getReservaById(id);
+        // TipoQuartoReservaService tipoQuartoReservaService = new TipoQuartoReservaService(null);
+        // ReservaService reservaService = new ReservaService(null);
+        // Optional<Reserva> reservaO = reservaService.getReservaById(dto.getId());
         // dto.listaQuartos = tipoQuartoReservaService.getTipoQuartoReservaByReserva(reservaO);
 
         // dto.idHotel = reserva.getHotel().getId();
