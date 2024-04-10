@@ -20,7 +20,7 @@ import java.util.Optional;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class ReservaDTO {
+public class ReservaDTO2 {
 
     private Long id;
     private Date dataInicio;
@@ -30,20 +30,20 @@ public class ReservaDTO {
     private Long idFuncionario;
     private Long idHotel;
     private Long idStatusReserva;
-    List<TipoQuartoReserva> listaQuartos;
+    private List<TipoQuartoReserva> listaQuartos;
 
 
 
-    public static ReservaDTO create(Reserva reserva) {
+    public static ReservaDTO2 create(Reserva reserva, List<TipoQuartoReserva> listaQuartos) {
         ModelMapper modelMapper = new ModelMapper();
-        ReservaDTO dto = modelMapper.map(reserva, ReservaDTO.class);
+        ReservaDTO2 dto = modelMapper.map(reserva, ReservaDTO2.class);
 
         //aqui tem q pegar o TipoQuartoReserva e criar o ListaQuartos
        // TipoQuartoReservaService tipoQuartoReservaService = new TipoQuartoReservaService(factory.getRepository(TipoQuartoRepository.class);
         // ReservaService reservaService = new ReservaService(null);
         // Optional<Reserva> reservaO = reservaService.getReservaById(dto.getId());
         //dto.listaQuartos = tipoQuartoReservaService.getTipoQuartoReservaByReserva(Optional.of(reserva));
-        dto.listaQuartos = null;
+        dto.listaQuartos = listaQuartos;
         // dto.idHotel = reserva.getHotel().getId();
         // dto.idCliente = reserva.getCliente().getId();
         // dto.idFuncionario = reserva.getFuncionario().getId();

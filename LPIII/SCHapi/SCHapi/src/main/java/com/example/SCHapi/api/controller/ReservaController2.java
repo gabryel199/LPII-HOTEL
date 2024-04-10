@@ -31,9 +31,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/reservas")
+@RequestMapping("/api/v1/reservas2")
 @RequiredArgsConstructor
-public class ReservaController {
+public class ReservaController2 {
     private final ReservaService service;
     private final ClienteService clienteService;
     private final HotelService hotelService;
@@ -50,10 +50,15 @@ public class ReservaController {
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
         Optional<Reserva> reserva = service.getReservaById(id);
+        List<TipoQuartoReserva> listaQuartos = tipoQuartoReservaService.getTipoQuartoReservaByReserva(reserva);
+        //Optional<List<TipoQuartoReserva>> = Optional.of(listaQuartos);
+        ReservaDTO2 reservaDTO2 = new ReservaDTO2();
+        reservaDTO2 = ReservaDTO2.create(reserva.get(), listaQuartos);
         if (!reserva.isPresent()) {
             return new ResponseEntity("Reserva não encontrada", HttpStatus.NOT_FOUND);
         }
-        return ResponseEntity.ok(reserva.map(ReservaDTO::create));
+        return ResponseEntity.ok(reservaDTO2);
+        // return ResponseEntity.ok(reserva.map(ReservaDTO::create));
     }
 
     public Reserva converter(ReservaDTO dto) {
