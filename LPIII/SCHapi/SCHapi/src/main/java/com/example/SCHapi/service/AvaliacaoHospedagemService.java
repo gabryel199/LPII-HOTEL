@@ -28,4 +28,8 @@ public class AvaliacaoHospedagemService {
     public Optional<AvaliacaoHospedagem> getAvaliacaoHospedagemById(Long id) {
         return repository.findById(id);
     }
+
+
+
+
 }
