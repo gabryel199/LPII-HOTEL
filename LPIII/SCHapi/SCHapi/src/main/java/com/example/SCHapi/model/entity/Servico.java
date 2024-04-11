@@ -16,7 +16,6 @@ public class Servico {
 
     private String titulo;
     private String descricao;
-    private String status;
     private float valorPorHorario;
     private String tipoReserva;
 

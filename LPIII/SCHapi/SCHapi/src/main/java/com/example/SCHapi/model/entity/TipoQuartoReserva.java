@@ -14,7 +14,7 @@ public class TipoQuartoReserva {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String descricao;
+    private Integer qtd;
 
     @ManyToOne
     private Reserva reserva;

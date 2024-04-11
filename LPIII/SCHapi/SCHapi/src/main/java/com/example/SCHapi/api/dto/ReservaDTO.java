@@ -19,6 +19,7 @@ import java.util.List;
 public class ReservaDTO {
 
     private Long id;
+    //private Long status;
     private Date dataInicio;
     private Date dataFim;
     private String valorReserva;
@@ -33,6 +34,9 @@ public class ReservaDTO {
     public static ReservaDTO create(Reserva reserva) {
         ModelMapper modelMapper = new ModelMapper();
         ReservaDTO dto = modelMapper.map(reserva, ReservaDTO.class);
+        
+        // dto.status = reserva.getStatusReserva().getId();
+        //dto.status = dto.idStatusReserva;
 
         //aqui tem q pegar o TipoQuartoReserva e criar o ListaQuartos
        // TipoQuartoReservaService tipoQuartoReservaService = new TipoQuartoReservaService(factory.getRepository(TipoQuartoRepository.class);

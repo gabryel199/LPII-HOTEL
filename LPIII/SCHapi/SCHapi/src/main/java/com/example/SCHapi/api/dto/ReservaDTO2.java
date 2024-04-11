@@ -23,6 +23,7 @@ import java.util.Optional;
 public class ReservaDTO2 {
 
     private Long id;
+    //private Long status;
     private Date dataInicio;
     private Date dataFim;
     private String valorReserva;
@@ -38,12 +39,18 @@ public class ReservaDTO2 {
         ModelMapper modelMapper = new ModelMapper();
         ReservaDTO2 dto = modelMapper.map(reserva, ReservaDTO2.class);
 
+        // dto.status = reserva.getStatusReserva().getId();
+        // dto.status = dto.idStatusReserva;        
+        
         //aqui tem q pegar o TipoQuartoReserva e criar o ListaQuartos
        // TipoQuartoReservaService tipoQuartoReservaService = new TipoQuartoReservaService(factory.getRepository(TipoQuartoRepository.class);
         // ReservaService reservaService = new ReservaService(null);
         // Optional<Reserva> reservaO = reservaService.getReservaById(dto.getId());
         //dto.listaQuartos = tipoQuartoReservaService.getTipoQuartoReservaByReserva(Optional.of(reserva));
         dto.listaQuartos = listaQuartos;
+        // for (TipoQuartoReserva tipoQuartoReserva : listaQuartos) {
+        //     dto.listaQuartos.add
+        // }
         // dto.idHotel = reserva.getHotel().getId();
         // dto.idCliente = reserva.getCliente().getId();
         // dto.idFuncionario = reserva.getFuncionario().getId();

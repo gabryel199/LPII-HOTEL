@@ -20,7 +20,6 @@ public class Quarto {
     private int numero;
     private int andar;
     private String bloco;
-    private String status;
 
     @ManyToOne
     private TipoQuarto tipoQuarto;

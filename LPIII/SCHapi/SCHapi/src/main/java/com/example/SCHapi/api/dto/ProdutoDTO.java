@@ -15,8 +15,8 @@ public class ProdutoDTO {
 
     private String titulo;
     private String descricao;
-    private double precoBase;
-    private int quantidadeEstoque;
+    private double preco;
+    private int quantidadeestoque;
     private Long idHotel;
     private Long idTipoProduto;
 
@@ -24,6 +24,8 @@ public class ProdutoDTO {
         ModelMapper modelMapper = new ModelMapper();
         ProdutoDTO dto = modelMapper.map(produto, ProdutoDTO.class);
 
+        dto.preco = produto.getPrecoBase();
+        dto.quantidadeestoque = produto.getQuantidadeEstoque();
         // dto.idHotel = produto.getHotel().getId();
         // dto.categoriaProdutoId = produto.getTipoProduto().getId();
         return dto;

@@ -22267,6 +22267,7 @@
 											"model": {
 												"$ref": "AAAAAAGKkP0ydG4Bz4U="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
 											"left": 1101,
 											"top": 741,
@@ -22286,7 +22287,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1101,
-											"top": 756,
+											"top": 741,
 											"width": 151.38525390625,
 											"height": 13,
 											"text": "-dataInicio",
@@ -22303,7 +22304,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1101,
-											"top": 771,
+											"top": 756,
 											"width": 151.38525390625,
 											"height": 13,
 											"text": "-dataFim1",
@@ -22320,7 +22321,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1101,
-											"top": 786,
+											"top": 771,
 											"width": 151.38525390625,
 											"height": 13,
 											"text": "-dataFim2",
@@ -22337,7 +22338,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1101,
-											"top": 801,
+											"top": 786,
 											"width": 151.38525390625,
 											"height": 13,
 											"text": "-valorEstadia",
@@ -22372,7 +22373,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1101,
-											"top": 816,
+											"top": 801,
 											"width": 151.38525390625,
 											"height": 13,
 											"text": "-valorConsumo",
@@ -22389,7 +22390,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1101,
-											"top": 831,
+											"top": 816,
 											"width": 151.38525390625,
 											"height": 13,
 											"text": "-valorServicos",
@@ -22406,7 +22407,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1101,
-											"top": 846,
+											"top": 831,
 											"width": 151.38525390625,
 											"height": 13,
 											"text": "-valorEstadiaAdicional",
@@ -22423,7 +22424,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1101,
-											"top": 861,
+											"top": 846,
 											"width": 151.38525390625,
 											"height": 13,
 											"text": "-valorTotalPago",
@@ -22434,7 +22435,7 @@
 									"left": 1096,
 									"top": 721,
 									"width": 161.38525390625,
-									"height": 158
+									"height": 143
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -22447,7 +22448,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 1096,
-									"top": 879,
+									"top": 864,
 									"width": 161.38525390625,
 									"height": 10
 								},
@@ -23127,6 +23128,7 @@
 											"model": {
 												"$ref": "AAAAAAGKkRuzUvK9KW4="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
 											"left": 325,
 											"top": 890,
@@ -23140,7 +23142,7 @@
 									"left": 320,
 									"top": 825,
 									"width": 114.4189453125,
-									"height": 83
+									"height": 68
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -23153,7 +23155,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 320,
-									"top": 908,
+									"top": 893,
 									"width": 114.4189453125,
 									"height": 10
 								},
@@ -25506,6 +25508,7 @@
 											"model": {
 												"$ref": "AAAAAAGKkPLxcVqz/nc="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
 											"left": 917,
 											"top": 1179,
@@ -25525,7 +25528,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 917,
-											"top": 1194,
+											"top": 1179,
 											"width": 98.62353515625,
 											"height": 13,
 											"text": "-valorPorHorario",
@@ -25560,7 +25563,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 917,
-											"top": 1209,
+											"top": 1194,
 											"width": 98.62353515625,
 											"height": 13,
 											"text": "-tipoReserva",
@@ -25571,7 +25574,7 @@
 									"left": 912,
 									"top": 1129,
 									"width": 108.62353515625,
-									"height": 98
+									"height": 83
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -25584,7 +25587,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 912,
-									"top": 1227,
+									"top": 1212,
 									"width": 108.62353515625,
 									"height": 10
 								},
@@ -42386,7 +42389,8 @@
 								"$ref": "AAAAAAGKkIHTDU0G5ec="
 							},
 							"name": "limiteCrianca",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -42395,7 +42399,8 @@
 								"$ref": "AAAAAAGKkIHTDU0G5ec="
 							},
 							"name": "limiteAdulto",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",

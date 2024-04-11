@@ -15,7 +15,7 @@ public class FuncionarioDTO {
     private Long id;
     private String nome;
     private String cpf;
-    private Date dataNacimento;
+    private Date dataNascimento;
     private String email;
     private String senha;
     private Float salario;

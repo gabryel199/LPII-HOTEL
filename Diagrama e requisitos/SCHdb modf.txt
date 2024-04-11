@@ -241,13 +241,13 @@ VALUES
 
 
 INSERT INTO public.quarto(
-    id, andar, bloco, numero, status, hotel_id, status_quarto_id, tipo_quarto_id)
+    id, andar, bloco, numero, hotel_id, status_quarto_id, tipo_quarto_id)
 VALUES 
-    (1, 2, 'A', 101, 'Disponível', 1, 1, 1),
-    (2, 3, 'B', 201, 'Disponível', 2, 1, 2),
-    (3, 4, 'C', 301, 'Ocupado', 3, 2, 3),
-    (4, 5, 'D', 401, 'Disponível', 4, 1, 4),
-    (5, 6, 'E', 501, 'Disponível', 5, 1, 5);
+    (1, 2, 'A', 101, 1, 1, 1),
+    (2, 3, 'B', 201, 2, 1, 2),
+    (3, 4, 'C', 301, 3, 2, 3),
+    (4, 5, 'D', 401, 4, 1, 4),
+    (5, 6, 'E', 501, 5, 1, 5);
 
 
 -----------------------------------------------------------------------------
@@ -276,13 +276,13 @@ VALUES
 -----------------------------------------------------------------------------
 
 INSERT INTO public.servico(
-    id, descricao, status, tipo_reserva, titulo, valor_por_horario, hotel_id, status_servico_id, tipo_servico_id)
+    id, descricao, tipo_reserva, titulo, valor_por_horario, hotel_id, status_servico_id, tipo_servico_id)
 VALUES 
-    (1, 'Serviço de limpeza diária dos quartos', 'Ativo', 'Diária', 'Limpeza Diária', 30.00, 1, 1, 1),
-    (2, 'Serviço de café da manhã no restaurante do hotel', 'Ativo', 'Horário', 'Café da Manhã', 20.00, 2, 1, 2),
-    (3, 'Serviço de transfer do aeroporto para o hotel', 'Ativo', 'Agendamento', 'Transfer Aeroporto', 50.00, 3, 1, 3),
-    (4, 'Serviço de massagem relaxante no spa do hotel', 'Ativo', 'Agendamento', 'Massagem Relaxante', 80.00, 4, 1, 4),
-    (5, 'Serviço de concierge para reservas em restaurantes e passeios', 'Ativo', 'Agendamento', 'Concierge', 0.00, 5, 1, 5);
+    (1, 'Serviço de limpeza diária dos quartos', 'Diária', 'Limpeza Diária', 30.00, 1, 1, 1),
+    (2, 'Serviço de café da manhã no restaurante do hotel', 'Horário', 'Café da Manhã', 20.00, 2, 1, 2),
+    (3, 'Serviço de transfer do aeroporto para o hotel', 'Agendamento', 'Transfer Aeroporto', 50.00, 3, 1, 3),
+    (4, 'Serviço de massagem relaxante no spa do hotel', 'Agendamento', 'Massagem Relaxante', 80.00, 4, 1, 4),
+    (5, 'Serviço de concierge para reservas em restaurantes e passeios', 'Agendamento', 'Concierge', 0.00, 5, 1, 5);
 
 -----------------------------------------------------------------------------
 
@@ -374,13 +374,13 @@ VALUES
 -------------------------------------------------------------------------------
 
 INSERT INTO public.tipo_quarto_reserva(
-    id, descricao, reserva_id, tipo_quarto_id)
+    id, qtd, reserva_id, tipo_quarto_id)
 VALUES 
-    (1, 'Quarto de luxo com vista para o mar', 1, 1),
-    (2, 'Quarto padrão com cama king-size', 2, 2),
-    (3, 'Suíte executiva com banheira de hidromassagem', 3, 3),
-    (4, 'Quarto com varanda privativa', 4, 4),
-    (5, 'Suíte presidencial com sala de estar', 5, 5);
+    (1, 1, 1, 1),
+    (2, 2, 1, 2),
+    (3, 1, 3, 3),
+    (4, 2, 4, 4),
+    (5, 1, 5, 5);
 
 
 
