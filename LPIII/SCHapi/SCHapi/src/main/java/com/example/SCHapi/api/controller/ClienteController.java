@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.example.SCHapi.exception.RegraNegocioException;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 
@@ -19,10 +20,7 @@ import com.example.SCHapi.service.UfService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/clientes")
@@ -47,6 +45,17 @@ public class ClienteController {
             return new ResponseEntity("Cliente não encontrada", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(cliente.map(ClienteDTO::create));
+    }
+
+    @PostMapping
+    public ResponseEntity post(@RequestBody ClienteDTO dto) {
+        try {
+            Cliente cliente = converter(dto);
+            cliente = service.salvar(cliente);
+            return new ResponseEntity(cliente, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     public Cliente converter(ClienteDTO dto) {

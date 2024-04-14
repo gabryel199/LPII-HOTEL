@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.example.SCHapi.exception.RegraNegocioException;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 
@@ -19,10 +20,7 @@ import com.example.SCHapi.service.TipoServicoService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/servicos")
@@ -47,6 +45,18 @@ public class ServicoController {
         }
         return ResponseEntity.ok(servico.map(ServicoDTO::create));
     }
+
+    @PostMapping
+    public ResponseEntity post(@RequestBody ServicoDTO dto) {
+        try {
+            Servico servico = converter(dto);
+            servico = service.salvar(servico);
+            return new ResponseEntity(servico, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
 
     public Servico converter(ServicoDTO dto) {
         ModelMapper modelMapper = new ModelMapper();

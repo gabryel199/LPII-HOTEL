@@ -16,7 +16,7 @@ public class Servico {
 
     private String titulo;
     private String descricao;
-    private float valorPorHorario;
+    private Float valorPorHorario;
     private String tipoReserva;
 
     @ManyToOne

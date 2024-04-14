@@ -18,8 +18,8 @@ public class Produto {
 
     private String titulo;
     private String descricao;
-    private double precoBase;
-    private int quantidadeEstoque;
+    private Float precoBase;
+    private Integer quantidadeEstoque;
 
     @ManyToOne
     private TipoProduto tipoProduto;

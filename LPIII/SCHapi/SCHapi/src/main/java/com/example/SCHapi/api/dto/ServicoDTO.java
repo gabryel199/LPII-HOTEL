@@ -15,7 +15,7 @@ public class ServicoDTO {
     private String titulo;
     private String descricao;
     private String status;
-    private float valorPorHorario;
+    private Float valorPorHorario;
     private String tipoReserva;
     private Long idHotel;
     private Long idTipoServico;

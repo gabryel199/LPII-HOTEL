@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.example.SCHapi.exception.RegraNegocioException;
+import com.example.SCHapi.model.entity.TipoProduto;
+import com.example.SCHapi.service.TipoProdutoService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 
@@ -12,13 +15,11 @@ import com.example.SCHapi.model.entity.Produto;
 import com.example.SCHapi.model.entity.Hotel;
 import com.example.SCHapi.service.ProdutoService;
 import com.example.SCHapi.service.HotelService;
+import com.example.SCHapi.service.ProdutoService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/produtos")
@@ -27,6 +28,7 @@ public class ProdutoController {
 
     private final ProdutoService service;
     private final HotelService hotelService;
+    private final TipoProdutoService tipoProdutoService;
 
     @GetMapping()
     public ResponseEntity get() {
@@ -43,6 +45,18 @@ public class ProdutoController {
         return ResponseEntity.ok(produto.map(ProdutoDTO::create));
     }
 
+    @PostMapping
+    public ResponseEntity post(@RequestBody ProdutoDTO dto) {
+        try {
+            Produto produto = converter(dto);
+            produto = service.salvar(produto);
+            return new ResponseEntity(produto, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+
     public Produto converter(ProdutoDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
         Produto produto = modelMapper.map(dto, Produto.class);
@@ -52,6 +66,14 @@ public class ProdutoController {
                 produto.setHotel(null);
             } else {
                 produto.setHotel(hotel.get());
+            }
+        }
+        if (dto.getIdTipoProduto() != null) {
+            Optional<TipoProduto> tipoProduto = tipoProdutoService.getTipoProdutoById(dto.getIdTipoProduto());
+            if (!tipoProduto.isPresent()) {
+                produto.setTipoProduto(null);
+            } else {
+                produto.setTipoProduto(tipoProduto.get());
             }
         }
         return produto;
