@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.example.SCHapi.exception.RegraNegocioException;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 
@@ -15,10 +16,7 @@ import com.example.SCHapi.service.ComodidadeService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/comodidades")
@@ -41,6 +39,17 @@ public class ComodidadeController {
             return new ResponseEntity("Comodidade não encontrada", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(comodidade.map(ComodidadeDTO::create));
+    }
+
+    @PostMapping
+    public ResponseEntity post(@RequestBody ComodidadeDTO dto) {
+        try {
+            Comodidade comodidade = converter(dto);
+            comodidade = service.salvar(comodidade);
+            return new ResponseEntity(comodidade, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     public Comodidade converter(ComodidadeDTO dto) {
