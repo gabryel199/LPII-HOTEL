@@ -23,7 +23,7 @@ public class HospedagemDTO {
     private Float valorConsumo;
     private Float valorServicos;
     private Float valorEstadiaAdicional;
-    private Float valorTotalPago;
+    private Float valorTotal;
     private Long idCliente;
     private Long idFuncionario;
     private Long idHotel;
