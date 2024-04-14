@@ -28,4 +28,31 @@ public class AvaliacaoQuartoService {
     public Optional<AvaliacaoQuarto> getAvaliacaoQuartoById(Long id) {
         return repository.findById(id);
     }
+
+    @Transactional
+    public AvaliacaoQuarto salvar(AvaliacaoQuarto avaliacaoQuarto) {
+        validar(avaliacaoQuarto);
+        return repository.save(avaliacaoQuarto);
+    }
+
+
+    public void validar(AvaliacaoQuarto avaliacaoQuarto) {
+
+        Float nota = avaliacaoQuarto.getNota();
+
+        if (avaliacaoQuarto.getComentario() == null || avaliacaoQuarto.getComentario().trim().equals("")){
+            throw new RegraNegocioException("Comentario invalido Invalido!!! Insira um comentario valido.");
+        }
+        if (avaliacaoQuarto.getNota() < 0 ||  avaliacaoQuarto.getNota() > 5 || nota == null) {
+            throw new RegraNegocioException("Nota Invalida!!! Insira uma nota valida, entre 0 e 5.");
+        }
+        if (avaliacaoQuarto.getTipoQuarto() == null || avaliacaoQuarto.getTipoQuarto().getId() == null || avaliacaoQuarto.getTipoQuarto().getId() == 0) {
+            throw new RegraNegocioException("Tipo quarto inválido!!!!");
+        }
+        if (avaliacaoQuarto.getHospedagem() == null || avaliacaoQuarto.getHospedagem().getId() == null || avaliacaoQuarto.getHospedagem().getId() == 0) {
+            throw new RegraNegocioException("Hospedagem inválida!!!!");
+        }
+    }
+
+
 }

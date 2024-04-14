@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.example.SCHapi.exception.RegraNegocioException;
+import com.example.SCHapi.model.entity.Hospedagem;
+import com.example.SCHapi.service.HospedagemService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 
@@ -15,10 +18,7 @@ import com.example.SCHapi.service.TipoQuartoService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/avaliacaoQuartos")
@@ -27,6 +27,7 @@ public class AvaliacaoQuartoController {
 
     private final AvaliacaoQuartoService service;
     private final TipoQuartoService tipoQuartoService;
+    private final HospedagemService hospedagemService;
     
     @GetMapping()
     public ResponseEntity get() {
@@ -43,6 +44,18 @@ public class AvaliacaoQuartoController {
         return ResponseEntity.ok(avaliacaoQuarto.map(AvaliacaoQuartoDTO::create));
     }
 
+    @PostMapping
+    public ResponseEntity post(@RequestBody AvaliacaoQuartoDTO dto) {
+        try {
+            AvaliacaoQuarto avaliacaoQuarto = converter(dto);
+            avaliacaoQuarto = service.salvar(avaliacaoQuarto);
+            return new ResponseEntity(avaliacaoQuarto, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+
     public AvaliacaoQuarto converter(AvaliacaoQuartoDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
         AvaliacaoQuarto avaliacaoQuarto = modelMapper.map(dto, AvaliacaoQuarto.class);
@@ -52,6 +65,14 @@ public class AvaliacaoQuartoController {
                 avaliacaoQuarto.setTipoQuarto(null);
             } else {
                 avaliacaoQuarto.setTipoQuarto(tipoQuarto.get());
+            }
+        }
+        if (dto.getIdHospedagem() != null) {
+            Optional<Hospedagem> hospedagem = hospedagemService.getHospedagemById(dto.getIdHospedagem());
+            if (!hospedagem.isPresent()) {
+                avaliacaoQuarto.setHospedagem(null);
+            } else {
+                avaliacaoQuarto.setHospedagem(hospedagem.get());
             }
         }
         return avaliacaoQuarto;

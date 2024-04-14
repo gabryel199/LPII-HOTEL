@@ -17,8 +17,8 @@ public class Quarto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int numero;
-    private int andar;
+    private Integer numero;
+    private Integer andar;
     private String bloco;
 
     @ManyToOne

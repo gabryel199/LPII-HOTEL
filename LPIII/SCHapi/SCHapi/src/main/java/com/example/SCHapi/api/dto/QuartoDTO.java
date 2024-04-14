@@ -13,7 +13,6 @@ public class QuartoDTO {
     private Integer numero;
     private Integer andar;
     private String bloco;
-    private String status;
     private Long idHotel;
     private Long idTipoQuarto;
     private Long idStatusQuarto;

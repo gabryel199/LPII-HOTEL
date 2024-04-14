@@ -11,9 +11,11 @@ import org.modelmapper.ModelMapper;
 @NoArgsConstructor
 public class AvaliacaoQuartoDTO {
     private Long id;
-    private String nota;
+    private Float nota;
     private String comentario;
     private Long idTipoQuarto;
+    private Long idHospedagem;
+
 
     public static AvaliacaoQuartoDTO create(AvaliacaoQuarto avaliacaoQuarto) {
         ModelMapper modelMapper = new ModelMapper();

@@ -17,7 +17,7 @@ public class AvaliacaoQuarto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
-    private float nota;
+    private Float nota;
     private String comentario;
 
     @ManyToOne
