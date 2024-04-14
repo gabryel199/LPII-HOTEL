@@ -18,12 +18,12 @@ public class TipoQuarto {
 
     private String titulo;
     private String descricao;
-    private int limiteCriancas;
-    private int limiteAdultos;
-    private float precoBase;
-    private float avaliacaoMedia;
-    private int diasCancelarReserva;
-    private float area;
+    private Integer limiteCriancas;
+    private Integer limiteAdultos;
+    private Float precoBase;
+    private Float avaliacaoMedia;
+    private Integer diasCancelarReserva;
+    private Float area;
 
     // @OneToOne(cascade = CascadeType.ALL)
     // private AvaliacaoQuarto avaliacaoQuarto;

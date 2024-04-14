@@ -17,14 +17,15 @@ public class Hospedagem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Date dataInicio;
-    private Date dataFim1;
-    private Date dataFim2;
-    private float valorEstadia;
-    private float valorConsumo;
-    private float valorServicos;
-    private float valorEstadiaAdicional;
-    private float valorTotalPago;
+    private String dataInicio;
+    private String dataFim1;
+    private String dataFim2;
+    private String statusValorEstadia;
+    private Float valorEstadia;
+    private Float valorConsumo;
+    private Float valorServicos;
+    private Float valorEstadiaAdicional;
+    private Float valorTotalPago;
 
 
     @ManyToOne

@@ -14,16 +14,16 @@ import java.util.Date;
 public class HospedagemDTO {
 
     private Long id;
-    private Long status;
-    private Date dataInicio;
-    private Date dataFim1;
-    private Date dataFim2;
+    //private Long status;
+    private String dataInicio;
+    private String dataFim1;
+    private String dataFim2;
     private Float valorEstadia;
     private String statusValorEstadia;
     private Float valorConsumo;
     private Float valorServicos;
     private Float valorEstadiaAdicional;
-    private Float valorTotal;
+    private Float valorTotalPago;
     private Long idCliente;
     private Long idFuncionario;
     private Long idHotel;
@@ -36,7 +36,7 @@ public class HospedagemDTO {
         ModelMapper modelMapper = new ModelMapper();
         HospedagemDTO dto = modelMapper.map(hospedagem, HospedagemDTO.class);
 
-        dto.status = hospedagem.getStatusHospedagem().getId();
+        //dto.status = hospedagem.getStatusHospedagem().getId();
         // dto.idHotel = hospedagem.getHotel().getId();
         // dto.idCliente = hospedagem.getCliente().getId();
         // dto.idFuncionario = hospedagem.getFuncionario().getId();
