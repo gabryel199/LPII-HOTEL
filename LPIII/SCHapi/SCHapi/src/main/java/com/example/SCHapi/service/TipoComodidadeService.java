@@ -28,4 +28,19 @@ public class TipoComodidadeService {
     public Optional<TipoComodidade> getTipoComodidadeById(Long id) {
         return repository.findById(id);
     }
+
+    @Transactional
+    public TipoComodidade salvar(TipoComodidade tipoComodidade) {
+        validar(tipoComodidade);
+        return repository.save(tipoComodidade);
+    }
+
+    public void validar(TipoComodidade tipoComodidade) {
+        if (tipoComodidade.getDescricao() == null || tipoComodidade.getDescricao().trim().equals("")) {
+            throw new RegraNegocioException("Descrição Invalida!!! Insira uma descrição valida.");
+        }
+        if (tipoComodidade.getTitulo() == null || tipoComodidade.getTitulo().trim().equals("")) {
+            throw new RegraNegocioException("Titulo Invalido!!! Insira um titulo valido.");
+        }
+    }
 }
