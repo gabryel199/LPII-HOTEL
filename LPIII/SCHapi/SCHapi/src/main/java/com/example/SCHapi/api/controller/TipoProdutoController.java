@@ -39,7 +39,7 @@ public class TipoProdutoController {
         return ResponseEntity.ok(tipoProduto.map(TipoProdutoDTO::create));
     }
 
-    @PostMapping()
+    @PostMapping
     public ResponseEntity post(@RequestBody TipoProdutoDTO dto) {
         try {
             TipoProduto tipoProduto = converter(dto);

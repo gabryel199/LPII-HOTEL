@@ -30,14 +30,20 @@ public class TipoProdutoService {
     }
 
     @Transactional
-    public TipoProduto salvar(TipoProduto tipoProduto){
+    public TipoProduto salvar(TipoProduto tipoProduto) {
         validar(tipoProduto);
         return repository.save(tipoProduto);
     }
 
-    public void validar(TipoProduto tipoProduto){
-        if (tipoProduto.getDescricao() == null || tipoProduto.getDescricao().trim().equals("")){
-            throw new RegraNegocioException("Descrição Invalida!!!!");
+
+
+
+    public void validar(TipoProduto tipoProduto) {
+        if (tipoProduto.getDescricao() == null || tipoProduto.getDescricao().trim().equals("")) {
+            throw new RegraNegocioException("Descrição Invalida!!! Insira uma descrição valida.");
+        }
+        if (tipoProduto.getTitulo() == null || tipoProduto.getTitulo().trim().equals("")) {
+            throw new RegraNegocioException("Titulo Invalido!!! Insira um titulo valido.");
         }
     }
 }
