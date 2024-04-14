@@ -44,8 +44,9 @@ public class AvaliacaoHospedagemService {
             throw new RegraNegocioException("Comentario Invalido!!! Insira um comentario valido.");
         }
         if (nota == null || (nota < 0 || nota > 5)) {
-            throw new RegraNegocioException("A nota de hospedagem deve estar entre 0 e 5, nota inválida.");
+            throw new RegraNegocioException("A nota de hospedagem deve estar entre 0 e 5 ou estar nula, nota inválida.");
         }
+
     }
 
 
