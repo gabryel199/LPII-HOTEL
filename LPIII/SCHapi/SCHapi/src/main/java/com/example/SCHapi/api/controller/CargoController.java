@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.example.SCHapi.exception.RegraNegocioException;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 
@@ -15,10 +16,7 @@ import com.example.SCHapi.service.HotelService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/cargos")
@@ -42,6 +40,18 @@ public class CargoController {
         }
         return ResponseEntity.ok(cargo.map(CargoDTO::create));
     }
+    @PostMapping
+    public ResponseEntity post(@RequestBody CargoDTO dto) {
+        try {
+            Cargo cargo = converter(dto);
+            cargo = service.salvar(cargo);
+            return new ResponseEntity(cargo, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+
 
     public Cargo converter(CargoDTO dto) {
         ModelMapper modelMapper = new ModelMapper();

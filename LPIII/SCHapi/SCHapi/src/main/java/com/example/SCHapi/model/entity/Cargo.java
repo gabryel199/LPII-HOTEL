@@ -18,7 +18,7 @@ public class Cargo {
     private Long id;
     private String cargo;
     private String descricao;
-    private float salarioBase;
+    private Float salarioBase;
 
     @ManyToOne
     private Hotel hotel;
