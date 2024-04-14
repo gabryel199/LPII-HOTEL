@@ -21,6 +21,8 @@ public class FuncionarioDTO {
     private Float salario;
     private String horaInicio;
     private String horaFim;
+    private String telefone1;
+    private String telefone2;
    // private String ddi1;
    // private String ddd1;
    // private String num1;

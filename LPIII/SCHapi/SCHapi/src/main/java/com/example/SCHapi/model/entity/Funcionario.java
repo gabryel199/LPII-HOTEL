@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 
 public class Funcionario extends Usuario{
     
-    private float salario;
+    private Float salario;
     private String horaInicio;
     private String horaFim;
 
