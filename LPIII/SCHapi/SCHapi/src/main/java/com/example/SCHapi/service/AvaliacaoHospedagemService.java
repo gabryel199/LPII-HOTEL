@@ -29,7 +29,24 @@ public class AvaliacaoHospedagemService {
         return repository.findById(id);
     }
 
+    @Transactional
+    public AvaliacaoHospedagem salvar(AvaliacaoHospedagem avaliacaoHospedagem) {
+        validar(avaliacaoHospedagem);
+        return repository.save(avaliacaoHospedagem);
+    }
 
+    public void validar(AvaliacaoHospedagem avaliacaoHospedagem) {
+
+        Float nota = avaliacaoHospedagem.getNota();
+
+
+        if (avaliacaoHospedagem.getComentario() == null || avaliacaoHospedagem.getComentario().trim().equals("")){
+            throw new RegraNegocioException("Comentario Invalido!!! Insira um comentario valido.");
+        }
+        if (nota == null || (nota < 0 || nota > 5)) {
+            throw new RegraNegocioException("A nota de hospedagem deve estar entre 0 e 5, nota inválida.");
+        }
+    }
 
 
 }

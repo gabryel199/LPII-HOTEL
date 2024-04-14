@@ -12,7 +12,7 @@ import org.modelmapper.ModelMapper;
 public class AvaliacaoHospedagemDTO {
 
     private Long id;
-    private Integer nota;
+    private Float nota;
     private String comentario;
     private Long idHospedagem;
     //private Long hotel_id;
