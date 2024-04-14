@@ -20,9 +20,9 @@ public class ReservaDTO {
 
     private Long id;
     //private Long status;
-    private Date dataInicio;
-    private Date dataFim;
-    private String valorReserva;
+    private String dataInicio;
+    private String dataFim;
+    private Float valorReserva;
     private Long idCliente;
     private Long idFuncionario;
     private Long idHotel;

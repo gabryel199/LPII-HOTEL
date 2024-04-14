@@ -21,9 +21,9 @@ public class Reserva {
     private Long id;
 
 
-    private float valorReserva;
-    private Date dataInicio;
-    private Date dataFim;
+    private Float valorReserva;
+    private String dataInicio;
+    private String dataFim;
 
     @ManyToOne
     private Cliente cliente;

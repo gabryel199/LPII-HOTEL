@@ -1,5 +1,8 @@
 package com.example.SCHapi.api.controller;
 
+import com.example.SCHapi.api.dto.QuartoDTO;
+import com.example.SCHapi.exception.RegraNegocioException;
+import com.example.SCHapi.model.entity.Quarto;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -14,10 +17,7 @@ import com.example.SCHapi.service.TipoQuartoService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/tipoQuartos")
@@ -39,6 +39,17 @@ public class TipoQuartoController {
             return new ResponseEntity("TipoQuarto não encontrada", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(tipoQuarto.map(TipoQuartoDTO::create));
+    }
+
+    @PostMapping
+    public ResponseEntity post(@RequestBody TipoQuartoDTO dto) {
+        try {
+            TipoQuarto tipoQuarto = converter(dto);
+            tipoQuarto = service.salvar(tipoQuarto);
+            return new ResponseEntity(tipoQuarto, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     public TipoQuarto converter(TipoQuartoDTO dto) {

@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.example.SCHapi.api.dto.FuncionarioDTO;
+import com.example.SCHapi.exception.RegraNegocioException;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 
@@ -25,10 +27,7 @@ import com.example.SCHapi.service.TipoQuartoService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/reservas")
@@ -54,6 +53,17 @@ public class ReservaController {
             return new ResponseEntity("Reserva não encontrada", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(reserva.map(ReservaDTO::create));
+    }
+
+    @PostMapping
+    public ResponseEntity post(@RequestBody ReservaDTO dto) {
+        try {
+            Reserva reserva = converter(dto);
+            reserva = service.salvar(reserva);
+            return new ResponseEntity(reserva, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     public Reserva converter(ReservaDTO dto) {
