@@ -54,6 +54,9 @@ public class TipoQuartoController {
 
     public TipoQuarto converter(TipoQuartoDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(dto, TipoQuarto.class);
+        TipoQuarto tipoQuarto = modelMapper.map(dto, TipoQuarto.class);
+        tipoQuarto.setLimiteAdultos(dto.getLimiteAdulto()) ;
+        tipoQuarto.setLimiteCriancas(dto.getLimiteCrianca()) ;
+        return tipoQuarto;
     }
 }

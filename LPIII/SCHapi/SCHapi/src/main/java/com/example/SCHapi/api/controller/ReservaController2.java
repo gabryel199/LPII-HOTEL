@@ -9,6 +9,7 @@ import org.modelmapper.ModelMapper;
 
 import com.example.SCHapi.api.dto.ReservaDTO;
 import com.example.SCHapi.api.dto.ReservaDTO2;
+import com.example.SCHapi.exception.RegraNegocioException;
 import com.example.SCHapi.model.entity.Reserva;
 import com.example.SCHapi.model.entity.Cliente;
 import com.example.SCHapi.model.entity.Funcionario;
@@ -27,6 +28,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -45,7 +48,7 @@ public class ReservaController2 {
     public ResponseEntity get() {
        List<Reserva> reservas = service.getReservas();
         return ResponseEntity.ok(reservas.stream().map(ReservaDTO::create).collect(Collectors.toList()));
-    }
+    } // essa aqui ainda tem q adaptar, mas acho q nao vai influenciar por enquanto
 
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
@@ -61,6 +64,17 @@ public class ReservaController2 {
         // return ResponseEntity.ok(reserva.map(ReservaDTO::create));
     }
 
+    @PostMapping
+    public ResponseEntity post(@RequestBody ReservaDTO dto) {
+        try {
+            Reserva reserva = converter(dto);
+            reserva = service.salvar(reserva);
+            return new ResponseEntity(reserva, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+    
     public Reserva converter(ReservaDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
         Reserva reserva = modelMapper.map(dto, Reserva.class);

@@ -31,3 +31,13 @@ public class ProdutoDTO {
         return dto;
     }
 }
+
+// {
+        
+//     "titulo": "misto quente",
+//     "descricao": "pao, presunto, queijo",
+//     "preco": 5.50,
+//     "quantidadeestoque": 100,
+//     "idHotel": 1,
+//     "idTipoProduto": 1
+// }

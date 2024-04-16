@@ -95,11 +95,11 @@ VALUES
 INSERT INTO public.cliente(
     id, cpf, data_nascimento, email, nome, senha, telefone1, telefone2, descricao, endereco_id)
 VALUES 
-    (1, '111.222.333-44', '1990-03-15', 'cliente1@example.com', 'Maria Oliveira', 'senha123', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', 'Cliente frequente', 1),
-    (2, '222.333.444-55', '1985-07-20', 'cliente2@example.com', 'João Silva', 'senha456', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', 'Cliente corporativo', 2),
-    (3, '333.444.555-66', '1992-05-25', 'cliente3@example.com', 'Ana Santos', 'senha789', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', 'Cliente VIP', 3),
-    (4, '444.555.666-77', '1988-10-12', 'cliente4@example.com', 'Pedro Lima', 'senhaabc', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', 'Cliente em potencial', 4),
-    (5, '555.666.777-88', '1995-12-30', 'cliente5@example.com', 'Lucas Martins', 'senhadef', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', 'Cliente ocasional', 5);
+    (1, '111.222.333-44', '1990-03-15', 'cliente1@example.com', 'Maria Oliveira', 'senha123', '5532988887777', '553233332222', 'Cliente frequente', 1),
+    (2, '222.333.444-55', '1985-07-20', 'cliente2@example.com', 'João Silva', 'senha456', '5532988887777', '553233332222', 'Cliente corporativo', 2),
+    (3, '333.444.555-66', '1992-05-25', 'cliente3@example.com', 'Ana Santos', 'senha789', '5532988887777', '553233332222', 'Cliente VIP', 3),
+    (4, '444.555.666-77', '1988-10-12', 'cliente4@example.com', 'Pedro Lima', 'senhaabc', '5532988887777', '553233332222', 'Cliente em potencial', 4),
+    (5, '555.666.777-88', '1995-12-30', 'cliente5@example.com', 'Lucas Martins', 'senhadef', '5532988887777', '553233332222', 'Cliente ocasional', 5);
 
 ----------------------------------------------------------------------------
 
@@ -108,11 +108,11 @@ VALUES
 INSERT INTO public.hotel(
     id, avaliacao_media, descricao, telefone1, telefone2, titulo, endereco_id)
 VALUES 
-    (1, 4.3, 'Um hotel luxuoso com uma bela vista para o mar.', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', 'Hotel Estrela do Mar', 1),
-    (2, 3.8, 'Um hotel aconchegante no coração da cidade.', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', 'Hotel Central', 2),
-    (3, 4.5, 'Um hotel de negócios com instalações modernas.', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', 'Hotel Executivo', 3),
-    (4, 4.1, 'Um hotel familiar com atividades para todas as idades.', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', 'Hotel Familiar', 4),
-    (5, 4.6, 'Um hotel boutique com design contemporâneo.', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', 'Hotel Boutique', 5);
+    (1, 4.3, 'Um hotel luxuoso com uma bela vista para o mar.', '5532988887777', '553233332222', 'Hotel Estrela do Mar', 1),
+    (2, 3.8, 'Um hotel aconchegante no coração da cidade.', '5532988887777', '553233332222', 'Hotel Central', 2),
+    (3, 4.5, 'Um hotel de negócios com instalações modernas.', '5532988887777', '553233332222', 'Hotel Executivo', 3),
+    (4, 4.1, 'Um hotel familiar com atividades para todas as idades.', '5532988887777', '553233332222', 'Hotel Familiar', 4),
+    (5, 4.6, 'Um hotel boutique com design contemporâneo.', '5532988887777', '553233332222', 'Hotel Boutique', 5);
 
 -----------------------------------------------------------------------------
 
@@ -130,11 +130,11 @@ VALUES
 INSERT INTO public.funcionario(
     id, cpf, data_nascimento, email, nome, senha, telefone1, telefone2, hora_fim, hora_inicio, salario, endereco_id, cargo_id, hotel_id)
 VALUES 
-    (1, '123.456.789-10', '1990-05-15', 'funcionario1@example.com', 'João Silva', 'senha123', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', '18:00:00', '08:00:00', 3500.00, 1, 3, 1),
-    (2, '987.654.321-10', '1988-10-20', 'funcionario2@example.com', 'Maria Santos', 'senha456', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', '18:00:00', '08:00:00', 3000.00, 2, 2, 2),
-    (3, '111.222.333-44', '1995-03-25', 'funcionario3@example.com', 'Pedro Oliveira', 'senha789', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', '18:00:00', '08:00:00', 4000.00, 3, 1, 3),
-    (4, '555.666.777-88', '1992-08-12', 'funcionario4@example.com', 'Ana Lima', 'senhaabc', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', '18:00:00', '08:00:00', 3200.00, 4, 4, 4),
-    (5, '999.888.777-66', '1997-12-30', 'funcionario5@example.com', 'Lucas Martins', 'senhadef', '(XX) XXXX-XXXX', '(XX) XXXX-XXXX', '18:00:00', '08:00:00', 2800.00, 5, 5, 5);
+    (1, '123.456.789-10', '1990-05-15', 'funcionario1@example.com', 'João Silva', 'senha123', '5532988887777', '553233332222', '18:00:00', '08:00:00', 3500.00, 1, 3, 1),
+    (2, '987.654.321-10', '1988-10-20', 'funcionario2@example.com', 'Maria Santos', 'senha456', '5532988887777', '553233332222', '18:00:00', '08:00:00', 3000.00, 2, 2, 2),
+    (3, '111.222.333-44', '1995-03-25', 'funcionario3@example.com', 'Pedro Oliveira', 'senha789', '5532988887777', '553233332222', '18:00:00', '08:00:00', 4000.00, 3, 1, 3),
+    (4, '555.666.777-88', '1992-08-12', 'funcionario4@example.com', 'Ana Lima', 'senhaabc', '5532988887777', '553233332222', '18:00:00', '08:00:00', 3200.00, 4, 4, 4),
+    (5, '999.888.777-66', '1997-12-30', 'funcionario5@example.com', 'Lucas Martins', 'senhadef', '5532988887777', '553233332222', '18:00:00', '08:00:00', 2800.00, 5, 5, 5);
 
 
 -----------------------------------------------------------------------------

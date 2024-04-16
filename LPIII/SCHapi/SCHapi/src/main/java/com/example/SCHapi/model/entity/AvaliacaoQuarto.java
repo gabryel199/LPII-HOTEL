@@ -22,7 +22,7 @@ public class AvaliacaoQuarto {
 
     @ManyToOne
     private Hospedagem hospedagem;
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private TipoQuarto tipoQuarto;
 
 }

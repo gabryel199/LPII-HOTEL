@@ -60,6 +60,8 @@ public class ProdutoController {
     public Produto converter(ProdutoDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
         Produto produto = modelMapper.map(dto, Produto.class);
+        produto.setPrecoBase(dto.getPreco());
+        produto.setQuantidadeEstoque(dto.getQuantidadeestoque());
         if (dto.getIdHotel() != null) {
             Optional<Hotel> hotel = hotelService.getHotelById(dto.getIdHotel());
             if (!hotel.isPresent()) {

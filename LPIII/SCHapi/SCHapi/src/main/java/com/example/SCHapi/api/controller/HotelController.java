@@ -63,6 +63,8 @@ public class HotelController {
         ModelMapper modelMapper = new ModelMapper();
         Hotel hotel = modelMapper.map(dto, Hotel.class);
         Endereco endereco = modelMapper.map(dto, Endereco.class);
+        hotel.setTelefone1(dto.getDdi1().concat(dto.getDdd1()).concat(dto.getNum1()));
+        hotel.setTelefone2(dto.getDdi2().concat(dto.getDdd2()).concat(dto.getNum2()));
         hotel.setEndereco(endereco);
         if (dto.getIdUf() != null) {
             Optional<Uf> uf = ufService.getUfById(dto.getIdUf());

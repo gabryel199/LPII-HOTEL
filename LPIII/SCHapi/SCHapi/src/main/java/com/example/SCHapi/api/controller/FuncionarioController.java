@@ -64,6 +64,8 @@ public class FuncionarioController {
         ModelMapper modelMapper = new ModelMapper();
         Funcionario funcionario = modelMapper.map(dto, Funcionario.class);
         Endereco endereco = modelMapper.map(dto, Endereco.class);
+        funcionario.setTelefone1(dto.getDdi1().concat(dto.getDdd1()).concat(dto.getNum1()));
+        funcionario.setTelefone2(dto.getDdi2().concat(dto.getDdd2()).concat(dto.getNum2()));
         funcionario.setEndereco(endereco);
         if (dto.getIdUf() != null) {
             Optional<Uf> uf = ufService.getUfById(dto.getIdUf());

@@ -63,6 +63,8 @@ public class ClienteController {
         Cliente cliente = modelMapper.map(dto, Cliente.class);
         Endereco endereco = modelMapper.map(dto, Endereco.class);
         cliente.setEndereco(endereco);
+        cliente.setTelefone1(dto.getDdi1().concat(dto.getDdd1()).concat(dto.getNum1()));
+        cliente.setTelefone2(dto.getDdi2().concat(dto.getDdd2()).concat(dto.getNum2()));
         if (dto.getIdUf() != null) {
             Optional<Uf> uf = ufService.getUfById(dto.getIdUf());
             if (!uf.isPresent()) {

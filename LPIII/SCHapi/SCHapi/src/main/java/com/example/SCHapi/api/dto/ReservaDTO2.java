@@ -24,20 +24,23 @@ public class ReservaDTO2 {
 
     private Long id;
     //private Long status;
-    private Date dataInicio;
-    private Date dataFim;
+    private String dataInicio;
+    private String dataFim;
     private String valorReserva;
     private Long idCliente;
     private Long idFuncionario;
     private Long idHotel;
     private Long idStatusReserva;
-    private List<TipoQuartoReserva> listaQuartos;
+    private List<TipoQuartoReservaDTO> listaQuartos;
 
 
 
     public static ReservaDTO2 create(Reserva reserva, List<TipoQuartoReserva> listaQuartos) {
         ModelMapper modelMapper = new ModelMapper();
         ReservaDTO2 dto = modelMapper.map(reserva, ReservaDTO2.class);
+        dto.listaQuartos = TipoQuartoReservaDTO.createList(listaQuartos);
+
+        return dto;
 
         // dto.status = reserva.getStatusReserva().getId();
         // dto.status = dto.idStatusReserva;        
@@ -47,7 +50,6 @@ public class ReservaDTO2 {
         // ReservaService reservaService = new ReservaService(null);
         // Optional<Reserva> reservaO = reservaService.getReservaById(dto.getId());
         //dto.listaQuartos = tipoQuartoReservaService.getTipoQuartoReservaByReserva(Optional.of(reserva));
-        dto.listaQuartos = listaQuartos;
         // for (TipoQuartoReserva tipoQuartoReserva : listaQuartos) {
         //     dto.listaQuartos.add
         // }
@@ -56,7 +58,5 @@ public class ReservaDTO2 {
         // dto.idFuncionario = reserva.getFuncionario().getId();
         // dto.idTipoQuarto = reserva.getTipoQuarto().getId();
         // dto.idStatusReserva = reserva.getStatusReserva().getId();
-
-        return dto;
     }
 }

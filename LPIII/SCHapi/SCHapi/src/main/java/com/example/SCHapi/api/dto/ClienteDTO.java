@@ -40,12 +40,12 @@ public class ClienteDTO {
         ClienteDTO dto = modelMapper.map(cliente, ClienteDTO.class);
 
         //dps arrumor aq pra dividir.
-        dto.ddi1 = cliente.getTelefone1();
-         dto.ddd1 = cliente.getTelefone1();
-         dto.num1 = cliente.getTelefone1();
-         dto.ddi2 = cliente.getTelefone2();
-         dto.ddd2 = cliente.getTelefone2();
-         dto.num2 = cliente.getTelefone2();
+        dto.ddi1 = cliente.getTelefone1().substring(0,2);
+        dto.ddd1 = cliente.getTelefone1().substring(2,4);
+        dto.num1 = cliente.getTelefone1().substring(4);
+        dto.ddi2 = cliente.getTelefone2().substring(0,2);
+        dto.ddd2 = cliente.getTelefone2().substring(2,4);
+        dto.num2 = cliente.getTelefone2().substring(4);
 
         dto.numero = cliente.getEndereco().getNumero();
         dto.complemento = cliente.getEndereco().getComplemento();
@@ -60,3 +60,24 @@ public class ClienteDTO {
         return dto;
     }
 }
+
+// {
+//     "nome" :"a",
+//     "cpf":"11111111111",
+//     "dataNascimento":"22/22/2222",
+//    "email":"a@",
+//     "senha":"a2A@dwqdwqdqwdqwdqwd",
+//     "ddi1":"11",
+//     "ddd1":"22",
+//     "num1":"33330000",
+//     "ddi2":"11",
+//     "ddd2":"22",
+//    "num2":"333330000",
+//     "numero":1,
+//    "complemento":1,
+//     "logradouro":"a",
+//     "bairro":"a",
+//     "cep":"a",
+//    "cidade":"a",
+//    "idUf":1,
+//    "idPais":1}

@@ -54,13 +54,13 @@ public class HotelService {
         }
         if (telefone1 != null) {
             telefone1 = telefone1.replaceAll("[()\\-]", ""); // Remove parênteses e traços
-            if (telefone1.length() != 10 && telefone1.length() != 11) {
+            if (telefone1.length() != 12 && telefone1.length() != 13) {
                 throw new RegraNegocioException("O telefone 1 não pode estar nulo e deve ter 10 ou 11 dígitos.");
             }
         }
         if (telefone2 != null) {
             telefone2 = telefone2.replaceAll("[()\\-]", ""); // Remove parênteses e traços
-            if (telefone2.length() != 10 && telefone2.length() != 11) {
+            if (telefone2.length() != 12 && telefone2.length() != 13) {
                 throw new RegraNegocioException("O telefone 2 não pode estar nulo e deve ter 10 ou 11 dígitos.");
             }
         }

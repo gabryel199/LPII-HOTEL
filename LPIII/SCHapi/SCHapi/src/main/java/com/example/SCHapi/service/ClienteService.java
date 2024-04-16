@@ -52,13 +52,13 @@ public class ClienteService {
         }
         if (telefone1 != null) {
             telefone1 = telefone1.replaceAll("[()\\-]", ""); // Remove parênteses e traços
-            if (telefone1.length() != 10 && telefone1.length() != 11) {
+            if (telefone1.length() != 12 && telefone1.length() != 13) {
                 throw new RegraNegocioException("O telefone 1 não pode estar nulo e deve ter 10 ou 11 dígitos.");
             }
         }
         if (telefone2 != null) {
             telefone2 = telefone2.replaceAll("[()\\-]", ""); // Remove parênteses e traços
-            if (telefone2.length() != 10 && telefone2.length() != 11) {
+            if (telefone2.length() != 12 && telefone2.length() != 13) {
                 throw new RegraNegocioException("O telefone 2 não pode estar nulo e deve ter 10 ou 11 dígitos.");
             }
         }
@@ -72,9 +72,9 @@ public class ClienteService {
                 !cliente.getDataNascimento().matches("^\\d{2}/\\d{2}/\\d{4}$")) {
             throw new RegraNegocioException("Data de nascimento inválida! Insira uma data de nascimento no formato dd/MM/yyyy.");
         }
-        if (cliente.getEndereco() == null || cliente.getEndereco().getId() == null || cliente.getEndereco().getId() == 0) {
-            throw new RegraNegocioException("Endereço inválid0!!!!");
-        }
+        // if (cliente.getEndereco() == null || cliente.getEndereco().getId() == null || cliente.getEndereco().getId() == 0) {
+        //     throw new RegraNegocioException("Endereço inválid0!!!!");
+        // }
 
         // DESCRIÇÃO NÃO LANÇADA POIS O ATRIBUTO DESCRIÇÃO FOI CRIADO APENAS PARA GERAR A CLASSE
     }

@@ -52,13 +52,13 @@ public class FuncionarioService {
         }
         if (telefone1 != null) {
             telefone1 = telefone1.replaceAll("[()\\-]", ""); // Remove parênteses e traços
-            if (telefone1.length() != 10 && telefone1.length() != 11) {
+            if (telefone1.length() != 12 && telefone1.length() != 13) {
                 throw new RegraNegocioException("O telefone 1 não pode estar nulo e deve ter 10 ou 11 dígitos.");
             }
         }
         if (telefone2 != null) {
             telefone2 = telefone2.replaceAll("[()\\-]", ""); // Remove parênteses e traços
-            if (telefone2.length() != 10 && telefone2.length() != 11) {
+            if (telefone2.length() != 12 && telefone2.length() != 13) {
                 throw new RegraNegocioException("O telefone 2 não pode estar nulo e deve ter 10 ou 11 dígitos.");
             }
         }
@@ -83,9 +83,9 @@ public class FuncionarioService {
         if (funcionario.getEmail() == null || funcionario.getEmail().trim().equals("") || !funcionario.getEmail().contains("@")) {
             throw new RegraNegocioException("O e-mail deve conter um '@'.");
         }
-        if (funcionario.getEndereco() == null || funcionario.getEndereco().getId() == null || funcionario.getEndereco().getId() == 0) {
-            throw new RegraNegocioException("Endereço inválid0!!!!");
-        }
+        // if (funcionario.getEndereco() == null || funcionario.getEndereco().getId() == null || funcionario.getEndereco().getId() == 0) {
+        //     throw new RegraNegocioException("Endereço inválid0!!!!");
+        // }
         if (funcionario.getCargo() == null || funcionario.getCargo().getId() == null || funcionario.getCargo().getId() == 0) {
             throw new RegraNegocioException("Cargo inválid0!!!!");
         }
