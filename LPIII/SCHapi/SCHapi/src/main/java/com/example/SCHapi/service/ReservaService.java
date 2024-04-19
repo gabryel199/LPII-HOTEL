@@ -39,12 +39,12 @@ public class ReservaService {
         Float valorReserva = reserva.getValorReserva();
 
 
-        if (reserva.getDataInicio() == null || reserva.getDataInicio().trim().equals("") || !reserva.getDataInicio().matches("^\\d{2}/\\d{2}/\\d{4}-\\d{2}:\\d{2}$")){
-            throw new RegraNegocioException("Data de inicio Invalido!!! Insira uma data valida dd/mm/yyy-hh:mm.");
-        }
-        if (reserva.getDataFim() == null || reserva.getDataFim().trim().equals("") || !reserva.getDataFim().matches("^\\d{2}/\\d{2}/\\d{4}-\\d{2}:\\d{2}$")){
-            throw new RegraNegocioException("data fim Invalido!!! Insira uma data valida dd/mm/yyy-hh:mm.");
-        }
+        // if (reserva.getDataInicio() == null || reserva.getDataInicio().trim().equals("") || !reserva.getDataInicio().matches("^\\d{2}/\\d{2}/\\d{4}-\\d{2}:\\d{2}$")){
+        //     throw new RegraNegocioException("Data de inicio Invalido!!! Insira uma data valida dd/mm/yyy-hh:mm.");
+        // }
+        // if (reserva.getDataFim() == null || reserva.getDataFim().trim().equals("") || !reserva.getDataFim().matches("^\\d{2}/\\d{2}/\\d{4}-\\d{2}:\\d{2}$")){
+        //     throw new RegraNegocioException("data fim Invalido!!! Insira uma data valida dd/mm/yyy-hh:mm.");
+        // }
         if (valorReserva == null || valorReserva <= 0 ) {
             throw new RegraNegocioException("Valor de reserva invalido, valor não pode ser menor ou igual a 0 ou nulo.");
         }

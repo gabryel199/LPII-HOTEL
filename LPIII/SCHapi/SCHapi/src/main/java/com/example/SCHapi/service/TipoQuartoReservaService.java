@@ -3,6 +3,9 @@ package com.example.SCHapi.service;
 import com.example.SCHapi.model.entity.Reserva;
 import com.example.SCHapi.model.entity.TipoQuartoReserva;
 import com.example.SCHapi.model.repository.TipoQuartoReservaRepository;
+
+import jakarta.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,4 +31,12 @@ public class TipoQuartoReservaService {
     public List<TipoQuartoReserva> getTipoQuartoReservaByReserva(Optional<Reserva> reserva) {
         return repository.findByReserva(reserva);
     }
+
+    @Transactional
+    public TipoQuartoReserva salvar(TipoQuartoReserva tipoQuartoReserva) {
+        // validar(tipoQuartoReserva);
+        return repository.save(tipoQuartoReserva);
+    }
+
+    //fazer o validar dps
 }

@@ -7,14 +7,15 @@ import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 
-import com.example.SCHapi.api.dto.ReservaDTO;
 import com.example.SCHapi.api.dto.ReservaDTO2;
+import com.example.SCHapi.api.dto.TipoQuartoReservaDTO;
 import com.example.SCHapi.exception.RegraNegocioException;
 import com.example.SCHapi.model.entity.Reserva;
 import com.example.SCHapi.model.entity.Cliente;
 import com.example.SCHapi.model.entity.Funcionario;
 import com.example.SCHapi.model.entity.Hotel;
 import com.example.SCHapi.model.entity.StatusReserva;
+import com.example.SCHapi.model.entity.TipoQuarto;
 import com.example.SCHapi.model.entity.TipoQuartoReserva;
 import com.example.SCHapi.service.ClienteService;
 import com.example.SCHapi.service.FuncionarioService;
@@ -43,12 +44,13 @@ public class ReservaController2 {
     private final FuncionarioService funcionarioService;
     private final StatusReservaService statusreservaService;
     private final TipoQuartoReservaService tipoQuartoReservaService;
+    private final TipoQuartoService tipoQuartoService;
 
-    @GetMapping()
-    public ResponseEntity get() {
-       List<Reserva> reservas = service.getReservas();
-        return ResponseEntity.ok(reservas.stream().map(ReservaDTO::create).collect(Collectors.toList()));
-    } // essa aqui ainda tem q adaptar, mas acho q nao vai influenciar por enquanto
+    // @GetMapping()
+    // public ResponseEntity get() {
+    //    List<Reserva> reservas = service.getReservas();
+    //     return ResponseEntity.ok(reservas.stream().map(ReservaDTO::create).collect(Collectors.toList()));
+    // } // essa aqui ainda tem q adaptar, mas acho q nao vai influenciar por enquanto
 
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
@@ -65,17 +67,22 @@ public class ReservaController2 {
     }
 
     @PostMapping
-    public ResponseEntity post(@RequestBody ReservaDTO dto) {
+    public ResponseEntity post(@RequestBody ReservaDTO2 dto) {
         try {
             Reserva reserva = converter(dto);
             reserva = service.salvar(reserva);
+            // loop para cada elemento da lista salvar o tipoquartoreserva
+            for (TipoQuartoReservaDTO tipoQuartoReservaDto : dto.getListaQuartos()) {
+                TipoQuartoReserva tipoQuartoReserva = converterTipoQuartoReserva(tipoQuartoReservaDto, reserva.getId());
+                tipoQuartoReservaService.salvar(tipoQuartoReserva);
+            }
             return new ResponseEntity(reserva, HttpStatus.CREATED);
         } catch (RegraNegocioException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
     
-    public Reserva converter(ReservaDTO dto) {
+    public Reserva converter(ReservaDTO2 dto) {
         ModelMapper modelMapper = new ModelMapper();
         Reserva reserva = modelMapper.map(dto, Reserva.class);
         if (dto.getIdCliente() != null) {
@@ -110,14 +117,29 @@ public class ReservaController2 {
                 reserva.setStatusReserva(statusreserva.get());
             }
         }
-        // if (dto.getIdTipoQuarto() != null) {
-        //     Optional<TipoQuarto> tipoquarto = tipoquartoService.getTipoQuartoById(dto.getIdTipoQuarto());
-        //     if (!tipoquarto.isPresent()) {
-        //         reserva.setTipoQuarto(null);
-        //     } else {
-        //         reserva.setTipoQuarto(tipoquarto.get());
-        //     }
-        // }
         return reserva;
+    }
+
+    public TipoQuartoReserva converterTipoQuartoReserva(TipoQuartoReservaDTO dto, Long reservaId) {
+        ModelMapper modelMapper = new ModelMapper();
+        TipoQuartoReserva tipoQuartoReserva = modelMapper.map(dto, TipoQuartoReserva.class);
+        // TipoQuartoReserva tipoQuartoReserva = new TipoQuartoReserva();
+        if (reservaId != null) {
+            Optional<Reserva> reserva = service.getReservaById(reservaId);
+            if (!reserva.isPresent()) {
+                tipoQuartoReserva.setReserva(null);
+            } else {
+                tipoQuartoReserva.setReserva(reserva.get());
+            }
+        }
+        if (dto.getTipoQuarto() != null) {
+            Optional<TipoQuarto> tipoQuarto = tipoQuartoService.getTipoQuartoById(dto.getTipoQuarto());
+            if (!tipoQuarto.isPresent()) {
+                tipoQuartoReserva.setTipoQuarto(null);
+            } else {
+                tipoQuartoReserva.setTipoQuarto(tipoQuarto.get());
+            }
+        }
+        return tipoQuartoReserva;
     }
 }
