@@ -28,4 +28,14 @@ public class ComodidadeTipoQuartoService {
     public Optional<ComodidadeTipoQuarto> getComodidadeTipoQuartoById(Long id) {
         return repository.findById(id);
     }
+
+    public List<ComodidadeTipoQuarto> getComodidadeTipoQuartoByTipoQuarto(Optional<TipoQuarto> tipoQuarto) {
+        return repository.findByTipoQuarto(tipoQuarto);
+    }
+
+    @Transactional
+    public ComodidadeTipoQuarto salvar(ComodidadeTipoQuarto comodidadeTipoQuarto) {
+        // validar(comodidadeTipoQuarto);
+        return repository.save(comodidadeTipoQuarto);
+    }
 }

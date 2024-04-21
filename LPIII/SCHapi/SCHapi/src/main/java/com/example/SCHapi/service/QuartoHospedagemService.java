@@ -1,8 +1,12 @@
 package com.example.SCHapi.service;
 
+import com.example.SCHapi.model.entity.Hospedagem;
 import com.example.SCHapi.model.entity.Quarto;
 import com.example.SCHapi.model.entity.QuartoHospedagem;
 import com.example.SCHapi.model.repository.QuartoRepository;
+
+import jakarta.transaction.Transactional;
+
 import com.example.SCHapi.model.repository.QuartoHospedagemRepository;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +28,15 @@ public class QuartoHospedagemService {
 
     public Optional<QuartoHospedagem> getQuartoHospedagemById(Long id) {
         return  repository.findById(id);
+    }
+
+    public List<QuartoHospedagem> getQuartoHospedagemByHospedagem(Optional<Hospedagem> hospedagem) {
+        return repository.findByHospedagem(hospedagem);
+    }
+
+    @Transactional
+    public QuartoHospedagem salvar(QuartoHospedagem quartoHospedagem) {
+        // validar(quartoHospedagem);
+        return repository.save(quartoHospedagem);
     }
 }

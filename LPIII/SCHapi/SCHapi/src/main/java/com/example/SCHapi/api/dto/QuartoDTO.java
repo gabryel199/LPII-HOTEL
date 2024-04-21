@@ -13,13 +13,24 @@ public class QuartoDTO {
     private Integer numero;
     private Integer andar;
     private String bloco;
-    private String status;
+    private Long status;
     private Long idHotel;
     private Long idTipoQuarto;
     private Long idStatusQuarto;
+
     public static QuartoDTO create(Quarto quarto) {
-        ModelMapper modelMapper = new ModelMapper();
-        QuartoDTO dto = modelMapper.map(quarto, QuartoDTO.class);
+        // ModelMapper modelMapper = new ModelMapper();
+        // QuartoDTO dto = modelMapper.map(quarto, QuartoDTO.class);
+
+        QuartoDTO dto = new QuartoDTO();
+        dto.id = quarto.getId();
+        dto.numero = quarto.getNumero();
+        dto.andar = quarto.getAndar();
+        dto.bloco = quarto.getBloco();
+        dto.status = quarto.getStatusQuarto().getId();
+        dto.idHotel = quarto.getHotel().getId();
+        dto.idTipoQuarto = quarto.getTipoQuarto().getId();
+        dto.idStatusQuarto = quarto.getStatusQuarto().getId();
 
         // dto.idHotel = quarto.getHotel().getId();
         // dto.idTipoQuarto = quarto.getTipoQuarto().getId();

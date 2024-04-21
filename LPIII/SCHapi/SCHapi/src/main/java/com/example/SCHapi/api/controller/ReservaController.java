@@ -4,18 +4,18 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import com.example.SCHapi.api.dto.FuncionarioDTO;
-import com.example.SCHapi.exception.RegraNegocioException;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 
 import com.example.SCHapi.api.dto.ReservaDTO;
-import com.example.SCHapi.api.dto.ReservaDTO2;
+import com.example.SCHapi.api.dto.dtoList.TipoQuartoReservaDTOList;
+import com.example.SCHapi.exception.RegraNegocioException;
 import com.example.SCHapi.model.entity.Reserva;
 import com.example.SCHapi.model.entity.Cliente;
 import com.example.SCHapi.model.entity.Funcionario;
 import com.example.SCHapi.model.entity.Hotel;
 import com.example.SCHapi.model.entity.StatusReserva;
+import com.example.SCHapi.model.entity.TipoQuarto;
 import com.example.SCHapi.model.entity.TipoQuartoReserva;
 import com.example.SCHapi.service.ClienteService;
 import com.example.SCHapi.service.FuncionarioService;
@@ -27,7 +27,12 @@ import com.example.SCHapi.service.TipoQuartoService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/reservas")
@@ -39,20 +44,26 @@ public class ReservaController {
     private final FuncionarioService funcionarioService;
     private final StatusReservaService statusreservaService;
     private final TipoQuartoReservaService tipoQuartoReservaService;
+    private final TipoQuartoService tipoQuartoService;
 
-    @GetMapping()
-    public ResponseEntity get() {
-       List<Reserva> reservas = service.getReservas();
-        return ResponseEntity.ok(reservas.stream().map(ReservaDTO::create).collect(Collectors.toList()));
-    }
+    // @GetMapping()
+    // public ResponseEntity get() {
+    //    List<Reserva> reservas = service.getReservas();
+    //     return ResponseEntity.ok(reservas.stream().map(ReservaDTO::create).collect(Collectors.toList()));
+    // } // essa aqui ainda tem q adaptar, mas acho q nao vai influenciar por enquanto
 
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
         Optional<Reserva> reserva = service.getReservaById(id);
+        List<TipoQuartoReserva> listaQuartos = tipoQuartoReservaService.getTipoQuartoReservaByReserva(reserva);
+        //Optional<List<TipoQuartoReserva>> = Optional.of(listaQuartos);
+        ReservaDTO reservaDTO = new ReservaDTO();
+        reservaDTO = ReservaDTO.create(reserva.get(), listaQuartos);
         if (!reserva.isPresent()) {
             return new ResponseEntity("Reserva não encontrada", HttpStatus.NOT_FOUND);
         }
-        return ResponseEntity.ok(reserva.map(ReservaDTO::create));
+        return ResponseEntity.ok(reservaDTO);
+        // return ResponseEntity.ok(reserva.map(ReservaDTO::create));
     }
 
     @PostMapping
@@ -60,12 +71,17 @@ public class ReservaController {
         try {
             Reserva reserva = converter(dto);
             reserva = service.salvar(reserva);
+            // loop para cada elemento da lista salvar o tipoquartoreserva
+            for (TipoQuartoReservaDTOList tipoQuartoReservaDto : dto.getListaQuartos()) {
+                TipoQuartoReserva tipoQuartoReserva = converterTipoQuartoReserva(tipoQuartoReservaDto, reserva.getId());
+                tipoQuartoReservaService.salvar(tipoQuartoReserva);
+            }
             return new ResponseEntity(reserva, HttpStatus.CREATED);
         } catch (RegraNegocioException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
-
+    
     public Reserva converter(ReservaDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
         Reserva reserva = modelMapper.map(dto, Reserva.class);
@@ -101,14 +117,28 @@ public class ReservaController {
                 reserva.setStatusReserva(statusreserva.get());
             }
         }
-        // if (dto.getIdTipoQuarto() != null) {
-        //     Optional<TipoQuarto> tipoquarto = tipoquartoService.getTipoQuartoById(dto.getIdTipoQuarto());
-        //     if (!tipoquarto.isPresent()) {
-        //         reserva.setTipoQuarto(null);
-        //     } else {
-        //         reserva.setTipoQuarto(tipoquarto.get());
-        //     }
-        // }
         return reserva;
+    }
+
+    public TipoQuartoReserva converterTipoQuartoReserva(TipoQuartoReservaDTOList dto, Long reservaId) {
+        ModelMapper modelMapper = new ModelMapper();
+        TipoQuartoReserva tipoQuartoReserva = modelMapper.map(dto, TipoQuartoReserva.class);
+        if (reservaId != null) {
+            Optional<Reserva> reserva = service.getReservaById(reservaId);
+            if (!reserva.isPresent()) {
+                tipoQuartoReserva.setReserva(null);
+            } else {
+                tipoQuartoReserva.setReserva(reserva.get());
+            }
+        }
+        if (dto.getTipoQuarto() != null) {
+            Optional<TipoQuarto> tipoQuarto = tipoQuartoService.getTipoQuartoById(dto.getTipoQuarto());
+            if (!tipoQuarto.isPresent()) {
+                tipoQuartoReserva.setTipoQuarto(null);
+            } else {
+                tipoQuartoReserva.setTipoQuarto(tipoQuarto.get());
+            }
+        }
+        return tipoQuartoReserva;
     }
 }

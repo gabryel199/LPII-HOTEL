@@ -1,12 +1,18 @@
 package com.example.SCHapi.api.dto;
 
+import com.example.SCHapi.api.dto.dtoList.ProdutoSolicitadoDTOList;
+import com.example.SCHapi.api.dto.dtoList.QuartoHospedagemDTOList;
 import com.example.SCHapi.model.entity.Hospedagem;
+import com.example.SCHapi.model.entity.ProdutoSolicitado;
+import com.example.SCHapi.model.entity.QuartoHospedagem;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -14,7 +20,7 @@ import java.util.Date;
 public class HospedagemDTO {
 
     private Long id;
-    //private Long status;
+    private Long status;
     private String dataInicio;
     private String dataFim1;
     private String dataFim2;
@@ -30,11 +36,37 @@ public class HospedagemDTO {
     private Long idStatusHospedagem;
     private Long idAvaliacaoHospedagem;
     private Long idReserva;
+    
+    private List<QuartoHospedagemDTOList> listaQuartos;
+    private List<ProdutoSolicitadoDTOList> produtoHospedagem;
 
 
-    public static HospedagemDTO create(Hospedagem hospedagem) {
-        ModelMapper modelMapper = new ModelMapper();
-        HospedagemDTO dto = modelMapper.map(hospedagem, HospedagemDTO.class);
+    public static HospedagemDTO create(Hospedagem hospedagem, List<QuartoHospedagem> listaQuartos, List<ProdutoSolicitado> produtoHospedagem) {
+        // ModelMapper modelMapper = new ModelMapper();
+        // HospedagemDTO dto = modelMapper.map(hospedagem, HospedagemDTO.class);
+
+        
+        HospedagemDTO dto = new HospedagemDTO();
+        dto.id = hospedagem.getId();
+        dto.status = hospedagem.getStatusHospedagem().getId();
+        dto.dataInicio = hospedagem.getDataInicio();
+        dto.dataFim1 = hospedagem.getDataFim1();
+        dto.dataFim2 = hospedagem.getDataFim2();
+        dto.valorEstadia = hospedagem.getValorEstadia();
+        dto.statusValorEstadia = hospedagem.getStatusValorEstadia();
+        dto.valorConsumo = hospedagem.getValorConsumo();
+        dto.valorServicos = hospedagem.getValorServicos();
+        dto.valorEstadiaAdicional = hospedagem.getValorEstadiaAdicional();
+        dto.valorTotal = hospedagem.getValorTotalPago();
+        dto.idCliente = hospedagem.getCliente().getId();
+        dto.idFuncionario = hospedagem.getFuncionario().getId();
+        dto.idHotel = hospedagem.getHotel().getId();
+        dto.idStatusHospedagem = hospedagem.getStatusHospedagem().getId();
+        dto.idAvaliacaoHospedagem = hospedagem.getAvaliacaoHospedagem().getId();
+        dto.idReserva = hospedagem.getReserva().getId();
+
+        dto.listaQuartos = QuartoHospedagemDTOList.createList(listaQuartos);
+        dto.produtoHospedagem = ProdutoSolicitadoDTOList.createList(produtoHospedagem);
 
         //dto.status = hospedagem.getStatusHospedagem().getId();
         // dto.idHotel = hospedagem.getHotel().getId();

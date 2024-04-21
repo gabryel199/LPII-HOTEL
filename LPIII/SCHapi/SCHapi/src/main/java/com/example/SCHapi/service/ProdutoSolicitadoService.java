@@ -28,4 +28,14 @@ public class ProdutoSolicitadoService {
     public Optional<ProdutoSolicitado> getProdutoSolicitadoById(Long id) {
         return repository.findById(id);
     }
+
+    public List<ProdutoSolicitado> getProdutoSolicitadoByHospedagem(Optional<Hospedagem> hospedagem) {
+        return repository.findByHospedagem(hospedagem);
+    }
+
+    @Transactional
+    public ProdutoSolicitado salvar(ProdutoSolicitado produtoSolicitado) {
+        // validar(produtoSolicitado);
+        return repository.save(produtoSolicitado);
+    }
 }

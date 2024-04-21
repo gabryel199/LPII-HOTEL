@@ -1,5 +1,8 @@
 package com.example.SCHapi.api.dto;
 
+import com.example.SCHapi.api.dto.dtoList.ComodidadeTipoQuartoDTOList;
+import com.example.SCHapi.api.dto.dtoList.TipoCamaTipoQuartoDTOList;
+import com.example.SCHapi.model.entity.ComodidadeTipoQuarto;
 import com.example.SCHapi.model.entity.TipoCamaTipoQuarto;
 import com.example.SCHapi.model.entity.TipoQuarto;
 import lombok.AllArgsConstructor;
@@ -24,7 +27,8 @@ public class TipoQuartoDTO {
     private Float avaliacaoMedia;
     private Integer diasCancelarReserva;
     private Float area;
-    private List<TipoCamaTipoQuarto> camaTipoQuarto;
+    private List<TipoCamaTipoQuartoDTOList> camaTipoQuarto;
+    private List<ComodidadeTipoQuartoDTOList> comodidadeTipoQuarto;
     // private Long idTipoCama;
     // private int qntTipoCama;
     // private Long idComodidade;
@@ -32,12 +36,15 @@ public class TipoQuartoDTO {
 
 
 
-    public static TipoQuartoDTO create(TipoQuarto tipoQuarto) {
+    public static TipoQuartoDTO create(TipoQuarto tipoQuarto, List<ComodidadeTipoQuarto> comodidadeTipoQuarto, List<TipoCamaTipoQuarto> camaTipoQuarto) {
         ModelMapper modelMapper = new ModelMapper();
         TipoQuartoDTO dto = modelMapper.map(tipoQuarto, TipoQuartoDTO.class);
 
         dto.limiteAdulto = tipoQuarto.getLimiteAdultos();
         dto.limiteCrianca = tipoQuarto.getLimiteCriancas();
+        
+        dto.comodidadeTipoQuarto = ComodidadeTipoQuartoDTOList.createList(comodidadeTipoQuarto);
+        dto.camaTipoQuarto = TipoCamaTipoQuartoDTOList.createList(camaTipoQuarto);
         // dto.idTipoCama = tipoQuarto.getTipoCama().getId();
         // dto.qntTipoCama = tipoQuarto.getTipoCama().getOcupantes();
         // dto.idComodidade = tipoQuarto.getComodidade().getId();

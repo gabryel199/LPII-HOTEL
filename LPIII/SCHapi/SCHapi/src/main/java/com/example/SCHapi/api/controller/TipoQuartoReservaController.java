@@ -7,9 +7,9 @@ import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 
+import com.example.SCHapi.api.dto.ReservaDTOBackup;
 import com.example.SCHapi.api.dto.ReservaDTO;
-import com.example.SCHapi.api.dto.ReservaDTO2;
-import com.example.SCHapi.api.dto.TipoQuartoReservaDTO;
+import com.example.SCHapi.api.dto.dtoList.TipoQuartoReservaDTOList;
 import com.example.SCHapi.exception.RegraNegocioException;
 import com.example.SCHapi.model.entity.Reserva;
 import com.example.SCHapi.model.entity.Cliente;
@@ -74,7 +74,7 @@ public class TipoQuartoReservaController {
     //     }
     // }
     
-    public TipoQuartoReserva converter(TipoQuartoReservaDTO dto, Long reservaId) {
+    public TipoQuartoReserva converter(TipoQuartoReservaDTOList dto, Long reservaId) {
         ModelMapper modelMapper = new ModelMapper();
         TipoQuartoReserva tipoQuartoReserva = modelMapper.map(dto, TipoQuartoReserva.class);
         // TipoQuartoReserva tipoQuartoReserva = new TipoQuartoReserva();
