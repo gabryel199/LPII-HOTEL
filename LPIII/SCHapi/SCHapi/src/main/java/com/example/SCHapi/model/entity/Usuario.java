@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+import com.example.SCHapi.model.entity.Pessoa.Endereco;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
