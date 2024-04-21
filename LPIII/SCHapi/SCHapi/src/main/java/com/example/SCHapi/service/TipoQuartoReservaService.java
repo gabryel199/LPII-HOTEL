@@ -19,7 +19,7 @@ public class TipoQuartoReservaService {
         this.repository = repository;
     }
 
-    public List<TipoQuartoReserva> getTipoQuartoReserva(){
+    public List<TipoQuartoReserva> getTipoQuartoReservas(){
         return repository.findAll();
     }
 

@@ -7,22 +7,12 @@ import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 
-import com.example.SCHapi.api.dto.ReservaDTOBackup;
-import com.example.SCHapi.api.dto.ReservaDTO;
-import com.example.SCHapi.api.dto.dtoList.TipoQuartoReservaDTOList;
+import com.example.SCHapi.api.dto.TipoQuartoReservaDTO;
 import com.example.SCHapi.exception.RegraNegocioException;
 import com.example.SCHapi.model.entity.Reserva;
-import com.example.SCHapi.model.entity.Cliente;
-import com.example.SCHapi.model.entity.Funcionario;
-import com.example.SCHapi.model.entity.Hotel;
-import com.example.SCHapi.model.entity.StatusReserva;
 import com.example.SCHapi.model.entity.TipoQuarto;
 import com.example.SCHapi.model.entity.TipoQuartoReserva;
-import com.example.SCHapi.service.ClienteService;
-import com.example.SCHapi.service.FuncionarioService;
 import com.example.SCHapi.service.ReservaService;
-import com.example.SCHapi.service.HotelService;
-import com.example.SCHapi.service.StatusReservaService;
 import com.example.SCHapi.service.TipoQuartoReservaService;
 import com.example.SCHapi.service.TipoQuartoService;
 
@@ -36,58 +26,53 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/reservas2")
+@RequestMapping("/api/v1/TipoQuartoReservas")
 @RequiredArgsConstructor
 public class TipoQuartoReservaController {
+
     private final TipoQuartoReservaService service;
-    private final TipoQuartoService tipoQuartoService;
     private final ReservaService reservaService;
+    private final TipoQuartoService tipoQuartoService;
 
-    // @GetMapping()
-    // public ResponseEntity get() {
-    //    List<TipoQuartoReserva> tipoquartoreservas = service.getTipoQuartoReservas();
-    //     return ResponseEntity.ok(tipoquartoreservas.stream().map(TipoQuartoReservaController::create).collect(Collectors.toList()));
-    // } // essa aqui ainda tem q adaptar, mas acho q nao vai influenciar por enquanto
+    @GetMapping()
+    public ResponseEntity get() {
+       List<TipoQuartoReserva> tipoQuartoReservas = service.getTipoQuartoReservas();
+        return ResponseEntity.ok(tipoQuartoReservas.stream().map(TipoQuartoReservaDTO::create).collect(Collectors.toList()));
+    }
 
-    // @GetMapping("/{id}")
-    // public ResponseEntity get(@PathVariable("id") Long id) {
-    //     Optional<Reserva> reserva = service.getReservaById(id);
-    //     List<TipoQuartoReserva> listaQuartos = tipoQuartoReservaService.getTipoQuartoReservaByReserva(reserva);
-    //     //Optional<List<TipoQuartoReserva>> = Optional.of(listaQuartos);
-    //     ReservaDTO2 reservaDTO2 = new ReservaDTO2();
-    //     reservaDTO2 = ReservaDTO2.create(reserva.get(), listaQuartos);
-    //     if (!reserva.isPresent()) {
-    //         return new ResponseEntity("Reserva não encontrada", HttpStatus.NOT_FOUND);
-    //     }
-    //     return ResponseEntity.ok(reservaDTO2);
-    //     // return ResponseEntity.ok(reserva.map(ReservaDTO::create));
-    // }
+    @GetMapping("/{id}")
+    public ResponseEntity get(@PathVariable("id") Long id) {
+        Optional<TipoQuartoReserva> tipoQuartoReserva = service.getTipoQuartoReservaById(id);
+        if (!tipoQuartoReserva.isPresent()) {
+            return new ResponseEntity("TipoQuartoReserva não encontrada", HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(tipoQuartoReserva.map(TipoQuartoReservaDTO::create));
+    }
 
-    // @PostMapping
-    // public ResponseEntity post(@RequestBody TipoQuartoReservaDTO dto) {
-    //     try {
-    //         TipoQuartoReserva tipoquartoreserva = converter(dto);
-    //         tipoquartoreserva = service.salvar(tipoquartoreserva);
-    //         return new ResponseEntity(tipoquartoreserva, HttpStatus.CREATED);
-    //     } catch (RegraNegocioException e) {
-    //         return ResponseEntity.badRequest().body(e.getMessage());
-    //     }
-    // }
-    
-    public TipoQuartoReserva converter(TipoQuartoReservaDTOList dto, Long reservaId) {
+    @PostMapping
+    public ResponseEntity post(@RequestBody TipoQuartoReservaDTO dto) {
+        try {
+            TipoQuartoReserva tipoQuartoReserva = converter(dto);
+            tipoQuartoReserva = service.salvar(tipoQuartoReserva);
+            return new ResponseEntity(tipoQuartoReserva, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    public TipoQuartoReserva converter(TipoQuartoReservaDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
         TipoQuartoReserva tipoQuartoReserva = modelMapper.map(dto, TipoQuartoReserva.class);
-        // TipoQuartoReserva tipoQuartoReserva = new TipoQuartoReserva();
-        if (reservaId != null) {
-            Optional<Reserva> reserva = reservaService.getReservaById(reservaId);
+        if (dto.getIdReserva() != null) {
+            Optional<Reserva> reserva = reservaService.getReservaById(dto.getIdReserva());
             if (!reserva.isPresent()) {
                 tipoQuartoReserva.setReserva(null);
             } else {
                 tipoQuartoReserva.setReserva(reserva.get());
             }
         }
-        if (dto.getTipoQuarto() != null) {
-            Optional<TipoQuarto> tipoQuarto = tipoQuartoService.getTipoQuartoById(dto.getTipoQuarto());
+        if (dto.getIdTipoQuarto() != null) {
+            Optional<TipoQuarto> tipoQuarto = tipoQuartoService.getTipoQuartoById(dto.getIdTipoQuarto());
             if (!tipoQuarto.isPresent()) {
                 tipoQuartoReserva.setTipoQuarto(null);
             } else {

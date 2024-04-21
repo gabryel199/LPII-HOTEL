@@ -125,6 +125,7 @@ public class TipoQuartoController {
     public ComodidadeTipoQuarto converterComodidadeTipoQuarto(ComodidadeTipoQuartoDTOList dto, Long tipoQuartoId) {
         ModelMapper modelMapper = new ModelMapper();
         ComodidadeTipoQuarto comodidadeTipoQuarto = modelMapper.map(dto, ComodidadeTipoQuarto.class);
+        comodidadeTipoQuarto.setQuantidade(dto.getQtd());
         if (tipoQuartoId != null) {
             Optional<TipoQuarto> tipoQuarto = service.getTipoQuartoById(tipoQuartoId);
             if (!tipoQuarto.isPresent()) {

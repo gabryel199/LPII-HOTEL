@@ -21,11 +21,11 @@ public class TipoCamaTipoQuartoService {
         this.repository = repository;
     }
 
-    public List<TipoCamaTipoQuarto> getCamaTipoQuartos() {
+    public List<TipoCamaTipoQuarto> getTipoCamaTipoQuartos() {
         return repository.findAll();
     }
 
-    public Optional<TipoCamaTipoQuarto> getCamaTipoQuartoById(Long id) {
+    public Optional<TipoCamaTipoQuarto> getTipoCamaTipoQuartoById(Long id) {
         return repository.findById(id);
     }
 
@@ -38,4 +38,5 @@ public class TipoCamaTipoQuartoService {
         // validar(tipoCamaTipoQuarto);
         return repository.save(tipoCamaTipoQuarto);
     }
+
 }
