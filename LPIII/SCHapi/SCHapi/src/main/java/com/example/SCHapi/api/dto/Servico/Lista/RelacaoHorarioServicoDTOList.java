@@ -21,8 +21,8 @@ public class RelacaoHorarioServicoDTOList {
     public static RelacaoHorarioServicoDTOList create(RelacaoHorarioServico relacaoHorarioServico) {
         RelacaoHorarioServicoDTOList dto = new RelacaoHorarioServicoDTOList();
         dto.setId(relacaoHorarioServico.getId());
-        dto.setIdHorarioServico(relacaoHorarioServico.getHorarioServico.getId());
-        dto.setIdServicoSolicitado(relacaoHorarioServico.getServicoSolicitado.getId());
+        //dto.setIdHorarioServico(relacaoHorarioServico.getHorarioServico.getId());
+        //dto.setIdServicoSolicitado(relacaoHorarioServico.getServicoSolicitado.getId());
         dto.setDescricao(relacaoHorarioServico.getDescricao());
         return dto;
     }
