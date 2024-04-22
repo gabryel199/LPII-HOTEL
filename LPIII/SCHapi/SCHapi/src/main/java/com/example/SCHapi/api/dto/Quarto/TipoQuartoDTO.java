@@ -4,7 +4,7 @@ import com.example.SCHapi.api.dto.Quarto.Lista.ComodidadeTipoQuartoDTOList;
 import com.example.SCHapi.api.dto.Quarto.Lista.TipoCamaTipoQuartoDTOList;
 import com.example.SCHapi.model.entity.Quarto.TipoQuarto;
 import com.example.SCHapi.model.entity.Quarto.Lista.TipoCamaTipoQuarto;
-import com.example.SCHapi.model.entity.Quarto.ComodidadeTipoQuarto;
+import com.example.SCHapi.model.entity.Quarto.Lista.ComodidadeTipoQuarto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

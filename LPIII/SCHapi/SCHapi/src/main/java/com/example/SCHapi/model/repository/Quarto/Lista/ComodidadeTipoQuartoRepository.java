@@ -1,7 +1,7 @@
 package com.example.SCHapi.model.repository.Quarto.Lista;
 
 import com.example.SCHapi.model.entity.Quarto.TipoQuarto;
-import com.example.SCHapi.model.entity.Quarto.ComodidadeTipoQuarto;
+import com.example.SCHapi.model.entity.Quarto.Lista.ComodidadeTipoQuarto;
 
 import java.util.List;
 import java.util.Optional;

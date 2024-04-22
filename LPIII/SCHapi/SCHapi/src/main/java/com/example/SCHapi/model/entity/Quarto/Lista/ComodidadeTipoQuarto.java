@@ -1,5 +1,7 @@
-package com.example.SCHapi.model.entity.Quarto;
+package com.example.SCHapi.model.entity.Quarto.Lista;
 
+import com.example.SCHapi.model.entity.Quarto.Comodidade;
+import com.example.SCHapi.model.entity.Quarto.TipoQuarto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

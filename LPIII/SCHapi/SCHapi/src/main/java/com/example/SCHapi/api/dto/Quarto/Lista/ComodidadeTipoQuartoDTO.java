@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
 
-import com.example.SCHapi.model.entity.Quarto.ComodidadeTipoQuarto;
+import com.example.SCHapi.model.entity.Quarto.Lista.ComodidadeTipoQuarto;
 
 @AllArgsConstructor
 @NoArgsConstructor

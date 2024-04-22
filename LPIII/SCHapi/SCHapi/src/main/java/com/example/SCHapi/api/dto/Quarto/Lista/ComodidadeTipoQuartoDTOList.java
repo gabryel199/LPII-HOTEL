@@ -3,7 +3,7 @@ package com.example.SCHapi.api.dto.Quarto.Lista;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.SCHapi.model.entity.Quarto.ComodidadeTipoQuarto;
+import com.example.SCHapi.model.entity.Quarto.Lista.ComodidadeTipoQuarto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

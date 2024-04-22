@@ -1,16 +1,13 @@
 package com.example.SCHapi.service.Quarto.Lista;
 
-import com.example.SCHapi.exception.RegraNegocioException;
-import com.example.SCHapi.model.entity.*;
 import com.example.SCHapi.model.entity.Quarto.TipoQuarto;
-import com.example.SCHapi.model.entity.Quarto.ComodidadeTipoQuarto;
+import com.example.SCHapi.model.entity.Quarto.Lista.ComodidadeTipoQuarto;
 import com.example.SCHapi.model.repository.Quarto.Lista.ComodidadeTipoQuartoRepository;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 

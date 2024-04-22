@@ -6,20 +6,17 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 
-import com.example.SCHapi.api.dto.Quarto.QuartoDTO;
 import com.example.SCHapi.api.dto.Quarto.TipoQuartoDTO;
 import com.example.SCHapi.api.dto.Quarto.Lista.ComodidadeTipoQuartoDTOList;
 import com.example.SCHapi.api.dto.Quarto.Lista.TipoCamaTipoQuartoDTOList;
-import com.example.SCHapi.model.entity.Quarto.Quarto;
 import com.example.SCHapi.model.entity.Quarto.TipoCama;
 import com.example.SCHapi.model.entity.Quarto.TipoQuarto;
 import com.example.SCHapi.model.entity.Quarto.Lista.TipoCamaTipoQuarto;
 import com.example.SCHapi.model.entity.Quarto.Comodidade;
-import com.example.SCHapi.model.entity.Quarto.ComodidadeTipoQuarto;
+import com.example.SCHapi.model.entity.Quarto.Lista.ComodidadeTipoQuarto;
 import com.example.SCHapi.service.Quarto.ComodidadeService;
 import com.example.SCHapi.service.Quarto.TipoCamaService;
 import com.example.SCHapi.service.Quarto.TipoQuartoService;

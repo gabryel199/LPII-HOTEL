@@ -4,7 +4,7 @@ import com.example.SCHapi.api.dto.Quarto.Lista.ComodidadeTipoQuartoDTO;
 import com.example.SCHapi.exception.RegraNegocioException;
 import com.example.SCHapi.model.entity.Quarto.TipoQuarto;
 import com.example.SCHapi.model.entity.Quarto.Comodidade;
-import com.example.SCHapi.model.entity.Quarto.ComodidadeTipoQuarto;
+import com.example.SCHapi.model.entity.Quarto.Lista.ComodidadeTipoQuarto;
 
 import lombok.RequiredArgsConstructor;
 
