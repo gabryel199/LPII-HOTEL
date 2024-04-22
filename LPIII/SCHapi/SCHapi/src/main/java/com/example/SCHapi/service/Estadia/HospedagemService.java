@@ -44,17 +44,17 @@ public class HospedagemService {
         Float valotTotalPago = hospedagem.getValorTotalPago();
 
 
-        if (hospedagem.getDataInicio() == null || hospedagem.getDataInicio().trim().equals("") || !hospedagem.getDataInicio().matches("^\\d{2}/\\d{2}/\\d{4}-\\d{2}:\\d{2}$")){
-            throw new RegraNegocioException("Data de inicio Invalido!!! Insira uma data valida dd/mm/yyy-hh:mm.");
-        }
-        if (hospedagem.getDataFim1() == null || hospedagem.getDataFim1().trim().equals("") || !hospedagem.getDataFim1().matches("^\\d{2}/\\d{2}/\\d{4}-\\d{2}:\\d{2}$")){
-            throw new RegraNegocioException("data fim Invalido!!! Insira uma data valida dd/mm/yyy-hh:mm.");
-        }
-        if (hospedagem.getDataFim2() != null || !hospedagem.getDataFim1().trim().equals("")) {
-            if(!hospedagem.getDataFim1().matches("^\\d{2}/\\d{2}/\\d{4}-\\d{2}:\\d{2}$")) {
-                throw new RegraNegocioException("Data fim extendida Invalido!!! uma data valida dd/mm/yyy-hh:mm.");
-            }
-        }
+        // if (hospedagem.getDataInicio() == null || hospedagem.getDataInicio().trim().equals("") || !hospedagem.getDataInicio().matches("^\\d{2}/\\d{2}/\\d{4}-\\d{2}:\\d{2}$")){
+        //     throw new RegraNegocioException("Data de inicio Invalido!!! Insira uma data valida dd/mm/yyy-hh:mm.");
+        // }
+        // if (hospedagem.getDataFim1() == null || hospedagem.getDataFim1().trim().equals("") || !hospedagem.getDataFim1().matches("^\\d{2}/\\d{2}/\\d{4}-\\d{2}:\\d{2}$")){
+        //     throw new RegraNegocioException("data fim Invalido!!! Insira uma data valida dd/mm/yyy-hh:mm.");
+        // }
+        // if (hospedagem.getDataFim2() != null || !hospedagem.getDataFim1().trim().equals("")) {
+        //     if(!hospedagem.getDataFim1().matches("^\\d{2}/\\d{2}/\\d{4}-\\d{2}:\\d{2}$")) {
+        //         throw new RegraNegocioException("Data fim extendida Invalido!!! uma data valida dd/mm/yyy-hh:mm.");
+        //     }
+        // }
         if (hospedagem.getValorEstadia() <= 0 || valorEstadia == null) {
             throw new RegraNegocioException("O valor de estadia não pode ser menor ou igual a 0 ou nulo.");
         }
@@ -84,14 +84,14 @@ public class HospedagemService {
         if (hospedagem.getStatusHospedagem() == null || hospedagem.getStatusHospedagem().getId() == null || hospedagem.getStatusHospedagem().getId() == 0) {
             throw new RegraNegocioException("Status de hospedagem inválido!!!!");
         }
-        if (hospedagem.getReserva() != null) {
-            if (hospedagem.getAvaliacaoHospedagem().getId() == null || hospedagem.getAvaliacaoHospedagem().getId() == 0) {
-                throw new RegraNegocioException("Reserva atrelada a hospedagem não pode ter id 0!!!");
-            }
-        }
-        if (hospedagem.getAvaliacaoHospedagem() == null || hospedagem.getAvaliacaoHospedagem().getId() == null || hospedagem.getAvaliacaoHospedagem().getId() == 0) {
-            throw new RegraNegocioException("Avaliação de hospedagem inválida!!!!");
-        }
+        // if (hospedagem.getReserva() != null) {
+        //     if (hospedagem.getAvaliacaoHospedagem().getId() == null || hospedagem.getAvaliacaoHospedagem().getId() == 0) {
+        //         throw new RegraNegocioException("Reserva atrelada a hospedagem não pode ter id 0!!!");
+        //     }
+        // }
+        // if (hospedagem.getAvaliacaoHospedagem() == null || hospedagem.getAvaliacaoHospedagem().getId() == null || hospedagem.getAvaliacaoHospedagem().getId() == 0) {
+        //     throw new RegraNegocioException("Avaliação de hospedagem inválida!!!!");
+        // }
 
     }
 }

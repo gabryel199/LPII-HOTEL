@@ -108,6 +108,7 @@ public class HospedagemController {
     public Hospedagem converter(HospedagemDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
         Hospedagem hospedagem = modelMapper.map(dto, Hospedagem.class);
+        hospedagem.setValorTotalPago(dto.getValorTotal());
         if (dto.getIdCliente() != null) {
             Optional<Cliente> cliente = clienteService.getClienteById(dto.getIdCliente());
             if (!cliente.isPresent()) {

@@ -47,7 +47,10 @@ public class ReservaDTO {
         dto.dataFim = reserva.getDataFim();
         dto.valorReserva = reserva.getValorReserva();
         dto.idCliente = reserva.getCliente().getId();
-        dto.idFuncionario = reserva.getFuncionario().getId();
+        if(reserva.getFuncionario()!=null)
+            dto.idFuncionario = reserva.getFuncionario().getId();
+        else
+            dto.idFuncionario = null;
         dto.idHotel = reserva.getHotel().getId();
         dto.idStatusReserva = reserva.getStatusReserva().getId();
 

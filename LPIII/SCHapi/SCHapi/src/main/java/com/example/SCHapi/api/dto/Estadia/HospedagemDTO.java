@@ -62,8 +62,14 @@ public class HospedagemDTO {
         dto.idFuncionario = hospedagem.getFuncionario().getId();
         dto.idHotel = hospedagem.getHotel().getId();
         dto.idStatusHospedagem = hospedagem.getStatusHospedagem().getId();
-        dto.idAvaliacaoHospedagem = hospedagem.getAvaliacaoHospedagem().getId();
-        dto.idReserva = hospedagem.getReserva().getId();
+        if(hospedagem.getAvaliacaoHospedagem()!=null)
+            dto.idAvaliacaoHospedagem = hospedagem.getAvaliacaoHospedagem().getId();
+        else 
+            dto.idAvaliacaoHospedagem = null;
+        if(hospedagem.getReserva()!=null)
+            dto.idReserva = hospedagem.getReserva().getId();
+        else
+            dto.idReserva = null;
 
         dto.listaQuartos = QuartoHospedagemDTOList.createList(listaQuartos);
         dto.produtoHospedagem = ProdutoSolicitadoDTOList.createList(produtoHospedagem);
