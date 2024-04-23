@@ -1,4 +1,7 @@
 TIPO PRODUTOS --- OK
 TIPO COMODIDADES --- OK
 COMODIDADE --- OK
+PAIS --- OK
 UF --- OK
+ENDEREÇO --- OK
+HOTEL --- OK (criar regras de negocio para todas as coisas separadas)

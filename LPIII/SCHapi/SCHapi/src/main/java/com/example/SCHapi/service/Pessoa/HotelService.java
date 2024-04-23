@@ -65,9 +65,7 @@ public class HotelService {
                 throw new RegraNegocioException("O telefone 2 não pode estar nulo e deve ter 10 ou 11 dígitos.");
             }
         }
-        if (hotel.getEndereco() == null || hotel.getEndereco().getId() == null || hotel.getEndereco().getId() == 0) {
-            throw new RegraNegocioException("Endereço inválid0!!!!");
-        }
+        
     }
 
 }
