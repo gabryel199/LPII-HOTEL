@@ -30,4 +30,16 @@ public class PaisService {
     public Optional<Pais> getPaisById(Long id) {
         return repository.findById(id);
     }
+
+    @Transactional
+    public Pais salvar(Pais pais) {
+        validar(pais);
+        return repository.save(pais);
+    }
+
+    public void validar(Pais pais) {
+        if (pais.getTitulo() == null || pais.getTitulo().trim().equals("")){
+            throw new RegraNegocioException("Titulo Invalido!!! Insira um titulo valido.");
+        }
+    }
 }
