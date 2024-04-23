@@ -1,9 +1,12 @@
 package com.example.SCHapi.service.Pessoa;
 
+import com.example.SCHapi.exception.RegraNegocioException;
 import com.example.SCHapi.model.entity.Pessoa.Uf;
-import com.example.SCHapi.model.entity.Quarto.TipoCama;
+
 import com.example.SCHapi.model.repository.Pessoa.UfRepository;
-import com.example.SCHapi.model.repository.Quarto.TipoCamaRepository;
+
+
+import org.springframework.transaction.annotation.Transactional;
 
 import org.springframework.stereotype.Service;
 
@@ -24,5 +27,22 @@ public class UfService {
 
     public Optional<Uf> getUfById(Long id) {
         return repository.findById(id);
+    }
+
+    @Transactional
+    public Uf salvar(Uf uf) {
+        validar(uf);
+        return repository.save(uf);
+    }
+
+    public void validar(Uf uf) {
+        if (uf.getTitulo() == null || uf.getTitulo().trim().equals("")){
+            throw new RegraNegocioException("Titulo Invalido!!! Insira um titulo valido.");
+        }
+
+        if (uf.getPais() == null || uf.getPais().getId() == null || uf.getPais().getId() == 0) {
+            throw new RegraNegocioException("UF inválido!!!!");
+        }
+        
     }
 }
