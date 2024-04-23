@@ -30,4 +30,35 @@ public class EnderecoService {
     public Optional<Endereco> getEnderecoById(Long id) {
         return repository.findById(id);
     }
+
+    @Transactional
+    public Endereco salvar(Endereco endereco) {
+        validar(endereco);
+        return repository.save(endereco);
+    }
+
+    public void validar(Endereco endereco) {
+        Integer numero = endereco.getNumero();
+
+        if (endereco.getLogradouro() == null || endereco.getLogradouro().trim().equals("")){
+            throw new RegraNegocioException("Logradouro Invalido!!! Insira um Logradouro valido.");
+        }
+        if (endereco.getNumero() <= 0 || numero == null ) {
+            throw new RegraNegocioException("Numero Invalido!!! O numero de endereço tem que ser maior que 0 e não pode ser nulo.");
+        }
+        if (endereco.getBairro() == null || endereco.getBairro().trim().equals("")){
+            throw new RegraNegocioException("Bairro Invalido!!! Insira um Bairro valido.");
+        }
+        if (endereco.getCidade() == null || endereco.getCidade().trim().equals("")){
+            throw new RegraNegocioException("Cidade Invalida!!! Insira uma Cidade valida.");
+        }
+        if (endereco.getCep() == null || endereco.getCep().trim().equals("")){
+            throw new RegraNegocioException("CEP InvalidO!!! Insira uma CEP valido.");
+        }
+
+        if (endereco.getUf() == null || endereco.getUf().getId() == null || endereco.getUf().getId() == 0) {
+            throw new RegraNegocioException("UF inválido!!!!");
+        }
+        
+    }
 }

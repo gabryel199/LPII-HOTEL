@@ -41,7 +41,7 @@ public class UfService {
         }
 
         if (uf.getPais() == null || uf.getPais().getId() == null || uf.getPais().getId() == 0) {
-            throw new RegraNegocioException("UF inválido!!!!");
+            throw new RegraNegocioException("Pais inválido!!!!");
         }
         
     }
