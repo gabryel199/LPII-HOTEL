@@ -19,6 +19,7 @@ public class ClienteDTO {
     private String dataNascimento;
     private String email;
     private String senha;
+    private String descricao;
     //private String telefone1;
     //private String telefone2;
     private String ddi1;
