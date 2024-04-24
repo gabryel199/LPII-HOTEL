@@ -30,4 +30,18 @@ public class HorarioServicoService {
     public Optional<HorarioServico> getHorarioServicoById(Long id) {
         return repository.findById(id);
     }
+
+    @Transactional
+    public HorarioServico salvar(HorarioServico horarioServico) {
+        validar(horarioServico);
+        return repository.save(horarioServico);
+    }
+
+    public void validar(HorarioServico horarioServico) {
+
+       
+        if (horarioServico.getServico() == null || horarioServico.getServico().getId() == null || horarioServico.getServico().getId() == 0) {
+            throw new RegraNegocioException("Serviço inválido!!!!");
+        }
+    }
 }
