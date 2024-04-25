@@ -5,6 +5,10 @@ ESTADIA:
 
 
 
+
+STATUS HOSPEDAGEM --- OK
+STATUS RESERVA --- OK
+
 PESSOA:
 ------------------------
 CARGO --- OK
@@ -32,7 +36,7 @@ QUARTO:
 COMODIDADE --- OK
 
 STATUS QUARTO --- OK
-
+TIPO CAMA --- OK
 TIPO COMODIDADES --- OK
 
 
