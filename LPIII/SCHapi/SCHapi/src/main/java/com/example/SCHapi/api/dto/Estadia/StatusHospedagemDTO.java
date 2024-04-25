@@ -13,7 +13,7 @@ public class StatusHospedagemDTO {
 
     private Long id;
 
-    private String itulo;
+    private String titulo;
 
     public static StatusHospedagemDTO create(StatusHospedagem statusHospedagem) {
         ModelMapper modelMapper = new ModelMapper();
