@@ -1,7 +1,45 @@
-TIPO PRODUTOS --- OK
-TIPO COMODIDADES --- OK
-COMODIDADE --- OK
+
+
+ESTADIA:
+-------------------------
+
+
+
+PESSOA:
+------------------------
+CARGO --- OK
+CLIENTE --- OK
+ENDEREÇO --- OK
+FUNCIONARIO --- OK
+HOTEL --- OK 
 PAIS --- OK
 UF --- OK
-ENDEREÇO --- OK
-HOTEL --- OK (criar regras de negocio para todas as coisas separadas)
+------------------------
+
+
+
+PRODUTO:
+-----------------------
+PRODUTO --- OK
+TIPO PRODUTOS --- OK
+------------------------
+
+
+
+
+QUARTO:
+----------------------
+COMODIDADE --- OK
+
+STATUS QUARTO --- OK
+
+TIPO COMODIDADES --- OK
+
+
+
+SERVIÇO:
+---------------------
+HORARIO SERVIÇO --- OK
+SERVIÇOS --- OK (atributo status do tipo long não foi incluso)
+STATUS SERVIÇO --- OK
+TIPO SERVIÇO --- OK

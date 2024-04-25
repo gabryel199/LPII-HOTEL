@@ -17,7 +17,7 @@ import com.example.SCHapi.model.entity.Quarto.StatusQuarto;
 import com.example.SCHapi.service.Quarto.StatusQuartoService;
 
 @RestController
-@RequestMapping("/api/v1/statusServicos")
+@RequestMapping("/api/v1/statusQuartos")
 @RequiredArgsConstructor
 public class StatusQuartoController {
     
@@ -33,7 +33,7 @@ public class StatusQuartoController {
     public ResponseEntity get(@PathVariable("id") Long id) {
         Optional<StatusQuarto> statusQuarto = service.getStatusQuartoById(id);
         if (!statusQuarto.isPresent()) {
-            return new ResponseEntity("Status de Servico não encontrado", HttpStatus.NOT_FOUND);
+            return new ResponseEntity("Status de Quarto não encontrado", HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(statusQuarto.map(StatusQuartoDTO::create));
     }

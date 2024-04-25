@@ -1,11 +1,13 @@
 package com.example.SCHapi.service.Quarto;
 
-import com.example.SCHapi.model.entity.Estadia.StatusHospedagem;
+
+import com.example.SCHapi.exception.RegraNegocioException;
 import com.example.SCHapi.model.entity.Quarto.StatusQuarto;
-import com.example.SCHapi.model.repository.Estadia.StatusHospedagemRepository;
+
 import com.example.SCHapi.model.repository.Quarto.StatusQuartoRepository;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,5 +26,18 @@ public class StatusQuartoService {
 
     public Optional<StatusQuarto> getStatusQuartoById(Long id) {
         return repository.findById(id);
+    }
+
+    @Transactional
+    public StatusQuarto salvar(StatusQuarto statusQuarto) {
+        validar(statusQuarto);
+        return repository.save(statusQuarto);
+    }
+
+    public void validar(StatusQuarto statusQuarto) {
+       
+        if (statusQuarto.getTitulo() == null || statusQuarto.getTitulo().trim().equals("")) {
+            throw new RegraNegocioException("Titulo Invalido!!! Insira uma titulo valido.");
+        }
     }
 }
