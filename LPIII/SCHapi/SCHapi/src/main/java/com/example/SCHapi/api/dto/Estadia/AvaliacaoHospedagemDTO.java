@@ -15,7 +15,7 @@ public class AvaliacaoHospedagemDTO {
     private Long id;
     private Float nota;
     private String comentario;
-    private Long idHospedagem;
+    //private Long idHospedagem;
     //private Long hotel_id;
 
     public static AvaliacaoHospedagemDTO create(AvaliacaoHospedagem avaliacaoHospedagem) {
