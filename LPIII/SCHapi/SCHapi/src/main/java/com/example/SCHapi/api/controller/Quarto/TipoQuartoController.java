@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 
@@ -38,11 +39,11 @@ public class TipoQuartoController {
     private final TipoCamaService tipoCamaService;
     private final ComodidadeService comodidadeService;
 
-    // @GetMapping()
-    // public ResponseEntity get() {
-    //    List<TipoQuarto> tipoQuartos = service.getTipoQuartos();
-    //     return ResponseEntity.ok(tipoQuartos.stream().map(TipoQuartoDTO::create).collect(Collectors.toList()));
-    // }
+  // @GetMapping()
+  // public ResponseEntity get() {
+  //  List<TipoQuarto> tipoQuartos = service.getTipoQuartos();
+  //  return ResponseEntity.ok(tipoQuartos.stream().map(TipoQuartoDTO::create).collect(Collectors.toList()));
+  // }
 
     // @GetMapping("/{id}")
     // public ResponseEntity get(@PathVariable("id") Long id) {
