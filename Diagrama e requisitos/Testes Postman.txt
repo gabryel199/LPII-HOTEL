@@ -3,15 +3,15 @@
 ESTADIA:
 -------------------------
 LISTAS:
-	produtoSolicitado
-	quartoHospedagem
-	serviçoSolicitado
-	tipoQuartoReserva
+	produtoSolicitado --- OK
+	quartoHospedagem --- OK
+	serviçoSolicitado --- OK
+	tipoQuartoReserva --- OK
 	
 AVALIAÇÃO HOSPEDAGEM --- OK (retirado o atributo idHospedagem do DTO)
-avaliação quarto
-hospedagem
-reserva
+avaliação quarto --------------------- NESCESSITA DE HOSPEDAGEM MAS PARECE ESTAR CORRETO
+hospedagem ---------------------------ERRO
+reserva ------------------------------ERRO
 STATUS HOSPEDAGEM --- OK
 STATUS RESERVA --- OK
 -------------------------
@@ -43,11 +43,11 @@ TIPO PRODUTOS --- OK
 QUARTO:
 ----------------------
 LISTAS:
-	comodidadeTipoQuarto
-	tipoCamaTipoQuarto
+	comodidadeTipoQuarto --- OK
+	tipoCamaTipoQuarto --- OK
 
 COMODIDADE --- OK
-quarto
+quarto --- OK
 STATUS QUARTO --- OK
 TIPO CAMA --- OK
 TIPO COMODIDADES --- OK
@@ -61,7 +61,7 @@ tipo quarto
 SERVIÇO:
 ---------------------
 LISTAS:
-	relaçãoHorarioServiço
+	relaçãoHorarioServiço --- OK
 
 HORARIO SERVIÇO --- OK
 SERVIÇOS --- OK (atributo status do tipo long não foi incluso)
