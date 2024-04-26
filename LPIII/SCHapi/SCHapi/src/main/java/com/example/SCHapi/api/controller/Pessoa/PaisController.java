@@ -51,6 +51,20 @@ public class PaisController {
         }
     }
 
+    @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<Pais> pais = service.getPaisById(id);
+        if (!pais.isPresent()) {
+            return new ResponseEntity("Pais não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(pais.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
     public Pais converter(PaisDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper.map(dto, Pais.class);

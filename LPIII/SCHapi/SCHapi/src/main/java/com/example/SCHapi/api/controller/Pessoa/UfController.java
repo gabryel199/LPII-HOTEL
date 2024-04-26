@@ -54,6 +54,20 @@ public class UfController {
         }
     }
 
+    @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<Uf> uf = service.getUfById(id);
+        if (!uf.isPresent()) {
+            return new ResponseEntity("Uf não encontrada", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(uf.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
     public Uf converter(UfDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
         Uf uf = modelMapper.map(dto, Uf.class);

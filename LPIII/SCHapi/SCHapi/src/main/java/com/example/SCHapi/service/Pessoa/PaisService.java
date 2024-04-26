@@ -1,7 +1,7 @@
 package com.example.SCHapi.service.Pessoa;
 
 import com.example.SCHapi.exception.RegraNegocioException;
-import com.example.SCHapi.model.entity.*;
+
 import com.example.SCHapi.model.entity.Pessoa.Pais;
 import com.example.SCHapi.model.repository.Pessoa.PaisRepository;
 
@@ -37,9 +37,17 @@ public class PaisService {
         return repository.save(pais);
     }
 
+    @Transactional
+    public void excluir(Pais pais) {
+        Objects.requireNonNull(pais.getId());
+        repository.delete(pais);
+    }
+
     public void validar(Pais pais) {
-        if (pais.getTitulo() == null || pais.getTitulo().trim().equals("")){
-            throw new RegraNegocioException("Titulo Invalido!!! Insira um titulo valido.");
+        String titulo = pais.getTitulo();
+
+        if (pais.getTitulo() == null || pais.getTitulo().trim().equals("") || !titulo.matches("[a-zA-ZÀ-ÿ\\s]+")){
+            throw new RegraNegocioException("Titulo Invalido!!! Insira um titulo valido, titulo deve ter apenas letras de A a Z.");
         }
     }
 }
