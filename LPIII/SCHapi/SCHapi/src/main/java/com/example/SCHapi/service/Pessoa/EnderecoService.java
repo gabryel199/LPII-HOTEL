@@ -3,6 +3,7 @@ package com.example.SCHapi.service.Pessoa;
 import com.example.SCHapi.exception.RegraNegocioException;
 import com.example.SCHapi.model.entity.*;
 import com.example.SCHapi.model.entity.Pessoa.Endereco;
+import com.example.SCHapi.model.entity.Pessoa.Uf;
 import com.example.SCHapi.model.repository.Pessoa.EnderecoRepository;
 
 import org.springframework.stereotype.Service;
@@ -37,8 +38,16 @@ public class EnderecoService {
         return repository.save(endereco);
     }
 
+    @Transactional
+    public void excluir(Endereco endereco) {
+        Objects.requireNonNull(endereco.getId());
+        repository.delete(endereco);
+    }
+
     public void validar(Endereco endereco) {
+        
         Integer numero = endereco.getNumero();
+        String cep = endereco.getCep();
 
         if (endereco.getLogradouro() == null || endereco.getLogradouro().trim().equals("")){
             throw new RegraNegocioException("Logradouro Invalido!!! Insira um Logradouro valido.");
@@ -54,6 +63,10 @@ public class EnderecoService {
         }
         if (endereco.getCep() == null || endereco.getCep().trim().equals("")){
             throw new RegraNegocioException("CEP InvalidO!!! Insira uma CEP valido.");
+        }
+        cep = cep.replaceAll("\\s|-", "");       
+        if (cep.length() != 8) {
+            throw new RegraNegocioException("CEP Inválido!!! O CEP deve ter exatamente 8 dígitos.");
         }
 
         if (endereco.getUf() == null || endereco.getUf().getId() == null || endereco.getUf().getId() == 0) {
