@@ -1,7 +1,6 @@
 package com.example.SCHapi.api.dto.Servico.Lista;
 
-import com.example.SCHapi.api.dto.Quarto.Lista.ComodidadeTipoQuartoDTO;
-import com.example.SCHapi.model.entity.Quarto.Lista.ComodidadeTipoQuarto;
+
 import com.example.SCHapi.model.entity.Servico.Lista.RelacaoHorarioServico;
 import lombok.AllArgsConstructor;
 import lombok.Data;
