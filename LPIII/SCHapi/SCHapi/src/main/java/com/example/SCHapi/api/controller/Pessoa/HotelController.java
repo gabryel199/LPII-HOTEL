@@ -58,6 +58,20 @@ public class HotelController {
         }
     }
 
+    @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<Hotel> hotel = service.getHotelById(id);
+        if (!hotel.isPresent()) {
+            return new ResponseEntity("Hotel não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(hotel.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
 
     public Hotel converter(HotelDTO dto) {
         ModelMapper modelMapper = new ModelMapper();
