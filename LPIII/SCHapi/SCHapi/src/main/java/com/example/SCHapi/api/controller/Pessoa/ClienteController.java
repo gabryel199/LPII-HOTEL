@@ -11,6 +11,7 @@ import org.modelmapper.ModelMapper;
 
 import com.example.SCHapi.model.entity.Pessoa.Cliente;
 import com.example.SCHapi.model.entity.Pessoa.Endereco;
+import com.example.SCHapi.model.entity.Pessoa.Hotel;
 import com.example.SCHapi.model.entity.Pessoa.Pais;
 import com.example.SCHapi.model.entity.Pessoa.Uf;
 import com.example.SCHapi.service.Pessoa.ClienteService;
@@ -57,6 +58,21 @@ public class ClienteController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<Cliente> cliente = service.getClienteById(id);
+        if (!cliente.isPresent()) {
+            return new ResponseEntity("Cliente não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(cliente.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
 
     public Cliente converter(ClienteDTO dto) {
         ModelMapper modelMapper = new ModelMapper();

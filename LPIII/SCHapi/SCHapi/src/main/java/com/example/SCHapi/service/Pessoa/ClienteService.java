@@ -3,6 +3,7 @@ package com.example.SCHapi.service.Pessoa;
 import com.example.SCHapi.exception.RegraNegocioException;
 import com.example.SCHapi.model.entity.*;
 import com.example.SCHapi.model.entity.Pessoa.Cliente;
+import com.example.SCHapi.model.entity.Pessoa.Endereco;
 import com.example.SCHapi.model.repository.Pessoa.ClienteRepository;
 
 import org.springframework.stereotype.Service;
@@ -37,11 +38,19 @@ public class ClienteService {
         return repository.save(cliente);
     }
 
+    @Transactional
+    public void excluir(Cliente cliente) {
+        Objects.requireNonNull(cliente.getId());
+        repository.delete(cliente);
+    }
+
     public void validar(Cliente cliente) {
 
         String telefone1 = cliente.getTelefone1();
         String telefone2 = cliente.getTelefone2();
         String cpf = cliente.getCpf();
+        Integer numero = cliente.getEndereco().getNumero();
+        String cep = cliente.getEndereco().getCep();
 
         if (cliente.getNome() == null || cliente.getNome().trim().equals("")){
             throw new RegraNegocioException("Nome Invalido!!! Insira um nome valido.");
@@ -55,13 +64,13 @@ public class ClienteService {
         if (telefone1 != null) {
             telefone1 = telefone1.replaceAll("[()\\-]", ""); // Remove parênteses e traços
             if (telefone1.length() != 12 && telefone1.length() != 13) {
-                throw new RegraNegocioException("O telefone 1 não pode estar nulo e deve ter 10 ou 11 dígitos.");
+                throw new RegraNegocioException("O telefone 1 não pode estar nulo e deve ter 12 ou 13 dígitos.");
             }
         }
         if (telefone2 != null) {
             telefone2 = telefone2.replaceAll("[()\\-]", ""); // Remove parênteses e traços
             if (telefone2.length() != 12 && telefone2.length() != 13) {
-                throw new RegraNegocioException("O telefone 2 não pode estar nulo e deve ter 10 ou 11 dígitos.");
+                throw new RegraNegocioException("O telefone 2 não pode estar nulo e deve ter 12 ou 13 dígitos.");
             }
         }
         if (cliente.getSenha() == null || cliente.getSenha().trim().equals("") || !cliente.getSenha().matches("^(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).{8,}$")){
@@ -74,11 +83,36 @@ public class ClienteService {
                 !cliente.getDataNascimento().matches("^\\d{2}/\\d{2}/\\d{4}$")) {
             throw new RegraNegocioException("Data de nascimento inválida! Insira uma data de nascimento no formato dd/MM/yyyy.");
         }
-        // if (cliente.getEndereco() == null || cliente.getEndereco().getId() == null || cliente.getEndereco().getId() == 0) {
-        //     throw new RegraNegocioException("Endereço inválid0!!!!");
-        // }
+        if (cliente.getDescricao() == null || cliente.getDescricao().trim().equals("")){
+            throw new RegraNegocioException("Descrição Invalido!!! Insira uma descrição valida.");
+        }
+        if (cliente.getEndereco().getLogradouro() == null || cliente.getEndereco().getLogradouro().trim().equals("")){
+            throw new RegraNegocioException("Logradouro Invalido!!! Insira um Logradouro valido.");
+        }
+        if (cliente.getEndereco().getNumero() <= 0 || numero == null ) {
+            throw new RegraNegocioException("Numero Invalido!!! O numero de endereço tem que ser maior que 0 e não pode ser nulo.");
+        }
+        if (cliente.getEndereco().getBairro() == null || cliente.getEndereco().getBairro().trim().equals("")){
+            throw new RegraNegocioException("Bairro Invalido!!! Insira um Bairro valido.");
+        }
+        if (cliente.getEndereco().getCidade() == null || cliente.getEndereco().getCidade().trim().equals("")){
+            throw new RegraNegocioException("Cidade Invalida!!! Insira uma Cidade valida.");
+        }
+        if (cliente.getEndereco().getCep() == null || cliente.getEndereco().getCep().trim().equals("")){
+            throw new RegraNegocioException("CEP InvalidO!!! Insira uma CEP valido.");
+        }
+        cep = cep.replaceAll("\\s|-", "");       
+        if (cep.length() != 8) {
+            throw new RegraNegocioException("CEP Inválido!!! O CEP deve ter exatamente 8 dígitos.");
+        }
+        if (cliente.getEndereco().getUf() == null || cliente.getEndereco().getUf().getId() == null || cliente.getEndereco().getUf().getId() == 0) {
+            throw new RegraNegocioException("Uf inválido!!!!");
+        }
+        if (cliente.getEndereco().getUf().getPais() == null || cliente.getEndereco().getUf().getPais().getId() == null || cliente.getEndereco().getUf().getPais().getId() == 0) {
+            throw new RegraNegocioException("Pais inválido!!!!");
+        }
 
-        // DESCRIÇÃO NÃO LANÇADA POIS O ATRIBUTO DESCRIÇÃO FOI CRIADO APENAS PARA GERAR A CLASSE
+        
     }
 
 }

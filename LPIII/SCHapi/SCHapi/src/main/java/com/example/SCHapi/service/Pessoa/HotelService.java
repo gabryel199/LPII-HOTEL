@@ -98,7 +98,7 @@ public class HotelService {
             throw new RegraNegocioException("CEP Inválido!!! O CEP deve ter exatamente 8 dígitos.");
         }
         if (hotel.getEndereco().getUf() == null || hotel.getEndereco().getUf().getId() == null || hotel.getEndereco().getUf().getId() == 0) {
-            throw new RegraNegocioException("Hotel inválido!!!!");
+            throw new RegraNegocioException("Uf inválido!!!!");
         }
         if (hotel.getEndereco().getUf().getPais() == null || hotel.getEndereco().getUf().getPais().getId() == null || hotel.getEndereco().getUf().getPais().getId() == 0) {
             throw new RegraNegocioException("Pais inválido!!!!");
