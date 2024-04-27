@@ -3,6 +3,7 @@ package com.example.SCHapi.service.Pessoa;
 import com.example.SCHapi.exception.RegraNegocioException;
 import com.example.SCHapi.model.entity.*;
 import com.example.SCHapi.model.entity.Pessoa.Cargo;
+import com.example.SCHapi.model.entity.Pessoa.Cliente;
 import com.example.SCHapi.model.repository.Pessoa.CargoRepository;
 
 import org.springframework.stereotype.Service;
@@ -37,6 +38,12 @@ public class CargoService {
         return repository.save(cargo);
     }
 
+    @Transactional
+    public void excluir(Cargo cargo) {
+        Objects.requireNonNull(cargo.getId());
+        repository.delete(cargo);
+    }
+
     public void validar(Cargo cargo) {
 
         Float salarioBase = cargo.getSalarioBase();
@@ -48,7 +55,7 @@ public class CargoService {
             throw new RegraNegocioException("Descrição Invalida!!! Insira uma descrição valida.");
         }
         if (cargo.getSalarioBase() < 1412.00 || salarioBase == null) {
-            throw new RegraNegocioException("O salario base do cargo tem que maior ou igualque o piso da classe e maior que o salario minimo.");
+            throw new RegraNegocioException("O salario base do cargo tem que maior ou igual que o piso da classe e maior que o salario minimo.");
         }
         if (cargo.getHotel() == null || cargo.getHotel().getId() == null || cargo.getHotel().getId() == 0) {
             throw new RegraNegocioException("Hotel inválid0!!!!");

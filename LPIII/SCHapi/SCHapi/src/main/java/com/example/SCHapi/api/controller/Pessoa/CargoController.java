@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 
 import com.example.SCHapi.model.entity.Pessoa.Cargo;
+import com.example.SCHapi.model.entity.Pessoa.Cliente;
 import com.example.SCHapi.model.entity.Pessoa.Hotel;
 import com.example.SCHapi.service.Pessoa.CargoService;
 import com.example.SCHapi.service.Pessoa.HotelService;
@@ -51,6 +52,19 @@ public class CargoController {
         }
     }
 
+    @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<Cargo> cargo = service.getCargoById(id);
+        if (!cargo.isPresent()) {
+            return new ResponseEntity("Cargo não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(cargo.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 
 
     public Cargo converter(CargoDTO dto) {
