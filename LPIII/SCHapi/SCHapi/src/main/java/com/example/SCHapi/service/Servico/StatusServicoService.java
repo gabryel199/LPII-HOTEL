@@ -2,6 +2,7 @@ package com.example.SCHapi.service.Servico;
 
 import com.example.SCHapi.exception.RegraNegocioException;
 import com.example.SCHapi.model.entity.Estadia.Reserva;
+import com.example.SCHapi.model.entity.Pessoa.Uf;
 import com.example.SCHapi.model.entity.Servico.StatusServico;
 import com.example.SCHapi.model.repository.Estadia.ReservaRepository;
 import com.example.SCHapi.model.repository.Servico.StatusServicoRepository;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 @Service
 public class StatusServicoService {
@@ -32,6 +34,12 @@ public class StatusServicoService {
     public StatusServico salvar(StatusServico statusServico) {
         validar(statusServico);
         return repository.save(statusServico);
+    }
+
+    @Transactional
+    public void excluir(StatusServico statusServico) {
+        Objects.requireNonNull(statusServico.getId());
+        repository.delete(statusServico);
     }
 
     public void validar(StatusServico statusServico) {

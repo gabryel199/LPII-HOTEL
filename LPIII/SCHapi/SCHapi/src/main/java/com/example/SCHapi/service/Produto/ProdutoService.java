@@ -2,6 +2,7 @@ package com.example.SCHapi.service.Produto;
 
 import com.example.SCHapi.exception.RegraNegocioException;
 import com.example.SCHapi.model.entity.*;
+import com.example.SCHapi.model.entity.Pessoa.Uf;
 import com.example.SCHapi.model.entity.Produto.Produto;
 import com.example.SCHapi.model.repository.Produto.ProdutoRepository;
 
@@ -37,6 +38,11 @@ public class ProdutoService {
         return repository.save(produto);
     }
 
+    @Transactional
+    public void excluir(Produto produto) {
+        Objects.requireNonNull(produto.getId());
+        repository.delete(produto);
+    }
 
     public void validar(Produto produto) {
 

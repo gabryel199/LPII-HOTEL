@@ -2,6 +2,7 @@ package com.example.SCHapi.api.controller.Servico;
 
 import com.example.SCHapi.api.dto.Servico.TipoServicoDTO;
 import com.example.SCHapi.exception.RegraNegocioException;
+import com.example.SCHapi.model.entity.Pessoa.Uf;
 import com.example.SCHapi.model.entity.Servico.TipoServico;
 import com.example.SCHapi.service.Servico.TipoServicoService;
 
@@ -44,6 +45,20 @@ public class TipoServicoController {
             TipoServico tipoServico = converter(dto);
             tipoServico = service.salvar(tipoServico);
             return new ResponseEntity(tipoServico, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<TipoServico> tipoServico = service.getTipoServicoById(id);
+        if (!tipoServico.isPresent()) {
+            return new ResponseEntity("Tipo de Produto não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(tipoServico.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
         } catch (RegraNegocioException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

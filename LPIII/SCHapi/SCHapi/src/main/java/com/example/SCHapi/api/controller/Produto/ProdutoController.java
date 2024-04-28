@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import com.example.SCHapi.api.dto.Produto.ProdutoDTO;
 import com.example.SCHapi.exception.RegraNegocioException;
 import com.example.SCHapi.model.entity.Pessoa.Hotel;
+import com.example.SCHapi.model.entity.Pessoa.Uf;
 import com.example.SCHapi.model.entity.Produto.Produto;
 import com.example.SCHapi.model.entity.Produto.TipoProduto;
 import com.example.SCHapi.service.Pessoa.HotelService;
@@ -53,6 +54,21 @@ public class ProdutoController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<Produto> produto = service.getProdutoById(id);
+        if (!produto.isPresent()) {
+            return new ResponseEntity("produto não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(produto.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
 
 
     public Produto converter(ProdutoDTO dto) {

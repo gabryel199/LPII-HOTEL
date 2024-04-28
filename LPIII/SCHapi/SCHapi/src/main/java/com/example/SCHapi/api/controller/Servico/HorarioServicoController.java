@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.example.SCHapi.api.dto.Servico.HorarioServicoDTO;
 import com.example.SCHapi.exception.RegraNegocioException;
+import com.example.SCHapi.model.entity.Pessoa.Uf;
 import com.example.SCHapi.model.entity.Servico.HorarioServico;
 import com.example.SCHapi.model.entity.Servico.Servico;
 import com.example.SCHapi.service.Servico.HorarioServicoService;
@@ -47,6 +48,20 @@ public class HorarioServicoController {
             HorarioServico horarioServico = converter(dto);
             horarioServico = service.salvar(horarioServico);
             return new ResponseEntity(horarioServico, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<HorarioServico> horarioServico = service.getHorarioServicoById(id);
+        if (!horarioServico.isPresent()) {
+            return new ResponseEntity("horarioServico não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(horarioServico.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
         } catch (RegraNegocioException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

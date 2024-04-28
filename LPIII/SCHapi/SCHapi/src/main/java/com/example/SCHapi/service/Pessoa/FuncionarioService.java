@@ -3,6 +3,7 @@ package com.example.SCHapi.service.Pessoa;
 import com.example.SCHapi.exception.RegraNegocioException;
 import com.example.SCHapi.model.entity.*;
 import com.example.SCHapi.model.entity.Pessoa.Funcionario;
+import com.example.SCHapi.model.entity.Pessoa.Uf;
 import com.example.SCHapi.model.repository.Pessoa.FuncionarioRepository;
 
 import org.springframework.stereotype.Service;
@@ -35,6 +36,12 @@ public class FuncionarioService {
     public Funcionario salvar(Funcionario funcionario) {
         validar(funcionario);
         return repository.save(funcionario);
+    }
+
+    @Transactional
+    public void excluir(Funcionario funcionario) {
+        Objects.requireNonNull(funcionario.getId());
+        repository.delete(funcionario);
     }
 
     public void validar(Funcionario funcionario) {
@@ -77,17 +84,12 @@ public class FuncionarioService {
             throw new RegraNegocioException("Funcionario não pode ter um salario abaixo do salario minimo de 1412,00 reais.");
         }
         if (funcionario.getHoraInicio() == null || funcionario.getHoraInicio().trim().equals("") || !funcionario.getHoraInicio().contains(":") || !funcionario.getHoraInicio().matches("\\d{2}:\\d{2}$")) {
-            throw new RegraNegocioException("O e-mail deve conter um '@'.");
+            throw new RegraNegocioException("Horario de entrada invalido   .");
         }
         if (funcionario.getHoraFim() == null || funcionario.getHoraFim().trim().equals("") || !funcionario.getHoraFim().contains(":") || !funcionario.getHoraFim().matches("\\d{2}:\\d{2}$")) {
-            throw new RegraNegocioException("O e-mail deve conter um '@'.");
+            throw new RegraNegocioException("Horario de saida invalido   .");
         }
-        if (funcionario.getEmail() == null || funcionario.getEmail().trim().equals("") || !funcionario.getEmail().contains("@")) {
-            throw new RegraNegocioException("O e-mail deve conter um '@'.");
-        }
-        // if (funcionario.getEndereco() == null || funcionario.getEndereco().getId() == null || funcionario.getEndereco().getId() == 0) {
-        //     throw new RegraNegocioException("Endereço inválid0!!!!");
-        // }
+             
         if (funcionario.getCargo() == null || funcionario.getCargo().getId() == null || funcionario.getCargo().getId() == 0) {
             throw new RegraNegocioException("Cargo inválid0!!!!");
         }

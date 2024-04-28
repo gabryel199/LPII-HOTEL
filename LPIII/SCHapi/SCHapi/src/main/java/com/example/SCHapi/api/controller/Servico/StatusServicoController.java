@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.example.SCHapi.api.dto.Servico.StatusServicoDTO;
 import com.example.SCHapi.exception.RegraNegocioException;
+import com.example.SCHapi.model.entity.Pessoa.Uf;
 import com.example.SCHapi.model.entity.Servico.StatusServico;
 import com.example.SCHapi.service.Servico.StatusServicoService;
 
@@ -44,6 +45,20 @@ public class StatusServicoController {
             StatusServico statusServico = converter(dto);
             statusServico = service.salvar(statusServico);
             return new ResponseEntity(statusServico, HttpStatus.CREATED);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<StatusServico> statusServico = service.getStatusServicoById(id);
+        if (!statusServico.isPresent()) {
+            return new ResponseEntity("statusServico não encontrado", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(statusServico.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
         } catch (RegraNegocioException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
