@@ -21,3 +21,55 @@ CLIENTE --- Ok
 CARGO --- OK
 
 --------------------------------------------------------------------------------------------------------------------------------
+
+FUNCIONARIO --- OK
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+TIPO PRODUTO --- OK
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+PRODUTO --- OK
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+TIPO SERVIÇO --- OK
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+STATUS SERVICO --- OK
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+SERVICO ---
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+HORARIO SERVICO --- 
+
+
+
+
+   @DeleteMapping("{id}")
+    public ResponseEntity excluir(@PathVariable("id") Long id) {
+        Optional<Uf> uf = service.getUfById(id);
+        if (!uf.isPresent()) {
+            return new ResponseEntity("Uf não encontrada", HttpStatus.NOT_FOUND);
+        }
+        try {
+            service.excluir(uf.get());
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        } catch (RegraNegocioException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+
+
+
+  @Transactional
+    public void excluir(Uf uf) {
+        Objects.requireNonNull(uf.getId());
+        repository.delete(uf);
+    }
